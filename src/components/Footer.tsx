@@ -23,17 +23,41 @@ export const Footer = () => {
   return (
     <footer>
       {/* CTA Section - Image */}
-      <section className="bg-[#C86D2D] py-16">
+      <section className="bg-brand-teal py-16">
         <div className="mx-auto max-w-8xl px-8 lg:px-16 flex flex-col md:flex-row items-center justify-between gap-8">
           <h2 className="text-3xl md:text-3xl font-extrabold text-white tracking-tight">
             Ready to discuss your healthcare asset strategy?
           </h2>
           <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="flex items-center gap-3 bg-[#0F172A] text-white px-8 py-4 rounded-lg font-bold transition-all hover:bg-slate-800"
+            whileHover="hover"
+            whileTap={{ scale: 0.98 }}
+            initial="initial"
+            className="relative overflow-hidden rounded-full border border-slate-900 bg-slate-900 px-10 py-4 text-sm font-bold text-white shadow-lg"
           >
-            Contact Investment Team <Mail size={20} />
+            <span className="relative z-10 pointer-events-none">
+              Contact Investment Team
+            </span>
+
+            <motion.div
+              variants={{
+                initial: {
+                  scale: 0,
+                  opacity: 0,
+                },
+                hover: {
+                  scale: 2,
+                  opacity: 1,
+                },
+              }}
+              transition={{
+                // 1.2s gives it a very calm, liquid-like expansion
+                duration: 1.2,
+                // Using a simpler ease makes the speed consistent so it's not "jumpy"
+                ease: "easeOut",
+              }}
+              // aspect-square w-full ensures it starts as wide as the button
+              className="absolute left-1/2 top-1/2 z-0 aspect-square w-full -translate-x-1/2 -translate-y-1/2 rounded-full border-teal-600 bg-teal-600 origin-center"
+            />
           </motion.button>
         </div>
       </section>
@@ -48,7 +72,7 @@ export const Footer = () => {
                 <img
                   src="/asset/logo/infra.webp"
                   alt="Infra.Health Logo"
-                  className="w-auto transition-all duration-500 h-14"
+                  className="w-auto transition-all duration-500 h-14 brightness-0 invert"
                 />
               </div>
               <p className="text-sm leading-relaxed text-slate-400">

@@ -1,11 +1,10 @@
-import { motion} from "motion/react";
+import { motion } from "motion/react";
 
 export const SustainabilitySection = () => {
   return (
     <section className="bg-[#31827E] py-24 text-white overflow-hidden">
       <div className="mx-auto max-w-6xl px-8 lg:px-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-          
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -15,11 +14,12 @@ export const SustainabilitySection = () => {
             <h2 className="text-5xl font-extrabold leading-tight">
               Sustainable Healthcare <br /> Infrastructure
             </h2>
-            
+
             <p className="text-white/80 leading-relaxed max-w-md">
-              We integrate LEED and EDGE certification standards into every project lifecycle. 
-              Our commitment to ESG ensures that healthcare assets are not only efficient 
-              but also resilient to climate risk and future regulatory shifts.
+              We integrate LEED and EDGE certification standards into every
+              project lifecycle. Our commitment to ESG ensures that healthcare
+              assets are not only efficient but also resilient to climate risk
+              and future regulatory shifts.
             </p>
 
             <div className="grid grid-cols-2 gap-8 pt-4">
@@ -37,9 +37,37 @@ export const SustainabilitySection = () => {
               </div>
             </div>
 
-            <button className="mt-8 rounded-md bg-white px-8 py-4 text-sm font-bold text-[#31827E] transition-all hover:bg-slate-100">
-              View Our Sustainability Framework
-            </button>
+            <motion.button
+              whileHover="hover"
+              whileTap={{ scale: 0.98 }}
+              initial="initial"
+              className="relative overflow-hidden rounded-full border border-slate-900 bg-slate-900 px-10 py-4 text-sm font-bold text-white shadow-lg"
+            >
+              <span className="relative z-10 pointer-events-none">
+                View Our Sustainability Framework
+              </span>
+
+              <motion.div
+                variants={{
+                  initial: {
+                    scale: 0,
+                    opacity: 0,
+                  },
+                  hover: {
+                    scale: 2,
+                    opacity: 1,
+                  },
+                }}
+                transition={{
+                  // 1.2s gives it a very calm, liquid-like expansion
+                  duration: 1.2,
+                  // Using a simpler ease makes the speed consistent so it's not "jumpy"
+                  ease: "easeOut",
+                }}
+                // aspect-square w-full ensures it starts as wide as the button
+                className="absolute left-1/2 top-1/2 z-0 aspect-square w-full -translate-x-1/2 -translate-y-1/2 rounded-full border-teal-600 bg-teal-600 origin-center"
+              />
+            </motion.button>
           </motion.div>
 
           <motion.div
@@ -49,14 +77,13 @@ export const SustainabilitySection = () => {
             className="relative"
           >
             <div className="aspect-square overflow-hidden rounded-md shadow-2xl shadow-black/20">
-              <img 
-                src="https://images.unsplash.com/photo-1516549655169-df83a0774514?q=80&w=2070&auto=format&fit=crop" 
-                className="h-full w-full object-cover" 
+              <img
+                src="https://images.unsplash.com/photo-1516549655169-df83a0774514?q=80&w=2070&auto=format&fit=crop"
+                className="h-full w-full object-cover"
                 alt="Sustainability Visual"
               />
             </div>
           </motion.div>
-
         </div>
       </div>
     </section>

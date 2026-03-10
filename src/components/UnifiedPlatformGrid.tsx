@@ -14,14 +14,14 @@ const PillarItem = ({ title, icon: Icon }) => (
     className="group flex items-center justify-between py-8 border-b border-slate-200 cursor-pointer"
   >
     <div className="flex items-center gap-6">
-      {/* <div className="p-2 rounded-lg bg-slate-50 group-hover:bg-brand-orange/10 transition-colors">
-        <Icon className="h-6 w-6 text-slate-400 group-hover:text-brand-orange transition-colors" />
+      {/* <div className="p-2 rounded-lg bg-slate-50 group-hover:bg-brand-teal/10 transition-colors">
+        <Icon className="h-6 w-6 text-slate-400 group-hover:text-brand-teal transition-colors" />
       </div> */}
       <h3 className="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight transition-colors group-hover:text-brand-teal">
         {title}
       </h3>
     </div>
-    <ArrowRight className="h-8 w-8 text-slate-300 group-hover:text-brand-orange transition-all group-hover:translate-x-2" />
+    <ArrowRight className="h-8 w-8 text-slate-300 group-hover:text-brand-teal transition-all group-hover:translate-x-2" />
   </motion.div>
 );
 
@@ -47,19 +47,48 @@ export const UnifiedPlatformList = () => {
               operations, we ensure no value is lost between phases.
             </p>
             <div className="pt-6">
-              <button className="bg-slate-900 text-white px-8 py-4 rounded-md font-bold flex items-center gap-3 hover:bg-brand-teal transition-all">
-                Explore Our Methodology <ArrowRight size={18} />
-              </button>
+              <motion.button
+                whileHover="hover"
+                whileTap={{ scale: 0.98 }}
+                initial="initial"
+                className="relative overflow-hidden rounded-full border border-teal-600 bg-teal-600 px-10 py-4 text-sm font-bold text-white shadow-lg"
+              >
+                <span className="relative z-10 pointer-events-none">
+                  Explore Our Methodology
+                </span>
+
+                <motion.div
+                  variants={{
+                    initial: {
+                      scale: 0,
+                      opacity: 0,
+                    },
+                    hover: {
+                      scale: 2,
+                      opacity: 1,
+                    },
+                  }}
+                  transition={{
+                    // 1.2s gives it a very calm, liquid-like expansion
+                    duration: 1.2,
+                    // Using a simpler ease makes the speed consistent so it's not "jumpy"
+                    ease: "easeOut",
+                  }}
+                  // aspect-square w-full ensures it starts as wide as the button
+                  className="absolute left-1/2 top-1/2 z-0 aspect-square w-full -translate-x-1/2 -translate-y-1/2 rounded-full bg-slate-900 origin-center"
+                />
+              </motion.button>
             </div>
           </div>
 
           {/* Right Side: Vertical Pillars */}
-          <div className="lg:col-span-8 border-t border-slate-200">
-               <div className="mb-20">
-          <h2 className="text-3xl font-extrabold leading-[1.1] tracking-tight text-slate-900 md:text-5xl lg:text-6xl mb-12">
-            A <span className="text-brand-teal">Unified Platform</span> for Healthcare Excellence
-          </h2>
-        </div>
+          <div className="lg:col-span-8">
+            <div className="mb-20">
+              <h2 className="text-3xl font-extrabold leading-[1.1] tracking-tight text-slate-900 md:text-5xl lg:text-6xl mb-12">
+                A <span className="text-brand-teal">Unified Platform</span> for
+                Healthcare Excellence
+              </h2>
+            </div>
             {pillars.map((pillar, index) => (
               <PillarItem key={index} {...pillar} />
             ))}

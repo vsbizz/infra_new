@@ -16,11 +16,11 @@ export const HeroSection = ({ slides, currentSlide, setCurrentSlide }) => {
             className="h-full w-full object-cover"
           />
         </AnimatePresence>
-        
+
         {/* VIBRANT OVERLAY STRATEGY */}
         {/* 1. Left-to-Right Scrim: Darkens only the text area slightly for readability */}
         <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-black/10 to-transparent z-[1] pointer-events-none" />
-        
+
         {/* 2. Bottom-up Scrim: Just enough to ground the thumbnails */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent z-[1] pointer-events-none" />
       </div>
@@ -38,11 +38,7 @@ export const HeroSection = ({ slides, currentSlide, setCurrentSlide }) => {
           >
             {/* Headline with high-contrast shadow */}
             <h1 className="my-6 text-3xl font-extrabold leading-[1.15] tracking-tight text-white md:text-5xl lg:text-6xl drop-shadow-[0_4px_12px_rgba(0,0,0,0.5)]">
-              {slides[currentSlide].headline.split("Healthcare").map((part, i, arr) => (
-                <span key={i}>
-                  {part}{i < arr.length - 1 && <span className="text-brand-teal font-black">Healthcare</span>}
-                </span>
-              ))}
+              {slides[currentSlide].headline}
             </h1>
 
             {/* Paragraph: Switched to White/95 for better integration with a bright hero */}
@@ -50,14 +46,39 @@ export const HeroSection = ({ slides, currentSlide, setCurrentSlide }) => {
               {slides[currentSlide].subHeader}
             </p>
 
-            <div className="flex flex-col gap-4 sm:flex-row">
-              <button className="rounded-md bg-brand-teal px-8 py-3.5 text-[12px] font-bold uppercase tracking-widest text-white transition-all hover:bg-[#287e7c] shadow-xl shadow-black/20">
+            {/* <div className=""> */}
+            <motion.button
+              whileHover="hover"
+              whileTap={{ scale: 0.98 }}
+              initial="initial"
+              className="relative overflow-hidden rounded-full border border-teal-600 bg-teal-600 px-10 py-4 text-sm font-bold text-white shadow-lg"
+            >
+              <span className="relative z-10 pointer-events-none">
                 {slides[currentSlide].cta}
-              </button>
-              <button className="rounded-md border border-white/50 bg-white/10 px-8 py-3.5 text-[12px] font-bold uppercase tracking-widest text-white backdrop-blur-md hover:bg-white/20 transition-all shadow-lg">
-                Learn More
-              </button>
-            </div>
+              </span>
+
+              <motion.div
+                variants={{
+                  initial: {
+                    scale: 0,
+                    opacity: 0,
+                  },
+                  hover: {
+                    scale: 2,
+                    opacity: 1,
+                  },
+                }}
+                transition={{
+                  // 1.2s gives it a very calm, liquid-like expansion
+                  duration: 1.2,
+                  // Using a simpler ease makes the speed consistent so it's not "jumpy"
+                  ease: "easeOut",
+                }}
+                // aspect-square w-full ensures it starts as wide as the button
+                className="absolute left-1/2 top-1/2 z-0 aspect-square w-full -translate-x-1/2 -translate-y-1/2 rounded-full bg-slate-900 origin-center"
+              />
+            </motion.button>
+            {/* </div> */}
           </motion.div>
         </AnimatePresence>
       </main>
@@ -70,18 +91,23 @@ export const HeroSection = ({ slides, currentSlide, setCurrentSlide }) => {
               key={slide.id}
               onClick={() => setCurrentSlide(index)}
               className={`flex flex-1 items-center gap-3 rounded-lg p-2.5 transition-all duration-500 ${
-                currentSlide === index 
-                  ? "bg-white/95 shadow-lg ring-1 ring-white/50 scale-[1.02]" 
+                currentSlide === index
+                  ? "bg-white/95 shadow-lg ring-1 ring-white/50 scale-[1.02]"
                   : "opacity-60 hover:opacity-100"
               }`}
             >
-              <img src={slide.image} className="h-8 w-12 rounded-sm object-cover" alt="" />
+              <img
+                src={slide.image}
+                className="h-8 w-12 rounded-sm object-cover"
+                alt=""
+              />
               <div className="hidden text-left md:block">
-                <p className={`text-[8px] font-bold uppercase tracking-widest ${currentSlide === index ? "text-brand-teal" : "text-white"}`}>
-                  {slide.id}
-                </p>
-                <p className={`text-[10px] font-bold truncate w-20 ${currentSlide === index ? "text-slate-800" : "text-white"}`}>
-                  {slide.title.split('(')[0]}
+                <p
+                  className={`text-[10px] font-bold leading-tight max-w-[80px] ${
+                    currentSlide === index ? "text-slate-800" : "text-white"
+                  }`}
+                >
+                  {slide.title}
                 </p>
               </div>
             </button>
