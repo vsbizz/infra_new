@@ -85,25 +85,25 @@ export const HeroSection = ({ slides, currentSlide, setCurrentSlide }) => {
 
       {/* Thumbnails */}
       <div className="absolute bottom-10 left-0 right-0 z-20 px-8 lg:px-20">
-        <div className="mx-auto flex max-w-3xl items-center justify-center rounded-xl border border-white/30 bg-white/10 p-1.5 backdrop-blur-xl shadow-2xl">
+        <div className="mx-auto flex max-w-2xl items-center justify-center rounded-full border border-white/30 bg-white/10 p-1.5 backdrop-blur-xl shadow-2xl">
           {slides.map((slide, index) => (
             <button
               key={slide.id}
               onClick={() => setCurrentSlide(index)}
-              className={`flex flex-1 items-center gap-3 rounded-lg p-2.5 transition-all duration-500 ${
+              className={`flex flex-1 items-center gap-3 rounded-full p-1 transition-all duration-500 ${
                 currentSlide === index
-                  ? "bg-white/95 shadow-lg ring-1 ring-white/50 scale-[1.02]"
+                  ? "bg-white/95 shadow-lg ring-1 ring-white/50 scale-[1.02] mr-2"
                   : "opacity-60 hover:opacity-100"
               }`}
             >
               <img
                 src={slide.image}
-                className="h-8 w-12 rounded-sm object-cover"
+                className="h-12 w-12 rounded-full object-cover"
                 alt=""
               />
-              <div className="hidden text-left md:block">
+              <div className="hidden text-center md:block">
                 <p
-                  className={`text-[10px] font-bold leading-tight max-w-[80px] ${
+                  className={`text-[11px] font-bold leading-tight max-w-20 ${
                     currentSlide === index ? "text-slate-800" : "text-white"
                   }`}
                 >

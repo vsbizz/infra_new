@@ -28,37 +28,44 @@ export const Footer = () => {
           <h2 className="text-3xl md:text-3xl font-extrabold text-white tracking-tight">
             Ready to discuss your healthcare asset strategy?
           </h2>
-          <motion.button
-            whileHover="hover"
-            whileTap={{ scale: 0.98 }}
-            initial="initial"
-            className="relative overflow-hidden rounded-full border border-slate-900 bg-slate-900 px-10 py-4 text-sm font-bold text-white shadow-lg"
-          >
-            <span className="relative z-10 pointer-events-none">
-              Contact Investment Team
-            </span>
+<motion.button
+  whileHover="hover"
+  whileTap={{ scale: 0.98 }}
+  initial="initial"
+  className="relative overflow-hidden rounded-full border border-slate-900 bg-slate-900 px-10 py-4 text-sm font-bold text-white shadow-lg"
+>
+  {/* 1. Change to motion.span and add color variants */}
+  <motion.span 
+    variants={{
+      initial: { color: "#ffffff" },
+      // Replace with your exact teal hex code
+      hover: { color: "#0D9488" } 
+    }}
+    transition={{ duration: 0.5 }}
+    className="relative z-10 pointer-events-none"
+  >
+   Contact Investment Team
+  </motion.span>
 
-            <motion.div
-              variants={{
-                initial: {
-                  scale: 0,
-                  opacity: 0,
-                },
-                hover: {
-                  scale: 2,
-                  opacity: 1,
-                },
-              }}
-              transition={{
-                // 1.2s gives it a very calm, liquid-like expansion
-                duration: 1.2,
-                // Using a simpler ease makes the speed consistent so it's not "jumpy"
-                ease: "easeOut",
-              }}
-              // aspect-square w-full ensures it starts as wide as the button
-              className="absolute left-1/2 top-1/2 z-0 aspect-square w-full -translate-x-1/2 -translate-y-1/2 rounded-full border-teal-600 bg-teal-600 origin-center"
-            />
-          </motion.button>
+  <motion.div
+    variants={{
+      initial: {
+        scale: 0,
+        opacity: 0,
+      },
+      hover: {
+        scale: 2,
+        opacity: 1,
+      },
+    }}
+    transition={{
+      duration: 1.2,
+      ease: "easeOut",
+    }}
+
+    className="absolute left-1/2 top-1/2 z-0 aspect-square w-full -translate-x-1/2 -translate-y-1/2 rounded-full bg-white origin-center"
+  />
+</motion.button>
         </div>
       </section>
 
