@@ -118,7 +118,7 @@ export const GlobalPresence: React.FC = () => {
 
   return (
     <section className="relative bg-white py-24 lg:py-40 overflow-hidden">
-      <div className="mx-auto max-w-6xl px-8 lg:px-16">
+      <div className="mx-auto max-w-6xl px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
           
           {/* Left Content */}

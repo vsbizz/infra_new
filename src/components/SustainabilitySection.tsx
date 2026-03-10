@@ -11,11 +11,11 @@ export const SustainabilitySection = () => {
             viewport={{ once: true }}
             className="space-y-8"
           >
-            <h2 className="text-5xl font-extrabold leading-tight">
+            <h2 className="text-3xl font-extrabold leading-tight md:text-5xl lg:text-6xl tracking-tight">
               Sustainable Healthcare <br /> Infrastructure
             </h2>
 
-            <p className="text-white/80 leading-relaxed max-w-md">
+            <p className="text-lg text-white/80 leading-relaxed max-w-md">
               We integrate LEED and EDGE certification standards into every
               project lifecycle. Our commitment to ESG ensures that healthcare
               assets are not only efficient but also resilient to climate risk

@@ -47,7 +47,7 @@ export const MarketIntelligence = () => {
       <div className="mx-auto max-w-7xl mb-16">
         <div className="flex flex-col md:flex-row md:items-end justify-between border-b border-slate-100 pb-10 gap-8">
           <div className="max-w-2xl text-left">
-            <h2 className="text-4xl font-extrabold leading-[1.1] tracking-tight text-slate-900 md:text-5xl lg:text-6xl mb-6">
+            <h2 className="text-3xl font-extrabold leading-[1.1] tracking-tight text-slate-900 md:text-5xl lg:text-6xl mb-6">
               <span className="text-teal-600">Market</span> Intelligence
             </h2>
             <p className="text-lg leading-relaxed text-slate-600">
