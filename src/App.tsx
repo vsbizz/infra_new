@@ -79,7 +79,7 @@ export default function App() {
         <UnifiedPlatformList />
         <Stakeholders />
         <ExpertiseContinuum />
-        <SustainabilitySection />
+        {/* <SustainabilitySection /> */}
         <GlobalPresence />
         <MarketIntelligence />
       </main>

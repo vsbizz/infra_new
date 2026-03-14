@@ -44,21 +44,21 @@ export const Stakeholders = () => {
       title: "Institutional Investors",
       desc: "Access core, core-plus, and opportunistic healthcare assets globally. We provide the structural transparency and financial modeling required for institutional-grade portfolio expansion.",
       link: "Investment Portal",
-      image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop",
+      image: "/asset/portfolio/Highlight image.jpg",
       alt: "Corporate Skyline"
     },
     {
       title: "Government & Sovereigns",
       desc: "Scale national infrastructure via structured Public-Private Partnership (PPP) frameworks. We integrate international clinical standards with localized regulatory intelligence.",
       link: "Strategy & PPP",
-      image: "https://images.unsplash.com/photo-1577412647305-991150c7d163?q=80&w=2070&auto=format&fit=crop",
+      image: "/asset/portfolio/16.jpg",
       alt: "Government Building"
     },
     {
       title: "Operators & Developers",
       desc: "Accelerate facility delivery with precision engineering. Our turnkey models and operational advisory eliminate fragmentation from concept to commissioning.",
       link: "Operator Services",
-      image: "https://images.unsplash.com/photo-1516549655169-df83a0774514?q=80&w=2070&auto=format&fit=crop",
+      image: "/asset/portfolio/03.png",
       alt: "Modern Medical Facility"
     },
   ];

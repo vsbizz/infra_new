@@ -8,19 +8,19 @@ const CARE_CATEGORIES = [
     title: "Public Infrastructure",
     content: "Strengthening national health systems (District Hospitals, PHCs).",
     sector: "National Health",
-    img: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=2053&auto=format&fit=crop",
+    img: "/asset/portfolio/1.jpg",
   },
   {
     title: "Advanced Acute Care",
     content: "High-complexity environments (Tertiary, Quaternary, Transplants).",
     sector: "Specialized",
-    img: "https://images.unsplash.com/photo-1516549655169-df83a0774514?q=80&w=2070&auto=format&fit=crop",
+    img: "/asset/portfolio/IMG_7986.JPG",
   },
   {
     title: "Specialty Networks",
     content: "Scalable models for Oncology, Cardiac, and Diagnostics.",
     sector: "High Intensity",
-    img: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=2053&auto=format&fit=crop",
+    img: "/asset/portfolio/IMG_8682.JPG",
   },
   {
     title: "Senior & Rehab",

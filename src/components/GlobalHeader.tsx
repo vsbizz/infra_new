@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
+import { React, useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   ChevronDown,
@@ -108,7 +108,7 @@ export const GlobalHeader = () => {
               src="/asset/logo/infra.webp"
               alt="Infra.Health Logo"
               className={`w-auto transition-all duration-500 ${
-                isHeaderActive ? "h-10 lg:h-14 brightness-100" : "h-10 lg:h-14 brightness-0 invert"
+                isHeaderActive ? "h-12 lg:h-16 brightness-100" : "h-12 lg:h-16 brightness-0 invert"
               }`}
             />
           </a>
@@ -120,7 +120,7 @@ export const GlobalHeader = () => {
             <div key={item.name} className="static">
               <button
                 onMouseEnter={() => setHoveredItem(item.name)}
-                className={`flex items-center gap-1.5 text-[11px] font-bold tracking-[0.12em] uppercase transition-colors duration-500 py-4 ${
+                className={`flex items-center gap-1.5 text-[12px] font-bold tracking-[0.12em] uppercase transition-colors duration-500 py-4 ${
                   isHeaderActive
                     ? "text-slate-900"
                     : "text-white/90 hover:text-white"
@@ -323,7 +323,9 @@ const MenuCard = ({
   title,
   desc,
   icon,
+  key
 }: {
+  key: string;
   title: string;
   desc: string;
   icon: React.ReactNode;
