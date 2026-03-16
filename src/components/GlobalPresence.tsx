@@ -8,15 +8,15 @@ const REGIONS = [
   {
     id: "middle-east",
     name: "Middle East",
-    beds: "12,400",
+    beds: "100+",
     countries: ["Saudi Arabia", "United Arab Emirates", "Qatar", "Kuwait", "Oman", "Bahrain", "Jordan", "Iraq", "Israel", "Lebanon", "Syria", "Yemen"],
     color: "#0D9488",
-    center: [45, 24] // Approx Lon/Lat for centering the line
+    center: [45, 24] 
   },
   {
     id: "africa",
     name: "Africa",
-    beds: "8,900",
+    beds: "300+",
 countries: ["Egypt", "Nigeria", "Kenya", "South Africa", "Ethiopia", "Ghana", "Morocco", "Algeria", "Tanzania", "Uganda", "Angola", "Mozambique", "Ivory Coast", "Madagascar", "Cameroon", "Niger", "Burkina Faso", "Mali", "Malawi", "Zambia", "Senegal", "Chad", "Somalia", "Zimbabwe", "Guinea", "Rwanda", "Benin", "Burundi", "Tunisia", "South Sudan", "Togo", "Sierra Leone", "Libya", "Congo", "Central African Republic", "Mauritania", "Eritrea", "Namibia", "Gambia", "Botswana", "Gabon", "Lesotho", "Guinea-Bissau", "Equatorial Guinea", "Mauritius", "Eswatini", "Djibouti", "Comoros", "Cabo Verde", "Sao Tome and Principe", "Seychelles"],
     color: "#0D9488",
     center: [20, 0]
@@ -24,7 +24,7 @@ countries: ["Egypt", "Nigeria", "Kenya", "South Africa", "Ethiopia", "Ghana", "M
   {
     id: "south-asia",
     name: "South Asia",
-    beds: "24,150",
+    beds: "13000+",
     countries: ["India", "Pakistan", "Bangladesh", "Sri Lanka", "Nepal", "Bhutan", "Maldives", "Afghanistan"],
     color: "#0D9488",
     center: [78, 22]
@@ -32,7 +32,7 @@ countries: ["Egypt", "Nigeria", "Kenya", "South Africa", "Ethiopia", "Ghana", "M
   {
     id: "southeast-asia",
     name: "Southeast Asia",
-    beds: "15,800",
+    beds: "100+",
     countries: ["Indonesia", "Vietnam", "Thailand", "Malaysia", "Philippines", "Singapore", "Myanmar", "Cambodia", "Laos", "Brunei", "Timor-Leste"],
     color: "#0D9488",
     center: [108, 15]
