@@ -1,0 +1,41 @@
+/* 1. All Imports must be at the very top */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap");
+@import "tailwindcss";
+
+/* 2. Your Theme block */
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --color-brand-teal: #2d8b8b;
+  --color-brand-dark: #0F172A;
+}
+
+/* 3. Base Styles (Un-nested) */
+@layer base {
+  body {
+    @apply font-sans antialiased text-black bg-white;
+  }
+  
+  button {
+    cursor: pointer;
+  }
+
+  /* Hidden extension junk fix */
+  #superDeveloper111, 
+  #fixMeDetectBox {
+    display: none !important;
+  }
+}
+
+/* 4. Utilities (Separate Block) */
+@layer utilities {
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+}
