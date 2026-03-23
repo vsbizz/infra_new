@@ -1,6 +1,6 @@
 "use client";
 import { useState, useRef } from "react";
-import { motion } from "framer-motion"; // Changed to framer-motion for stability
+import { motion } from "framer-motion"; 
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const CARE_CATEGORIES = [
@@ -88,7 +88,7 @@ export const ExpertiseContinuum = () => {
               key={idx}
               onMouseEnter={() => setHoveredIndex(idx)}
               onMouseLeave={() => setHoveredIndex(null)}
-              className="relative min-w-[320px] md:min-w-[450px] h-[500px] shrink-0 cursor-pointer overflow-hidden rounded-md bg-slate-900 shadow-2xl snap-center transform-gpu"
+              className="relative min-w-[320px] md:min-w-112.5 h-125 shrink-0 cursor-pointer overflow-hidden rounded-md bg-slate-900 shadow-2xl snap-center transform-gpu"
             >
               {/* Background Image - Uses transform-gpu for smoother scaling */}
               <motion.img
@@ -127,25 +127,6 @@ export const ExpertiseContinuum = () => {
                         {item.content}
                       </p>
                     </motion.div>
-
-                    {/* <div className="flex border-t border-slate-100 pt-4 gap-12">
-                      <div>
-                        <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1">
-                          Sector
-                        </p>
-                        <p className="text-xs font-black text-slate-900 uppercase">
-                          {item.sector}
-                        </p>
-                      </div>
-                      <div>
-                        <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1">
-                          Year
-                        </p>
-                        <p className="text-xs font-black text-slate-900 uppercase">
-                          2026
-                        </p>
-                      </div>
-                    </div> */}
                 </div>
               </div>
             </motion.div>

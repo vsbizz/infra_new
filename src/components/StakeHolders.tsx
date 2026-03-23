@@ -5,7 +5,7 @@ import { motion } from "motion/react";
 const StakeholderCard = ({ title, desc, link }) => (
   <motion.div
     whileHover={{ y: -5 }}
-    className="bg-white p-12 rounded-md border border-slate-100 flex flex-col justify-between h-[400px] shadow-sm hover:shadow-xl transition-all duration-300"
+    className="bg-white p-12 rounded-md border border-slate-100 flex flex-col justify-between h-100 shadow-sm hover:shadow-xl transition-all duration-300"
   >
     <div>
       <h3 className="text-2xl font-extrabold text-brand-navy mb-6 leading-tight">
@@ -27,7 +27,7 @@ const StakeholderCard = ({ title, desc, link }) => (
 
 // New Animated Image Component
 const HoverImage = ({ src, alt }) => (
-  <div className="relative h-[400px] w-full overflow-hidden rounded-md shadow-sm">
+  <div className="relative h-100 w-full overflow-hidden rounded-md shadow-sm">
     <motion.img 
       src={src} 
       alt={alt}

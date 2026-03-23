@@ -92,8 +92,8 @@ const StatItem = ({ label, value, index, icon: Icon }: StatItemProps) => {
 export const CounterSection = ({ stats }: { stats: StatData[] }) => {
   return (
     <section className="relative z-30 pb-24 lg:pb-40 overflow-hidden">
-      <div className="absolute -top-24 left-1/4 w-[600px] h-[600px] bg-white/10 blur-[120px] rounded-full" />
-      <div className="absolute -bottom-24 right-1/4 w-[600px] h-[600px] blur-[120px] rounded-full" />
+      <div className="absolute -top-24 left-1/4 w-150 h-150 bg-white/10 blur-[120px] rounded-full" />
+      <div className="absolute -bottom-24 right-1/4 w-150 h-150 blur-[120px] rounded-full" />
       
       <div className="mx-auto max-w-7xl px-8 relative z-10">
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-5">

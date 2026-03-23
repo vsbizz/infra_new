@@ -89,7 +89,7 @@ export const MarketIntelligence = () => {
               transition={{ delay: idx * 0.1, duration: 0.6 }}
               className="w-[80vw] md:w-[40vw] lg:w-[26vw] shrink-0 group cursor-pointer snap-start"
             >
-              <div className="aspect-[16/10] overflow-hidden rounded-lg mb-8 relative">
+              <div className="aspect-16/10 overflow-hidden rounded-lg mb-8 relative">
                 <img
                   src={report.img}
                   alt={report.title}

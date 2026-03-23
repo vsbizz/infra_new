@@ -307,10 +307,10 @@ export const GlobalPresence: React.FC = () => {
   }, [dimensions, hoveredRegion]);
 
   return (
-    <section className="relative bg-white py-24 lg:py-40 overflow-hidden">
-      <div className="mx-auto max-w-6xl px-8">
+    <section className="relative bg-white py-24 overflow-hidden">
+      <div className="mx-auto max-w-7xl">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
-          <div className="lg:col-span-5 space-y-8 z-10">
+          <div className="lg:col-span-6 space-y-8 z-10">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -362,8 +362,8 @@ export const GlobalPresence: React.FC = () => {
             </motion.div>
           </div>
 
-          <div className="lg:col-span-7 relative flex items-center justify-center">
-            <div className="relative h-[400px] w-full lg:h-[600px] rounded-full overflow-hidden border border-slate-200 bg-slate-50/50 shadow-[inset_0_0_60px_rgba(0,0,0,0.05)]">
+          <div className="lg:col-span-6 relative flex items-center justify-center">
+            <div className="relative h-100 w-full lg:h-150 rounded-full overflow-hidden border border-slate-200 bg-slate-50/50 shadow-[inset_0_0_60px_rgba(0,0,0,0.05)]">
               <svg className="absolute inset-0 z-20 pointer-events-none w-full h-full">
                 <AnimatePresence>
                   {hoveredRegion && (
