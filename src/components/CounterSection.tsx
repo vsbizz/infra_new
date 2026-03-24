@@ -40,7 +40,6 @@ const RollingNumber = ({ value, isInView }: { value: string; isInView: boolean }
   return <motion.span>{displayValue}</motion.span>;
 };
 
-// --- Stat Item (Glass-morphed for Teal BG) ---
 const StatItem = ({ label, value, index, icon: Icon }: StatItemProps) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.4 });

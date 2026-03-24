@@ -275,28 +275,26 @@ export const GlobalHeader = ({ onSectorSelect }: GlobalHeaderProps) => {
                     ))}
                   </div>
                 ) : (
-                  /* Sectors Mega Menu (New 8-Sector Grid) */
-                  <div className="grid grid-cols-4 gap-x-8 gap-y-10">
-                    {sectorsData.map((sector) => (
-                      <div key={sector.title} className="space-y-3">
-                        <button
-                          onClick={() => {
-                            onSectorSelect?.(sector.title);
-                            setHoveredItem(null);
-                          }}
-                          className="flex items-center justify-between w-full text-left group"
-                        >
-                          <span className="text-[14px] text-slate-600 hover:text-teal-600 transition-colors">
-                            {sector.title}
-                          </span>
-                          <ArrowRight
-                            size={14}
-                            className="opacity-0 group-hover:opacity-100 text-teal-600 transition-all -translate-x-2 group-hover:translate-x-0"
-                          />
-                        </button>
-                      </div>
-                    ))}
-                  </div>
+                  /* Inside the Sectors Mega Menu Mapping */
+<div className="grid grid-cols-4 gap-x-8 gap-y-6">
+  {sectorsData.map((sector) => (
+    <div key={sector.slug}>
+      <Link 
+        href={`/sectors/${sector.slug}`}
+        onClick={() => {
+          setHoveredItem(null);
+          setIsMenuOpen(false); // Close mobile menu if open
+        }}
+        className="flex items-center justify-between w-full group py-2 border-b border-transparent hover:border-teal-100 transition-all"
+      >
+        <h3 className="text-[13px] font-bold text-slate-800 uppercase tracking-tight group-hover:text-teal-600 transition-colors">
+          {sector.title}
+        </h3>
+        <ArrowRight size={14} className="opacity-0 group-hover:opacity-100 text-teal-600 transition-all -translate-x-2 group-hover:translate-x-0" />
+      </Link>
+    </div>
+  ))}
+</div>
                 )}
               </div>
             </motion.div>
