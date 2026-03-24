@@ -3,6 +3,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ArrowRight, ChevronDown } from "lucide-react";
+import Link from "next/link";
 
 // Define the prop type for the header
 interface GlobalHeaderProps {
@@ -93,37 +94,52 @@ export const GlobalHeader = ({ onSectorSelect }: GlobalHeaderProps) => {
     },
   ];
 
-  // Updated: Flat list of 8 Sectors with their specific asset classes
+  const titleToSlug = (title: string) =>
+    title
+      .toLowerCase()
+      .replace(/&/g, "and") // Replace & with 'and'
+      .replace(/[^a-z0-0\s-]/g, "") // Remove special chars
+      .trim()
+      .replace(/\s+/g, "-"); // Replace spaces with hyphens
+
   const sectorsData = [
     {
       title: "Public Healthcare Infrastructure",
+      slug: "public-healthcare",
     },
     {
       title: "Acute & Advanced Care Hospitals",
+      slug: "acute-care",
     },
     {
       title: "Specialty & Focused Care Facilities",
+      slug: "specialty-care",
     },
     {
       title: "Academic & Medical Education Infrastructure",
+      slug: "academic-education",
     },
     {
       title: "Diagnostic & Ambulatory Care",
+      slug: "diagnostic-ambulatory",
     },
     {
       title: "Rehabilitation & Long-Term Care",
+      slug: "rehab-long-term-care",
     },
     {
       title: "Elder Care & Assisted Living",
+      slug: "elder-care",
     },
     {
       title: "Integrated Healthcare Campuses",
+      slug: "integrated-campuses",
     },
   ];
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-500 border-b ${
+      className={`fixed top-0 left-0 right-0 z-100 transition-all duration-500 border-b ${
         isVisible ? "translate-y-0" : "-translate-y-full"
       } ${
         isHeaderActive
@@ -133,7 +149,7 @@ export const GlobalHeader = ({ onSectorSelect }: GlobalHeaderProps) => {
       onMouseLeave={() => setHoveredItem(null)}
     >
       {/* SECTION 1: Top Bar */}
-      <div className="mx-auto flex max-w-[1440px] items-center justify-between px-6 py-4 lg:px-16">
+      <div className="mx-auto flex max-w-360 items-center justify-between px-6 py-4 lg:px-16">
         <div className="flex items-center gap-4">
           <a href="/">
             <img
@@ -173,7 +189,7 @@ export const GlobalHeader = ({ onSectorSelect }: GlobalHeaderProps) => {
       <div
         className={`hidden lg:block border-y transition-colors duration-500 ${isHeaderActive ? "border-slate-100" : "border-white/10"}`}
       >
-        <nav className="mx-auto flex max-w-[1440px] items-center justify-between px-6 lg:px-16">
+        <nav className="mx-auto flex max-w-360 items-center justify-between px-6 lg:px-16">
           <ul className="flex items-center gap-8">
             {["Properties", "Services", "Portfolio", "Sectors"].map((item) => (
               <li key={item} className="relative">
@@ -198,7 +214,25 @@ export const GlobalHeader = ({ onSectorSelect }: GlobalHeaderProps) => {
               </li>
             ))}
           </ul>
-          {/* ... Right side links (About, Careers etc) stay the same ... */}
+          <ul className="flex items-center gap-8">
+            {["About", "Careers", "Vendors & Partners", "Blogs"].map((item) => (
+              <li key={item} className="relative">
+                <Link
+                  href={`/${item.toLowerCase().replace(/ & /g, "-").replace(/\s+/g, "-")}`}
+                  onMouseEnter={() => setHoveredItem(item)}
+                  className={`block py-4 text-[14px] font-bold uppercase tracking-wider transition-all duration-500 border-b-2 ${
+                    isHeaderActive
+                      ? hoveredItem === item
+                        ? "text-slate-900 border-slate-900"
+                        : "text-slate-600 border-transparent"
+                      : "text-white/90 border-transparent hover:text-white hover:border-white/50"
+                  }`}
+                >
+                  {item}
+                </Link>
+              </li>
+            ))}
+          </ul>
         </nav>
       </div>
 
@@ -252,7 +286,7 @@ export const GlobalHeader = ({ onSectorSelect }: GlobalHeaderProps) => {
                           }}
                           className="flex items-center justify-between w-full text-left group"
                         >
-                        <span className="text-[14px] text-slate-600 hover:text-teal-600 transition-colors">
+                          <span className="text-[14px] text-slate-600 hover:text-teal-600 transition-colors">
                             {sector.title}
                           </span>
                           <ArrowRight
