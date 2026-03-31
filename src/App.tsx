@@ -71,8 +71,6 @@ export default function App() {
       <main>
         <HeroSection
           slides={SLIDES}
-          currentSlide={currentSlide}
-          setCurrentSlide={setCurrentSlide}
         />
         <CounterSection stats={STATS} />
         <PhilosophySection />
