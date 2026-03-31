@@ -1,6 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import { Linkedin } from "lucide-react";
 
 function Team() {
   return (
@@ -21,23 +22,23 @@ function Team() {
           {[
             {
               name: "Rahul Shelke",
-              role: "CEO, Founder",
-              image: "https://picsum.photos/seed/p1/600/700",
+              role: "Director",
+              image: "asset/team/rahul-shelke.jpg",
             },
             {
-              name: "Aadit Khembhavi",
-              role: "Head of Institutional Capital",
-              image: "https://picsum.photos/seed/p2/600/700",
+              name: "Apurva Shelke",
+              role: "Designated Partner",
+              image: "asset/team/apurva-shelke.jpg",
             },
             {
-              name: "Mirza Baig",
-              role: "Director of Engineering Governance",
-              image: "https://picsum.photos/seed/p3/600/700",
+              name: "Sunil Shelke",
+              role: "Director",
+              image: "asset/team/sunil-shelke.jpg",
             },
             {
-              name: "Mirza Baig",
-              role: "Director of Engineering Governance",
-              image: "https://picsum.photos/seed/p3/600/700",
+              name: "Hrishikesh Kale",
+              role: "Director",
+              image: "asset/team/hrishikesh-kale.jpg",
             },
           ].map((member, idx) => (
             <motion.div
@@ -49,12 +50,12 @@ function Team() {
                 <img
                   src={member.image}
                   alt={member.name}
-                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+                  className="w-full h-full object-cover transition-all duration-500"
                   referrerPolicy="no-referrer"
                 />
                 <div className="absolute bottom-0 left-0 right-0 p-6 bg-linear-to-t from-brand-dark/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
                   <span className="text-white font-bold flex items-center gap-2">
-                    VIEW PROFILE <ArrowRight size={16} />
+                    <Linkedin size={16}/> VIEW PROFILE <ArrowRight size={16} />
                   </span>
                 </div>
               </div>

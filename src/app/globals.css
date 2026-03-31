@@ -1,26 +1,26 @@
-/* 1. All Imports must be at the very top */
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap");
 @import "tailwindcss";
 
-/* 2. Your Theme block */
+/* 2. Theme block with Source Sans 3 */
 @theme {
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Source Sans 3", ui-sans-serif, system-ui, sans-serif;
   --color-brand-teal: #2d8b8b;
-  --color-brand-dark: #0F172A;
+  --color-brand-dark: #0f172a;
 }
 
 /* 3. Base Styles (Un-nested) */
 @layer base {
   body {
+    /* Use 'ss01' to enable the double-story 'g' */
+    font-feature-settings: "ss01", "kern", "liga";
     @apply font-sans antialiased text-black bg-white;
   }
-  
   button {
     cursor: pointer;
   }
 
   /* Hidden extension junk fix */
-  #superDeveloper111, 
+  #superDeveloper111,
   #fixMeDetectBox {
     display: none !important;
   }
@@ -38,4 +38,35 @@
     -ms-overflow-style: none; /* IE and Edge */
     scrollbar-width: none; /* Firefox */
   }
+}
+
+/* Custom Blog Styles */
+.blog-content {
+  text-align: justify;
+}
+
+/* Use :where() or higher specificity to override tailwind-typography */
+.blog-content :where(a) {
+  color: var(--brand-teal, #008080); /* Fallback color provided */
+  text-decoration: underline;
+}
+
+.blog-content :where(h3) {
+  margin-bottom: 20px;
+}
+
+/* The vertical accent bar for H4s and Titles */
+.blog-content :where(h4),
+.blog-title {
+  padding: 0 0 0 20px;
+  border-left: 3px solid #6767672e;
+  margin: 2rem 0 1.25rem 0; /* Slightly more margin for breathing room */
+  display: block;
+}
+
+/* Optional: style the list items to match the medical professional look */
+.blog-content :where(ol) {
+  list-style-type: disc !important;
+  padding-left: 1.5rem;
+  margin-bottom: 20px;
 }

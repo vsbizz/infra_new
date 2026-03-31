@@ -317,13 +317,13 @@ export const GlobalPresence: React.FC = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              <h2 className="text-3xl font-extrabold leading-tight text-slate-900 md:text-5xl lg:text-6xl tracking-tight">
+              <h2 className="text-3xl font-extrabold leading-[1.1] tracking-tight text-slate-900 md:text-5xl lg:text-6xl">
                 International Standards.
                 <br />
-                <span className="text-teal-600">Local Intelligence.</span>
+                <span className="text-brand-teal">Local Intelligence.</span>
               </h2>
 
-              <p className="mt-6 text-lg leading-relaxed text-slate-500 font-medium">
+              <p className="mt-6 text-lg leading-relaxed text-slate-600">
                 Navigating complex regulatory environments to deliver JCI and
                 NABH compliant assets in diverse global markets.
               </p>
@@ -351,7 +351,7 @@ export const GlobalPresence: React.FC = () => {
                         style={{ backgroundColor: region.color }}
                       />
                       <span
-                        className={`text-xs font-bold uppercase tracking-wider ${hoveredRegion === region.id ? "text-slate-900" : "text-slate-400"}`}
+                        className={`text-base leading-relaxed ${hoveredRegion === region.id ? "text-slate-900" : "text-slate-400"}`}
                       >
                         {region.name}
                       </span>

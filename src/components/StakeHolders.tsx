@@ -1,3 +1,4 @@
+"use client"
 import { ArrowRight } from "lucide-react";
 import { motion } from "motion/react";
 
@@ -8,10 +9,10 @@ const StakeholderCard = ({ title, desc, link }) => (
     className="bg-white p-12 rounded-md border border-slate-100 flex flex-col justify-between h-100 shadow-sm hover:shadow-xl transition-all duration-300"
   >
     <div>
-      <h3 className="text-2xl font-extrabold text-brand-navy mb-6 leading-tight">
+      <h3 className="text-2xl font-bold text-brand-dark mb-6 leading-tight">
         {title}
       </h3>
-      <p className="text-slate-500 text-sm leading-relaxed mb-10">
+      <p className="text-base leading-relaxed text-slate-500 mb-10">
         {desc}
       </p>
     </div>

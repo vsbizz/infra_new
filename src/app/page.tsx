@@ -1,6 +1,6 @@
-"use client";
-
-import { useState, useEffect } from "react";
+import { getPageMetadata } from "@/utils/seo";
+import { JsonLd } from "@/components/JsonLd";
+import metaData from "@/data/meta.json";
 import { HeroSection } from "../components/HeroSection";
 import { CounterSection } from "../components/CounterSection";
 import { PhilosophySection } from "../components/PhilosophySection";
@@ -9,13 +9,8 @@ import { Stakeholders } from "../components/StakeHolders";
 import { ExpertiseContinuum } from "../components/ExpertiseContinum";
 import { GlobalPresence } from "../components/GlobalPresence";
 import { MarketIntelligence } from "../components/MarketIntelligence";
-import {
-  Building2,
-  Bed,
-  Activity,
-  Microscope,
-  RulerDimensionLine,
-} from "lucide-react";
+
+export const metadata = getPageMetadata("home");
 
 const SLIDES = [
   {
@@ -75,33 +70,48 @@ const SLIDES = [
   },
 ];
 
-const STATS = [
-  { label: "Projects", value: "70+", icon: Building2 },
-  { label: "Beds", value: "13,500+", icon: Bed },
-  { label: "ICU beds", value: "2,450+", icon: Activity },
-  { label: "Modular OTs", value: "280+", icon: Microscope },
-  { label: "Sq. Ft. Built", value: "18M+", icon: RulerDimensionLine },
-];
-
 export default function HomePage() {
-  const [currentSlide, setCurrentSlide] = useState(0);
 
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % SLIDES.length);
-    }, 6000);
-    return () => clearInterval(timer);
-  }, []);
+  const { home, global } = metaData;
+
+  const homeSchema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": `${global.baseUrl}/#website`,
+        "url": global.baseUrl,
+        "name": global.siteName,
+        "description": "The Global Platform for Structured Healthcare Asset Development.",
+        "publisher": { "@id": `${global.baseUrl}/#organization` }
+      },
+      {
+        "@type": "Organization",
+        "@id": `${global.baseUrl}/#organization`,
+        "name": global.siteName,
+        "url": global.baseUrl,
+        "logo": global.logo,
+        "foundingDate": "2013",
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Healthcare Asset Lifecycle Services",
+          "itemListElement": home.services.map((s: string) => ({
+            "@type": "Offer",
+            "itemOffered": { "@type": "Service", "name": s }
+          }))
+        }
+      }
+    ]
+  };
 
   return (
     <>
+    <JsonLd data={homeSchema} />
       <HeroSection
         slides={SLIDES}
-        currentSlide={currentSlide}
-        setCurrentSlide={setCurrentSlide}
       />
       <PhilosophySection />
-      <CounterSection stats={STATS} />
+      <CounterSection />
       <UnifiedPlatformList />
       <Stakeholders />
       <ExpertiseContinuum />

@@ -1,7 +1,8 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ChevronRight } from "lucide-react";
+import Link from "next/link";
 
 const AboutIntro = () => {
   return (
@@ -14,14 +15,26 @@ const AboutIntro = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="flex flex-col justify-center pt-20"
+            className="flex flex-col justify-center pt-0"
           >
+             <nav className="flex items-center gap-2 text-xs font-medium text-slate-400 mb-8 uppercase tracking-widest">
+            <Link href="/" className="hover:text-teal-600 transition-colors">
+              Home
+            </Link>
+            <ChevronRight className="w-3 h-3" />
+            <Link
+              href="/about"
+              className="hover:text-teal-600 transition-colors"
+            >
+              About
+            </Link>
+          </nav>
             <h2 className="text-3xl font-extrabold leading-[1.1] tracking-tight text-slate-900 md:text-5xl lg:text-6xl mb-12">
               Shaping the future of{" "}
               <span className="text-brand-teal">Healthcare Infrastructure</span>
               .
             </h2>
-            <p className="text-lg leading-relaxed text-slate-600 mb-10">
+            <p className="text-lg leading-relaxed text-slate-500 mb-10">
               Infra.Health is a specialized asset development company dedicated
               to the structured creation of healthcare environments. We operate
               at the convergence of clinical systems, engineering, and

@@ -1,3 +1,4 @@
+"use client"
 import { motion } from "motion/react";
 import { CheckCircle } from "lucide-react";
 

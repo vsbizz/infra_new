@@ -1,0 +1,212 @@
+{
+  "global": {
+    "siteName": "Infra.Health",
+    "baseUrl": "https://infra.health",
+    "logo": "https://infra.health/asset/logo/infra.png"
+  },
+  "home": {
+    "metaTitle": "Healthcare Infrastructure & Asset Development | Infra.Health",
+    "metaDescription": "Infra.Health is a specialized healthcare asset development company offering turnkey hospital EPC, capital advisory, design, and facility management globally.",
+    "ogTitle": "Infra.Health | End-to-End Healthcare Infrastructure & Asset Development",
+    "ogDescription": "Partner with Infra.Health to build resilient, investment-grade healthcare assets. From strategic planning and capital structuring to turnkey EPC and lifecycle facility management, we deliver world-class hospitals across the globe.",
+    "services": [
+      "Investment & Capital Advisory",
+      "Leasing & Operator Advisory",
+      "Advisory & Strategic Planning",
+      "Design & Project Delivery",
+      "Property & Facilities Management"
+    ]
+  },
+  "about": {
+    "metaTitle": "About Infra.Health | Healthcare Asset Development Company",
+    "metaDescription": "Established in 2013, Infra.Health is a global healthcare infrastructure developer. We integrate capital, design, and engineering to build resilient hospitals.",
+    "ogTitle": "About Infra.Health | Structuring the Future of Healthcare Infrastructure",
+    "ogDescription": "Discover how Infra.Health transforms clinical demand into investment-grade assets. With 70+ projects and 13,500+ beds delivered globally, we don't just build hospitals—we structure long-term healthcare assets."
+  },
+  "services": {
+    "leasingAndOperatorAdvisory": {
+      "url": "/services/leasing-and-operator-advisory",
+      "metaTitle": "Healthcare Leasing & Operator Advisory | Infra.Health",
+      "metaDescription": "Maximize the yield and stability of your medical real estate. Infra.Health provides global healthcare leasing, operator advisory, and site selection strategies.",
+      "ogTitle": "Top Healthcare Real Estate Leasing & Operator Advisory | Infra.Health",
+      "ogDescription": "Bridging the gap between infrastructure ownership and clinical operations. We structure bankable occupancy frameworks for healthcare assets globally.",
+      "ogType": "website",
+      "schema": {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "serviceType": "Healthcare Leasing & Operator Advisory",
+        "provider": {
+          "@type": "Organization",
+          "name": "Infra.Health",
+          "url": "https://infra.health/"
+        },
+        "areaServed": ["Middle East", "Africa", "South Asia", "Southeast Asia", "Europe", "Central America"],
+        "description": "Infra.Health provides structured advisory to healthcare asset owners, developers, institutional investors, and clinical operators to create bankable, performance-driven occupancy frameworks.",
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Leasing and Operator Advisory Services",
+          "itemListElement": [
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Healthcare Owner Representation" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Tenant & Operator Representation" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Site Selection & Location Strategy" } }
+          ]
+        }
+      },
+      "subServices": [
+        {
+          "slug": "/services/leasing-and-operator-advisory/owner-representation",
+          "metaTitle": "Healthcare Real Estate Owner Representation | Infra.Health",
+          "metaDescription": "Maximize revenue and long-term asset stability. Infra.Health provides institutional owner representation, healthcare lease structuring, and medical tenant mix optimization.",
+          "ogTitle": "Healthcare Real Estate Owner Representation | Infra.Health",
+          "ogDescription": "Maximize the yield and stability of your medical real estate. We provide institutional owner representation, tenant mix optimization, and structured healthcare lease advisory.",
+          "ogType": "website"
+        },
+        {
+          "slug": "/services/leasing-and-operator-advisory/tenant-operator-representation",
+          "metaTitle": "Healthcare Tenant & Operator Representation | Infra.Health",
+          "metaDescription": "Expand your healthcare network with confidence. Infra.Health advises hospital operators and specialty providers on site selection, lease negotiation, and medical real estate strategy.",
+          "ogTitle": "Healthcare Tenant & Operator Representation | Infra.Health",
+          "ogDescription": "Expand your healthcare network with confidence. We advise hospital operators and specialty providers on medical site selection, lease negotiation, and clinical real estate strategy globally.",
+          "ogType": "website"
+        },
+        {
+          "slug": "/services/leasing-and-operator-advisory/site-selection",
+          "metaTitle": "Healthcare Site Selection & Location Strategy | Infra.Health",
+          "metaDescription": "Optimize your healthcare asset placement. Infra.Health provides data-driven hospital site selection, demographic analytics, and location risk assessment globally.",
+          "ogTitle": "Healthcare Site Selection & Location Strategy | Infra.Health",
+          "ogDescription": "Optimize your global healthcare asset placement. We provide data-driven hospital site selection, demographic analytics, and location risk assessment to maximize market capture.",
+          "ogType": "website"
+        }
+      ]
+    },
+    "propertyAndFacilitiesManagement": {
+      "url": "/services/property-and-facilities-management",
+      "metaTitle": "Healthcare Property & Facilities Management (IFM) | Infra.Health",
+      "metaDescription": "Maximize hospital uptime and asset value. Infra.Health provides specialized medical property management, Integrated Facility Management (IFM), and IFM consultancy globally.",
+      "ogTitle": "Healthcare Property & Facilities Management | Infra.Health",
+      "ogDescription": "Ensuring 24/7 operational reliability and regulatory compliance for medical real estate. Discover our healthcare IFM, property management, and CAFM integration services.",
+      "ogType": "website",
+      "schema": {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "serviceType": "Healthcare Property & Facilities Management",
+        "provider": {
+          "@type": "Organization",
+          "name": "Infra.Health",
+          "url": "https://infra.health/"
+        },
+        "areaServed": ["Middle East", "Africa", "South Asia", "Southeast Asia", "Europe", "Central America"],
+        "description": "Infra.Health ensures long-term performance, operational resilience, and regulatory compliance of healthcare assets through specialized property management, IFM, and IFM consultancy services.",
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Property and Facilities Management Services",
+          "itemListElement": [
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Property Management" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Integrated Facility Management (IFM)" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "IFM Consultancy" } }
+          ]
+        }
+      }
+    },
+    "designAndProjectDelivery": {
+      "url": "/services/design-and-project-delivery",
+      "metaTitle": "Healthcare EPC, Design-Build & PMC Services | Infra.Health",
+      "metaDescription": "Turnkey healthcare project delivery globally. Infra.Health offers hospital EPC, Design-Build, medical equipment planning, and specialized healthcare PMC.",
+      "ogTitle": "Healthcare Design & Project Delivery | Infra.Health",
+      "ogDescription": "Converting healthcare strategy into operational infrastructure. Discover our turnkey hospital EPC, design-build, and project management solutions.",
+      "ogType": "website",
+      "schema": {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "serviceType": "Healthcare Design & Project Delivery",
+        "provider": {
+          "@type": "Organization",
+          "name": "Infra.Health",
+          "url": "https://infra.health/"
+        },
+        "areaServed": ["Middle East", "Africa", "South Asia", "Southeast Asia", "Europe", "Central America"],
+        "description": "Infra.Health converts healthcare strategy and capital structuring into operational healthcare infrastructure through disciplined governance, engineering precision, and turnkey delivery capability.",
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Design and Project Delivery Services",
+          "itemListElement": [
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Project Management Consultancy (PMC)" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Integrated Healthcare Design Services" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Procurement Management" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Medical Equipment Planning & Integration" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Cost Consultancy" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Sustainability Integration" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Design-Build Solutions" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Engineering, Procurement & Construction (EPC)" } }
+          ]
+        }
+      }
+    },
+    "advisoryAndStrategicPlanning": {
+      "url": "/services/advisory-and-strategic-planning",
+      "metaTitle": "Healthcare Advisory, Feasibility & Strategic Planning | Infra.Health",
+      "metaDescription": "De-risk your healthcare asset development. Infra.Health provides global hospital feasibility studies, financial modeling, PPP advisory, and smart hospital strategy.",
+      "ogTitle": "Healthcare Advisory & Strategic Planning | Infra.Health",
+      "ogDescription": "We transform healthcare demand into investment-ready development frameworks through bankable DPRs, demographic analytics, and strategic facility planning.",
+      "ogType": "website",
+      "schema": {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "serviceType": "Healthcare Advisory & Strategic Planning",
+        "provider": {
+          "@type": "Organization",
+          "name": "Infra.Health",
+          "url": "https://infra.health/"
+        },
+        "areaServed": ["Middle East", "Africa", "South Asia", "Southeast Asia", "Europe", "Central America"],
+        "description": "Infra.Health establishes the clinical, financial, demographic, and operational foundation of healthcare assets before capital deployment through structured analytics, financial modeling, and PPP advisory.",
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Advisory and Strategic Planning Services",
+          "itemListElement": [
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Feasibility Studies & DPR" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Market & Demographic Analysis" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Specialty & Capacity Planning" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Financial Modeling" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "PPP Advisory" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "ESG & Sustainability Advisory" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Healthcare Digital Transformation Strategy" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Accreditation Advisory" } }
+          ]
+        }
+      }
+    },
+    "investmentAndCapitalAdvisory": {
+      "url": "/services/investment-and-capital-advisory",
+      "metaTitle": "Healthcare Investment & Capital Advisory | Infra.Health",
+      "metaDescription": "Expert healthcare investment advisory, capital structuring, and hospital M&A services. We position medical infrastructure as an investable asset class globally.",
+      "ogTitle": "Top Healthcare Investment & Capital Advisory | Infra.Health",
+      "ogDescription": "Advising institutional investors and healthcare sponsors on capital structuring, structured financing, debt advisory, and medical real estate asset valuation.",
+      "ogType": "website",
+      "schema": {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "serviceType": "Healthcare Investment & Capital Advisory",
+        "provider": {
+          "@type": "Organization",
+          "name": "Infra.Health",
+          "url": "https://infra.health/"
+        },
+        "areaServed": ["Middle East", "Africa", "South Asia", "Southeast Asia", "Europe", "Central America"],
+        "description": "Infra.Health advises healthcare asset owners, governments, institutional investors, and private sponsors on capital structuring, transaction execution, financial engineering, and risk underwriting.",
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Investment and Capital Advisory Services",
+          "itemListElement": [
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Investment Sales Advisory" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Institutional Investor Partnerships" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Structured Financing Solutions" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Debt Advisory" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Distressed Asset Strategy" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Asset Valuation & Risk Underwriting" } }
+          ]
+        }
+      }
+    }
+  }
+}

@@ -1,5 +1,9 @@
-"use client";
+import { Metadata } from "next";
+import { getPageMetadata } from "@/utils/seo";
+import { JsonLd } from "@/components/JsonLd";
+import metaData from "@/data/meta.json";
 
+// Your Component Imports
 import AboutIntro from "@/components/about/AboutIntro";
 import Approach from "@/components/about/Approach";
 import { CommitmentSection } from "@/components/about/Commitment";
@@ -8,33 +12,54 @@ import Team from "@/components/about/Team";
 import VisionMission from "@/components/about/VisionMission";
 import WhatWeDo from "@/components/about/WhatWeDo";
 import { CounterSection } from "@/components/CounterSection";
-import {
-  Building2,
-  Bed,
-  Activity,
-  Microscope,
-  RulerDimensionLine,
-} from "lucide-react";
 
-const STATS = [
-  { label: "Projects", value: "70+", icon: Building2 },
-  { label: "Beds", value: "13,500+", icon: Bed },
-  { label: "ICU beds", value: "2,450+", icon: Activity },
-  { label: "Modular OTs", value: "280+", icon: Microscope },
-  { label: "Sq. Ft. Built", value: "18M+", icon: RulerDimensionLine },
-];
+export const metadata: Metadata = getPageMetadata("about");
 
 function About() {
+  const { global } = metaData;
+
+  const aboutSchema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": `${global.baseUrl}/about/#webpage`,
+        "url": `${global.baseUrl}/about`,
+        "name": "About Us | Infra.Health",
+        "isPartOf": { "@id": `${global.baseUrl}/#website` },
+        "breadcrumb": {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": global.baseUrl
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "About Us",
+              "item": `${global.baseUrl}/about`
+            }
+          ]
+        },
+        "about": { "@id": `${global.baseUrl}/#organization` }
+      }
+    ]
+  };
+
   return (
     <>
+      <JsonLd data={aboutSchema} />
       <AboutIntro />
-      <CounterSection stats={STATS} />
-      <VisionMission/>
-      <Approach/>
-      <CommitmentSection/>
-      <WhatWeDo/>
-      <FlatGlobalMap/>
-      <Team/>
+      <CounterSection />
+      <VisionMission />
+      <Approach />
+      <CommitmentSection />
+      <WhatWeDo />
+      <FlatGlobalMap />
+      <Team />
     </>
   );
 }

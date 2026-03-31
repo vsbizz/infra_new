@@ -109,7 +109,7 @@ export const ExpertiseContinuum = () => {
                 }`}
               >
                 <div className="relative overflow-hidden">
-                    <h3 className="text-xl font-black text-slate-900 mb-2 uppercase tracking-tight">
+                    <h3 className="text-2xl font-bold text-brand-dark mb-2 leading-tight">
                       {item.title}
                     </h3>
 
@@ -123,7 +123,7 @@ export const ExpertiseContinuum = () => {
                       transition={{ duration: 0.3, ease: "easeInOut" }}
                       className="overflow-hidden"
                     >
-                      <p className="text-sm leading-relaxed text-slate-500">
+                      <p className="text-base leading-relaxed text-slate-500">
                         {item.content}
                       </p>
                     </motion.div>

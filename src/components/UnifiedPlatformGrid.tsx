@@ -1,3 +1,5 @@
+"use client";
+
 import {
   ArrowRight,
   BarChart3,
@@ -38,7 +40,7 @@ export const UnifiedPlatformList = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24">
           {/* Left Side: Context */}
           <div className="lg:col-span-4 space-y-8 flex justify-center flex-col">
-            <p className="text-lg leading-relaxed text-slate-600 font-medium">
+            <p className="text-lg leading-relaxed text-slate-600">
               We eliminate the fragmentation typical of healthcare development.
               By managing the lifecycle, from financial modeling to clinical
               operations, we ensure no value is lost between phases.

@@ -27,7 +27,7 @@ function WhatWeDo() {
                   className="flex items-center gap-6 p-4 border border-white/5 hover:border-brand-teal/30 transition-all group"
                 >
                   <div className="w-2 h-2 bg-brand-teal group-hover:scale-150 transition-transform" />
-                  <span className="text-sm tracking-widest">{title}</span>
+                  <span className="text-sm">{title}</span>
                 </div>
               ))}
             </div>
