@@ -50,7 +50,7 @@ const Blog: React.FC = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* --- Hero Section --- */}
-      <section className="pt-44 relative overflow-hidden bg-slate-50/30">
+      <section className="pt-24 md:pt-44 relative overflow-hidden bg-slate-50/30">
         <div className="absolute inset-0 opacity-20">
           <div className="absolute top-0 left-0 w-full h-full" />
         </div>

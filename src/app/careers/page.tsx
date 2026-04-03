@@ -119,7 +119,7 @@ export default function CareersPage() {
   return (
     <div className="min-h-screen bg-[#F8FAFC]">
       {/* --- Hero Section --- */}
-      <section className="relative pt-44 pb-24 overflow-hidden">
+      <section className="relative pt-24 md:pt-44 pb-24 overflow-hidden">
         <div className="max-w-7xl mx-auto px-6">
                   <nav className="flex items-center gap-2 text-xs font-medium text-slate-400 mb-8 uppercase tracking-widest">
                     <Link href="/" className="hover:text-teal-600 transition-colors">

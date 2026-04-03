@@ -2,33 +2,8 @@
 import { useRef } from "react";
 import { motion } from "framer-motion";
 import { ArrowUpRight, ChevronLeft, ChevronRight } from "lucide-react";
-
-const REPORTS = [
-  {
-    type: "REPORT | Q3 2024",
-    title: "Healthcare Real Estate Trends: The Shift to Outpatient Networks",
-    desc: "Analyzing the investor migration toward distributed care models...",
-    img: "https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=2070&auto=format&fit=crop",
-  },
-  {
-    type: "ANALYSIS | AUGUST 2024",
-    title: "De-Risking Design-Build in Emerging Markets",
-    desc: "How single-point accountability mitigates construction cost volatility...",
-    img: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=2053&auto=format&fit=crop",
-  },
-  {
-    type: "PERSPECTIVE | JULY 2024",
-    title: "ESG as a Value Driver for Healthcare Yield",
-    desc: "The correlation between LEED-certified assets and clinical uptime...",
-    img: "https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=2070&auto=format&fit=crop",
-  },
-  {
-    type: "REPORT | JUNE 2024",
-    title: "The Rise of Quaternary Medical Cities",
-    desc: "Exploring the infrastructure demands of specialized surgical hubs...",
-    img: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=2053&auto=format&fit=crop",
-  },
-];
+import Link from "next/link";
+import { blogInner } from "@/data/blogInner";
 
 export const MarketIntelligence = () => {
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -36,7 +11,10 @@ export const MarketIntelligence = () => {
   const scroll = (direction: "left" | "right") => {
     if (scrollRef.current) {
       // Scroll by roughly 30% of the viewport width
-      const scrollAmount = direction === "left" ? -window.innerWidth * 0.3 : window.innerWidth * 0.3;
+      const scrollAmount =
+        direction === "left"
+          ? -window.innerWidth * 0.3
+          : window.innerWidth * 0.3;
       scrollRef.current.scrollBy({ left: scrollAmount, behavior: "smooth" });
     }
   };
@@ -44,7 +22,7 @@ export const MarketIntelligence = () => {
   return (
     <section className="bg-white py-24 lg:py-40 overflow-hidden">
       {/* Header Section */}
-      <div className="mx-auto max-w-7xl mb-8">
+      <div className="mx-auto max-w-7xl mb-8 px-6">
         <div className="flex flex-col md:flex-row md:items-end justify-between border-b border-slate-100 gap-8">
           <div className="max-w-2xl text-left">
             <h2 className="text-3xl font-extrabold leading-[1.1] tracking-tight text-slate-900 md:text-5xl lg:text-6xl mb-6">
@@ -53,9 +31,12 @@ export const MarketIntelligence = () => {
           </div>
 
           <div className="flex items-center gap-6">
-            <button className="hidden lg:flex items-center gap-2 text-sm font-bold text-teal-600 hover:text-teal-700 transition-colors uppercase tracking-widest">
+            <Link
+              href="/blogs"
+              className="hidden lg:flex items-center gap-2 text-sm font-bold text-teal-600 hover:text-teal-700 transition-colors uppercase tracking-widest"
+            >
               Explore Blogs <ArrowUpRight size={18} />
-            </button>
+            </Link>
 
             <div className="flex gap-3">
               <button
@@ -80,7 +61,7 @@ export const MarketIntelligence = () => {
           className="flex gap-8 overflow-x-auto pb-12 no-scrollbar snap-x snap-mandatory"
           style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
         >
-          {REPORTS.map((report, idx) => (
+          {blogInner.map((report, idx) => (
             <motion.div
               key={idx}
               initial={{ opacity: 0, x: 30 }}
@@ -91,7 +72,7 @@ export const MarketIntelligence = () => {
             >
               <div className="aspect-16/10 overflow-hidden rounded-lg mb-8 relative">
                 <img
-                  src={report.img}
+                  src={report.mainImage}
                   alt={report.title}
                   className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                 />
@@ -101,7 +82,7 @@ export const MarketIntelligence = () => {
               {/* Card Content */}
               <div className="space-y-4 pr-6">
                 <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-teal-600 inline-block border-b-2 border-teal-600/20 pb-1">
-                  {report.type}
+                  {report.tags[0]}
                 </span>
                 <h3 className="text-xl md:text-2xl font-bold text-slate-900 leading-tight group-hover:text-teal-600 transition-colors duration-300">
                   {report.title}

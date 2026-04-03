@@ -16,13 +16,13 @@ const StakeholderCard = ({ title, desc, link }) => (
         {desc}
       </p>
     </div>
-    <a
+    {/* <a
       href="#"
       className="flex items-center gap-2 text-brand-teal font-bold text-xs uppercase tracking-widest group mt-auto"
     >
       {link}
       <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-    </a>
+    </a> */}
   </motion.div>
 );
 

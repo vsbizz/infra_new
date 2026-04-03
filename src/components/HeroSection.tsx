@@ -76,7 +76,7 @@ export const HeroSection = ({ slides }: { slides: any[] }) => {
       </main>
 
       {/* Navigation Controls */}
-      <div className="absolute bottom-10 left-0 right-0 z-20 px-8 lg:px-20">
+      <div className="absolute bottom-10 left-0 right-0 z-20 px-8 lg:px-20 md:block hidden">
         <div className="mx-auto flex max-w-max items-center justify-center gap-3 rounded-full border border-white/30 bg-white/10 p-2 backdrop-blur-xl shadow-2xl">
           {slides.map((slide, index) => {
             const isActive = currentSlide === index;

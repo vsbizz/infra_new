@@ -43,7 +43,7 @@ const slugify = (text: string) =>
   return (
     <div className="bg-white min-h-screen">
       {/* Hero Section */}
-      <section className="pt-44 px-6 border-b border-slate-100">
+      <section className="pt-24 md:pt-44 px-6 border-b border-slate-100">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

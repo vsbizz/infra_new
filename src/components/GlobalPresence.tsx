@@ -308,7 +308,7 @@ export const GlobalPresence: React.FC = () => {
 
   return (
     <section className="relative bg-white py-24 overflow-hidden">
-      <div className="mx-auto max-w-7xl">
+      <div className="mx-auto max-w-7xl px-6">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
           <div className="lg:col-span-6 space-y-8 z-10">
             <motion.div

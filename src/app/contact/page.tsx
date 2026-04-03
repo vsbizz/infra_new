@@ -14,7 +14,7 @@ function Contact() {
     };
   }, []);
   return (
-    <section className="pt-44 bg-white border-t border-slate-100">
+    <section className="pt-24 md:pt-44 bg-white border-t border-slate-100">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-10">
           <div>

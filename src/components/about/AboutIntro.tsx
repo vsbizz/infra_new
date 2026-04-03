@@ -82,7 +82,7 @@ const AboutIntro = () => {
           >
             <div className="relative aspect-4/5 overflow-hidden rounded-2xl shadow-2xl">
               <img
-                src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80&w=1200"
+                src="/asset/hero/abt.png"
                 alt="Healthcare Infrastructure"
                 className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 hover:scale-105"
               />

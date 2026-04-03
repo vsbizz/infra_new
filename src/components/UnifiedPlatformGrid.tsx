@@ -9,8 +9,10 @@ import {
   ShieldCheck,
 } from "lucide-react";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
-const PillarItem = ({ title, icon: Icon }) => (
+const PillarItem = ({ title, icon: Icon, slug }) => (
+  <Link href={slug}>
   <motion.div
     whileHover={{ x: 10 }}
     className="group flex items-center justify-between py-8 border-b border-slate-200 cursor-pointer"
@@ -22,15 +24,16 @@ const PillarItem = ({ title, icon: Icon }) => (
     </div>
     <ArrowRight className="h-8 w-8 text-slate-300 group-hover:text-brand-teal transition-all group-hover:translate-x-2" />
   </motion.div>
+    </Link>
 );
 
 export const UnifiedPlatformList = () => {
   const pillars = [
-    { title: "Investment & Capital Advisory", icon: ShieldCheck },
-    { title: "Leasing & Operator Advisory", icon: Building2 },
-    { title: "Advisory & Strategic Planning", icon: BarChart3 },
-    { title: "Design & Project Delivery", icon: Compass },
-    { title: "Property & Facilities Management", icon: Settings },
+    { title: "Investment & Capital Advisory", icon: ShieldCheck, slug: "investment-and-capital-advisory", },
+    { title: "Leasing & Operator Advisory", icon: Building2, slug: "leasing-and-operator-advisory", },
+    { title: "Advisory & Strategic Planning", icon: BarChart3, slug: "advisory-and-strategic-planning", },
+    { title: "Design & Project Delivery", icon: Compass, slug: "design-and-project-delivery" },
+    { title: "Property & Facilities Management", icon: Settings, slug: "property-and-facilities-management" },
   ];
 
   return (
@@ -40,6 +43,10 @@ export const UnifiedPlatformList = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24">
           {/* Left Side: Context */}
           <div className="lg:col-span-4 space-y-8 flex justify-center flex-col">
+            <h2 className="text-3xl font-extrabold leading-[1.1] tracking-tight text-slate-900 md:text-5xl lg:text-6xl block md:hidden">
+                A <span className="text-teal-600">Unified Platform</span> for
+                Healthcare Excellence
+              </h2>
             <p className="text-lg leading-relaxed text-slate-600">
               We eliminate the fragmentation typical of healthcare development.
               By managing the lifecycle, from financial modeling to clinical
@@ -80,7 +87,7 @@ export const UnifiedPlatformList = () => {
           {/* Right Side: Vertical Pillars */}
           <div className="lg:col-span-8">
             <div className="mb-20">
-              <h2 className="text-3xl font-extrabold leading-[1.1] tracking-tight text-slate-900 md:text-5xl lg:text-6xl mb-12">
+              <h2 className="text-3xl font-extrabold leading-[1.1] tracking-tight text-slate-900 md:text-5xl lg:text-6xl mb-12 md:block hidden">
                 A <span className="text-brand-teal">Unified Platform</span> for
                 Healthcare Excellence
               </h2>

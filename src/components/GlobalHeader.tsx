@@ -11,10 +11,13 @@ export const GlobalHeader = () => {
   const [isVisible, setIsVisible] = useState(true);
   const [isSticky, setIsSticky] = useState(false);
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
-  const [activeMobileSection, setActiveMobileSection] = useState<string | null>(null);
+  const [activeMobileSection, setActiveMobileSection] = useState<string | null>(
+    null,
+  );
 
   const lastScrollY = useRef(0);
-  const isHeaderActive = pathname !== "/" || isSticky || hoveredItem !== null || isMenuOpen;
+  const isHeaderActive =
+    pathname !== "/" || isSticky || hoveredItem !== null || isMenuOpen;
 
   // NEW: Close menu automatically when route changes
   useEffect(() => {
@@ -49,11 +52,20 @@ export const GlobalHeader = () => {
       slug: "investment-and-capital-advisory",
       items: [
         { name: "Investment Sales", slug: "investment-sales" },
-        { name: "Institutional Partnerships", slug: "institutional-partnerships" },
+        {
+          name: "Institutional Partnerships",
+          slug: "institutional-partnerships",
+        },
         { name: "Structured Financing", slug: "structured-financing" },
         { name: "Debt Advisory", slug: "debt-advisory" },
-        { name: "Distressed Asset Strategy", slug: "distressed-asset-strategy" },
-        { name: "Valuation & Risk Underwriting", slug: "valuation-and-risk-underwriting" },
+        {
+          name: "Distressed Asset Strategy",
+          slug: "distressed-asset-strategy",
+        },
+        {
+          name: "Valuation & Risk Underwriting",
+          slug: "valuation-and-risk-underwriting",
+        },
       ],
     },
     {
@@ -61,7 +73,10 @@ export const GlobalHeader = () => {
       slug: "leasing-and-operator-advisory",
       items: [
         { name: "Owner Representation", slug: "owner-representation" },
-        { name: "Tenant & Operator Representation", slug: "tenant-operator-representation" },
+        {
+          name: "Tenant & Operator Representation",
+          slug: "tenant-operator-representation",
+        },
         { name: "Site Selection & Location Strategy", slug: "site-selection" },
       ],
     },
@@ -69,13 +84,25 @@ export const GlobalHeader = () => {
       category: "Advisory & Strategic Planning",
       slug: "advisory-and-strategic-planning",
       items: [
-        { name: "Feasibility Studies & DPR", slug: "feasibility-studies-and-dpr" },
-        { name: "Market & Demographic Analysis", slug: "market-and-demographic-analysis" },
-        { name: "Specialty & Capacity Planning", slug: "specialty-and-capacity-planning" },
+        {
+          name: "Feasibility Studies & DPR",
+          slug: "feasibility-studies-and-dpr",
+        },
+        {
+          name: "Market & Demographic Analysis",
+          slug: "market-and-demographic-analysis",
+        },
+        {
+          name: "Specialty & Capacity Planning",
+          slug: "specialty-and-capacity-planning",
+        },
         { name: "Financial Modeling", slug: "financial-modeling" },
         { name: "PPP Advisory", slug: "ppp-advisory" },
         { name: "ESG & Sustainability", slug: "esg-and-sustainability" },
-        { name: "Digital Transformation", slug: "digital-transformation-strategy" },
+        {
+          name: "Digital Transformation",
+          slug: "digital-transformation-strategy",
+        },
         { name: "Accreditation Advisory", slug: "accreditation-advisory" },
       ],
     },
@@ -83,10 +110,19 @@ export const GlobalHeader = () => {
       category: "Design & Project Delivery",
       slug: "design-and-project-delivery",
       items: [
-        { name: "Project Management (PMC)", slug: "project-management-consultancy" },
-        { name: "Integrated Healthcare Design", slug: "integrated-healthcare-design" },
+        {
+          name: "Project Management (PMC)",
+          slug: "project-management-consultancy",
+        },
+        {
+          name: "Integrated Healthcare Design",
+          slug: "integrated-healthcare-design",
+        },
         { name: "Procurement Management", slug: "procurement-management" },
-        { name: "Medical Equipment Planning", slug: "medical-equipment-planning" },
+        {
+          name: "Medical Equipment Planning",
+          slug: "medical-equipment-planning",
+        },
         { name: "Cost Consultancy", slug: "cost-consultancy" },
         { name: "Design-Build Solutions", slug: "design-build-solutions" },
         { name: "EPC Turnkey Delivery", slug: "epc-turnkey-delivery" },
@@ -97,7 +133,10 @@ export const GlobalHeader = () => {
       slug: "property-and-facilities-management",
       items: [
         { name: "Property Management", slug: "property-management" },
-        { name: "Integrated Facility Management", slug: "integrated-facility-management" },
+        {
+          name: "Integrated Facility Management",
+          slug: "integrated-facility-management",
+        },
         { name: "IFM Consultancy", slug: "ifm-consultancy" },
       ],
     },
@@ -107,7 +146,10 @@ export const GlobalHeader = () => {
     { title: "Public Healthcare Infrastructure", slug: "public-healthcare" },
     { title: "Acute & Advanced Care Hospitals", slug: "acute-care" },
     { title: "Specialty & Focused Care Facilities", slug: "specialty-care" },
-    { title: "Academic & Medical Education Infrastructure", slug: "academic-education" },
+    {
+      title: "Academic & Medical Education Infrastructure",
+      slug: "academic-education",
+    },
     { title: "Diagnostic & Ambulatory Care", slug: "diagnostic-ambulatory" },
     { title: "Rehabilitation & Long-Term Care", slug: "rehab-long-term-care" },
     { title: "Elder Care & Assisted Living", slug: "elder-care" },
@@ -121,6 +163,7 @@ export const GlobalHeader = () => {
     { name: "Sectors", isExpandable: true },
     { name: "About", href: "/about" },
     { name: "Careers", href: "/careers" },
+    { name: "Vendors & Partners", href: "/vendors-partners" },
     { name: "Blogs", href: "/blogs" },
   ];
 
@@ -159,7 +202,7 @@ export const GlobalHeader = () => {
               Contact Us
             </motion.button>
           </Link>
-          
+
           <button
             className={`lg:hidden p-2 ${isHeaderActive ? "text-slate-900" : "text-white"}`}
             onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -170,7 +213,9 @@ export const GlobalHeader = () => {
       </div>
 
       {/* SECTION 2: Navigation Bar (Desktop Only) */}
-      <div className={`hidden lg:block border-y transition-colors duration-500 ${isHeaderActive ? "border-slate-100" : "border-white/10"}`}>
+      <div
+        className={`hidden lg:block border-y transition-colors duration-500 ${isHeaderActive ? "border-slate-100" : "border-white/10"}`}
+      >
         <nav className="mx-auto flex max-w-360 items-center justify-between px-6 lg:px-16">
           <ul className="flex items-center gap-8">
             {["Properties", "Services", "Portfolio", "Sectors"].map((item) => (
@@ -188,7 +233,10 @@ export const GlobalHeader = () => {
                 >
                   {item}
                   {(item === "Services" || item === "Sectors") && (
-                    <ChevronDown size={14} className={`transition-transform ${hoveredItem === item ? "rotate-180" : ""}`} />
+                    <ChevronDown
+                      size={14}
+                      className={`transition-transform ${hoveredItem === item ? "rotate-180" : ""}`}
+                    />
                   )}
                 </Link>
               </li>
@@ -228,8 +276,12 @@ export const GlobalHeader = () => {
           >
             {/* NEW: Mobile Menu Header with Close Button */}
             <div className="flex items-center justify-between px-6 py-4 border-b border-slate-100 sticky top-0 bg-white z-10">
-              <img src="/asset/logo/infra.png" alt="Logo" className="h-10 w-auto" />
-              <button 
+              <img
+                src="/asset/logo/infra.png"
+                alt="Logo"
+                className="h-10 w-auto"
+              />
+              <button
                 onClick={() => setIsMenuOpen(false)}
                 className="p-2 text-slate-900 hover:bg-slate-100 rounded-full transition-colors"
               >
@@ -243,11 +295,19 @@ export const GlobalHeader = () => {
                   {link.isExpandable ? (
                     <>
                       <button
-                        onClick={() => setActiveMobileSection(activeMobileSection === link.name ? null : link.name)}
+                        onClick={() =>
+                          setActiveMobileSection(
+                            activeMobileSection === link.name
+                              ? null
+                              : link.name,
+                          )
+                        }
                         className="flex items-center justify-between w-full py-5 text-2xl font-semibold text-slate-800"
                       >
                         {link.name}
-                        <ChevronDown className={`transition-transform duration-300 ${activeMobileSection === link.name ? "rotate-180" : ""}`} />
+                        <ChevronDown
+                          className={`transition-transform duration-300 ${activeMobileSection === link.name ? "rotate-180" : ""}`}
+                        />
                       </button>
 
                       <AnimatePresence>
@@ -262,7 +322,9 @@ export const GlobalHeader = () => {
                               {link.name === "Services" ? (
                                 servicesData.map((cat) => (
                                   <div key={cat.slug} className="space-y-3">
-                                    <h4 className="text-xs font-black text-teal-600 uppercase tracking-widest">{cat.category}</h4>
+                                    <h4 className="text-xs font-black text-teal-600 uppercase tracking-widest">
+                                      {cat.category}
+                                    </h4>
                                     <div className="grid gap-4 pl-2 border-l border-slate-200">
                                       {cat.items.map((sub) => (
                                         <Link
@@ -270,7 +332,11 @@ export const GlobalHeader = () => {
                                           href={`/services/${cat.slug}/${sub.slug}`}
                                           className="text-slate-600 text-base flex items-center justify-between"
                                         >
-                                          {sub.name} <ChevronRight size={16} className="text-slate-300" />
+                                          {sub.name}{" "}
+                                          <ChevronRight
+                                            size={16}
+                                            className="text-slate-300"
+                                          />
                                         </Link>
                                       ))}
                                     </div>
@@ -284,7 +350,11 @@ export const GlobalHeader = () => {
                                       href={`/sectors/${sector.slug}`}
                                       className="text-slate-800 font-medium flex items-center justify-between"
                                     >
-                                      {sector.title} <ArrowRight size={16} className="text-teal-600" />
+                                      {sector.title}{" "}
+                                      <ArrowRight
+                                        size={16}
+                                        className="text-teal-600"
+                                      />
                                     </Link>
                                   ))}
                                 </div>
@@ -320,77 +390,93 @@ export const GlobalHeader = () => {
 
       {/* MEGA MENUS (Desktop Only) */}
       <AnimatePresence>
-        {hoveredItem && (hoveredItem === "Services" || hoveredItem === "Sectors") && (
-          <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            className="absolute left-0 w-full bg-white border-t border-slate-200 shadow-xl"
-            onMouseEnter={() => setHoveredItem(hoveredItem)}
-          >
-            <div className="mx-auto max-w-360 px-6 py-12">
-              {hoveredItem === "Services" ? (
-                <>
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
-                    {servicesData.map((cat) => (
-                      <div key={cat.slug} className="space-y-6">
-                        <Link
-                          href={`/services/${cat.slug}`}
-                          className="group flex items-center justify-between border-b border-slate-200 pb-4 pr-4"
-                          onClick={() => setHoveredItem(null)}
-                        >
-                          <h3 className="text-[16px] font-medium text-slate-700 group-hover:text-teal-600 transition-colors leading-tight">
-                            {cat.category}
-                          </h3>
-                          <ChevronDown size={18} className="-rotate-90 text-slate-400 group-hover:text-teal-600 transition-transform group-hover:translate-x-1" />
-                        </Link>
-                        <ul className="space-y-3">
-                          {cat.items.map((item) => (
-                            <li key={item.slug}>
-                              <Link
-                                href={`/services/${cat.slug}/${item.slug}`}
-                                className="flex items-center gap-3 text-[14px] text-slate-600 hover:text-teal-600 transition-all group"
-                                onClick={() => setHoveredItem(null)}
-                              >
-                                <span className="w-0.75 h-3 bg-slate-800 group-hover:bg-teal-600 transition-colors" />
-                                {item.name}
-                              </Link>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    ))}
-                  </div>
-                  <div className="mt-16 pt-8 border-t border-slate-200 flex flex-wrap gap-4 items-center justify-between">
-                    <p className="text-sm font-medium text-slate-600">Comprehensive real estate solutions.</p>
-                    <div className="flex gap-3">
-                      <Link href="/services" className="px-4 py-2 bg-white border border-slate-200 rounded text-xs font-bold uppercase text-slate-600 hover:bg-slate-50">All Services</Link>
-                      <Link href="/contact" className="px-4 py-2 bg-white border border-slate-200 rounded text-xs font-bold uppercase text-slate-600 hover:bg-slate-50">Consulting</Link>
+        {hoveredItem &&
+          (hoveredItem === "Services" || hoveredItem === "Sectors") && (
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              className="absolute left-0 w-full bg-white border-t border-slate-200 shadow-xl"
+              onMouseEnter={() => setHoveredItem(hoveredItem)}
+            >
+              <div className="mx-auto max-w-360 px-6 py-12">
+                {hoveredItem === "Services" ? (
+                  <>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
+                      {servicesData.map((cat) => (
+                        <div key={cat.slug} className="space-y-6">
+                          <Link
+                            href={`/services/${cat.slug}`}
+                            className="group flex items-center justify-between border-b border-slate-200 pb-4 pr-4"
+                            onClick={() => setHoveredItem(null)}
+                          >
+                            <h3 className="text-[16px] font-medium text-slate-700 group-hover:text-teal-600 transition-colors leading-tight">
+                              {cat.category}
+                            </h3>
+                            <ChevronDown
+                              size={18}
+                              className="-rotate-90 text-slate-400 group-hover:text-teal-600 transition-transform group-hover:translate-x-1"
+                            />
+                          </Link>
+                          <ul className="space-y-3">
+                            {cat.items.map((item) => (
+                              <li key={item.slug}>
+                                <Link
+                                  href={`/services/${cat.slug}/${item.slug}`}
+                                  className="flex items-center gap-3 text-[14px] text-slate-600 hover:text-teal-600 transition-all group"
+                                  onClick={() => setHoveredItem(null)}
+                                >
+                                  <span className="w-0.75 h-3 bg-slate-800 group-hover:bg-teal-600 transition-colors" />
+                                  {item.name}
+                                </Link>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      ))}
                     </div>
-                  </div>
-                </>
-              ) : (
-                <>
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-8">
-                    {sectorsData.map((sector) => (
-                      <Link
-                        key={sector.slug}
-                        href={`/sectors/${sector.slug}`}
-                        onClick={() => setHoveredItem(null)}
-                        className="flex items-center gap-3 group py-2"
-                      >
-                        <span className="w-0.75 h-3 bg-slate-800 group-hover:bg-teal-600 transition-colors" />
-                        <span className="text-[15px] font-medium text-slate-700 group-hover:text-teal-600 transition-colors">
-                          {sector.title}
-                        </span>
-                      </Link>
-                    ))}
-                  </div>
-                </>
-              )}
-            </div>
-          </motion.div>
-        )}
+                    <div className="mt-16 pt-8 border-t border-slate-200 flex flex-wrap gap-4 items-center justify-between">
+                      <p className="text-sm font-medium text-slate-600">
+                        Comprehensive real estate solutions.
+                      </p>
+                      <div className="flex gap-3">
+                        <Link
+                          href="/services"
+                          className="px-4 py-2 bg-white border border-slate-200 rounded text-xs font-bold uppercase text-slate-600 hover:bg-slate-50"
+                        >
+                          All Services
+                        </Link>
+                        <Link
+                          href="/contact"
+                          className="px-4 py-2 bg-white border border-slate-200 rounded text-xs font-bold uppercase text-slate-600 hover:bg-slate-50"
+                        >
+                          Consulting
+                        </Link>
+                      </div>
+                    </div>
+                  </>
+                ) : (
+                  <>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-8">
+                      {sectorsData.map((sector) => (
+                        <Link
+                          key={sector.slug}
+                          href={`/sectors/${sector.slug}`}
+                          onClick={() => setHoveredItem(null)}
+                          className="flex items-center gap-3 group py-2"
+                        >
+                          <span className="w-0.75 h-3 bg-slate-800 group-hover:bg-teal-600 transition-colors" />
+                          <span className="text-[15px] font-medium text-slate-700 group-hover:text-teal-600 transition-colors">
+                            {sector.title}
+                          </span>
+                        </Link>
+                      ))}
+                    </div>
+                  </>
+                )}
+              </div>
+            </motion.div>
+          )}
       </AnimatePresence>
     </header>
   );

@@ -31,7 +31,7 @@ export default async function SectorPage({
 
   return (
     <main className="min-h-screen bg-white">
-      <section className="relative pt-44 border-b border-slate-100">
+      <section className="relative pt-24 md:pt-44 border-b border-slate-100">
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex flex-col lg:flex-row items-center gap-16">
             <div className="lg:w-1/2">
