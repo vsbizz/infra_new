@@ -46,7 +46,7 @@ export default async function SectorPage({
                 <span className="text-slate-400">Sectors</span>
               </nav>
 
-              <h1 className="text-5xl lg:text-7xl font-extrabold text-slate-900 leading-[1.1] mb-8 tracking-tighter">
+              <h1 className="text-5xl lg:text-7xl font-extrabold text-brand-purple leading-[1.1] mb-8 tracking-tighter">
                 {sector.title}
               </h1>
 

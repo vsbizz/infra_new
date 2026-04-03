@@ -12,7 +12,9 @@ import {
   Layout,
   ArrowRight,
   Send,
+  ChevronRight,
 } from "lucide-react";
+import Link from "next/link";
 
 const Vendors: React.FC = () => {
   useEffect(() => {
@@ -34,12 +36,21 @@ const Vendors: React.FC = () => {
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
       <section className="relative pt-44 overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6 relative z-10">
+        <div className="max-w-7xl mx-auto px-6">
+          <nav className="flex items-center gap-2 text-xs font-medium text-slate-400 mb-8 uppercase tracking-widest">
+            <Link href="/" className="hover:text-teal-600 transition-colors">
+              Home
+            </Link>
+            <ChevronRight className="w-3 h-3" />
+            <span className="text-slate-900">Vendors & Partners</span>
+          </nav>
+        </div>
+        <div className="max-w-7xl mx-auto px-6 relative z-10 flex items-center justify-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="max-w-3xl"
+            className="max-w-3xl text-center"
           >
             <h2 className="text-5xl lg:text-7xl font-extrabold leading-[1.1] tracking-tighter text-slate-900 mb-8">
               Partner with Infra Health and
@@ -176,40 +187,45 @@ const Vendors: React.FC = () => {
             </div>
 
             {/* Right Column: Form */}
-           <div className="relative">
-      {/* 1. Sticky container: Keeps the form in view.
+            <div className="relative">
+              {/* 1. Sticky container: Keeps the form in view.
           2. Top spacing: 'top-32' matches your previous layout.
       */}
-      <div className="sticky top-32">
-        <div className="bg-white p-6 md:p-8 rounded-md border border-slate-200 shadow-xl shadow-slate-200/50">
-          <h3 className="text-2xl font-bold text-slate-900 mb-6 font-display">
-            Vendor Application Form
-          </h3>
-          <div 
-            className="w-full h-[650px] overflow-y-auto pr-2 custom-scrollbar"
-            style={{ position: 'relative' }}
-          >
-            <iframe
-              src="https://app.visionarybizz.com/widget/form/ugl4sfPScfBLVFoSymFI"
-              style={{ width: "100%", height: "100%", border: "none", borderRadius: "3px" }}
-              id="inline-ugl4sfPScfBLVFoSymFI"
-              data-layout='{"id":"INLINE"}'
-              data-trigger-type="alwaysShow"
-              data-trigger-value=""
-              data-activation-type="alwaysActivated"
-              data-activation-value=""
-              data-deactivation-type="neverDeactivate"
-              data-deactivation-value=""
-              data-form-name="Vendor Registration Form - website"
-              data-height="3661"
-              data-layout-iframe-id="inline-ugl4sfPScfBLVFoSymFI"
-              data-form-id="ugl4sfPScfBLVFoSymFI"
-              title="Vendor Registration Form - website"
-            ></iframe>
-          </div>
-        </div>
-      </div>
-    </div>
+              <div className="sticky top-32">
+                <div className="bg-white p-6 md:p-8 rounded-md border border-slate-200 shadow-xl shadow-slate-200/50">
+                  <h3 className="text-2xl font-bold text-slate-900 mb-6 font-display">
+                    Vendor Application Form
+                  </h3>
+                  <div
+                    className="w-full h-[650px] overflow-y-auto pr-2 custom-scrollbar"
+                    style={{ position: "relative" }}
+                  >
+                    <iframe
+                      src="https://app.visionarybizz.com/widget/form/ugl4sfPScfBLVFoSymFI"
+                      style={{
+                        width: "100%",
+                        height: "100%",
+                        border: "none",
+                        borderRadius: "3px",
+                      }}
+                      id="inline-ugl4sfPScfBLVFoSymFI"
+                      data-layout='{"id":"INLINE"}'
+                      data-trigger-type="alwaysShow"
+                      data-trigger-value=""
+                      data-activation-type="alwaysActivated"
+                      data-activation-value=""
+                      data-deactivation-type="neverDeactivate"
+                      data-deactivation-value=""
+                      data-form-name="Vendor Registration Form - website"
+                      data-height="3661"
+                      data-layout-iframe-id="inline-ugl4sfPScfBLVFoSymFI"
+                      data-form-id="ugl4sfPScfBLVFoSymFI"
+                      title="Vendor Registration Form - website"
+                    ></iframe>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>

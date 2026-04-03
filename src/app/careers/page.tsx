@@ -11,9 +11,11 @@ import {
   Quote,
   ArrowRight,
   Mail,
+  ChevronRight,
 } from "lucide-react";
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import JobBoard from "@/components/careers/JobBoard";
+import Link from "next/link";
 
 // --- Components ---
 
@@ -118,6 +120,15 @@ export default function CareersPage() {
     <div className="min-h-screen bg-[#F8FAFC]">
       {/* --- Hero Section --- */}
       <section className="relative pt-44 pb-24 overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6">
+                  <nav className="flex items-center gap-2 text-xs font-medium text-slate-400 mb-8 uppercase tracking-widest">
+                    <Link href="/" className="hover:text-teal-600 transition-colors">
+                      Home
+                    </Link>
+                    <ChevronRight className="w-3 h-3" />
+                    <span className="text-slate-900">Careers</span>
+                  </nav>
+                </div>
         <div className="absolute inset-0 z-0">
           <div className="absolute top-[-10%] right-[-10%] w-150 h-150 bg-teal-400/10 blur-[120px] rounded-md" />
           <div className="absolute bottom-[-10%] left-[-10%] w-150 h-150 bg-blue-400/10 blur-[120px] rounded-md" />
@@ -151,19 +162,24 @@ export default function CareersPage() {
             <div className="grid grid-cols-2 gap-6">
               <div className="space-y-6">
                 <img
-                  src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=600"
+                  src="/asset/about/1.jpeg"
                   className="rounded-md shadow-2xl"
                   alt="Team"
                 />
                 <img
-                  src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&q=80&w=600"
+                  src="/asset/about/2.jpeg"
                   className="rounded-md shadow-2xl"
                   alt="Collaboration"
                 />
               </div>
               <div className="space-y-6">
                 <img
-                  src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=600"
+                  src="/asset/about/3.jpg"
+                  className="rounded-md shadow-2xl"
+                  alt="Professional"
+                />
+                <img
+                  src="/asset/about/4.jpg"
                   className="rounded-md shadow-2xl"
                   alt="Professional"
                 />

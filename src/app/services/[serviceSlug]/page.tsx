@@ -161,37 +161,58 @@ export default async function ServicePage({ params }: Props) {
       <JsonLd data={finalSchema} />
       <div className="pt-30 bg-white">
         {/* --- Hero Section --- */}
-        <section className="max-w-7xl mx-auto px-6 py-16 border-b border-slate-100">
-          <nav className="flex items-center gap-2 text-xs font-medium text-slate-400 mb-8 uppercase tracking-widest">
-            <Link href="/" className="hover:text-teal-600 transition-colors">
-              Home
-            </Link>
-            <ChevronRight className="w-3 h-3" />
-            <Link href="/" className="hover:text-teal-600 transition-colors">
-              Services
-            </Link>
-            <ChevronRight className="w-3 h-3" />
-            <span className="text-slate-900">{service.title}</span>
-          </nav>
-         <h1 className="text-4xl text-brand-purple mb-6 text-center font-bold leading-relaxed">
-          {service.title}
-        </h1>
-          <div className="grid lg:grid-cols-2 gap-12 items-start">
-            <div>
-              <p className="text-xl text-teal-600 mb-6 font-medium leading-relaxed">
-                {service.headline}
-              </p>
-              <p className="text-lg leading-relaxed text-slate-600 mb-8">
-                {service.longDescription}
-              </p>
-            </div>
-            <div className="relative">
-              <div className="aspect-16/10 rounded-md overflow-hidden shadow-2xl">
-                <img
-                  src={service.heroImage}
-                  alt={service.title}
-                  className="w-full h-full object-cover"
-                />
+        <section className="relative overflow-hidden bg-white pt-16 pb-24">
+          <div className="max-w-7xl mx-auto px-6">
+            {/* Refined Breadcrumb */}
+            <nav className="flex items-center gap-2 mb-10">
+              <Link
+                href="/"
+                className="text-sm font-medium text-slate-400 hover:text-teal-600 transition-colors"
+              >
+                Home
+              </Link>
+              <ChevronRight className="w-3.5 h-3.5 text-slate-300" />
+              <Link
+                href="/services"
+                className="text-sm font-medium text-slate-400 hover:text-teal-600 transition-colors"
+              >
+                Services
+              </Link>
+              <ChevronRight className="w-3.5 h-3.5 text-slate-300" />
+              <Link
+                href={`/services/${serviceSlug}`}
+                className="text-sm font-medium text-slate-400 hover:text-teal-600 transition-colors"
+              >
+                {service.title}
+              </Link>
+            </nav>
+
+            {/* SEO-Optimized H1 & Intro Grid */}
+            <div className="grid lg:grid-cols-12 gap-12 lg:gap-20 items-center">
+              <div className="lg:col-span-7">
+                <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-brand-purple tracking-tight leading-[0.95] mb-8">
+                  {service.title}
+                </h1>
+                <div className="space-y-6">
+                  <h2 className="text-xl md:text-2xl font-medium text-teal-600/90 leading-relaxed border-l-4 border-teal-500 pl-6">
+                    {service.headline}
+                  </h2>
+                  <p className="text-lg text-slate-600 leading-relaxed max-w-xl">
+                    {service.longDescription}
+                  </p>
+                </div>
+              </div>
+
+              {/* Hero Image with Floating Effect */}
+              <div className="lg:col-span-5 relative">
+                <div className="absolute -inset-4 bg-teal-50 rounded-3xl -z-10 rotate-3 transition-transform group-hover:rotate-0 duration-500" />
+                <div className="aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl border border-slate-100 bg-white">
+                  <img
+                    src={service.heroImage}
+                    alt={service.title}
+                    className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700"
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -201,7 +222,7 @@ export default async function ServicePage({ params }: Props) {
           <div className="max-w-7xl mx-auto px-6">
             {service.sectionIntro && (
               <div className="max-w-3xl mb-20">
-                <h2 className="text-4xl font-bold text-slate-900 mb-6 font-display">
+                <h2 className="text-3xl font-extrabold leading-[1.1] tracking-tight text-slate-900 md:text-5xl lg:text-6xl mb-6">
                   {service.sectionIntro.title}
                 </h2>
                 <p className="text-lg leading-relaxed text-slate-600">
@@ -229,7 +250,7 @@ export default async function ServicePage({ params }: Props) {
 
                     return (
                       <ServiceCard
-                        key={card.id || i}
+                        key={card.id || i} // Using card.id as a key is better for performance than index 'i'
                         title={card.title}
                         description={card.description}
                         href={`/services/${serviceSlug}/${targetId}`}
@@ -244,7 +265,7 @@ export default async function ServicePage({ params }: Props) {
         <section className="py-24 bg-slate-900 text-white relative overflow-hidden">
           <div className="max-w-7xl mx-auto px-6 relative z-10">
             <div className="max-w-3xl mb-16">
-              <h2 className="text-xs font-bold text-teal-400 uppercase tracking-[0.4em] mb-6">
+              <h2 className="text-3xl font-extrabold leading-[1.1] tracking-tight text-brand-teal md:text-5xl lg:text-6xl mb-6">
                 {service.strategicTitle}
               </h2>
               <p className="text-lg leading-relaxed text-slate-200">

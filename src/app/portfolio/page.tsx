@@ -67,7 +67,7 @@ const Portfolio: React.FC = () => {
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
       <section className="relative pt-44 pb-20 overflow-hidden bg-slate-50">
-        <div className="absolute top-0 right-0 w-1/2 h-full pointer-events-none">
+        <div className="absolute top-[25%] right-0 w-1/2 h-full pointer-events-none pt-5">
           <div className="absolute inset-0 bg-linear-to-l from-brand-teal/20 to-transparent" />
           <img
             src="/asset/hero/abt.png"

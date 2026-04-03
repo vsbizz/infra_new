@@ -1,38 +1,59 @@
 "use client";
 import { motion } from "framer-motion";
-import { Facebook, Twitter, Instagram, Linkedin, Youtube } from "lucide-react";
+import { Facebook, Twitter, Instagram, Linkedin, Youtube, XIcon, TwitterIcon } from "lucide-react";
+import Link from "next/link"; // Import Link
 
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
 
-  const socialLinks = [
-    { icon: <Facebook size={18} />, href: "#" },
-    { icon: <Twitter size={18} />, href: "#" },
-    { icon: <Instagram size={18} />, href: "#" },
-    { icon: <Linkedin size={18} />, href: "#" },
-    { icon: <Youtube size={18} />, href: "#" },
+const socialLinks = [
+    {
+      icon: <Facebook size={18} />,
+      href: "https://www.facebook.com/profile.php?viewas=100000686899395&id=61579937188150",
+    },
+    {
+      icon: <Instagram size={18} />,
+      href: "https://www.instagram.com/infra.health/",
+    },
+    {
+      icon: <Linkedin size={18} />,
+      href: "https://www.linkedin.com/company/infra-health-india/",
+    },
+    {
+      icon: <TwitterIcon size={18} />,
+      href: "https://x.com/infra_health_",
+    },
+    {
+      icon: <Youtube size={18} />,
+      href: "https://www.youtube.com/@Infra.Health",
+    },
   ];
-
   const services = [
-    "Investment & Capital Advisory",
-    "Leasing & Operator Advisory",
-    "Advisory & Strategic Planning",
-    "Design & Project Delivery",
-    "Property & Facilities Management",
+    { name: "Investment & Capital Advisory", href: "/services/investment-and-capital-advisory" },
+    { name: "Leasing & Operator Advisory", href: "/services/leasing-and-operator-advisory" },
+    { name: "Advisory & Strategic Planning", href: "/services/advisory-and-strategic-planning" },
+    { name: "Design & Project Delivery", href: "/services/design-and-project-delivery" },
+    { name: "Property & Facilities Management", href: "/services/property-and-facilities-management" },
   ];
 
   const sectors = [
-    "Public Healthcare Infrastructure",
-    "Advanced Acute Care Hospitals",
-    "Specialty & Focused Care Facilities",
-    "Academic & Medical Education",
-    "Diagnostic & Ambulatory Care",
-    "Rehabilitation & Long-Term Care",
-    "Elder Care & Assisted Living",
-    "Integrated Healthcare Campuses",
+    { name: "Public Healthcare Infrastructure", href: "/sectors/public-healthcare" },
+    { name: "Advanced Acute Care Hospitals", href: "/sectors/acute-care" },
+    { name: "Specialty & Focused Care Facilities", href: "/sectors/specialty-care" },
+    { name: "Academic & Medical Education", href: "/sectors/academic-education" },
+    { name: "Diagnostic & Ambulatory Care", href: "/sectors/diagnostic-ambulatory" },
+    { name: "Rehabilitation & Long-Term Care", href: "/sectors/rehab-long-term-care" },
+    { name: "Elder Care & Assisted Living", href: "/sectors/elder-care" },
+    { name: "Integrated Healthcare Campuses", href: "/sectors/integrated-campuses" },
   ];
 
-  const company = ["About Us", "Careers", "Portfolio", "Properties", "Contact Us"];
+  const company = [
+    { name: "About Us", href: "/about" },
+    { name: "Careers", href: "/careers" },
+    { name: "Portfolio", href: "/portfolio" },
+    { name: "Properties", href: "/properties" },
+    { name: "Contact Us", href: "/contact" },
+  ];
 
   return (
     <footer>
@@ -42,31 +63,34 @@ export const Footer = () => {
           <h2 className="text-3xl font-extrabold text-white tracking-tight">
             Ready to discuss your healthcare asset strategy?
           </h2>
-          <motion.button
-            whileHover="hover"
-            whileTap={{ scale: 0.98 }}
-            initial="initial"
-            className="relative overflow-hidden rounded-full border border-slate-900 bg-slate-900 px-10 py-4 text-sm font-bold text-white shadow-lg"
-          >
-            <motion.span
-              variants={{
-                initial: { color: "#ffffff" },
-                hover: { color: "#0D9488" },
-              }}
-              transition={{ duration: 0.5 }}
-              className="relative z-10 pointer-events-none"
+          {/* Linked CTA Button */}
+          <Link href="/contact">
+            <motion.button
+              whileHover="hover"
+              whileTap={{ scale: 0.98 }}
+              initial="initial"
+              className="relative overflow-hidden rounded-full border border-slate-900 bg-slate-900 px-10 py-4 text-sm font-bold text-white shadow-lg"
             >
-              Contact Us
-            </motion.span>
-            <motion.div
-              variants={{
-                initial: { scale: 0, opacity: 0 },
-                hover: { scale: 2, opacity: 1 },
-              }}
-              transition={{ duration: 1.2, ease: "easeOut" }}
-              className="absolute left-1/2 top-1/2 z-0 aspect-square w-full -translate-x-1/2 -translate-y-1/2 rounded-full bg-white origin-center"
-            />
-          </motion.button>
+              <motion.span
+                variants={{
+                  initial: { color: "#ffffff" },
+                  hover: { color: "#0D9488" },
+                }}
+                transition={{ duration: 0.5 }}
+                className="relative z-10 pointer-events-none"
+              >
+                Contact Us
+              </motion.span>
+              <motion.div
+                variants={{
+                  initial: { scale: 0, opacity: 0 },
+                  hover: { scale: 2, opacity: 1 },
+                }}
+                transition={{ duration: 1.2, ease: "easeOut" }}
+                className="absolute left-1/2 top-1/2 z-0 aspect-square w-full -translate-x-1/2 -translate-y-1/2 rounded-full bg-white origin-center"
+              />
+            </motion.button>
+          </Link>
         </div>
       </section>
 
@@ -76,13 +100,13 @@ export const Footer = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-24 mb-20">
             {/* Brand Column */}
             <div className="space-y-8">
-              <div className="text-2xl font-bold text-white">
+              <Link href="/" className="inline-block">
                 <img
                   src="/asset/logo/infrawhite.png"
                   alt="Infra.Health Logo"
                   className="w-auto transition-all duration-500 h-14"
                 />
-              </div>
+              </Link>
               <p className="text-sm leading-relaxed text-slate-400">
                 The Global Healthcare Asset Platform. Institutional-grade
                 de-risking and management across the lifecycle.
@@ -92,6 +116,8 @@ export const Footer = () => {
                   <a
                     key={idx}
                     href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="text-slate-500 hover:text-teal-500 transition-colors"
                   >
                     {social.icon}
@@ -107,11 +133,11 @@ export const Footer = () => {
               </h4>
               <ul className="space-y-4 text-sm font-medium">
                 {services.map((item) => (
-                  <li key={item} className="group flex items-center">
+                  <li key={item.name} className="group flex items-center">
                     <span className="inline-block w-0.75 h-3 bg-slate-500 group-hover:bg-teal-500 transition-colors mr-3" />
-                    <a href="#" className="hover:text-white transition-colors">
-                      {item}
-                    </a>
+                    <Link href={item.href} className="hover:text-white transition-colors">
+                      {item.name}
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -124,11 +150,11 @@ export const Footer = () => {
               </h4>
               <ul className="space-y-3 text-sm font-medium">
                 {sectors.map((item) => (
-                  <li key={item} className="group flex items-center">
+                  <li key={item.name} className="group flex items-center">
                     <span className="inline-block w-0.75 h-3 bg-slate-500 group-hover:bg-teal-500 transition-colors mr-3" />
-                    <a href="#" className="hover:text-white transition-colors">
-                      {item}
-                    </a>
+                    <Link href={item.href} className="hover:text-white transition-colors">
+                      {item.name}
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -141,11 +167,11 @@ export const Footer = () => {
               </h4>
               <ul className="space-y-4 text-sm font-medium">
                 {company.map((item) => (
-                  <li key={item} className="group flex items-center">
+                  <li key={item.name} className="group flex items-center">
                     <span className="inline-block w-0.75 h-3 bg-slate-500 group-hover:bg-teal-500 transition-colors mr-3" />
-                    <a href="#" className="hover:text-white transition-colors">
-                      {item}
-                    </a>
+                    <Link href={item.href} className="hover:text-white transition-colors">
+                      {item.name}
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -153,19 +179,9 @@ export const Footer = () => {
           </div>
 
           {/* Bottom Bar */}
-          <div className="pt-12 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center gap-6 text-[11px] font-bold uppercase tracking-wider text-slate-500">
-            <div>© {currentYear} Infra.Health Global. All Rights Reserved.</div>
-            <div className="flex gap-8">
-              <a href="#" className="hover:text-white transition-colors">
-                Privacy Policy
-              </a>
-              <a href="#" className="hover:text-white transition-colors">
-                Terms of Service
-              </a>
-              <a href="#" className="hover:text-white transition-colors">
-                Compliance Disclosure
-              </a>
-            </div>
+          <div className="pt-12 border-t border-slate-800 flex justify-center items-center gap-6 text-[11px] font-bold uppercase tracking-wider text-slate-500">
+            <div>© {currentYear} Infra.health™ | Emerway Healthtech Private Limited</div>
+          
           </div>
         </div>
       </section>

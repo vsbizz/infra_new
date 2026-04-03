@@ -36,7 +36,7 @@ export const SECTORS_CONTENT: Record<string, Sector> = {
     focus: "• Sovereign Health Frameworks • National Development Mandates • PPP Structural Governance • Regulatory Intelligence",
     intro: "Infra.Health partners with sovereign institutions and development agencies to deliver essential healthcare frameworks designed for national development.",
     icon: <Building2 className="w-6 h-6" />,
-    image: "https://images.unsplash.com/photo-1586771107445-d3ca888129ff?q=80&w=1200",
+    image: "/asset/portfolio/16.jpg",
     assetClasses: [
       "Primary Health Centres (PHCs)",
       "Community Health Centres (CHCs)",
@@ -82,7 +82,7 @@ export const SECTORS_CONTENT: Record<string, Sector> = {
     focus: "• Clinical-Academic Convergence • Institutional Performance Benchmarks • High-Capacity Programming • Research & Training Synergy",
     intro: "We develop integrated environments that balance high-volume clinical delivery with the rigorous requirements of academic research and medical training.",
     icon: <GraduationCap className="w-6 h-6" />,
-    image: "https://images.unsplash.com/photo-1562774053-701939374585?q=80&w=1200",
+    image: "/asset/portfolio/pimpri/Highlighting Image.jpg",
     assetClasses: [
       "Teaching Hospitals",
       "Medical Colleges",
@@ -96,7 +96,7 @@ export const SECTORS_CONTENT: Record<string, Sector> = {
     focus: "• High-Throughput Engineering • Medical Gas & Radiation Shielding • Technological Scalability • Day-Care Efficiency Models",
     intro: "Focused on efficiency and rapid patient turnaround, these assets provide the backbone for modern diagnostic and preventive healthcare networks.",
     icon: <Microscope className="w-6 h-6" />,
-    image: "https://images.unsplash.com/photo-1579154234431-30146296305b?q=80&w=1200",
+    image: "/asset/ambulance.jpg",
     assetClasses: [
       "Imaging & Radiology Centres",
       "Pathology & Laboratory Networks",
@@ -123,7 +123,7 @@ export const SECTORS_CONTENT: Record<string, Sector> = {
     focus: "• Specialized Medical IFM Assets • 24/7 Operational Resilience • Safety & Comfort Benchmarking • Lifecycle Performance Oversight",
     intro: "Specialized medical IFM assets demanding international comfort and safety benchmarks for aging populations.",
     icon: <Users className="w-6 h-6" />,
-    image: "https://images.unsplash.com/photo-1581578731522-5b17b8822eda?q=80&w=1200",
+    image: "https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?q=80&w=2010&auto=format&fit=crop",
     assetClasses: [
       "Geriatric Care Centres",
       "Assisted Living Facilities",
