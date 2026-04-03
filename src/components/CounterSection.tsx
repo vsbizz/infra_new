@@ -1,12 +1,19 @@
-'use client'
-import { motion, useMotionValue, useSpring, useTransform, useInView, animate } from "framer-motion";
+"use client";
+import {
+  motion,
+  useMotionValue,
+  useSpring,
+  useTransform,
+  useInView,
+  animate,
+} from "framer-motion";
 import { useEffect, useRef, ElementType, useState } from "react";
 import {
   Building2,
   Bed,
   Activity,
-  Microscope,
-  RulerDimensionLine,
+  HeartPulse,
+  Hospital,
 } from "lucide-react";
 
 interface StatData {
@@ -21,20 +28,27 @@ interface StatItemProps extends StatData {
 
 // FIX: Changed type to StatData[] because it is an array
 const STATS_DATA: StatData[] = [
-  { label: "Projects", value: "70+", icon: Building2 },
+  { label: "Projects", value: "70+", icon: Hospital },
   { label: "Beds", value: "13,500+", icon: Bed },
   { label: "ICU beds", value: "2,450+", icon: Activity },
-  { label: "Modular OTs", value: "280+", icon: Microscope },
-  { label: "Sq. Ft. Built", value: "18M+", icon: RulerDimensionLine },
+  { label: "Modular OTs", value: "280+", icon: HeartPulse },
+  { label: "Sq. Ft. Built", value: "18M+", icon: Building2 },
 ];
 
-const RollingNumber = ({ value, isInView }: { value: string; isInView: boolean }) => {
+const RollingNumber = ({
+  value,
+  isInView,
+}: {
+  value: string;
+  isInView: boolean;
+}) => {
   const numericValue = parseInt(value.replace(/[^0-9]/g, ""), 10) || 0;
   const suffix = value.replace(/[0-9,]/g, "");
 
   const count = useMotionValue(0);
-  const rounded = useTransform(count, (latest) => 
-    Math.floor(latest).toLocaleString() + suffix
+  const rounded = useTransform(
+    count,
+    (latest) => Math.floor(latest).toLocaleString() + suffix,
   );
 
   useEffect(() => {
@@ -64,14 +78,18 @@ const StatItem = ({ label, value, index, icon: Icon }: StatItemProps) => {
       initial="initial"
       whileHover="hover"
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
-      transition={{ duration: 0.8, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
+      transition={{
+        duration: 0.8,
+        delay: index * 0.1,
+        ease: [0.16, 1, 0.3, 1],
+      }}
       className="relative group overflow-hidden rounded-2xl border border-white/20 bg-brand-teal p-10 backdrop-blur-xl shadow-2xl transition-all duration-500 hover:scale-[1.02] cursor-default"
     >
       {/* Liquid Expansion Background Effect */}
       <motion.div
         variants={{
           initial: { scale: 0, opacity: 0 },
-          hover: { scale: 3.5, opacity: 1 }, 
+          hover: { scale: 3.5, opacity: 1 },
         }}
         transition={{
           duration: 0.8,
@@ -82,7 +100,7 @@ const StatItem = ({ label, value, index, icon: Icon }: StatItemProps) => {
 
       {/* Decorative Ring */}
       <div className="absolute inset-0 z-10 rounded-2xl transition-all duration-500 group-hover:ring-1 group-hover:ring-white/50" />
-      
+
       {/* Content */}
       <div className="relative z-20 flex flex-col items-center text-center">
         {Icon && (
@@ -90,11 +108,11 @@ const StatItem = ({ label, value, index, icon: Icon }: StatItemProps) => {
             <Icon size={32} strokeWidth={1.5} />
           </div>
         )}
-      
+
         <span className="text-4xl font-black tracking-tight text-white md:text-5xl">
           <RollingNumber value={value} isInView={isInView} />
         </span>
-        
+
         <span className="mt-4 text-[10px] font-bold tracking-[0.3em] text-white/60 uppercase">
           {label}
         </span>
@@ -103,21 +121,34 @@ const StatItem = ({ label, value, index, icon: Icon }: StatItemProps) => {
   );
 };
 
-export const CounterSection = ({ stats = STATS_DATA }: { stats?: StatData[] }) => {
+export const CounterSection = ({
+  stats = STATS_DATA,
+}: {
+  stats?: StatData[];
+}) => {
   return (
     <section className="relative z-30 py-24 overflow-hidden bg-white">
       {/* Background Glows */}
       <div className="absolute -top-24 left-1/4 w-96 h-96 bg-teal-500/10 blur-[120px] rounded-full" />
       <div className="absolute -bottom-24 right-1/4 w-96 h-96 bg-blue-500/10 blur-[120px] rounded-full" />
-      
+
       <div className="mx-auto max-w-7xl px-8 relative z-10">
+        <div className="text-center mb-24 max-w-3xl mx-auto">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-3xl font-extrabold leading-[1.1] tracking-tight text-slate-900 md:text-5xl lg:text-6xl mb-12"
+          >Impact<span className="text-brand-teal"> Infra.Health </span> Delivered
+          </motion.h2>
+        </div>
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-5">
           {stats.map((stat, index) => (
-            <StatItem 
-              key={index} 
-              label={stat.label} 
-              value={stat.value} 
-              index={index} 
+            <StatItem
+              key={index}
+              label={stat.label}
+              value={stat.value}
+              index={index}
               icon={stat.icon}
             />
           ))}

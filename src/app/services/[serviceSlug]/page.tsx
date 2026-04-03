@@ -173,6 +173,9 @@ export default async function ServicePage({ params }: Props) {
             <ChevronRight className="w-3 h-3" />
             <span className="text-slate-900">{service.title}</span>
           </nav>
+         <h1 className="text-4xl text-brand-purple mb-6 text-center font-bold leading-relaxed">
+          {service.title}
+        </h1>
           <div className="grid lg:grid-cols-2 gap-12 items-start">
             <div>
               <p className="text-xl text-teal-600 mb-6 font-medium leading-relaxed">
@@ -221,14 +224,18 @@ export default async function ServicePage({ params }: Props) {
                 </div>
 
                 <div className="grid md:grid-cols-3 gap-6">
-                  {section.cards.map((card: any, i: number) => (
-                    <ServiceCard
-                      key={i}
-                      title={card.title}
-                      description={card.description}
-                      href={`/services/${serviceSlug}/${section.id}`}
-                    />
-                  ))}
+                  {section.cards.map((card: any, i: number) => {
+                    const targetId = card.id || section.id;
+
+                    return (
+                      <ServiceCard
+                        key={card.id || i}
+                        title={card.title}
+                        description={card.description}
+                        href={`/services/${serviceSlug}/${targetId}`}
+                      />
+                    );
+                  })}
                 </div>
               </div>
             ))}

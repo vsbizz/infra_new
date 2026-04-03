@@ -37,13 +37,13 @@ type Props = {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { serviceSlug, subServiceSlug } = await params;
 
-  const slugToKey: Record<string, string> = {
-    "leasing-and-operator-advisory": "leasingAndOperatorAdvisory",
-    "investment-capital-advisory": "investmentAndCapitalAdvisory",
-    "advisory-strategic-planning": "advisoryAndStrategicPlanning",
-    "design-project-delivery": "designAndProjectDelivery",
-    "property-facilities-management": "propertyAndFacilitiesManagement",
-  };
+const slugToKey: Record<string, string> = {
+  "leasing-and-operator-advisory": "leasingAndOperatorAdvisory",
+  "investment-and-capital-advisory": "investmentAndCapitalAdvisory", 
+  "advisory-and-strategic-planning": "advisoryAndStrategicPlanning", 
+  "design-and-project-delivery": "designAndProjectDelivery",        
+  "property-and-facilities-management": "propertyAndFacilitiesManagement", 
+};
 
   const parentKey = slugToKey[serviceSlug];
   const parentMeta = (metaData.services as any)?.[parentKey];
@@ -82,9 +82,9 @@ export default async function SubServicePage({ params }: Props) {
   if (!subService) notFound();
 
   return (
-    <div className="pt-24 bg-white">
+    <div className="pt-30 bg-white">
       <section className="max-w-7xl mx-auto px-6 py-16">
-        <nav className="flex items-center gap-2 text-xs font-medium text-slate-400 mb-12 uppercase tracking-widest">
+        <nav className="flex items-center gap-2 text-xs font-medium text-slate-400 mb-6 uppercase tracking-widest">
           <Link href="/" className="hover:text-teal-600 transition-colors">
             Home
           </Link>
@@ -102,6 +102,9 @@ export default async function SubServicePage({ params }: Props) {
           <ChevronRight className="w-3 h-3" />
           <span className="text-slate-900">{subService.title}</span>
         </nav>
+        <h1 className="text-4xl text-brand-purple mb-6 text-center font-bold leading-relaxed">
+          {subService.title}
+        </h1>
         <div className="grid lg:grid-cols-2 gap-12 items-start">
           <div>
             <h2 className="text-xl text-teal-600 mb-6 font-medium leading-relaxed">

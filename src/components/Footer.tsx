@@ -1,12 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
-import {
-  Facebook,
-  Twitter,
-  Instagram,
-  Linkedin,
-  Youtube,
-} from "lucide-react";
+import { Facebook, Twitter, Instagram, Linkedin, Youtube } from "lucide-react";
 
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -19,10 +13,31 @@ export const Footer = () => {
     { icon: <Youtube size={18} />, href: "#" },
   ];
 
+  const services = [
+    "Investment & Capital Advisory",
+    "Leasing & Operator Advisory",
+    "Advisory & Strategic Planning",
+    "Design & Project Delivery",
+    "Property & Facilities Management",
+  ];
+
+  const sectors = [
+    "Public Healthcare Infrastructure",
+    "Advanced Acute Care Hospitals",
+    "Specialty & Focused Care Facilities",
+    "Academic & Medical Education",
+    "Diagnostic & Ambulatory Care",
+    "Rehabilitation & Long-Term Care",
+    "Elder Care & Assisted Living",
+    "Integrated Healthcare Campuses",
+  ];
+
+  const company = ["About Us", "Careers", "Portfolio", "Properties", "Contact Us"];
+
   return (
     <footer>
       {/* CTA Section */}
-      <section className="bg-brand-teal py-8">
+      <section className="bg-teal-600 py-8">
         <div className="mx-auto max-w-8xl px-8 lg:px-16 flex flex-col md:flex-row items-center justify-between gap-8">
           <h2 className="text-3xl font-extrabold text-white tracking-tight">
             Ready to discuss your healthcare asset strategy?
@@ -59,7 +74,6 @@ export const Footer = () => {
       <section className="bg-[#0F172A] pt-24 pb-12 text-slate-300">
         <div className="mx-auto max-w-8xl px-8 lg:px-16">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-24 mb-20">
-            
             {/* Brand Column */}
             <div className="space-y-8">
               <div className="text-2xl font-bold text-white">
@@ -78,7 +92,7 @@ export const Footer = () => {
                   <a
                     key={idx}
                     href={social.href}
-                    className="text-slate-500 hover:text-[#319795] transition-colors"
+                    className="text-slate-500 hover:text-teal-500 transition-colors"
                   >
                     {social.icon}
                   </a>
@@ -92,11 +106,14 @@ export const Footer = () => {
                 Services
               </h4>
               <ul className="space-y-4 text-sm font-medium">
-                <li><a href="#" className="hover:text-white transition-colors">Investment & Capital Advisory</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Leasing & Operator Advisory</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Advisory & Strategic Planning</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Design & Project Delivery</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Property & Facilities Management</a></li>
+                {services.map((item) => (
+                  <li key={item} className="group flex items-center">
+                    <span className="inline-block w-0.75 h-3 bg-slate-500 group-hover:bg-teal-500 transition-colors mr-3" />
+                    <a href="#" className="hover:text-white transition-colors">
+                      {item}
+                    </a>
+                  </li>
+                ))}
               </ul>
             </div>
 
@@ -106,14 +123,14 @@ export const Footer = () => {
                 Sectors
               </h4>
               <ul className="space-y-3 text-sm font-medium">
-                <li><a href="#" className="hover:text-white transition-colors">Public Healthcare Infrastructure</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Advanced Acute Care Hospitals</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Specialty & Focused Care Facilities</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Academic & Medical Education</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Diagnostic & Ambulatory Care</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Rehabilitation & Long-Term Care</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Elder Care & Assisted Living</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Integrated Healthcare Campuses</a></li>
+                {sectors.map((item) => (
+                  <li key={item} className="group flex items-center">
+                    <span className="inline-block w-0.75 h-3 bg-slate-500 group-hover:bg-teal-500 transition-colors mr-3" />
+                    <a href="#" className="hover:text-white transition-colors">
+                      {item}
+                    </a>
+                  </li>
+                ))}
               </ul>
             </div>
 
@@ -123,11 +140,14 @@ export const Footer = () => {
                 Company
               </h4>
               <ul className="space-y-4 text-sm font-medium">
-                <li><a href="#" className="hover:text-white transition-colors">About Us</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Careers</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Portfolio</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Properties</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Contact Us</a></li>
+                {company.map((item) => (
+                  <li key={item} className="group flex items-center">
+                    <span className="inline-block w-0.75 h-3 bg-slate-500 group-hover:bg-teal-500 transition-colors mr-3" />
+                    <a href="#" className="hover:text-white transition-colors">
+                      {item}
+                    </a>
+                  </li>
+                ))}
               </ul>
             </div>
           </div>
@@ -136,9 +156,15 @@ export const Footer = () => {
           <div className="pt-12 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center gap-6 text-[11px] font-bold uppercase tracking-wider text-slate-500">
             <div>© {currentYear} Infra.Health Global. All Rights Reserved.</div>
             <div className="flex gap-8">
-              <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
-              <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
-              <a href="#" className="hover:text-white transition-colors">Compliance Disclosure</a>
+              <a href="#" className="hover:text-white transition-colors">
+                Privacy Policy
+              </a>
+              <a href="#" className="hover:text-white transition-colors">
+                Terms of Service
+              </a>
+              <a href="#" className="hover:text-white transition-colors">
+                Compliance Disclosure
+              </a>
             </div>
           </div>
         </div>

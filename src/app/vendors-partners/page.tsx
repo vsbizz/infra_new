@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
 import { motion } from "motion/react";
 import {
   Users,
@@ -15,6 +15,21 @@ import {
 } from "lucide-react";
 
 const Vendors: React.FC = () => {
+  useEffect(() => {
+    // Load the CRM script once when component mounts
+    const script = document.createElement("script");
+    script.src = "https://app.visionarybizz.com/js/form_embed.js";
+    script.async = true;
+    document.body.appendChild(script);
+
+    return () => {
+      // Cleanup to prevent duplicate script tags on navigation
+      if (document.body.contains(script)) {
+        document.body.removeChild(script);
+      }
+    };
+  }, []);
+
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
@@ -28,7 +43,7 @@ const Vendors: React.FC = () => {
           >
             <h2 className="text-5xl lg:text-7xl font-extrabold leading-[1.1] tracking-tighter text-slate-900 mb-8">
               Partner with Infra Health and
-              <span className="text-brand-teal">Grow your Business</span>
+              <span className="text-brand-teal"> Grow your Business</span>
             </h2>
             <p className="text-lg leading-relaxed text-slate-600 mb-10">
               Infra Health collaborates with trusted vendors to deliver
@@ -161,95 +176,40 @@ const Vendors: React.FC = () => {
             </div>
 
             {/* Right Column: Form */}
-            <div className="relative">
-              <div className="sticky top-32">
-                <div className="bg-white p-8 md:p-10 rounded-md border border-slate-200 shadow-xl shadow-slate-200/50">
-                  <h3 className="text-2xl font-bold text-slate-900 mb-8 font-display">
-                    Vendor Application Form
-                  </h3>
-                  <form className="space-y-6">
-                    <div className="grid md:grid-cols-2 gap-6">
-                      <div className="space-y-2">
-                        <label className="text-xs font-bold text-slate-500 uppercase tracking-widest">
-                          Company Name
-                        </label>
-                        <input
-                          type="text"
-                          className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-teal transition-all"
-                          placeholder="Acme Healthcare"
-                        />
-                      </div>
-                      <div className="space-y-2">
-                        <label className="text-xs font-bold text-slate-500 uppercase tracking-widest">
-                          Contact Person
-                        </label>
-                        <input
-                          type="text"
-                          className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-teal transition-all"
-                          placeholder="John Doe"
-                        />
-                      </div>
-                    </div>
-
-                    <div className="grid md:grid-cols-2 gap-6">
-                      <div className="space-y-2">
-                        <label className="text-xs font-bold text-slate-500 uppercase tracking-widest">
-                          Email Address
-                        </label>
-                        <input
-                          type="email"
-                          className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-teal transition-all"
-                          placeholder="john@example.com"
-                        />
-                      </div>
-                      <div className="space-y-2">
-                        <label className="text-xs font-bold text-slate-500 uppercase tracking-widest">
-                          Phone Number
-                        </label>
-                        <input
-                          type="tel"
-                          className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-teal transition-all"
-                          placeholder="+91 98765 43210"
-                        />
-                      </div>
-                    </div>
-
-                    <div className="space-y-2">
-                      <label className="text-xs font-bold text-slate-500 uppercase tracking-widest">
-                        Expertise Area
-                      </label>
-                      <select className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-teal transition-all appearance-none">
-                        <option>Equipment Supply</option>
-                        <option>Interior Execution</option>
-                        <option>Electrical Works</option>
-                        <option>HVAC Solutions</option>
-                        <option>Civil Works</option>
-                        <option>Healthcare Technology</option>
-                      </select>
-                    </div>
-
-                    <div className="space-y-2">
-                      <label className="text-xs font-bold text-slate-500 uppercase tracking-widest">
-                        Message / Brief Profile
-                      </label>
-                      <textarea
-                        rows={4}
-                        className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-teal transition-all"
-                        placeholder="Tell us about your company and experience..."
-                      ></textarea>
-                    </div>
-
-                    <motion.button
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.98 }}
-                      className="rounded-full px-8 py-3 text-sm font-bold transition-all duration-500 bg-teal-600 text-white hover:bg-slate-900"
-                    >
-                      Submit Application
-                    </motion.button>
-                  </form>
-                </div>
-              </div>
-            </div>
+           <div className="relative">
+      {/* 1. Sticky container: Keeps the form in view.
+          2. Top spacing: 'top-32' matches your previous layout.
+      */}
+      <div className="sticky top-32">
+        <div className="bg-white p-6 md:p-8 rounded-md border border-slate-200 shadow-xl shadow-slate-200/50">
+          <h3 className="text-2xl font-bold text-slate-900 mb-6 font-display">
+            Vendor Application Form
+          </h3>
+          <div 
+            className="w-full h-[650px] overflow-y-auto pr-2 custom-scrollbar"
+            style={{ position: 'relative' }}
+          >
+            <iframe
+              src="https://app.visionarybizz.com/widget/form/ugl4sfPScfBLVFoSymFI"
+              style={{ width: "100%", height: "100%", border: "none", borderRadius: "3px" }}
+              id="inline-ugl4sfPScfBLVFoSymFI"
+              data-layout='{"id":"INLINE"}'
+              data-trigger-type="alwaysShow"
+              data-trigger-value=""
+              data-activation-type="alwaysActivated"
+              data-activation-value=""
+              data-deactivation-type="neverDeactivate"
+              data-deactivation-value=""
+              data-form-name="Vendor Registration Form - website"
+              data-height="3661"
+              data-layout-iframe-id="inline-ugl4sfPScfBLVFoSymFI"
+              data-form-id="ugl4sfPScfBLVFoSymFI"
+              title="Vendor Registration Form - website"
+            ></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
           </div>
         </div>
       </section>

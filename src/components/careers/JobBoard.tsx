@@ -1,8 +1,14 @@
 "use client";
 
-import React, { useState, useMemo } from "react";
-import { Search, Mail, ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
-
+import React, { useState, useMemo, useEffect } from "react";
+import {
+  Search,
+  Mail,
+  ArrowRight,
+  ChevronLeft,
+  ChevronRight,
+  X,
+} from "lucide-react";
 
 const JOBS = [
   {
@@ -198,12 +204,25 @@ const JOBS_PER_PAGE = 8;
 export default function JobBoard() {
   const [searchQuery, setSearchQuery] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
+
+  // 1. Load CRM Script
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src = "https://app.visionarybizz.com/js/form_embed.js";
+    script.async = true;
+    document.body.appendChild(script);
+    return () => {
+      if (document.body.contains(script)) document.body.removeChild(script);
+    };
+  }, []);
 
   // 1. Filter jobs based on search query
   const filteredJobs = useMemo(() => {
-    return JOBS.filter((job) =>
-      job.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      job.qual.toLowerCase().includes(searchQuery.toLowerCase())
+    return JOBS.filter(
+      (job) =>
+        job.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        job.qual.toLowerCase().includes(searchQuery.toLowerCase()),
     );
   }, [searchQuery]);
 
@@ -259,7 +278,10 @@ export default function JobBoard() {
               <tbody className="divide-y divide-slate-100">
                 {currentJobs.length > 0 ? (
                   currentJobs.map((job, idx) => (
-                    <tr key={idx} className="hover:bg-teal-50/30 transition-colors group">
+                    <tr
+                      key={idx}
+                      className="hover:bg-teal-50/30 transition-colors group"
+                    >
                       <td className="py-8 px-10 font-bold text-slate-900 text-lg">
                         {job.title}
                       </td>
@@ -270,15 +292,21 @@ export default function JobBoard() {
                         {job.qual}
                       </td>
                       <td className="py-8 px-10 text-right">
-                        <button className="bg-slate-900 text-white px-6 py-2.5 rounded-full font-bold hover:bg-teal-600 transition-all text-sm">
-                          Apply Now
-                        </button>
+                        <button 
+                        onClick={() => setIsPopupOpen(true)}
+                        className="bg-slate-900 text-white px-6 py-2.5 rounded-full font-bold hover:bg-teal-600 transition-all text-sm"
+                      >
+                        Apply Now
+                      </button>
                       </td>
                     </tr>
                   ))
                 ) : (
                   <tr>
-                    <td colSpan={4} className="py-20 text-center text-slate-500 font-medium">
+                    <td
+                      colSpan={4}
+                      className="py-20 text-center text-slate-500 font-medium"
+                    >
                       No roles found matching "{searchQuery}"
                     </td>
                   </tr>
@@ -291,11 +319,13 @@ export default function JobBoard() {
           {totalPages > 1 && (
             <div className="bg-slate-50/50 border-t border-slate-100 px-10 py-6 flex items-center justify-between">
               <p className="text-sm text-slate-500 font-medium">
-                Showing <span className="text-slate-900">{indexOfFirstJob + 1}</span> to{" "}
+                Showing{" "}
+                <span className="text-slate-900">{indexOfFirstJob + 1}</span> to{" "}
                 <span className="text-slate-900">
                   {Math.min(indexOfLastJob, filteredJobs.length)}
                 </span>{" "}
-                of <span className="text-slate-900">{filteredJobs.length}</span> roles
+                of <span className="text-slate-900">{filteredJobs.length}</span>{" "}
+                roles
               </p>
               <div className="flex gap-2">
                 <button
@@ -319,7 +349,9 @@ export default function JobBoard() {
                   </button>
                 ))}
                 <button
-                  onClick={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
+                  onClick={() =>
+                    setCurrentPage((p) => Math.min(totalPages, p + 1))
+                  }
                   disabled={currentPage === totalPages}
                   className="p-2 rounded-md border border-slate-200 bg-white hover:bg-slate-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
                 >
@@ -329,6 +361,51 @@ export default function JobBoard() {
             </div>
           )}
         </div>
+
+{isPopupOpen && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-10">
+          {/* Backdrop */}
+          <div 
+            className="absolute inset-0 bg-slate-900/60 backdrop-blur-sm"
+            onClick={() => setIsPopupOpen(false)}
+          />
+          
+          {/* Modal Container */}
+          <div className="relative w-full max-w-4xl h-[90vh] bg-white rounded-xl shadow-2xl overflow-hidden flex flex-col">
+            {/* Close Button */}
+            <div className="flex justify-between items-center px-6 py-4 border-b border-slate-100 bg-white sticky top-0 z-10">
+              <h3 className="font-bold text-slate-900">Career Application</h3>
+              <button 
+                onClick={() => setIsPopupOpen(false)}
+                className="p-2 hover:bg-slate-100 rounded-full transition-colors"
+              >
+                <X size={20} className="text-slate-500" />
+              </button>
+            </div>
+
+            {/* Iframe Wrapper (Scrollable) */}
+            <div className="flex-1 overflow-y-auto">
+              <iframe
+                src="https://app.visionarybizz.com/widget/form/bwcvSkM7YWiF6T9nLx3R"
+                style={{ width: "100%", height: "100%", border: "none" }}
+                id="popup-bwcvSkM7YWiF6T9nLx3R"
+                 data-layout='{"id":"INLINE"}'
+                data-trigger-type="alwaysShow"
+                data-trigger-value=""
+                data-activation-type="alwaysActivated"
+                data-activation-value=""
+                data-deactivation-type="neverDeactivate"
+                data-deactivation-value=""
+                data-form-name="career"
+                data-height="2201"
+                data-layout-iframe-id="popup-bwcvSkM7YWiF6T9nLx3R"
+                data-form-id="bwcvSkM7YWiF6T9nLx3R"
+                title="career"
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      )}
 
         {/* --- CV CTA --- */}
         <div className="mt-16 p-10 bg-slate-900 rounded-md flex flex-col md:flex-row items-center justify-between gap-8 text-white">
