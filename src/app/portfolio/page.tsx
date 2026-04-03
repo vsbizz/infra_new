@@ -4,7 +4,6 @@ import React, { useEffect, useState, useRef } from "react";
 import { motion } from "framer-motion";
 import {
   Search,
-  Heart,
   ChevronRight,
   MapPin,
   LayoutGrid,
@@ -23,7 +22,6 @@ const Portfolio: React.FC = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 6;
 
-  // Create a ref for the results section to handle smooth scrolling
   const resultsRef = useRef<HTMLDivElement>(null);
 
   const assetTypes = [
@@ -41,33 +39,27 @@ const Portfolio: React.FC = () => {
     return matchesSearch && matchesType;
   });
 
-  // Reset to page 1 when filters change
   useEffect(() => {
     setCurrentPage(1);
   }, [searchQuery, selectedType]);
 
-  // Pagination Calculations
   const totalPages = Math.ceil(filteredProperties.length / itemsPerPage);
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  
-  // This is the subset of data shown on the current page
-  const currentItems = filteredProperties.slice(
-    indexOfFirstItem,
-    indexOfLastItem,
-  );
+  const currentItems = filteredProperties.slice(indexOfFirstItem, indexOfLastItem);
 
   const handlePageChange = (pageNumber: number) => {
     setCurrentPage(pageNumber);
-    // Smooth scroll to the top of the results grid
     resultsRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero Section */}
-      <section className="relative pt-24 md:pt-44 pb-20 overflow-hidden bg-slate-50">
-        <div className="absolute top-[25%] right-0 w-1/2 h-full pointer-events-none pt-5">
+
+      {/* ── Hero ── */}
+      <section className="relative pt-24 md:pt-28 md:pt-44 pb-16 md:pb-20 overflow-hidden bg-slate-50">
+        {/* Background image hidden on mobile */}
+        <div className="hidden md:block absolute top-[25%] right-0 w-1/2 h-full pointer-events-none pt-5">
           <div className="absolute inset-0 bg-linear-to-l from-brand-teal/20 to-transparent" />
           <img
             src="/asset/hero/abt.png"
@@ -76,48 +68,51 @@ const Portfolio: React.FC = () => {
           />
         </div>
 
-        <div className="max-w-7xl mx-auto px-6 relative z-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <nav className="flex items-center gap-2 text-xs font-medium text-slate-400 mb-8 uppercase tracking-widest">
+            {/* Breadcrumb */}
+            <nav className="flex items-center gap-2 text-xs font-medium text-slate-400 mb-6 md:mb-8 uppercase tracking-widest">
               <Link href="/" className="hover:text-teal-600 transition-colors">
                 Home
               </Link>
               <ChevronRight className="w-3 h-3" />
-              <Link
-                href="/portfolio"
-                className="hover:text-teal-600 transition-colors"
-              >
+              <Link href="/portfolio" className="hover:text-teal-600 transition-colors">
                 Portfolio
               </Link>
             </nav>
-            <h1 className="text-5xl md:text-7xl font-bold text-slate-900 mb-8 leading-[1.1] tracking-tight">
+
+            {/* Heading */}
+            <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold text-slate-900 mb-5 md:mb-8 leading-[1.1] tracking-tight">
               Our <span className="text-brand-teal">Portfolio</span>
             </h1>
-            <p className="text-lg leading-relaxed text-slate-600 md:w-xl">
+
+            <p className="text-base md:text-lg leading-relaxed text-slate-600 mb-8 md:mb-10 max-w-xl">
               Infra.Health's portfolio reflects a diverse range of healthcare
               projects across India, spanning academic institutions, public
               hospitals, specialty centres, and multispecialty hospitals.
             </p>
 
             {/* Search Bar */}
-            <div className="max-w-4xl bg-white shadow-2xl shadow-slate-200/50 rounded-full p-2 flex flex-col md:flex-row items-center gap-2 border border-slate-100">
-              <div className="relative flex-1 w-full">
+            <div className="w-full max-w-4xl bg-white shadow-2xl shadow-slate-200/50 rounded-2xl md:rounded-full p-3 md:p-2 flex flex-col md:flex-row items-stretch md:items-center gap-3 md:gap-2 border border-slate-100">
+              <div className="relative flex-1">
                 <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 w-5 h-5" />
                 <input
                   type="text"
                   placeholder="Search by hospital name or clinical facility..."
-                  className="w-full pl-12 pr-4 py-4 rounded-xl focus:outline-none text-slate-900 font-medium placeholder:text-slate-400"
+                  className="w-full pl-12 pr-4 py-3.5 md:py-4 rounded-xl focus:outline-none text-slate-900 font-medium placeholder:text-slate-400 text-sm md:text-base"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                 />
               </div>
-              <div className="h-8 w-px bg-slate-200 hidden md:block" />
+
+              <div className="h-px w-full md:h-8 md:w-px bg-slate-200" />
+
               <select
-                className="px-6 py-4 bg-transparent text-slate-600 font-bold text-sm focus:outline-none cursor-pointer w-full md:w-auto"
+                className="px-4 md:px-6 py-3.5 md:py-4 bg-transparent text-slate-600 font-bold text-sm focus:outline-none cursor-pointer border border-slate-200 md:border-0 rounded-xl md:rounded-none"
                 value={selectedType}
                 onChange={(e) => setSelectedType(e.target.value)}
               >
@@ -127,10 +122,12 @@ const Portfolio: React.FC = () => {
                   </option>
                 ))}
               </select>
-              <button className="w-full md:w-auto bg-slate-900 text-white px-10 py-4 rounded-full font-bold hover:bg-brand-teal transition-all flex items-center justify-center gap-2">
+
+              <button className="w-full md:w-auto bg-slate-900 text-white px-8 py-3.5 md:py-4 rounded-xl md:rounded-full font-bold hover:bg-brand-teal transition-all flex items-center justify-center gap-2 text-sm md:text-base">
                 Search <ArrowRight size={18} />
               </button>
             </div>
+
             <p className="mt-4 text-slate-400 text-sm font-medium">
               {filteredProperties.length} clinical assets found
             </p>
@@ -140,53 +137,67 @@ const Portfolio: React.FC = () => {
 
       <CounterSection />
 
-      {/* Property Grid Section */}
-      <section ref={resultsRef} className="py-24 bg-slate-50 px-6">
+      {/* ── Portfolio Grid ── */}
+      <section ref={resultsRef} className="py-16 md:py-24 bg-slate-50 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col md:flex-row items-end justify-between gap-8 mb-16">
+
+          {/* Section header */}
+          <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-6 mb-10 md:mb-16">
             <div>
-              <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mb-4">
+              <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold text-slate-900 mb-3 md:mb-4">
                 Explore Our Portfolio
               </h2>
-              <p className="text-slate-500 text-lg font-medium">
+              <p className="text-slate-500 text-base md:text-lg font-medium">
                 Institutional-grade healthcare infrastructure curated for
                 strategic investors.
               </p>
             </div>
-            <div className="flex items-center gap-4 bg-white p-1.5 rounded-md border border-slate-200">
+            <div className="flex items-center gap-2 bg-white p-1.5 rounded-md border border-slate-200 self-end md:self-auto">
               <button
                 onClick={() => setViewMode("grid")}
                 className={`p-2.5 rounded-full transition-all ${viewMode === "grid" ? "bg-slate-900 text-white shadow-lg" : "text-slate-400 hover:text-slate-900"}`}
+                aria-label="Grid view"
               >
-                <LayoutGrid size={20} />
+                <LayoutGrid size={18} />
               </button>
               <button
                 onClick={() => setViewMode("list")}
                 className={`p-2.5 rounded-full transition-all ${viewMode === "list" ? "bg-slate-900 text-white shadow-lg" : "text-slate-400 hover:text-slate-900"}`}
+                aria-label="List view"
               >
-                <List size={20} />
+                <List size={18} />
               </button>
             </div>
           </div>
 
+          {/* Cards */}
           <div
-            className={`grid gap-10 ${viewMode === "grid" ? "grid-cols-1 md:grid-cols-2 lg:grid-cols-3" : "grid-cols-1"}`}
+            className={`grid gap-6 md:gap-10 ${
+              viewMode === "grid"
+                ? "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
+                : "grid-cols-1"
+            }`}
           >
-            {/* CHANGED: We now map through currentItems instead of filteredProperties */}
             {currentItems.map((property, index) => (
               <motion.div
                 key={property.slug}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
+                transition={{ delay: index * 0.08 }}
               >
                 <Link
                   href={`/portfolio/${property.slug}`}
-                  className={`group bg-white rounded-md overflow-hidden border border-slate-200 hover:shadow-2xl hover:shadow-slate-200/50 transition-all flex h-full ${viewMode === "grid" ? "flex-col" : "flex-col md:flex-row"}`}
+                  className={`group bg-white rounded-md overflow-hidden border border-slate-200 hover:shadow-2xl hover:shadow-slate-200/50 transition-all flex h-full ${
+                    viewMode === "grid" ? "flex-col" : "flex-col sm:flex-row"
+                  }`}
                 >
                   <div
-                    className={`relative overflow-hidden bg-slate-100 ${viewMode === "grid" ? "aspect-16/10" : "md:w-1/3 aspect-16/10 md:aspect-auto"}`}
+                    className={`relative overflow-hidden bg-slate-100 ${
+                      viewMode === "grid"
+                        ? "aspect-16/10"
+                        : "aspect-16/10 sm:w-1/3 sm:aspect-auto"
+                    }`}
                   >
                     <img
                       src={
@@ -196,29 +207,25 @@ const Portfolio: React.FC = () => {
                       alt={property.title}
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                     />
-
-                    <div className="absolute bottom-4 left-4 flex flex-wrap gap-2">
+                    <div className="absolute bottom-3 left-3 flex flex-wrap gap-2">
                       <span className="bg-brand-teal/90 backdrop-blur-sm text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-md">
                         {property.subcategory || "Clinical Asset"}
                       </span>
                     </div>
                   </div>
 
-                  <div className="p-8 flex-1 flex flex-col">
-                    <h3 className="text-xl font-bold text-slate-900 mb-4 group-hover:text-brand-teal transition-colors line-clamp-2 leading-snug">
+                  <div className="p-5 md:p-8 flex-1 flex flex-col">
+                    <h3 className="text-base md:text-xl font-bold text-slate-900 mb-3 md:mb-4 group-hover:text-brand-teal transition-colors line-clamp-2 leading-snug">
                       {property.title}
                     </h3>
-                    <div className="flex items-start gap-2 text-slate-500 text-sm mb-6 font-medium">
-                      <MapPin
-                        size={16}
-                        className="shrink-0 mt-0.5 text-brand-teal"
-                      />
+                    <div className="flex items-start gap-2 text-slate-500 text-sm mb-4 md:mb-6 font-medium">
+                      <MapPin size={15} className="shrink-0 mt-0.5 text-brand-teal" />
                       <span className="line-clamp-2">
                         {property.projectBrief.shortDescription}
                       </span>
                     </div>
 
-                    <div className="mt-auto pt-6 border-t border-slate-100 flex items-center justify-between">
+                    <div className="mt-auto pt-4 md:pt-6 border-t border-slate-100 flex items-center justify-between">
                       <div className="flex flex-col">
                         <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1">
                           Built-up Area
@@ -227,8 +234,8 @@ const Portfolio: React.FC = () => {
                           {property.projectBrief.builtUpArea}
                         </span>
                       </div>
-                      <div className="text-brand-teal font-bold flex items-center gap-2 text-sm group-hover:gap-3 transition-all">
-                        View Asset <ChevronRight size={18} />
+                      <div className="text-brand-teal font-bold flex items-center gap-1.5 text-sm group-hover:gap-2.5 transition-all">
+                        View Asset <ChevronRight size={16} />
                       </div>
                     </div>
                   </div>
@@ -237,16 +244,17 @@ const Portfolio: React.FC = () => {
             ))}
           </div>
 
-          {/* Pagination Controls */}
+          {/* Pagination */}
           {totalPages > 1 && (
-            <div className="mt-16 flex justify-center items-center gap-4">
-              <div className="flex gap-2">
+            <div className="mt-12 md:mt-16 flex justify-center items-center">
+              <div className="flex gap-2 flex-wrap justify-center">
                 <button
                   onClick={() => handlePageChange(Math.max(1, currentPage - 1))}
                   disabled={currentPage === 1}
-                  className="p-2 rounded-md border border-slate-200 bg-white hover:bg-slate-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                  className="p-2.5 rounded-md border border-slate-200 bg-white hover:bg-slate-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                  aria-label="Previous page"
                 >
-                  <ChevronLeft size={20} />
+                  <ChevronLeft size={18} />
                 </button>
 
                 {[...Array(totalPages)].map((_, i) => (
@@ -258,6 +266,8 @@ const Portfolio: React.FC = () => {
                         ? "bg-slate-900 text-white shadow-lg scale-110"
                         : "bg-white border border-slate-200 text-slate-600 hover:border-brand-teal hover:text-brand-teal"
                     }`}
+                    aria-label={`Page ${i + 1}`}
+                    aria-current={currentPage === i + 1 ? "page" : undefined}
                   >
                     {i + 1}
                   </button>
@@ -266,9 +276,10 @@ const Portfolio: React.FC = () => {
                 <button
                   onClick={() => handlePageChange(Math.min(totalPages, currentPage + 1))}
                   disabled={currentPage === totalPages}
-                  className="p-2 rounded-md border border-slate-200 bg-white hover:bg-slate-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                  className="p-2.5 rounded-md border border-slate-200 bg-white hover:bg-slate-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                  aria-label="Next page"
                 >
-                  <ChevronRight size={20} />
+                  <ChevronRight size={18} />
                 </button>
               </div>
             </div>
