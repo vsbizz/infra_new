@@ -6,57 +6,58 @@ import Link from "next/link";
 
 const AboutIntro = () => {
   return (
-    <section className="relative overflow-hidden bg-white py-24">
-      <div className="container mx-auto max-w-7xl px-8">
-        <div className="grid grid-cols-1 gap-16 lg:grid-cols-2 lg:items-center lg:gap-24">
+    <section className="relative overflow-hidden bg-white py-36 sm:py-24 md:py-42 lg:py-50">
+      <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 gap-8 sm:gap-10 md:gap-12 lg:grid-cols-2 lg:items-center lg:gap-20">
           {/* Left Column: Headline & Content */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="flex flex-col justify-center pt-0"
+            className="order-1 flex flex-col justify-center pt-0"
           >
-             <nav className="flex items-center gap-2 text-xs font-medium text-slate-400 mb-8 uppercase tracking-widest">
-            <Link href="/" className="hover:text-teal-600 transition-colors">
-              Home
-            </Link>
-            <ChevronRight className="w-3 h-3" />
-            <Link
-              href="/about"
-              className="hover:text-teal-600 transition-colors"
-            >
-              About
-            </Link>
-          </nav>
-            <h2 className="text-3xl font-extrabold leading-[1.1] tracking-tight text-slate-900 md:text-5xl lg:text-6xl mb-12">
+            <nav className="mb-5 flex flex-wrap items-center gap-1.5 text-[11px] font-medium uppercase tracking-[0.16em] text-slate-400 sm:mb-6 sm:gap-2 sm:text-xs md:mb-8">
+              <Link href="/" className="transition-colors hover:text-teal-600">
+                Home
+              </Link>
+              <ChevronRight className="h-3 w-3 shrink-0" />
+              <Link
+                href="/about"
+                className="transition-colors hover:text-teal-600"
+              >
+                About
+              </Link>
+            </nav>
+
+            <h2 className="w-full max-w-none text-[1.85rem] leading-[1.06] tracking-tight text-slate-900 mb-5 md:font-extrabold xs:text-[2rem] sm:mb-6 sm:max-w-[18ch] sm:text-4xl md:mb-10 md:max-w-none md:text-5xl lg:mb-12 lg:text-6xl">
               Shaping the future of{" "}
               <span className="text-brand-teal">Healthcare Infrastructure</span>
               .
             </h2>
-            <p className="text-lg leading-relaxed text-slate-500 mb-10">
+
+            <p className="mb-6 max-w-none text-sm leading-6 text-slate-500 sm:mb-8 sm:max-w-xl sm:text-[15px] md:mb-10 md:text-lg md:leading-relaxed">
               Infra.Health is a specialized asset development company dedicated
               to the structured creation of healthcare environments. We operate
               at the convergence of clinical systems, engineering, and
               institutional capital.
             </p>
 
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-wrap gap-3 sm:gap-4">
               <motion.button
                 whileHover="hover"
                 whileTap={{ scale: 0.98 }}
                 initial="initial"
-                className="group relative overflow-hidden rounded-full border border-teal-600 bg-teal-600 px-10 py-4 text-sm font-bold text-white shadow-lg transition-colors"
+                className="group relative overflow-hidden rounded-full border border-teal-600 bg-teal-600 px-6 py-3 text-[11px] font-bold uppercase tracking-[0.14em] text-white shadow-lg transition-colors sm:px-8 sm:py-3.5 sm:text-xs md:px-10 md:py-4 md:text-sm"
               >
-                <span className="relative z-10 flex items-center gap-3 pointer-events-none">
+                <span className="pointer-events-none relative z-10 flex items-center gap-2 sm:gap-3">
                   OUR CAPABILITIES
                   <ArrowRight
                     size={18}
-                    className="group-hover:translate-x-1 transition-transform"
+                    className="transition-transform group-hover:translate-x-1"
                   />
                 </span>
 
-                {/* Liquid Background Animation */}
                 <motion.div
                   variants={{
                     initial: { scale: 0, opacity: 0 },
@@ -78,9 +79,9 @@ const AboutIntro = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="relative"
+            className="order-2 relative"
           >
-            <div className="relative aspect-4/5 overflow-hidden rounded-2xl shadow-2xl">
+            <div className="relative aspect-[4/3] overflow-hidden rounded-xl shadow-xl sm:aspect-[5/4] sm:rounded-2xl md:shadow-2xl lg:aspect-[4/5]">
               <img
                 src="/asset/hero/abt.png"
                 alt="Healthcare Infrastructure"
@@ -89,8 +90,7 @@ const AboutIntro = () => {
               <div className="absolute inset-0 bg-slate-900/10" />
             </div>
 
-            {/* Decorative Element - Matches the "Structured" theme */}
-            <div className="absolute -bottom-6 -left-6 -z-10 h-64 w-64 rounded-2xl bg-teal-50" />
+            <div className="absolute -bottom-3 -left-3 -z-10 h-28 w-28 rounded-xl bg-teal-50 sm:-bottom-4 sm:-left-4 sm:h-40 sm:w-40 sm:rounded-2xl md:-bottom-6 md:-left-6 md:h-64 md:w-64" />
           </motion.div>
         </div>
       </div>

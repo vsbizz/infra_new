@@ -2,8 +2,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import * as d3 from "d3";
 import * as topojson from "topojson-client";
-import { motion } from "framer-motion";
-import { ExternalLink, Globe2, MapPin } from "lucide-react";
+import { ExternalLink } from "lucide-react";
 
 const REGIONS = [
   {
@@ -208,7 +207,7 @@ export const FlatGlobalMap: React.FC = () => {
   const getProjection = (w: number, h: number) => {
     return d3
       .geoNaturalEarth1()
-      .scale(w / 5.2) // Adjusted scale for better fit
+      .scale(w / 5.2)
       .translate([w / 2, h / 2]);
   };
 
@@ -217,10 +216,10 @@ export const FlatGlobalMap: React.FC = () => {
       if (svgRef.current?.parentElement) {
         const parent = svgRef.current.parentElement;
         const width = parent.clientWidth;
-        // World maps are roughly 2:1 aspect ratio
         setDimensions({ width, height: width * 0.5 });
       }
     };
+
     updateDimensions();
     window.addEventListener("resize", updateDimensions);
     return () => window.removeEventListener("resize", updateDimensions);
@@ -258,49 +257,55 @@ export const FlatGlobalMap: React.FC = () => {
   }, [dimensions]);
 
   return (
-    <section className="py-20 lg:py-32 bg-white">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-          {/* Left Column: Content (5/12 width) */}
-          <div className="lg:col-span-5 space-y-8">
+    <section className="bg-white py-10 sm:py-12 md:py-16 lg:py-24">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 gap-8 sm:gap-10 md:gap-12 lg:grid-cols-12 lg:gap-16 items-start">
+          {/* Left Column: Content */}
+          <div className="lg:col-span-5 space-y-5 sm:space-y-6 md:space-y-8">
             <header>
-              <h2 className="text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl lg:text-6xl">
-                Our Locations <br />
+              <h2 className="w-full max-w-none text-[1.75rem] xs:text-[1.9rem] sm:text-4xl md:text-5xl lg:text-6xl md:font-extrabold leading-[1.06] tracking-tight text-slate-900">
+                Our Locations
+                <br />
               </h2>
             </header>
 
-            <div className="rounded-2xl bg-slate-50 p-8 border-l-4 border-teal-600 shadow-sm">
-              <h4 className="text-xl font-bold mb-3 flex items-center gap-3 text-slate-900">
+            <div className="rounded-xl sm:rounded-2xl border-l-4 border-teal-600 bg-slate-50 p-4 sm:p-5 md:p-8 shadow-sm">
+              <h4 className="mb-2.5 sm:mb-3 flex items-center gap-2.5 sm:gap-3 text-lg sm:text-xl md:font-bold text-slate-900">
                 WHX Dubai Expo 2026
               </h4>
-              <p className="text-slate-600 leading-relaxed mb-6">
+
+              <p className="mb-4 sm:mb-5 md:mb-6 text-sm sm:text-[15px] md:text-base text-slate-600 leading-6 md:leading-relaxed">
                 Infra.Health was proud to participate in the World Health Expo
                 (WHX) Dubai in February 2026. We showcased our globally aligned
                 infrastructure solutions, strengthening partnerships for the
                 next generation of healthcare assets.
               </p>
-              <div className="flex flex-col gap-5">
+
+              <div className="flex flex-col gap-4 sm:gap-5">
                 <a
                   href="#"
-                  className="inline-flex items-center gap-2 text-teal-700 font-bold hover:text-teal-800 transition-colors uppercase text-sm tracking-wider"
+                  className="inline-flex items-center gap-2 text-[11px] sm:text-sm font-bold uppercase tracking-[0.14em] text-teal-700 transition-colors hover:text-teal-800"
                 >
                   Read the Press Release <ExternalLink size={16} />
                 </a>
               </div>
             </div>
           </div>
+
+          {/* Right Column: Map */}
           <div className="lg:col-span-7 lg:sticky lg:top-10">
-            <p className="mt-6 text-lg leading-relaxed text-slate-600">
+            <p className="mb-4 sm:mb-5 md:mb-6 text-sm sm:text-[15px] md:text-lg leading-6 md:leading-relaxed text-slate-600">
               Operating across the Middle East, Africa, South Asia, Southeast
               Asia, Europe, and Central America, we integrate international
               standards with localized regulatory intelligence.
             </p>
-            <div className="relative w-full overflow-hidden rounded-3xl border border-slate-100 bg-slate-50/50 p-2 sm:p-6 shadow-2xl shadow-slate-200/50">
-              <div className="aspect-2/1 w-full">
+
+            <div className="relative w-full overflow-hidden rounded-2xl sm:rounded-3xl border border-slate-100 bg-slate-50/50 p-2 sm:p-4 md:p-6 shadow-lg md:shadow-2xl md:shadow-slate-200/50">
+              <div className="aspect-[2/1] w-full min-h-[180px] sm:min-h-[220px] md:min-h-[280px]">
                 <svg
                   ref={svgRef}
                   viewBox={`0 0 ${dimensions.width} ${dimensions.height}`}
-                  className="w-full h-full drop-shadow-sm"
+                  className="h-full w-full drop-shadow-sm"
                 />
               </div>
             </div>

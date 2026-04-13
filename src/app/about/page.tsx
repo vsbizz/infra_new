@@ -24,29 +24,29 @@ function About() {
       {
         "@type": "WebPage",
         "@id": `${global.baseUrl}/about/#webpage`,
-        "url": `${global.baseUrl}/about`,
-        "name": "About Us | Infra.Health",
-        "isPartOf": { "@id": `${global.baseUrl}/#website` },
-        "breadcrumb": {
+        url: `${global.baseUrl}/about`,
+        name: "About Us | Infra.Health",
+        isPartOf: { "@id": `${global.baseUrl}/#website` },
+        breadcrumb: {
           "@type": "BreadcrumbList",
-          "itemListElement": [
+          itemListElement: [
             {
               "@type": "ListItem",
-              "position": 1,
-              "name": "Home",
-              "item": global.baseUrl
+              position: 1,
+              name: "Home",
+              item: global.baseUrl,
             },
             {
               "@type": "ListItem",
-              "position": 2,
-              "name": "About Us",
-              "item": `${global.baseUrl}/about`
-            }
-          ]
+              position: 2,
+              name: "About Us",
+              item: `${global.baseUrl}/about`,
+            },
+          ],
         },
-        "about": { "@id": `${global.baseUrl}/#organization` }
-      }
-    ]
+        about: { "@id": `${global.baseUrl}/#organization` },
+      },
+    ],
   };
 
   return (

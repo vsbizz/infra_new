@@ -19,7 +19,7 @@ export const GlobalHeader = () => {
   const isHeaderActive =
     pathname !== "/" || isSticky || hoveredItem !== null || isMenuOpen;
 
-  // NEW: Close menu automatically when route changes
+  // Close menu automatically when route changes
   useEffect(() => {
     setIsMenuOpen(false);
     setActiveMobileSection(null);
@@ -111,7 +111,7 @@ export const GlobalHeader = () => {
       slug: "design-and-project-delivery",
       items: [
         {
-          name: "Project Management (PMC)",
+          name: "Project Management",
           slug: "project-management-consultancy",
         },
         {
@@ -169,29 +169,41 @@ export const GlobalHeader = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-100 transition-all duration-500 border-b ${
+      className={`fixed top-0 left-0 right-0 z-100 transition-all duration-500 border-b  ${
         isVisible ? "translate-y-0" : "-translate-y-full"
       } ${
         isHeaderActive
           ? "bg-white shadow-md border-slate-200 py-0"
-          : "bg-transparent border-transparent py-2"
+          : "bg-transparent border-transparent pb-2"
       }`}
       onMouseLeave={() => setHoveredItem(null)}
     >
-      {/* SECTION 1: Top Bar */}
-      <div className="mx-auto flex max-w-360 items-center justify-between px-6 py-4 lg:px-16">
-        <div className="flex items-center gap-4">
+      {/* Top Bar Banner - Optimized for mobile including Galaxy Fold */}
+      <Link href="/development-partner-solution">
+        <div className="bg-teal-600  text-white text-center py-2.5 sm:py-2 text-sm sm:text-base font-medium sm:font-semibold flex justify-center items-center gap-1.5 sm:gap-2 px-2 xs:px-3">
+          <span className="text-[11px] xs:text-[13px] sm:text-[15px] leading-tight">
+            Explore Our Development Partner Solution
+          </span>
+          <div className="bg-gray-300/50 text-black rounded-full w-4 h-4 xs:w-5 xs:h-5 sm:w-6 sm:h-6 flex items-center justify-center flex-shrink-0">
+            <ArrowRight className="w-2.5 h-2.5 xs:w-3 xs:h-3 sm:w-3.5 sm:h-3.5" />
+          </div>
+        </div>
+      </Link>
+
+      {/* SECTION 1: Top Bar - Mobile Optimized */}
+      <div className="mx-auto flex max-w-360 items-center justify-between px-4 xs:px-5 sm:px-6 py-3 sm:py-4 lg:px-16">
+        <div className="flex items-center gap-2 sm:gap-4">
           <Link href="/">
             <img
               src="/asset/logo/infra.png"
               alt="Infra.Health Logo"
-              className={`h-10 lg:h-16 w-auto transition-all duration-500 ${
+              className={`h-14 xs:h-12 sm:h-14 lg:h-16 w-auto transition-all duration-500 ${
                 isHeaderActive ? "brightness-100" : "brightness-0 invert"
               }`}
             />
           </Link>
         </div>
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-2 sm:gap-4">
           {/* Desktop Contact Link */}
           <Link href="/contact" className="hidden lg:block">
             <motion.button
@@ -204,10 +216,11 @@ export const GlobalHeader = () => {
           </Link>
 
           <button
-            className={`lg:hidden p-2 ${isHeaderActive ? "text-slate-900" : "text-white"}`}
+            className={`lg:hidden p-1.5 xs:p-2 ${isHeaderActive ? "text-slate-900" : "text-white"}`}
             onClick={() => setIsMenuOpen(!isMenuOpen)}
+            aria-label="Toggle menu"
           >
-            <Menu />
+            <Menu className="w-5 h-5 xs:w-6 xs:h-6" />
           </button>
         </div>
       </div>
@@ -218,29 +231,53 @@ export const GlobalHeader = () => {
       >
         <nav className="mx-auto flex max-w-360 items-center justify-between px-6 lg:px-16">
           <ul className="flex items-center gap-8">
-            {["Properties", "Services", "Portfolio", "Sectors"].map((item) => (
-              <li key={item} className="relative">
-                <Link
-                  href={`/${item.toLowerCase().replace(/ & /g, "-").replace(/\s+/g, "-")}`}
-                  onMouseEnter={() => setHoveredItem(item)}
-                  className={`py-4 text-[16px] font-normal transition-all duration-500 border-b-2 flex items-center gap-1 ${
-                    isHeaderActive
-                      ? hoveredItem === item
-                        ? "text-slate-900 border-slate-900"
-                        : "text-slate-600 border-transparent"
-                      : "text-white/90 border-transparent hover:text-white hover:border-white/40"
-                  }`}
-                >
-                  {item}
-                  {(item === "Services" || item === "Sectors") && (
-                    <ChevronDown
-                      size={14}
-                      className={`transition-transform ${hoveredItem === item ? "rotate-180" : ""}`}
-                    />
+            {["Properties", "Services", "Portfolio", "Sectors"].map((item) => {
+              const isDropdown = item === "Services" || item === "Sectors";
+
+              return (
+                <li key={item} className="relative">
+                  {isDropdown ? (
+                    // 👇 BUTTON for dropdown items
+                    <button
+                      type="button"
+                      onMouseEnter={() => setHoveredItem(item)}
+                      className={`py-4 text-[16px] font-normal transition-all duration-500 border-b-2 flex items-center gap-1 ${
+                        isHeaderActive
+                          ? hoveredItem === item
+                            ? "text-slate-900 border-slate-900"
+                            : "text-slate-600 border-transparent"
+                          : "text-white/90 border-transparent hover:text-white hover:border-white/40"
+                      }`}
+                    >
+                      {item}
+                      <ChevronDown
+                        size={14}
+                        className={`transition-transform ${
+                          hoveredItem === item ? "rotate-180" : ""
+                        }`}
+                      />
+                    </button>
+                  ) : (
+                    <Link
+                      href={`/${item
+                        .toLowerCase()
+                        .replace(/ & /g, "-")
+                        .replace(/\s+/g, "-")}`}
+                      onMouseEnter={() => setHoveredItem(item)}
+                      className={`py-4 text-[16px] font-normal transition-all duration-500 border-b-2 flex items-center gap-1 ${
+                        isHeaderActive
+                          ? hoveredItem === item
+                            ? "text-slate-900 border-slate-900"
+                            : "text-slate-600 border-transparent"
+                          : "text-white/90 border-transparent hover:text-white hover:border-white/40"
+                      }`}
+                    >
+                      {item}
+                    </Link>
                   )}
-                </Link>
-              </li>
-            ))}
+                </li>
+              );
+            })}
           </ul>
           <ul className="flex items-center gap-8">
             {["About", "Careers", "Vendors & Partners", "Blogs"].map((item) => (
@@ -264,7 +301,7 @@ export const GlobalHeader = () => {
         </nav>
       </div>
 
-      {/* MOBILE MENU */}
+      {/* MOBILE MENU - Optimized for all mobile screens */}
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
@@ -274,22 +311,23 @@ export const GlobalHeader = () => {
             transition={{ type: "spring", damping: 25, stiffness: 200 }}
             className="fixed inset-0 w-full h-screen bg-white z-[110] lg:hidden overflow-y-auto"
           >
-            {/* NEW: Mobile Menu Header with Close Button */}
-            <div className="flex items-center justify-between px-6 py-4 border-b border-slate-100 sticky top-0 bg-white z-10">
+            {/* Mobile Menu Header with Close Button */}
+            <div className="flex items-center justify-between px-4 xs:px-5 sm:px-6 py-3 sm:py-4 border-b border-slate-100 sticky top-0 bg-white z-10">
               <img
                 src="/asset/logo/infra.png"
                 alt="Logo"
-                className="h-10 w-auto"
+                className="h-14 xs:h-12 sm:h-14 lg:h-16 w-auto"
               />
               <button
                 onClick={() => setIsMenuOpen(false)}
-                className="p-2 text-slate-900 hover:bg-slate-100 rounded-full transition-colors"
+                className="p-1.5 xs:p-2 text-slate-900 hover:bg-slate-100 rounded-full transition-colors"
+                aria-label="Close menu"
               >
-                <X size={28} />
+                <X className="w-6 h-6 xs:w-7 xs:h-7" />
               </button>
             </div>
 
-            <div className="flex flex-col pt-4 pb-12 px-6">
+            <div className="flex flex-col pt-2 xs:pt-3 sm:pt-4 pb-8 xs:pb-10 sm:pb-12 px-4 xs:px-5 sm:px-6">
               {menuItems.map((link) => (
                 <div key={link.name} className="border-b border-slate-100">
                   {link.isExpandable ? (
@@ -302,11 +340,11 @@ export const GlobalHeader = () => {
                               : link.name,
                           )
                         }
-                        className="flex items-center justify-between w-full py-5 text-2xl font-semibold text-slate-800"
+                        className="flex items-center justify-between w-full py-3.5 xs:py-4 sm:py-5 text-base xs:text-lg sm:text-xl font-semibold text-slate-800"
                       >
                         {link.name}
                         <ChevronDown
-                          className={`transition-transform duration-300 ${activeMobileSection === link.name ? "rotate-180" : ""}`}
+                          className={`w-4 h-4 xs:w-5 xs:h-5 transition-transform duration-300 ${activeMobileSection === link.name ? "rotate-180" : ""}`}
                         />
                       </button>
 
@@ -316,45 +354,46 @@ export const GlobalHeader = () => {
                             initial={{ height: 0, opacity: 0 }}
                             animate={{ height: "auto", opacity: 1 }}
                             exit={{ height: 0, opacity: 0 }}
-                            className="overflow-hidden bg-slate-50 rounded-2xl mb-4"
+                            className="overflow-hidden bg-slate-50 rounded-xl xs:rounded-2xl mb-3 xs:mb-4"
                           >
-                            <div className="p-5 space-y-6">
+                            <div className="p-3 xs:p-4 sm:p-5 space-y-4 xs:space-y-5 sm:space-y-6">
                               {link.name === "Services" ? (
                                 servicesData.map((cat) => (
-                                  <div key={cat.slug} className="space-y-3">
-                                    <h4 className="text-xs font-black text-teal-600 uppercase tracking-widest">
+                                  <div
+                                    key={cat.slug}
+                                    className="space-y-2 xs:space-y-2.5 sm:space-y-3"
+                                  >
+                                    <h4 className="text-[10px] xs:text-[11px] sm:text-xs font-black text-teal-600 uppercase tracking-widest">
                                       {cat.category}
                                     </h4>
-                                    <div className="grid gap-4 pl-2 border-l border-slate-200">
+                                    <div className="grid gap-2.5 xs:gap-3 sm:gap-4 pl-1.5 xs:pl-2 border-l border-slate-200">
                                       {cat.items.map((sub) => (
                                         <Link
                                           key={sub.slug}
                                           href={`/services/${cat.slug}/${sub.slug}`}
-                                          className="text-slate-600 text-base flex items-center justify-between"
+                                          className="text-slate-600 text-[13px] xs:text-sm sm:text-base flex items-center justify-between leading-tight"
                                         >
-                                          {sub.name}{" "}
-                                          <ChevronRight
-                                            size={16}
-                                            className="text-slate-300"
-                                          />
+                                          <span className="pr-2">
+                                            {sub.name}
+                                          </span>
+                                          <ChevronRight className="w-3.5 h-3.5 xs:w-4 xs:h-4 text-slate-300 flex-shrink-0" />
                                         </Link>
                                       ))}
                                     </div>
                                   </div>
                                 ))
                               ) : (
-                                <div className="space-y-4">
+                                <div className="space-y-2.5 xs:space-y-3 sm:space-y-4">
                                   {sectorsData.map((sector) => (
                                     <Link
                                       key={sector.slug}
                                       href={`/sectors/${sector.slug}`}
-                                      className="text-slate-800 font-medium flex items-center justify-between"
+                                      className="text-slate-800 font-medium text-[13px] xs:text-sm sm:text-base flex items-center justify-between leading-tight"
                                     >
-                                      {sector.title}{" "}
-                                      <ArrowRight
-                                        size={16}
-                                        className="text-teal-600"
-                                      />
+                                      <span className="pr-2">
+                                        {sector.title}
+                                      </span>
+                                      <ArrowRight className="w-3.5 h-3.5 xs:w-4 xs:h-4 text-teal-600 flex-shrink-0" />
                                     </Link>
                                   ))}
                                 </div>
@@ -367,18 +406,18 @@ export const GlobalHeader = () => {
                   ) : (
                     <Link
                       href={link.href}
-                      className="flex items-center justify-between py-5 text-2xl font-semibold text-slate-800"
+                      className="flex items-center justify-between py-3.5 xs:py-4 sm:py-5 text-base xs:text-lg sm:text-xl font-semibold text-slate-800"
                     >
                       {link.name}
-                      <ChevronRight size={20} className="text-slate-300" />
+                      <ChevronRight className="w-4 h-4 xs:w-5 xs:h-5 text-slate-300" />
                     </Link>
                   )}
                 </div>
               ))}
 
-              <div className="mt-12">
+              <div className="mt-8 xs:mt-10 sm:mt-12">
                 <Link href="/contact" className="block w-full">
-                  <button className="w-full py-5 bg-teal-600 text-white rounded-2xl font-bold text-lg shadow-xl shadow-teal-600/20">
+                  <button className="w-full py-3 xs:py-3.5 sm:py-4 bg-teal-600 text-white rounded-xl xs:rounded-2xl font-bold text-base xs:text-lg shadow-xl shadow-teal-600/20 hover:bg-teal-700 transition-colors">
                     Contact Us
                   </button>
                 </Link>
@@ -471,6 +510,25 @@ export const GlobalHeader = () => {
                           </span>
                         </Link>
                       ))}
+                    </div>
+                    <div className="mt-16 pt-8 border-t border-slate-200 flex flex-wrap gap-4 items-center justify-between">
+                      <p className="text-sm font-medium text-slate-600">
+                        Comprehensive real estate solutions.
+                      </p>
+                      <div className="flex gap-3">
+                        <Link
+                          href="/services"
+                          className="px-4 py-2 bg-white border border-slate-200 rounded text-xs font-bold uppercase text-slate-600 hover:bg-slate-50"
+                        >
+                          All Services
+                        </Link>
+                        <Link
+                          href="/contact"
+                          className="px-4 py-2 bg-white border border-slate-200 rounded text-xs font-bold uppercase text-slate-600 hover:bg-slate-50"
+                        >
+                          Consulting
+                        </Link>
+                      </div>
                     </div>
                   </>
                 )}
