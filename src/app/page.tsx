@@ -9,6 +9,7 @@ import { Stakeholders } from "../components/StakeHolders";
 import { ExpertiseContinuum } from "../components/ExpertiseContinum";
 import { GlobalPresence } from "../components/GlobalPresence";
 import { MarketIntelligence } from "../components/MarketIntelligence";
+import { link } from "fs";
 
 export const metadata = getPageMetadata("home");
 
@@ -20,8 +21,9 @@ const SLIDES = [
       "The Global Platform for Structured Healthcare Asset Development.",
     subHeader:
       "Operating at the convergence of healthcare systems, engineering, and institutional capital to transform clinical demand into resilient, investment-grade assets.",
-    cta: "Explore Our Global Footprint",
+    cta: "Contact Us",
     image: "/asset/hero/1jpg.jpg",
+    link: "/contact",
   },
   {
     id: "02",
@@ -31,6 +33,7 @@ const SLIDES = [
       "We align healthcare development with disciplined capital frameworks, ensuring projects are bankable, scalable, and resilient across economic cycles.",
     cta: "View Capital Advisory",
     image: "/asset/hero/2.jpg",
+    link: "services/investment-and-capital-advisory",
   },
   {
     id: "03",
@@ -40,6 +43,7 @@ const SLIDES = [
       "Bridging the gap between asset ownership and healthcare operations through structured leasing frameworks and data-driven location intelligence.",
     cta: "Discover Operator Strategies",
     image: "/asset/hero/3.jpg",
+    link: "services/leasing-and-operator-advisory",
   },
   {
     id: "04",
@@ -49,6 +53,7 @@ const SLIDES = [
       "Transforming healthcare demand into investment-ready frameworks through rigorous feasibility, clinical planning, and financial modeling.",
     cta: "Explore Advisory Services",
     image: "/asset/hero/4.jpg",
+    link: "services/advisory-and-strategic-planning",
   },
   {
     id: "05",
@@ -58,6 +63,7 @@ const SLIDES = [
       "Converting strategy into operational infrastructure through engineering precision, procurement control, and clinical compliance.",
     cta: "View Delivery Models",
     image: "/asset/hero/5.jpg",
+    link: "services/design-and-project-delivery",
   },
   {
     id: "06",
@@ -67,11 +73,11 @@ const SLIDES = [
       "Sustaining long-term performance and regulatory compliance through specialized healthcare asset governance and lifecycle oversight.",
     cta: "View Asset Management",
     image: "/asset/hero/6.jpg",
+    link: "services/property-and-facilities-management",
   },
 ];
 
 export default function HomePage() {
-
   const { home, global } = metaData;
 
   const homeSchema = {
@@ -80,36 +86,35 @@ export default function HomePage() {
       {
         "@type": "WebSite",
         "@id": `${global.baseUrl}/#website`,
-        "url": global.baseUrl,
-        "name": global.siteName,
-        "description": "The Global Platform for Structured Healthcare Asset Development.",
-        "publisher": { "@id": `${global.baseUrl}/#organization` }
+        url: global.baseUrl,
+        name: global.siteName,
+        description:
+          "The Global Platform for Structured Healthcare Asset Development.",
+        publisher: { "@id": `${global.baseUrl}/#organization` },
       },
       {
         "@type": "Organization",
         "@id": `${global.baseUrl}/#organization`,
-        "name": global.siteName,
-        "url": global.baseUrl,
-        "logo": global.logo,
-        "foundingDate": "2013",
-        "hasOfferCatalog": {
+        name: global.siteName,
+        url: global.baseUrl,
+        logo: global.logo,
+        foundingDate: "2013",
+        hasOfferCatalog: {
           "@type": "OfferCatalog",
-          "name": "Healthcare Asset Lifecycle Services",
-          "itemListElement": home.services.map((s: string) => ({
+          name: "Healthcare Asset Lifecycle Services",
+          itemListElement: home.services.map((s: string) => ({
             "@type": "Offer",
-            "itemOffered": { "@type": "Service", "name": s }
-          }))
-        }
-      }
-    ]
+            itemOffered: { "@type": "Service", name: s },
+          })),
+        },
+      },
+    ],
   };
 
   return (
     <>
-    <JsonLd data={homeSchema} />
-      <HeroSection
-        slides={SLIDES}
-      />
+      <JsonLd data={homeSchema} />
+      <HeroSection slides={SLIDES} />
       <PhilosophySection />
       <CounterSection />
       <UnifiedPlatformList />

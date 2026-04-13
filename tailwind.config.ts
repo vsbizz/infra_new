@@ -6,13 +6,16 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'brand-teal': '#2d8b8b',
-        'brand-dark': '#0F172A',
+        "brand-teal": "#2d8b8b",
+        "brand-dark": "#0F172A",
       },
       fontFamily: {
-        sans: ['Inter', 'ui-sans-serif', 'system-ui'],
+        sans: ["Inter", "ui-sans-serif", "system-ui"],
+      },
+      screens: {
+        xs: "320px",
       },
     },
   },
   plugins: [],
-}
+};

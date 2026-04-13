@@ -5,18 +5,17 @@ import { motion } from "framer-motion";
 import {
   Search,
   ChevronRight,
-  MapPin,
-  LayoutGrid,
-  List,
   ArrowRight,
   Stethoscope,
   University,
   ChartLine,
   Globe,
   ChevronLeft,
+  ChevronDown,
 } from "lucide-react";
 import Link from "next/link";
 import { portfolioData } from "@/data/portfolio";
+import { citiesData } from "@/data/cities";
 
 const solutionsData = {
   value: {
@@ -60,6 +59,7 @@ const Properties: React.FC = () => {
   const [viewMode, setViewMode] = useState<"grid" | "list">("grid");
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 6;
+  const citiesPerPage = 9; // 3 columns × 3 rows
 
   const resultsRef = useRef<HTMLDivElement>(null);
 
@@ -85,7 +85,16 @@ const Properties: React.FC = () => {
   const totalPages = Math.ceil(filteredProperties.length / itemsPerPage);
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentItems = filteredProperties.slice(indexOfFirstItem, indexOfLastItem);
+  const currentItems = filteredProperties.slice(
+    indexOfFirstItem,
+    indexOfLastItem,
+  );
+
+  // Pagination for cities
+  const totalCityPages = Math.ceil(citiesData.length / citiesPerPage);
+  const indexOfLastCity = currentPage * citiesPerPage;
+  const indexOfFirstCity = indexOfLastCity - citiesPerPage;
+  const currentCities = citiesData.slice(indexOfFirstCity, indexOfLastCity);
 
   const handlePageChange = (pageNumber: number) => {
     setCurrentPage(pageNumber);
@@ -95,8 +104,11 @@ const Properties: React.FC = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* ── Hero ── */}
-      <section className="relative pt-24 md:pt-28 md:pt-44 pb-16 md:pb-20 overflow-hidden bg-slate-50">
-        {/* Background image — hidden on small screens so it doesn't clash with text */}
+      <section className="relative pt-32 sm:pt-20 md:pt-44 lg:pt-54 pb-12 xs:pb-16 md:pb-20 overflow-hidden bg-slate-50">
+        {/* 
+          JLL Page Padding Mobile: 64-80px, Tablet: 80-96px, Desktop: 128-160px
+        */}
+        {/* Background image — hidden on small screens */}
         <div className="hidden md:block absolute top-[25%] right-0 w-1/2 h-full pointer-events-none">
           <div className="absolute inset-0 bg-linear-to-l from-brand-teal/20 to-transparent" />
           <img
@@ -106,14 +118,17 @@ const Properties: React.FC = () => {
           />
         </div>
 
-        <div className="max-w-7xl mx-auto px-4 md:px-6 relative z-10">
+        <div className="max-w-7xl mx-auto px-4 xs:px-5 sm:px-6 md:px-8 relative z-10">
+          {/* 
+            JLL Container Padding Mobile: 16-20px, Tablet: 20-24px, Desktop: 32px
+          */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
             {/* Breadcrumb */}
-            <nav className="flex items-center gap-2 text-xs font-medium text-slate-400 mb-6 md:mb-8 uppercase tracking-widest">
+            <nav className="flex items-center gap-1.5 md:gap-2 text-[10px] xs:text-[11px] md:text-xs font-semibold text-slate-400 mb-6 xs:mb-7 md:mb-8 uppercase tracking-widest">
               <Link href="/" className="hover:text-teal-600 transition-colors">
                 Home
               </Link>
@@ -127,80 +142,104 @@ const Properties: React.FC = () => {
             </nav>
 
             {/* Heading */}
-            <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold text-slate-900 mb-5 md:mb-8 leading-[1.1] tracking-tight">
+            {/* 
+              JLL H1 Mobile: 32-36px, font-weight: 600 (semibold)
+              Desktop: font-extrabold
+            */}
+            <h1 className="text-[32px] xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl md:font-extrabold text-slate-900 mb-4 xs:mb-5 md:mb-8 leading-[1.1] tracking-tight">
               Unlocking Value Across
               <span className="text-brand-teal"> Global </span>
               <br className="hidden sm:block" />
               Healthcare Assets
             </h1>
 
-            <p className="text-base md:text-lg leading-relaxed text-slate-600 mb-8 md:mb-10 max-w-xl">
+            <p className="text-sm xs:text-[15px] sm:text-base md:text-lg font-normal leading-[1.6] text-slate-600 mb-8 xs:mb-10 md:mb-12 max-w-xl">
               Infra.Health provides a comprehensive international platform for
               healthcare operators and investors to transact, invest, and expand
               their healthcare asset base.
             </p>
 
             {/* Search Bar */}
-            <div className="w-full max-w-4xl bg-white shadow-2xl shadow-slate-200/50 rounded-2xl md:rounded-full p-3 md:p-2 flex flex-col md:flex-row items-stretch md:items-center gap-3 md:gap-2 border border-slate-100">
-              {/* Text input */}
-              <div className="relative flex-1">
-                <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 w-5 h-5" />
-                <input
-                  type="text"
-                  placeholder="Search by hospital name or clinical facility..."
-                  className="w-full pl-12 pr-4 py-3.5 md:py-4 rounded-xl focus:outline-none text-slate-900 font-medium placeholder:text-slate-400 text-sm md:text-base"
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                />
+            <div className="relative my-12 xs:my-16 sm:my-20 md:my-24">
+              {/* Negative margin pulls search bar UP over hero image */}
+              <div className="-mt-8 xs:-mt-10 md:-mt-16 lg:-mt-20 relative z-10 flex justify-center">
+                <div className="w-full max-w-5xl bg-white shadow-2xl shadow-slate-900/10 rounded-2xl md:rounded-[2rem] p-2 xs:p-2.5 sm:p-1 flex flex-col md:flex-row items-stretch md:items-center gap-2 xs:gap-2.5 sm:gap-3 border border-teal-500/100 hover:shadow-teal-500/10 transition-all duration-300">
+                  {/* 
+                       JLL Search Bar Spacing Mobile: p-2, Tablet: p-2.5, Desktop: p-3
+                       Gap Mobile: gap-2, Tablet: gap-2.5, Desktop: gap-3
+                     */}
+
+                  {/* Text input */}
+                  <div className="relative flex-1 min-w-0">
+                    <Search className="absolute left-4 xs:left-5 top-1/2 -translate-y-1/2 text-slate-400 w-5 h-5 pointer-events-none" />
+                    <input
+                      type="text"
+                      placeholder="Search by hospital name or clinical facility..."
+                      className="w-full h-14 xs:h-[58px] sm:h-16 md:h-[68px] pl-12 xs:pl-14 pr-4 xs:pr-5 rounded-xl md:rounded-[1.5rem] focus:outline-none focus:ring-2 focus:ring-teal-500/20 text-slate-900 font-semibold placeholder:text-slate-400 placeholder:font-normal text-sm xs:text-base md:text-lg transition-all"
+                      value={searchQuery}
+                      onChange={(e) => setSearchQuery(e.target.value)}
+                    />
+                  </div>
+
+                  {/* Divider */}
+                  <div className="h-px w-full md:h-12 lg:h-14 md:w-px bg-slate-200" />
+
+                  {/* Asset type select */}
+                  <div className="relative">
+                    <select
+                      className="appearance-none h-14 xs:h-[58px] sm:h-16 md:h-[68px] pl-5 xs:pl-6 pr-10 xs:pr-12 bg-transparent text-slate-700 font-semibold text-sm xs:text-base md:text-lg focus:outline-none focus:ring-2 focus:ring-teal-500/20 cursor-pointer border border-slate-200 md:border-0 rounded-xl md:rounded-[1.5rem] transition-all whitespace-nowrap min-w-[140px] xs:min-w-[160px] md:min-w-[180px]"
+                      value={selectedType}
+                      onChange={(e) => setSelectedType(e.target.value)}
+                    >
+                      {assetTypes.map((type) => (
+                        <option key={type} value={type} className="font-normal">
+                          {type === "All" ? "Asset type" : type}
+                        </option>
+                      ))}
+                    </select>
+                    <ChevronDown className="absolute right-4 xs:right-5 top-1/2 -translate-y-1/2 text-slate-400 w-5 h-5 pointer-events-none" />
+                  </div>
+
+                  {/* Search button */}
+                  <button className="h-14 xs:h-[58px] sm:h-16 md:h-[52px] w-full md:w-auto bg-gradient-to-r from-teal-500 to-teal-600 text-white px-8 xs:px-10 md:px-8 rounded-xl md:rounded-[1.5rem] font-bold hover:from-teal-600 hover:to-teal-700 hover:shadow-xl hover:shadow-teal-500/30 active:scale-[0.98] transition-all flex items-center justify-center gap-2 text-sm xs:text-base md:text-lg shadow-lg shadow-teal-500/20 whitespace-nowrap">
+                    Search <ArrowRight size={20} className="shrink-0" />
+                  </button>
+                </div>
               </div>
-
-              <div className="h-px w-full md:h-8 md:w-px bg-slate-200" />
-
-              {/* Asset type select */}
-              <select
-                className="px-4 md:px-6 py-3.5 md:py-4 bg-transparent text-slate-600 font-bold text-sm focus:outline-none cursor-pointer border border-slate-200 md:border-0 rounded-xl md:rounded-none"
-                value={selectedType}
-                onChange={(e) => setSelectedType(e.target.value)}
-              >
-                {assetTypes.map((type) => (
-                  <option key={type} value={type}>
-                    {type === "All" ? "Asset type" : type}
-                  </option>
-                ))}
-              </select>
-
-              {/* Search button */}
-              <button className="w-full md:w-auto bg-slate-900 text-white px-8 py-3.5 md:py-4 rounded-xl md:rounded-full font-bold hover:bg-brand-teal transition-all flex items-center justify-center gap-2 text-sm md:text-base">
-                Search <ArrowRight size={18} />
-              </button>
             </div>
-
-            <p className="mt-4 text-slate-400 text-sm font-medium">
-              {filteredProperties.length} clinical assets found
-            </p>
           </motion.div>
         </div>
       </section>
 
       {/* ── Why Infra.Health ── */}
-      <section className="bg-white py-16 md:py-24">
-        <div className="mx-auto max-w-7xl px-4 md:px-8">
-          <div className="grid lg:grid-cols-12 gap-10 md:gap-16 items-start">
+      <section className="bg-white py-12 xs:py-16 md:py-24">
+        {/* 
+          JLL Section Padding Mobile: 48-64px, Tablet: 64-80px, Desktop: 96-128px
+        */}
+        <div className="mx-auto max-w-7xl px-4 xs:px-5 sm:px-6 md:px-8">
+          <div className="grid lg:grid-cols-12 gap-8 xs:gap-10 md:gap-16 items-start">
             {/* Header — sticky only on large screens */}
             <div className="lg:col-span-5 lg:sticky lg:top-32">
-              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold leading-[1.1] tracking-tight text-slate-900 mb-6 md:mb-10">
+              {/* 
+                JLL H2 Mobile: 24-26px, font-weight: 600 (semibold)
+                Desktop: font-extrabold
+              */}
+              <h2 className="text-2xl xs:text-[26px] sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl  md:font-extrabold leading-[1.3] md:leading-[1.1] tracking-tight text-slate-900 mb-5 xs:mb-6 md:mb-10">
                 {solutionsData.value.title}
               </h2>
-              <p className="text-base md:text-xl leading-relaxed text-slate-600 mb-6 md:mb-10 max-w-md">
+              <p className="text-sm xs:text-[15px] sm:text-base md:text-lg xl:text-xl font-normal leading-[1.6] text-slate-600 mb-5 xs:mb-6 md:mb-10 max-w-md">
                 We go beyond traditional brokerage. Our platform bridges the gap
                 between clinical operations and institutional capital to de-risk
                 healthcare infrastructure.
               </p>
-              <div className="w-24 h-1 bg-teal-600" />
+              <div className="w-20 xs:w-24 h-1 bg-teal-600" />
             </div>
 
             {/* Cards grid */}
-            <div className="lg:col-span-7 grid sm:grid-cols-2 gap-6 md:gap-8">
+            <div className="lg:col-span-7 grid sm:grid-cols-2 gap-5 xs:gap-6 md:gap-8">
+              {/* 
+                JLL Grid Gap Mobile: 20-24px, Tablet: 24-28px, Desktop: 32px
+              */}
               {solutionsData.value.points.map((item, idx) => (
                 <motion.div
                   key={idx}
@@ -217,20 +256,30 @@ const Properties: React.FC = () => {
                       alt={item.title}
                       className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
                     />
-                    <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-md p-3 rounded-lg text-teal-600 shadow-sm transition-colors group-hover:bg-teal-600 group-hover:text-white">
-                      <item.icon size={22} />
+                    <div className="absolute top-3 xs:top-4 left-3 xs:left-4 bg-white/90 backdrop-blur-md p-2.5 xs:p-3 rounded-lg text-teal-600 shadow-sm transition-colors group-hover:bg-teal-600 group-hover:text-white">
+                      <item.icon
+                        size={20}
+                        className="xs:w-[22px] xs:h-[22px]"
+                      />
                     </div>
                   </div>
 
                   {/* Content */}
-                  <div className="p-5 md:p-8 border-b-4 border-transparent group-hover:border-teal-600 transition-all duration-500 min-h-44 md:min-h-55 flex flex-col">
-                    <div className="text-slate-400 font-bold text-xs tracking-widest mb-3 md:mb-4">
+                  <div className="p-5 xs:p-6 md:p-8 border-b-4 border-transparent group-hover:border-teal-600 transition-all duration-500 min-h-[176px] xs:min-h-[200px] md:min-h-[220px] flex flex-col">
+                    {/* 
+                      JLL Card Padding Mobile: 20-24px, Tablet: 24-32px, Desktop: 32-48px
+                    */}
+                    <div className="text-slate-400 font-bold text-[10px] xs:text-xs tracking-widest mb-3 xs:mb-4">
                       STRATEGIC PILLAR 0{idx + 1}
                     </div>
-                    <h4 className="text-lg md:text-2xl font-bold text-slate-900 mb-3 md:mb-4 group-hover:text-teal-600 transition-colors">
+                    {/* 
+                      JLL H3/H4 Mobile: 18-20px, font-weight: 600 (semibold)
+                      Desktop: font-extrabold
+                    */}
+                    <h4 className="text-lg xs:text-xl md:text-2xl  md:font-extrabold text-slate-900 mb-3 xs:mb-4 group-hover:text-teal-600 transition-colors">
                       {item.title}
                     </h4>
-                    <p className="text-slate-600 leading-relaxed text-sm">
+                    <p className="text-slate-600 leading-[1.6] text-sm xs:text-[15px] font-normal">
                       {item.text}
                     </p>
                   </div>
@@ -241,138 +290,95 @@ const Properties: React.FC = () => {
         </div>
       </section>
 
-      {/* ── Property Grid ── */}
-      <section ref={resultsRef} className="py-16 md:py-24 bg-slate-50 px-4 md:px-6">
+      {/* ── Explore Cities Section ── */}
+      <section
+        ref={resultsRef}
+        className="py-12 xs:py-16 md:py-24 bg-slate-50 px-4 xs:px-5 sm:px-6 md:px-8"
+      >
         <div className="max-w-7xl mx-auto">
           {/* Section header */}
-          <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-6 mb-10 md:mb-16">
+          <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-5 xs:gap-6 mb-10 xs:mb-12 md:mb-16">
             <div>
-              <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold text-slate-900 mb-3 md:mb-4">
+              {/* 
+                JLL H2 Mobile: 24-26px, font-weight: 600 (semibold)
+                Desktop: font-extrabold
+              */}
+              <h2 className="text-2xl xs:text-[26px] sm:text-3xl md:text-4xl lg:text-5xl md:font-extrabold text-slate-900 mb-3 xs:mb-4 tracking-tight leading-[1.2]">
                 Explore Our Properties
               </h2>
-              <p className="text-slate-500 text-base md:text-lg font-medium">
-                Institutional-grade healthcare infrastructure curated for
-                strategic investors.
+              <p className="text-slate-500 text-sm xs:text-[15px] sm:text-base md:text-lg font-normal leading-[1.6]">
+                Discover healthcare infrastructure opportunities across India's
+                leading cities.
               </p>
-            </div>
-            {/* View toggle */}
-            <div className="flex items-center gap-2 bg-white p-1.5 rounded-md border border-slate-200 self-end md:self-auto">
-              <button
-                onClick={() => setViewMode("grid")}
-                className={`p-2.5 rounded-full transition-all ${viewMode === "grid" ? "bg-slate-900 text-white shadow-lg" : "text-slate-400 hover:text-slate-900"}`}
-                aria-label="Grid view"
-              >
-                <LayoutGrid size={18} />
-              </button>
-              <button
-                onClick={() => setViewMode("list")}
-                className={`p-2.5 rounded-full transition-all ${viewMode === "list" ? "bg-slate-900 text-white shadow-lg" : "text-slate-400 hover:text-slate-900"}`}
-                aria-label="List view"
-              >
-                <List size={18} />
-              </button>
             </div>
           </div>
 
-          {/* Cards */}
-          <div
-            className={`grid gap-6 md:gap-10 ${
-              viewMode === "grid"
-                ? "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
-                : "grid-cols-1"
-            }`}
-          >
-            {currentItems.map((property, index) => (
+          {/* City Cards Grid - Responsive columns */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 xs:gap-6 md:gap-8">
+            {/* 
+              JLL Grid Gap Mobile: 20-24px, Tablet: 24-28px, Desktop: 32px
+            */}
+            {currentCities.map((city, index) => (
               <motion.div
-                key={property.slug}
+                key={city.id}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.08 }}
               >
-                <Link
-                  href={`/properties/${property.slug}`}
-                  className={`group bg-white rounded-md overflow-hidden border border-slate-200 hover:shadow-2xl hover:shadow-slate-200/50 transition-all flex h-full ${
-                    viewMode === "grid"
-                      ? "flex-col"
-                      : "flex-col sm:flex-row"
-                  }`}
-                >
-                  {/* Image */}
-                  <div
-                    className={`relative overflow-hidden bg-slate-100 ${
-                      viewMode === "grid"
-                        ? "aspect-16/10"
-                        : "aspect-16/10 sm:w-1/3 sm:aspect-auto"
-                    }`}
-                  >
-                    <img
-                      src={
-                        property.images[0] ||
-                        "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80&w=800"
-                      }
-                      alt={property.title}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                <div className="group relative h-72 xs:h-80 md:h-[360px] rounded-md overflow-hidden cursor-pointer block transition-transform duration-300 hover:shadow-2xl hover:shadow-slate-200/50">
+                  {/* Background Image */}
+                  <img
+                    src={city.image}
+                    alt={city.name}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                  />
+
+                  {/* Gradient Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-b from-black/10 to-black/50 group-hover:from-black/20 group-hover:to-black/60 transition-all duration-500"></div>
+
+                  {/* CTA Button - Top Right */}
+                  <div className="absolute top-3 xs:top-4 right-3 xs:right-4 bg-white px-3 xs:px-4 py-2 xs:py-2.5 rounded-full font-bold text-xs xs:text-sm text-black flex items-center gap-1.5 xs:gap-2 group-hover:gap-2.5 xs:group-hover:gap-3 hover:bg-teal-600 hover:text-white transition-all duration-300">
+                    <span>{city.listings}+ Properties</span>
+                    <ArrowRight
+                      size={14}
+                      className="xs:w-4 xs:h-4 group-hover:translate-x-0.5 transition-transform"
                     />
-                    <div className="absolute bottom-3 left-3 flex flex-wrap gap-2">
-                      <span className="bg-brand-teal/90 backdrop-blur-sm text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-md">
-                        {property.subcategory || "Clinical Asset"}
-                      </span>
-                    </div>
                   </div>
 
-                  {/* Content */}
-                  <div className="p-5 md:p-8 flex-1 flex flex-col">
-                    <h3 className="text-base md:text-xl font-bold text-slate-900 mb-3 md:mb-4 group-hover:text-brand-teal transition-colors line-clamp-2 leading-snug">
-                      {property.title}
+                  {/* Content Section */}
+                  <div className="absolute bottom-0 left-0 right-0 p-5 xs:p-6 md:p-8">
+                    {/* 
+                      JLL Card Padding Mobile: 20-24px, Tablet: 24-32px, Desktop: 32-48px
+                    */}
+                    {/* City Name */}
+                    <h3 className="text-white text-xl xs:text-2xl md:text-3xl  md:font-extrabold">
+                      {city.name}
                     </h3>
-                    <div className="flex items-start gap-2 text-slate-500 text-sm mb-4 md:mb-6 font-medium">
-                      <MapPin
-                        size={15}
-                        className="shrink-0 mt-0.5 text-brand-teal"
-                      />
-                      <span className="line-clamp-2">
-                        {property.projectBrief.shortDescription}
-                      </span>
-                    </div>
-
-                    <div className="mt-auto pt-4 md:pt-6 border-t border-slate-100 flex items-center justify-between">
-                      <div className="flex flex-col">
-                        <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1">
-                          Built-up Area
-                        </span>
-                        <span className="text-sm font-bold text-slate-900">
-                          {property.projectBrief.builtUpArea}
-                        </span>
-                      </div>
-                      <div className="text-brand-teal font-bold flex items-center gap-1.5 text-sm group-hover:gap-2.5 transition-all">
-                        View Asset <ChevronRight size={16} />
-                      </div>
-                    </div>
                   </div>
-                </Link>
+                </div>
               </motion.div>
             ))}
           </div>
 
           {/* Pagination */}
-          {totalPages > 1 && (
-            <div className="mt-12 md:mt-16 flex justify-center items-center">
+          {totalCityPages > 1 && (
+            <div className="mt-10 xs:mt-12 md:mt-16 flex justify-center items-center">
               <div className="flex gap-2 flex-wrap justify-center">
                 <button
                   onClick={() => handlePageChange(Math.max(1, currentPage - 1))}
                   disabled={currentPage === 1}
-                  className="p-2.5 rounded-md border border-slate-200 bg-white hover:bg-slate-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                  className="p-2 xs:p-2.5 rounded-md border border-slate-200 bg-white hover:bg-slate-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
                   aria-label="Previous page"
                 >
-                  <ChevronLeft size={18} />
+                  <ChevronLeft size={16} className="xs:w-[18px] xs:h-[18px]" />
                 </button>
 
-                {[...Array(totalPages)].map((_, i) => (
+                {[...Array(totalCityPages)].map((_, i) => (
                   <button
                     key={i}
                     onClick={() => handlePageChange(i + 1)}
-                    className={`w-10 h-10 rounded-full text-sm font-bold transition-all ${
+                    className={`w-9 h-9 xs:w-10 xs:h-10 rounded-full text-xs xs:text-sm font-bold transition-all ${
                       currentPage === i + 1
                         ? "bg-slate-900 text-white shadow-lg scale-110"
                         : "bg-white border border-slate-200 text-slate-600 hover:border-brand-teal hover:text-brand-teal"
@@ -385,16 +391,26 @@ const Properties: React.FC = () => {
                 ))}
 
                 <button
-                  onClick={() => handlePageChange(Math.min(totalPages, currentPage + 1))}
-                  disabled={currentPage === totalPages}
-                  className="p-2.5 rounded-md border border-slate-200 bg-white hover:bg-slate-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                  onClick={() =>
+                    handlePageChange(Math.min(totalCityPages, currentPage + 1))
+                  }
+                  disabled={currentPage === totalCityPages}
+                  className="p-2 xs:p-2.5 rounded-md border border-slate-200 bg-white hover:bg-slate-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
                   aria-label="Next page"
                 >
-                  <ChevronRight size={18} />
+                  <ChevronRight size={16} className="xs:w-[18px] xs:h-[18px]" />
                 </button>
               </div>
             </div>
           )}
+
+          {/* Results count */}
+          <div className="mt-6 xs:mt-8 md:mt-12 text-center">
+            <p className="text-slate-500 text-sm xs:text-base md:text-lg font-normal leading-[1.6]">
+              Showing {currentCities.length} of {citiesData.length} healthcare
+              opportunity cities
+            </p>
+          </div>
         </div>
       </section>
     </div>

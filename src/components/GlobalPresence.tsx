@@ -233,7 +233,6 @@ export const GlobalPresence: React.FC = () => {
     return () => window.removeEventListener("resize", updateDimensions);
   }, []);
 
-  // Sync Leader Line
   useEffect(() => {
     if (dimensions.width === 0 || !activeRegionData) return;
     const projection = getProjection(dimensions.width, dimensions.height);
@@ -243,7 +242,6 @@ export const GlobalPresence: React.FC = () => {
     setIndicatorPos({ x, y });
   }, [hoveredRegion, dimensions, activeRegionData]);
 
-  // Auto-play logic
   useEffect(() => {
     if (!isAutoPlaying) return;
     const interval = setInterval(() => {
@@ -256,7 +254,6 @@ export const GlobalPresence: React.FC = () => {
     return () => clearInterval(interval);
   }, [isAutoPlaying]);
 
-  // Render Map
   useEffect(() => {
     if (dimensions.width === 0 || !svgRef.current) return;
 
@@ -307,27 +304,49 @@ export const GlobalPresence: React.FC = () => {
   }, [dimensions, hoveredRegion]);
 
   return (
-    <section className="relative bg-white py-24 overflow-hidden">
-      <div className="mx-auto max-w-7xl px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
-          <div className="lg:col-span-6 space-y-8 z-10">
+    <section className="relative bg-white py-12 xs:py-14 sm:py-16 md:py-20 lg:py-24 overflow-hidden">
+      {/* 
+        JLL Section Padding Mobile: 48-64px, Tablet: 64-80px
+      */}
+      <div className="mx-auto max-w-7xl px-4 xs:px-5 sm:px-6">
+        {/* 
+          JLL Container Padding Mobile: 16-20px, Tablet: 20-24px
+        */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 xs:gap-12 sm:gap-14 md:gap-16 items-center">
+          {/* 
+            JLL Grid Gap Mobile: 40-48px, Tablet: 48-64px
+          */}
+
+          <div className="lg:col-span-6 space-y-6 xs:space-y-7 sm:space-y-8 z-10">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              <h2 className="text-3xl font-extrabold leading-[1.1] tracking-tight text-slate-900 md:text-5xl lg:text-6xl">
+              {/* 
+                JLL H2 Mobile: 24-26px, font-weight: 600 (semibold)
+                Desktop (md+): font-extrabold as requested
+              */}
+              <h2 className="text-2xl xs:text-[26px] sm:text-[28px] md:text-4xl lg:text-5xl xl:text-6xl md:font-extrabold md:font-extrabold leading-[1.3] md:leading-[1.1] tracking-tight text-slate-900">
                 International Standards.
                 <br />
                 <span className="text-brand-teal">Local Intelligence.</span>
               </h2>
 
-              <p className="mt-6 text-lg leading-relaxed text-slate-600">
+              {/* 
+                JLL Body Text Mobile: 14-15px, font-weight: 400 (normal)
+              */}
+              <p className="mt-4 xs:mt-5 sm:mt-6 text-sm xs:text-[15px] sm:text-base md:text-lg font-normal leading-[1.6] text-slate-600">
                 Navigating complex regulatory environments to deliver JCI and
                 NABH compliant assets in diverse global markets.
               </p>
-              <div className="mt-12 grid grid-cols-2 gap-4">
+
+              {/* 
+                Region Cards Grid
+                JLL Grid Gap Mobile: 12-16px
+              */}
+              <div className="mt-8 xs:mt-10 sm:mt-12 grid grid-cols-2 gap-3 xs:gap-3.5 sm:gap-4">
                 {REGIONS.map((region) => (
                   <motion.div
                     key={region.id}
@@ -343,15 +362,18 @@ export const GlobalPresence: React.FC = () => {
                       backgroundColor:
                         hoveredRegion === region.id ? "#f8fafc" : "#ffffff",
                     }}
-                    className={`group cursor-pointer rounded-xl border p-4 transition-all duration-300 ${hoveredRegion === region.id ? "shadow-md" : ""}`}
+                    className={`group cursor-pointer rounded-lg xs:rounded-xl border p-3 xs:p-3.5 sm:p-4 transition-all duration-300 ${hoveredRegion === region.id ? "shadow-md" : ""}`}
                   >
-                    <div className="flex items-center gap-3">
+                    <div className="flex items-center gap-2 xs:gap-2.5 sm:gap-3">
                       <div
-                        className="h-2.5 w-2.5 rounded-full"
+                        className="h-2 w-2 xs:h-2.5 xs:w-2.5 rounded-full flex-shrink-0"
                         style={{ backgroundColor: region.color }}
                       />
+                      {/* 
+                        JLL List/Label Text Mobile: 14-15px, font-weight: 500 (medium)
+                      */}
                       <span
-                        className={`text-base leading-relaxed ${hoveredRegion === region.id ? "text-slate-900" : "text-slate-400"}`}
+                        className={`text-sm xs:text-[15px] sm:text-base font-medium leading-tight ${hoveredRegion === region.id ? "text-slate-900" : "text-slate-400"}`}
                       >
                         {region.name}
                       </span>
@@ -363,7 +385,17 @@ export const GlobalPresence: React.FC = () => {
           </div>
 
           <div className="lg:col-span-6 relative flex items-center justify-center">
-            <div className="relative h-100 w-full lg:h-150 rounded-full overflow-hidden border border-slate-200 bg-slate-50/50 shadow-[inset_0_0_60px_rgba(0,0,0,0.05)]">
+            <div className="relative h-80 xs:h-96 sm:h-[28rem] md:h-[32rem] lg:h-100 xl:h-150 w-full rounded-full overflow-hidden border border-slate-200 bg-slate-50/50 shadow-[inset_0_0_60px_rgba(0,0,0,0.05)]">
+              {/* 
+                Map Container Height:
+                Mobile: 320px (80 × 4)
+                iPhone SE: 384px (96 × 4)
+                Tablet: 448px (112 × 4)
+                Desktop: 512px (128 × 4)
+                Large: 400px (100 × 4)
+                XL: 600px (150 × 4)
+              */}
+
               <svg className="absolute inset-0 z-20 pointer-events-none w-full h-full">
                 <AnimatePresence>
                   {hoveredRegion && (
@@ -406,11 +438,16 @@ export const GlobalPresence: React.FC = () => {
                       top: indicatorPos.y - 60,
                     }}
                     exit={{ opacity: 0, scale: 0.8 }}
-                    className="absolute z-30 pointer-events-none whitespace-nowrap bg-white/95 backdrop-blur-sm border border-slate-200 px-3 py-1.5 rounded-lg shadow-xl"
+                    className="absolute z-30 pointer-events-none whitespace-nowrap bg-white/95 backdrop-blur-sm border border-slate-200 px-2.5 xs:px-3 py-1.5 rounded-lg shadow-xl"
                   >
-                    <p className="text-xl font-black text-slate-900 leading-tight">
+                    {/* 
+                      JLL Stats Display:
+                      Number: 18-20px, font-weight: 700 (bold)
+                      Label: 9-10px, font-weight: 600 (semibold)
+                    */}
+                    <p className="text-lg xs:text-xl font-bold text-slate-900 leading-tight">
                       {activeRegionData?.beds}{" "}
-                      <span className="text-teal-600 text-[10px] uppercase font-bold block">
+                      <span className="text-teal-600 text-[9px] xs:text-[10px] uppercase font-semibold block">
                         Beds Managed
                       </span>
                     </p>
