@@ -1,4 +1,3 @@
-import React from "react";
 import { notFound } from "next/navigation";
 import { SERVICES_CONTENT } from "@/data/services";
 import {
@@ -13,6 +12,16 @@ import {
   ClipboardCheck,
   BarChart,
   Shield,
+  Activity,
+  Award,
+  Cpu,
+  Calendar,
+  Settings,
+  Box,
+  Feather,
+  Image,
+  Truck,
+  Building,
 } from "lucide-react";
 import { Metadata } from "next";
 import metaData from "@/data/meta.json";
@@ -30,6 +39,16 @@ const IconMap: any = {
   ClipboardCheck: <ClipboardCheck className="w-4 h-4 md:w-5 md:h-5" />,
   BarChart: <BarChart className="w-4 h-4 md:w-5 md:h-5" />,
   Shield: <Shield className="w-4 h-4 md:w-5 md:h-5" />,
+  Activity: <Activity className="w-4 h-4 md:w-5 md:h-5" />,
+  Award: <Award className="w-4 h-4 md:w-5 md:h-5" />,
+  Cpu: <Cpu className="w-4 h-4 md:w-5 md:h-5" />,
+  Calendar: <Calendar className="w-4 h-4 md:w-5 md:h-5" />,
+  Settings: <Settings className="w-4 h-4 md:w-5 md:h-5" />,
+  Box: <Box className="w-4 h-4 md:w-5 md:h-5" />,
+  Feather: <Feather className="w-4 h-4 md:w-5 md:h-5" />,
+  Image: <Image className="w-4 h-4 md:w-5 md:h-5" />,
+  Truck: <Truck className="w-4 h-4 md:w-5 md:h-5" />,
+  Building: <Building className="w-4 h-4 md:w-5 md:h-5" />,
 };
 
 type Props = {
@@ -212,8 +231,9 @@ export default async function SubServicePage({ params }: Props) {
       {/* ── Deliverables ── */}
       <section className="py-12 xs:py-16 md:py-24 bg-slate-50/50">
         <div className="max-w-7xl mx-auto px-4 xs:px-5 sm:px-6">
+          {/* Section Header */}
           <div className="text-center mb-10 xs:mb-12 md:mb-20">
-            <h2 className="text-2xl xs:text-[26px] sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl  md:font-extrabold leading-[1.1] tracking-tight text-slate-900 mb-3 xs:mb-4 md:mb-6">
+            <h2 className="text-2xl xs:text-[26px] sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl md:font-extrabold leading-[1.1] tracking-tight text-slate-900 mb-3 xs:mb-4 md:mb-6">
               {subService.deliverableTitle}
             </h2>
             <p className="max-w-2xl mx-auto text-sm xs:text-[15px] sm:text-base md:text-lg text-slate-600 font-normal leading-[1.6]">
@@ -221,18 +241,26 @@ export default async function SubServicePage({ params }: Props) {
             </p>
           </div>
 
-          {/* Grid: 1 col mobile → 2 col sm → 3 col md */}
-          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-3 xs:gap-3.5 sm:gap-4">
+          {/* CHANGED TO FLEXBOX:
+        - flex-wrap: allows cards to wrap to next line
+        - justify-center: centers the cards, including the 5th card in the last row
+    */}
+          <div className="flex flex-wrap justify-center gap-3 xs:gap-3.5 sm:gap-4">
             {subService.deliverables.map((item: any, idx: number) => (
               <div
                 key={idx}
-                className="relative group p-5 xs:p-6 md:p-8 bg-white border border-slate-200 rounded-xl xs:rounded-2xl hover:border-teal-500/50 hover:shadow-2xl hover:shadow-teal-500/5 transition-all duration-300"
+                /* WIDTH CALCULATIONS:
+             - w-[calc(50%-12px)]: Mimics grid-cols-2 (half width minus gap)
+             - md:w-[calc(33.33%-16px)]: Mimics grid-cols-3 on desktop
+          */
+                className="relative group p-5 xs:p-6 md:p-8 bg-white border border-slate-200 rounded-xl xs:rounded-2xl hover:border-teal-500/50 hover:shadow-2xl hover:shadow-teal-500/5 transition-all duration-300 w-[calc(50%-12px)] md:w-[calc(33.33%-16px)] min-w-[160px]"
               >
-                <div className="flex flex-col gap-3 md:gap-4">
+                {/* Card Content Alignment */}
+                <div className="flex flex-col items-center text-center md:items-start md:text-left gap-3 md:gap-4">
                   <div className="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-xl bg-slate-50 text-teal-600 group-hover:bg-teal-600 group-hover:text-white transition-colors duration-300">
                     {IconMap[item.icon]}
                   </div>
-                  <span className="text-lg xs:text-xl md:text-2xl  md:font-extrabold text-slate-900 tracking-tight">
+                  <span className="text-lg xs:text-xl md:text-2xl md:font-extrabold text-slate-900 tracking-tight">
                     {item.title}
                   </span>
                   {item.description && (

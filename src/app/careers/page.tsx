@@ -38,7 +38,7 @@ const BUILD_VALUES = [
     icon: Lightbulb,
     letter: "B",
     title: "Brainstorming",
-    desc: "Fresh ideas, creative solutions, and embracing new perspectives.",
+    desc: "Fresh ideas, creative solutions, embracing perspectives.",
   },
   {
     icon: Users,
@@ -232,12 +232,16 @@ export default function CareersPage() {
             </p>
           </div>
 
-          <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5 xs:gap-6">
-            {/* 
-              JLL Grid Gap Mobile: 20-24px, Tablet: 24-28px, Desktop: 32px
-            */}
+          <div className="flex flex-wrap justify-center md:grid md:grid-cols-3 lg:grid-cols-5 gap-5 xs:gap-6">
+            {/* JLL Grid Gap Mobile: 20-24px, Tablet: 24-28px, Desktop: 32px
+             */}
             {BUILD_VALUES.map((pillar, idx) => (
-              <BuildCard key={idx} pillar={pillar} idx={idx} />
+              <div
+                key={idx}
+                className="w-[calc(50%-10px)] xs:w-[calc(50%-12px)] sm:w-full md:w-auto"
+              >
+                <BuildCard pillar={pillar} idx={idx} />
+              </div>
             ))}
           </div>
         </div>
