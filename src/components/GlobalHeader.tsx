@@ -161,6 +161,7 @@ export const GlobalHeader = () => {
     { name: "Services", isExpandable: true },
     { name: "Portfolio", href: "/portfolio" },
     { name: "Sectors", isExpandable: true },
+    { name: "Development Partner", href: "/development-partner-solution" },
     { name: "About", href: "/about" },
     { name: "Careers", href: "/careers" },
     { name: "Vendors & Partners", href: "/vendors-partners" },
@@ -231,13 +232,18 @@ export const GlobalHeader = () => {
       >
         <nav className="mx-auto flex max-w-360 items-center justify-between px-6 lg:px-16">
           <ul className="flex items-center gap-8">
-            {["Properties", "Services", "Portfolio", "Sectors"].map((item) => {
+            {[
+              "Properties",
+              "Services",
+              "Portfolio",
+              "Sectors",
+              "Development Partner",
+            ].map((item) => {
               const isDropdown = item === "Services" || item === "Sectors";
 
               return (
                 <li key={item} className="relative">
                   {isDropdown ? (
-                    // 👇 BUTTON for dropdown items
                     <button
                       type="button"
                       onMouseEnter={() => setHoveredItem(item)}
@@ -259,10 +265,14 @@ export const GlobalHeader = () => {
                     </button>
                   ) : (
                     <Link
-                      href={`/${item
-                        .toLowerCase()
-                        .replace(/ & /g, "-")
-                        .replace(/\s+/g, "-")}`}
+                      href={
+                        item === "Development Partner"
+                          ? "/development-partner-solution"
+                          : `/${item
+                              .toLowerCase()
+                              .replace(/ & /g, "-")
+                              .replace(/\s+/g, "-")}`
+                      }
                       onMouseEnter={() => setHoveredItem(item)}
                       className={`py-4 text-[16px] font-normal transition-all duration-500 border-b-2 flex items-center gap-1 ${
                         isHeaderActive

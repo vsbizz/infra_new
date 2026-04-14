@@ -84,7 +84,7 @@ const BuildCard = ({ pillar, idx }: { pillar: any; idx: number }) => {
         delay: idx * 0.1,
         ease: [0.16, 1, 0.3, 1],
       }}
-      className="relative group overflow-hidden rounded-md border border-slate-100 bg-white p-6 xs:p-8 md:p-10 shadow-xl transition-all duration-500 hover:scale-[1.02] cursor-default"
+      className="relative group overflow-hidden h-70 rounded-md border border-slate-100 bg-white p-6 xs:p-8 md:p-10 shadow-xl transition-all duration-500 hover:scale-[1.02] cursor-default"
     >
       {/* 
         JLL Card Padding Mobile: 20-24px, Tablet: 24-32px, Desktop: 40px
