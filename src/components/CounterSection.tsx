@@ -2,7 +2,6 @@
 import {
   motion,
   useMotionValue,
-  useSpring,
   useTransform,
   useInView,
   animate,
@@ -158,10 +157,6 @@ export const CounterSection = ({
           </motion.h2>
         </div>
 
-        {/* 
-          JLL Grid Gap Mobile: 16-20px, Tablet: 20-24px
-          Mobile: Single column, Tablet (sm): 2 columns, Desktop (lg): 5 columns
-        */}
         <div className="grid grid-cols-2 gap-4 xs:gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-5">
           {stats.map((stat, index) => {
             const isLast = index === stats.length - 1;
@@ -176,12 +171,20 @@ export const CounterSection = ({
                     : ""
                 }
               >
-                <StatItem
-                  label={stat.label}
-                  value={stat.value}
-                  index={index}
-                  icon={stat.icon}
-                />
+                <div
+                  className={
+                    isLast && isOdd
+                      ? "w-[calc(50%-0.5rem)] sm:w-[calc(50%-0.75rem)] lg:w-full"
+                      : "w-full"
+                  }
+                >
+                  <StatItem
+                    label={stat.label}
+                    value={stat.value}
+                    index={index}
+                    icon={stat.icon}
+                  />
+                </div>
               </div>
             );
           })}
