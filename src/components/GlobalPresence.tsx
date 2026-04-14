@@ -222,9 +222,11 @@ export const GlobalPresence: React.FC = () => {
   useEffect(() => {
     const updateDimensions = () => {
       if (svgRef.current?.parentElement) {
+        const parent = svgRef.current.parentElement;
+        const size = Math.min(parent.clientWidth, parent.clientHeight);
         setDimensions({
-          width: svgRef.current.parentElement.clientWidth,
-          height: svgRef.current.parentElement.clientHeight || 600,
+          width: size,
+          height: size,
         });
       }
     };
@@ -385,7 +387,7 @@ export const GlobalPresence: React.FC = () => {
           </div>
 
           <div className="lg:col-span-6 relative flex items-center justify-center">
-            <div className="relative h-80 xs:h-96 sm:h-[28rem] md:h-[32rem] lg:h-100 xl:h-150 w-full rounded-full overflow-hidden border border-slate-200 bg-slate-50/50 shadow-[inset_0_0_60px_rgba(0,0,0,0.05)]">
+            <div className="relative w-full max-w-[380px] xs:max-w-[420px] sm:max-w-[480px] md:max-w-[540px] lg:max-w-[640px] xl:max-w-[760px] aspect-square rounded-full overflow-hidden border border-slate-200 bg-slate-50/50 shadow-[inset_0_0_60px_rgba(0,0,0,0.05)] mx-auto">
               {/* 
                 Map Container Height:
                 Mobile: 320px (80 × 4)
