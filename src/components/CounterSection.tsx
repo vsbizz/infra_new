@@ -174,7 +174,7 @@ export const CounterSection = ({
                 <div
                   className={
                     isLast && isOdd
-                      ? "w-[calc(50%-0.5rem)] sm:w-[calc(50%-0.75rem)] lg:w-full"
+                      ? "w-[calc(50%-0.1rem)] sm:w-[calc(50%-0.75rem)] lg:w-full"
                       : "w-full"
                   }
                 >
