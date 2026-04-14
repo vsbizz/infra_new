@@ -190,7 +190,7 @@ const Portfolio: React.FC = () => {
                 strategic investors.
               </p>
             </div>
-            <div className="flex items-center gap-2 bg-white p-1.5 rounded-md border border-slate-200 self-end md:self-auto">
+            <div className=" hidden lg:flex flex items-center gap-2 bg-white p-1.5 rounded-md border border-slate-200 self-end md:self-auto">
               <button
                 onClick={() => setViewMode("grid")}
                 className={`p-2 xs:p-2.5 rounded-full transition-all ${viewMode === "grid" ? "bg-slate-900 text-white shadow-lg" : "text-slate-400 hover:text-slate-900"}`}
