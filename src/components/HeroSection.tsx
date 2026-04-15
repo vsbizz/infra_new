@@ -37,7 +37,7 @@ export const HeroSection = ({ slides }: { slides: any[] }) => {
       </div>
 
       {/* Main Content - Mobile Optimized Typography */}
-      <main className="relative z-10 flex h-full flex-col justify-center px-4 xs:px-5 sm:px-6 md:px-8 lg:px-20 pb-32 xs:pb-36 sm:pb-40 pt-20 xs:pt-24 sm:pt-28 md:pt-32 lg:pt-24">
+      <main className="relative z-10 flex h-full flex-col justify-center px-4 xs:px-5 sm:px-6 md:px-8 lg:px-20 pb-32 xs:pb-36 sm:pb-20 pt-20 xs:pt-24 sm:pt-28 md:pt-32 lg:pt-24">
         <AnimatePresence mode="wait">
           <motion.div
             key={currentSlide}
@@ -48,7 +48,7 @@ export const HeroSection = ({ slides }: { slides: any[] }) => {
             className="max-w-5xl"
           >
             {/* Headline - Responsive sizing matching JLL (32px → 36px → 48px → 56px) */}
-            <h1 className="my-4 xs:my-5 sm:my-6 text-[24px] xs:text-[32px] sm:text-4xl md:text-5xl lg:text-6xl font-semibold md:font-extrabold leading-[1.2] xs:leading-[1.15] tracking-tight text-white drop-shadow-[0_4px_12px_rgba(0,0,0,0.5)]">
+            <h1 className="my-4 xs:my-5 sm:my-6 text-[24px] xs:text-[32px] sm:text-3xl md:text-4xl lg:text-5xl font-semibold md:font-extrabold leading-[1.2] xs:leading-[1.15] tracking-tight text-white drop-shadow-[0_4px_12px_rgba(0,0,0,0.5)]">
               {slides[currentSlide].headline}
             </h1>
 
