@@ -2,21 +2,17 @@
 
 import { useState, useEffect, useRef, useCallback } from "react";
 
-// ─── Types ────────────────────────────────────────────────────────────────────
 interface MapViewsSectionProps {
   lat?: number;
   lng?: number;
   projectName?: string;
-  apiKey?: string;
 }
 
-// ─── Categories ───────────────────────────────────────────────────────────────
 const CATEGORIES = [
   {
     id: "restaurants",
     label: "Restaurants",
     osmTag: "amenity=restaurant",
-    nominatimQuery: "restaurant",
     color: "#e67e22",
     icon: (
       <svg
@@ -41,7 +37,6 @@ const CATEGORIES = [
     id: "hotels",
     label: "Hotels",
     osmTag: "tourism=hotel",
-    nominatimQuery: "hotel",
     color: "#8e44ad",
     icon: (
       <svg
@@ -65,7 +60,6 @@ const CATEGORIES = [
     id: "bus-stands",
     label: "Bus Stands",
     osmTag: "highway=bus_stop",
-    nominatimQuery: "bus stop",
     color: "#27ae60",
     icon: (
       <svg
@@ -89,7 +83,6 @@ const CATEGORIES = [
     id: "malls",
     label: "Shopping Malls",
     osmTag: "shop=mall",
-    nominatimQuery: "shopping mall",
     color: "#2980b9",
     icon: (
       <svg
@@ -112,7 +105,6 @@ const CATEGORIES = [
     id: "hospitals",
     label: "Hospitals",
     osmTag: "amenity=hospital",
-    nominatimQuery: "hospital",
     color: "#e74c3c",
     icon: (
       <svg
@@ -132,7 +124,6 @@ const CATEGORIES = [
   },
 ];
 
-// ─── Leaflet map ──────────────────────────────────────────────────────────────
 function LeafletMap({
   lat,
   lng,
@@ -147,18 +138,15 @@ function LeafletMap({
   const mapRef = useRef<HTMLDivElement>(null);
   const mapInstanceRef = useRef<any>(null);
   const markersLayerRef = useRef<any>(null);
+
   const [leafletReady, setLeafletReady] = useState(false);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
-  // ── Step 1: load Leaflet CSS + JS, then set leafletReady = true ─────────────
-  // This is the critical fix: we track readiness as React state so dependent
-  // effects re-run once L is actually available on window.
   useEffect(() => {
     let cancelled = false;
 
-    const load = async () => {
-      // Inject CSS
+    const loadLeaflet = async () => {
       if (!document.getElementById("leaflet-css")) {
         const link = document.createElement("link");
         link.id = "leaflet-css";
@@ -167,7 +155,6 @@ function LeafletMap({
         document.head.appendChild(link);
       }
 
-      // Inject JS only if not already loaded
       if (!(window as any).L) {
         await new Promise<void>((resolve, reject) => {
           const script = document.createElement("script");
@@ -178,12 +165,14 @@ function LeafletMap({
         });
       }
 
-      // Only update state if component still mounted
       if (!cancelled) setLeafletReady(true);
     };
 
-    load().catch((err) => {
-      if (!cancelled) setError(err.message);
+    loadLeaflet().catch((err) => {
+      if (!cancelled) {
+        setError(err.message || "Failed to load map");
+        setLoading(false);
+      }
     });
 
     return () => {
@@ -191,21 +180,17 @@ function LeafletMap({
     };
   }, []);
 
-  // ── Step 2: init map — runs ONLY after leafletReady flips to true ───────────
-  // Previously this effect ran on mount when L was undefined, exited early,
-  // and never ran again because its deps [lat, lng, projectName] never changed.
-  // Now leafletReady is in deps so it re-runs the moment Leaflet is loaded.
   useEffect(() => {
-    if (!leafletReady) return;
-    if (!mapRef.current) return;
-    if (mapInstanceRef.current) return; // already initialised
+    if (!leafletReady || !mapRef.current || mapInstanceRef.current) return;
 
     const L = (window as any).L;
+
     const map = L.map(mapRef.current, {
       center: [lat, lng],
       zoom: 15,
       zoomControl: true,
     });
+
     mapInstanceRef.current = map;
 
     L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
@@ -214,7 +199,6 @@ function LeafletMap({
       maxZoom: 19,
     }).addTo(map);
 
-    // Project star pin
     const projectIcon = L.divIcon({
       html: `<div style="background:#0f766e;color:white;border-radius:50%;width:36px;height:36px;display:flex;align-items:center;justify-content:center;font-size:18px;border:3px solid white;box-shadow:0 2px 8px rgba(0,0,0,0.3)">★</div>`,
       className: "",
@@ -224,50 +208,56 @@ function LeafletMap({
 
     L.marker([lat, lng], { icon: projectIcon })
       .addTo(map)
-      .bindPopup(`<strong>${projectName}</strong><br><em>This Project</em>`)
+      .bindPopup(`<strong>${projectName}</strong><br><em> Project</em>`)
       .openPopup();
 
     markersLayerRef.current = L.layerGroup().addTo(map);
 
-    // Force Leaflet to read the container's real pixel size.
-    // ResizeObserver handles the mobile case where flex layout finishes
-    // painting after Leaflet mounts (container was 0×0 at init time).
     const observer = new ResizeObserver(() => {
       map.invalidateSize();
     });
+
     observer.observe(mapRef.current);
 
-    // Belt-and-braces fallback - multiple invalidations for mobile
     setTimeout(() => map.invalidateSize(), 100);
     setTimeout(() => map.invalidateSize(), 300);
     setTimeout(() => map.invalidateSize(), 500);
 
-    return () => observer.disconnect();
+    return () => {
+      observer.disconnect();
+      map.remove();
+      mapInstanceRef.current = null;
+    };
   }, [leafletReady, lat, lng, projectName]);
 
-  // ── Step 3: fetch POIs — runs after map is ready and category changes ───────
   const fetchAndRender = useCallback(async () => {
-    if (!leafletReady || !mapInstanceRef.current) return;
+    if (!leafletReady || !mapInstanceRef.current || !markersLayerRef.current)
+      return;
 
     const L = (window as any).L;
+
     setLoading(true);
     setError("");
 
-    if (markersLayerRef.current) markersLayerRef.current.clearLayers();
+    markersLayerRef.current.clearLayers();
 
     try {
       const overpassQuery = `
-        [out:json][timeout:20];
+        [out:json][timeout:25];
         (
-          node[${category.osmTag}](around:1000,${lat},${lng});
-          way[${category.osmTag}](around:1000,${lat},${lng});
+          node[${category.osmTag}](around:1500,${lat},${lng});
+          way[${category.osmTag}](around:1500,${lat},${lng});
+          relation[${category.osmTag}](around:1500,${lat},${lng});
         );
-        out center 20;
+        out center 30;
       `;
+
       const res = await fetch(
         `https://overpass-api.de/api/interpreter?data=${encodeURIComponent(overpassQuery)}`,
       );
+
       if (!res.ok) throw new Error("Overpass API error");
+
       const data = await res.json();
       const elements: any[] = data.elements ?? [];
 
@@ -287,27 +277,36 @@ function LeafletMap({
       elements.forEach((el) => {
         const elLat = el.lat ?? el.center?.lat;
         const elLng = el.lon ?? el.center?.lon;
+
         if (!elLat || !elLng) return;
 
         const name = el.tags?.name ?? category.label.slice(0, -1);
-        const addr = [el.tags?.["addr:street"], el.tags?.["addr:housenumber"]]
+
+        const addr = [
+          el.tags?.["addr:housenumber"],
+          el.tags?.["addr:street"],
+          el.tags?.["addr:city"],
+        ]
           .filter(Boolean)
-          .join(" ");
+          .join(", ");
 
         L.marker([elLat, elLng], { icon: poiIcon })
           .addTo(markersLayerRef.current)
           .bindPopup(`<strong>${name}</strong>${addr ? `<br>${addr}` : ""}`);
       });
 
-      const group = L.featureGroup([...markersLayerRef.current.getLayers()]);
-      if (group.getLayers().length > 0) {
-        mapInstanceRef.current.fitBounds(group.getBounds().pad(0.15), {
+      const layers = markersLayerRef.current.getLayers();
+
+      if (layers.length > 0) {
+        const group = L.featureGroup(layers);
+
+        mapInstanceRef.current.fitBounds(group.getBounds().pad(0.2), {
           maxZoom: 15,
         });
       }
 
       setLoading(false);
-    } catch {
+    } catch (err) {
       setError("Could not load nearby places. Try again.");
       setLoading(false);
     }
@@ -315,8 +314,11 @@ function LeafletMap({
 
   useEffect(() => {
     if (!leafletReady) return;
-    // Map might not be init'd yet on first render — wait a tick
-    const timer = setTimeout(() => fetchAndRender(), 50);
+
+    const timer = setTimeout(() => {
+      fetchAndRender();
+    }, 100);
+
     return () => clearTimeout(timer);
   }, [fetchAndRender, leafletReady]);
 
@@ -344,50 +346,20 @@ function LeafletMap({
   );
 }
 
-// ─── Google Maps iframe ───────────────────────────────────────────────────────
-function GoogleMapsEmbed({
-  lat,
-  lng,
-  category,
-  apiKey,
-}: {
-  lat: number;
-  lng: number;
-  category: (typeof CATEGORIES)[0];
-  apiKey: string;
-}) {
-  const src = `https://www.google.com/maps/embed/v1/search?key=${apiKey}&q=${encodeURIComponent(category.nominatimQuery)}&center=${lat},${lng}&zoom=15`;
-  return (
-    <iframe
-      key={`${category.id}-${lat}-${lng}`}
-      src={src}
-      width="100%"
-      height="100%"
-      style={{ border: 0 }}
-      allowFullScreen
-      loading="lazy"
-      referrerPolicy="no-referrer-when-downgrade"
-    />
-  );
-}
-
-// ─── Main Component ───────────────────────────────────────────────────────────
 export default function MapViewsSection({
   lat = 18.5362,
   lng = 73.9008,
-  projectName = "This Project",
-  apiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY ?? "",
+  projectName = "Project",
 }: MapViewsSectionProps) {
   const [active, setActive] = useState(CATEGORIES[0]);
 
   return (
     <section className="relative z-0 py-8 sm:py-10 md:py-14 px-4 sm:px-6 lg:px-28">
       <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl md:font-extrabold text-slate-900 mb-6 sm:mb-8 tracking-tight leading-[1.2]">
-        Map Views — Explore Neighbourhood
+        Map Views - Explore Neighbourhood
       </h2>
 
       <div className="flex flex-col lg:flex-row gap-4 lg:gap-6">
-        {/* Category buttons — horizontal scroll on mobile, vertical column on desktop */}
         <div className="flex flex-row lg:flex-col gap-3 lg:gap-5 shrink-0 overflow-x-auto lg:overflow-visible scrollbar-hide pb-1 lg:pb-0">
           {CATEGORIES.map((cat) => (
             <button
@@ -404,17 +376,11 @@ export default function MapViewsSection({
                   transform: active.id === cat.id ? "scale(1.1)" : "scale(1)",
                 }}
               >
-                <span
-                  style={{
-                    color: "white",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                  }}
-                >
+                <span className="text-white flex items-center justify-center">
                   {cat.icon}
                 </span>
               </div>
+
               <span
                 className="text-[11px] font-semibold text-center leading-tight transition-colors"
                 style={{
@@ -428,30 +394,17 @@ export default function MapViewsSection({
           ))}
         </div>
 
-        {/* Map container — explicit height at every breakpoint */}
         <div className="flex-1 rounded-xl border border-slate-200 shadow-md bg-slate-100 overflow-hidden relative min-h-[320px] sm:min-h-[400px] h-[340px] sm:h-[420px] md:h-[480px] lg:h-[520px]">
-          {apiKey ? (
-            <GoogleMapsEmbed
-              lat={lat}
-              lng={lng}
-              category={active}
-              apiKey={apiKey}
-            />
-          ) : (
-            // key=active.id remounts LeafletMap on category switch so a fresh
-            // map instance is created — avoids stale marker layer issues
-            <LeafletMap
-              key={active.id}
-              lat={lat}
-              lng={lng}
-              projectName={projectName}
-              category={active}
-            />
-          )}
+          <LeafletMap
+            key={active.id}
+            lat={lat}
+            lng={lng}
+            projectName={projectName}
+            category={active}
+          />
         </div>
       </div>
 
-      {/* Legend */}
       <div className="mt-3 flex flex-wrap items-center gap-2 text-xs text-slate-400">
         <span className="w-3 h-3 rounded-full bg-teal-600 inline-block" />
         <span>Project Location</span>
@@ -461,12 +414,8 @@ export default function MapViewsSection({
           style={{ backgroundColor: active.color }}
         />
         <span>Nearby {active.label}</span>
-        {!apiKey && (
-          <>
-            <span className="mx-1">·</span>
-            <span>Map data © OpenStreetMap contributors</span>
-          </>
-        )}
+        <span className="mx-1">·</span>
+        <span>Map data © OpenStreetMap contributors</span>
       </div>
     </section>
   );
