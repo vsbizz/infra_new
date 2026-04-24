@@ -108,7 +108,7 @@ const Properties: React.FC = () => {
         {/* 
           JLL Page Padding Mobile: 64-80px, Tablet: 80-96px, Desktop: 128-160px
         */}
-        {/* Background image — hidden on small screens */}
+        {/* Background image - hidden on small screens */}
         <div className="hidden md:block absolute top-[25%] right-0 w-1/2 h-full pointer-events-none">
           <div className="absolute inset-0 bg-linear-to-l from-brand-teal/20 to-transparent" />
           <img
@@ -218,7 +218,7 @@ const Properties: React.FC = () => {
         */}
         <div className="mx-auto max-w-7xl px-4 xs:px-5 sm:px-6 md:px-8">
           <div className="grid lg:grid-cols-12 gap-8 xs:gap-10 md:gap-16 items-start">
-            {/* Header — sticky only on large screens */}
+            {/* Header - sticky only on large screens */}
             <div className="lg:col-span-5 lg:sticky lg:top-32">
               {/* 
                 JLL H2 Mobile: 24-26px, font-weight: 600 (semibold)
@@ -328,23 +328,33 @@ const Properties: React.FC = () => {
               >
                 <div className="group relative h-72 xs:h-80 md:h-[360px] rounded-md overflow-hidden cursor-pointer block transition-transform duration-300 hover:shadow-2xl hover:shadow-slate-200/50">
                   {/* Background Image */}
-                  <img
-                    src={city.image}
-                    alt={city.name}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                  />
+                  <Link
+                    href={`/properties/${city.slug}`}
+                    className="absolute inset-0 block"
+                  >
+                    <img
+                      src={city.image}
+                      alt={city.name}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                    />
+                  </Link>
 
                   {/* Gradient Overlay */}
                   <div className="absolute inset-0 bg-gradient-to-b from-black/10 to-black/50 group-hover:from-black/20 group-hover:to-black/60 transition-all duration-500"></div>
 
                   {/* CTA Button - Top Right */}
-                  <div className="absolute top-3 xs:top-4 right-3 xs:right-4 bg-white px-3 xs:px-4 py-2 xs:py-2.5 rounded-full font-bold text-xs xs:text-sm text-black flex items-center gap-1.5 xs:gap-2 group-hover:gap-2.5 xs:group-hover:gap-3 hover:bg-teal-600 hover:text-white transition-all duration-300">
-                    <span>{city.listings}+ Properties</span>
-                    <ArrowRight
-                      size={14}
-                      className="xs:w-4 xs:h-4 group-hover:translate-x-0.5 transition-transform"
-                    />
-                  </div>
+                  <Link
+                    href={`/properties/${city.slug}`}
+                    className="absolute top-3 xs:top-4 right-3 xs:right-4 z-10"
+                  >
+                    <div className="bg-white px-3 xs:px-4 py-2 xs:py-2.5 rounded-full font-bold text-xs xs:text-sm text-black flex items-center gap-1.5 xs:gap-2 group-hover:gap-2.5 xs:group-hover:gap-3 hover:bg-teal-600 hover:text-white transition-all duration-300">
+                      <span>{city.listings}+ Properties</span>
+                      <ArrowRight
+                        size={14}
+                        className="xs:w-4 xs:h-4 group-hover:translate-x-0.5 transition-transform"
+                      />
+                    </div>
+                  </Link>
 
                   {/* Content Section */}
                   <div className="absolute bottom-0 left-0 right-0 p-5 xs:p-6 md:p-8">

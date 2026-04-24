@@ -230,7 +230,7 @@ const Blog: React.FC = () => {
             </div>
 
             <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.2em] text-slate-400">
-              {indexOfFirstPost + 1}—
+              {indexOfFirstPost + 1}-
               {Math.min(indexOfLastPost, blogInner.length)} of{" "}
               {blogInner.length}
             </span>

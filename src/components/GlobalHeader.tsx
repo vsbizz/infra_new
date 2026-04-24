@@ -192,7 +192,7 @@ export const GlobalHeader = () => {
       </Link>
 
       {/* SECTION 1: Top Bar - Mobile Optimized */}
-      <div className="mx-auto flex max-w-360 items-center justify-between px-4 xs:px-5 sm:px-6 py-3 sm:py-4 lg:px-16">
+      <div className="mx-auto flex max-w-360 items-center justify-between px-4 xs:px-5 sm:px-6 py-3 sm:py-2 lg:px-16">
         <div className="flex items-center gap-2 sm:gap-4">
           <Link href="/">
             <img

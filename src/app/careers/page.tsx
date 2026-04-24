@@ -86,9 +86,8 @@ const BuildCard = ({ pillar, idx }: { pillar: any; idx: number }) => {
       }}
       className="relative group overflow-hidden h-70 rounded-md border border-slate-100 bg-white p-6 xs:p-8 md:p-10 shadow-xl transition-all duration-500 hover:scale-[1.02] cursor-default"
     >
-      {/* 
-        JLL Card Padding Mobile: 20-24px, Tablet: 24-32px, Desktop: 40px
-      */}
+      {/*
+       */}
       <motion.div
         variants={{
           initial: { scale: 0, opacity: 0 },
@@ -105,10 +104,6 @@ const BuildCard = ({ pillar, idx }: { pillar: any; idx: number }) => {
         </div>
 
         <div className="flex flex-col items-center">
-          {/* 
-            JLL H3/H4 Mobile: 18-20px, font-weight: 600 (semibold)
-            Desktop: font-extrabold
-          */}
           <h6 className="mt-2 text-lg xs:text-xl md:font-semibold text-slate-900 transition-colors duration-500 group-hover:text-white uppercase tracking-tight">
             {pillar.title}
           </h6>
@@ -127,10 +122,6 @@ export default function CareersPage() {
     <div className="min-h-screen bg-[#F8FAFC]">
       {/* --- Hero Section --- */}
       <section className="relative pt-34 xs:pt-24 sm:pt-28 md:pt-36 lg:pt-54 pb-12 xs:pb-16 md:pb-24 overflow-hidden">
-        {/*
-          JLL Page Padding Mobile: 64-80px, Tablet: 80-96px, Desktop: 128-160px
-        */}
-
         {/* Background Blurs */}
         <div className="absolute inset-0 z-0">
           <div className="absolute top-[-10%] right-[-10%] w-96 h-96 xs:w-[500px] xs:h-[500px] md:w-[600px] md:h-[600px] bg-teal-400/10 blur-[80px] md:blur-[120px] rounded-md" />
@@ -139,9 +130,6 @@ export default function CareersPage() {
 
         {/* Breadcrumb */}
         <div className="max-w-7xl mx-auto px-4 xs:px-5 sm:px-6 relative z-10">
-          {/* 
-            JLL Container Padding Mobile: 16-20px, Tablet: 20-24px
-          */}
           <nav className="flex items-center gap-1.5 md:gap-2 text-[10px] xs:text-[11px] md:text-xs font-semibold text-slate-400 mb-6 xs:mb-7 md:mb-8 uppercase tracking-widest">
             <Link href="/" className="hover:text-teal-600 transition-colors">
               Home
@@ -157,10 +145,6 @@ export default function CareersPage() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1, ease: "easeOut" }}
           >
-            {/* 
-              JLL H1 Mobile: 32-36px, font-weight: 600 (semibold)
-              Desktop: font-extrabold
-            */}
             <h1 className="text-[32px] xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl  md:font-extrabold leading-[1.1] tracking-tighter text-slate-900 mb-6 xs:mb-7 md:mb-8">
               Empowering You to
               <span className="text-brand-teal"> Shape the Future </span>
@@ -212,15 +196,8 @@ export default function CareersPage() {
 
       {/* --- B-U-I-L-D Section --- */}
       <section className="py-12 xs:py-16 md:py-24 bg-white">
-        {/* 
-          JLL Section Padding Mobile: 48-64px, Tablet: 64-80px, Desktop: 96px
-        */}
         <div className="max-w-7xl mx-auto px-4 xs:px-5 sm:px-6 md:px-8">
           <div className="text-center max-w-3xl mx-auto mb-12 xs:mb-16 md:mb-20">
-            {/* 
-              JLL H2 Mobile: 24-26px, font-weight: 600 (semibold)
-              Desktop: font-extrabold
-            */}
             <h2 className="text-2xl xs:text-[26px] sm:text-3xl md:text-4xl lg:text-5xl xl:text-7xl md:font-extrabold leading-[1.3] md:leading-[1.1] tracking-tight text-slate-900 mb-5 xs:mb-6">
               The <span className="text-teal-600"> B-U-I-L-D </span> Framework
             </h2>

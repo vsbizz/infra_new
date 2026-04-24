@@ -104,8 +104,7 @@ export const SERVICES_CONTENT: Record<string, any> = {
         title: "Healthcare Real Estate Owner Representation",
         headline:
           "Maximizing Yield, Stability, and Value for Healthcare Asset Owners.",
-        heroImage:
-          "/asset/services/proposals.jpg",
+        heroImage: "/asset/services/proposals.jpg",
         description: [
           "In healthcare real estate, securing the right operator and structuring the correct lease is critical to long-term performance. Infra.Health supports asset owners, developers, and institutional investors in structuring leasing frameworks that maximize revenue, reduce vacancy risk, and enhance asset stability. We approach owner representation as a strategic asset management function. By balancing income predictability with stringent operator performance standards, we ensure your medical infrastructure remains a highly resilient investment.",
         ],
@@ -162,8 +161,7 @@ export const SERVICES_CONTENT: Record<string, any> = {
         title: "Tenant & Operator Representation",
         headline:
           "Securing Infrastructure That Drives Clinical and Operational Profitability.",
-        heroImage:
-          "/asset/services/7.jpg",
+        heroImage: "/asset/services/7.jpg",
         description: [
           "We advise hospital chains, specialty providers, and diagnostic networks in identifying infrastructure that aligns with clinical, operational, and expansion strategies.",
           "Our role is to ensure clinical delivery needs perfectly align with real estate capabilities, evaluating location suitability and long-term sustainability.",
@@ -215,8 +213,7 @@ export const SERVICES_CONTENT: Record<string, any> = {
         title: "Site Selection & Location Strategy",
         headline:
           "Optimizing Patient Reach Through Demographic and Real Estate Analytics.",
-        heroImage:
-          "/asset/services/site-survey.jpg",
+        heroImage: "/asset/services/site-survey.jpg",
         description: [
           "Location dictates patient accessibility and service utilization. We minimize location risk while maximizing patient reach through structured demand forecasting.",
           "Our approach integrates healthcare demographic analytics with localized regulatory intelligence to determine the optimal placement of medical assets.",
@@ -274,8 +271,7 @@ export const SERVICES_CONTENT: Record<string, any> = {
       "Infra.Health transforms regional healthcare demand into investment-ready development frameworks through structured analytics and rigorous modeling.",
     longDescription:
       "The Advisory & Strategic Planning division establishes the clinical, financial, demographic, and operational foundation of healthcare assets well before capital deployment or infrastructure execution. By applying structured analytics, healthcare planning, and rigorous financial modeling, Infra.Health transforms regional healthcare demand into investment-ready development frameworks. We ensure that every healthcare project is demand-driven, clinically relevant, financially viable, and institutionally bankable from day one.",
-    heroImage:
-      "/asset/services/header2.jpg",
+    heroImage: "/asset/services/header2.jpg",
     stats: [
       { label: "Feasibility Studies", value: "120+" },
       { label: "Demand Models", value: "300+" },
@@ -356,7 +352,7 @@ export const SERVICES_CONTENT: Record<string, any> = {
           "Healthcare Feasibility Studies & Detailed Project Reports (DPR)",
         headline:
           "Validating Clinical Demand and Financial Viability Before Capital Deployment.",
-          heroImage:"/asset/services/6.jpg",
+        heroImage: "/asset/services/6.jpg",
         description: [
           "In healthcare infrastructure development, moving from concept to execution requires rigorous validation. Infra.Health develops comprehensive feasibility studies and Detailed Project Reports (DPR) for governments, developers, and institutional investors to ensure every medical asset is demand-driven, clinically relevant, and financially bankable.",
           "We approach feasibility not just as a preliminary compliance step, but as the foundational blueprint for long-term asset performance. By integrating clinical planning, infrastructure sizing, and robust financial forecasting, we systematically de-risk healthcare investments from day one.",
@@ -417,7 +413,7 @@ export const SERVICES_CONTENT: Record<string, any> = {
         title: "Healthcare Market & Demographic Analysis",
         headline:
           "Validating Genuine Healthcare Demand Through Structured Data.",
-        heroImage:"/asset/services/6.jpg",
+        heroImage: "/asset/services/6.jpg",
         description: [
           "In healthcare infrastructure development, location and population dynamics dictate long-term utilization and asset success. Infra.Health conducts highly structured market, demographic, and epidemiological analyses for healthcare developers, operators, and institutional investors to ensure that new medical facilities directly address regional supply-demand gaps.",
           "We approach market analysis as a foundational risk-mitigation tool. By mapping population growth, age distribution, and regional disease burdens, we validate genuine clinical demand and ensure your healthcare asset is perfectly sized and positioned for sustainable market capture.",
@@ -475,7 +471,7 @@ export const SERVICES_CONTENT: Record<string, any> = {
         title: "Healthcare Specialty & Capacity Planning",
         headline:
           "Optimizing Clinical Infrastructure for Maximum Efficiency and Patient Flow.",
-          heroImage:"/asset/services/consult/eqpt-planning.jpg",
+        heroImage: "/asset/services/consult/eqpt-planning.jpg",
         description: [
           "Translating market demand into a highly efficient physical hospital requires precise clinical programming. Infra.Health provides strategic specialty and capacity planning to ensure your healthcare facility is perfectly sized to meet regional demand while maximizing operational efficiency and revenue generation.",
           "We bridge the gap between medical strategy and architectural design. By structuring the hospital's specialty mix, bed capacity, and departmental layout early in the planning phase, we ensure that the resulting infrastructure supports optimal patient flow, clinical excellence, and long-term scalability.",
@@ -533,7 +529,7 @@ export const SERVICES_CONTENT: Record<string, any> = {
         title: "Healthcare Financial Modeling",
         headline:
           "Quantifying Viability and Structuring Returns Before Capital Deployment.",
-          heroImage: "/asset/services/consult/ppp-advisory.jpg",
+        heroImage: "/asset/services/consult/ppp-advisory.jpg",
         description: [
           "In the capital-intensive healthcare sector, rigorous financial modeling is the definitive bridge between clinical strategy and institutional funding. Infra.Health develops structured, bankable financial models for healthcare developers, operators, and institutional investors to ensure that medical assets are commercially viable, resilient under stress, and capable of delivering predictable returns.",
           "We approach financial modeling not as a static spreadsheet exercise, but as a dynamic risk-mitigation tool. By integrating deep clinical knowledge with advanced financial engineering, we quantify the true cost of infrastructure, forecast revenue with precision, and structure the capital stack for maximum efficiency.",
@@ -852,8 +848,7 @@ export const SERVICES_CONTENT: Record<string, any> = {
       "Convert healthcare strategy, capital structuring, and advisory frameworks into operational healthcare infrastructure through disciplined governance and engineering precision.",
     longDescription:
       "The Design & Project Delivery division is the execution backbone of Infra.Health. We convert healthcare strategy, capital structuring, and advisory frameworks into operational healthcare infrastructure through disciplined governance, engineering precision, procurement control, and turnkey delivery capability. Healthcare infrastructure execution demands far more than standard commercial construction. We deliver healthcare facilities that are clinically compliant, financially disciplined, technically resilient, and operationally ready from day one.",
-    heroImage:
-      "/asset/services/construct/fitout.jpg",
+    heroImage: "/asset/services/construct/fitout.jpg",
     stats: [
       { label: "Turnkey Projects", value: "45+" },
       { label: "On-Time Completion", value: "98%" },
@@ -934,7 +929,7 @@ export const SERVICES_CONTENT: Record<string, any> = {
         title: "Healthcare Project Management Consultancy (PMC)",
         headline:
           "Ensuring Disciplined Governance, Cost Control, and Flawless Execution.",
-        heroImage:"/asset/services/1.jpg",  
+        heroImage: "/asset/services/1.jpg",
         description: [
           "Healthcare construction is inherently complex, requiring absolute precision to seamlessly integrate clinical workflows, specialized medical equipment, and life-safety systems with the physical infrastructure. Infra.Health acts as the client’s dedicated representative, providing end-to-end Project Management Consultancy (PMC) tailored exclusively for medical real estate.",
           "We approach PMC as a strict governance function. By actively managing cost, time, quality, and safety from groundbreaking to final commissioning, we ensure your healthcare asset is delivered to international clinical standards, protecting investor capital from budget overruns and timeline delays.",
@@ -998,7 +993,7 @@ export const SERVICES_CONTENT: Record<string, any> = {
         title: "Integrated Healthcare Design Services",
         headline:
           "Unifying Clinical Excellence with Architectural and Engineering Precision.",
-        heroImage:"/asset/services/consult/hospital-design.jpg",
+        heroImage: "/asset/services/consult/hospital-design.jpg",
         description: [
           "Hospital design goes far beyond aesthetics; it fundamentally dictates clinical outcomes, operational efficiency, and infection control. Infra.Health delivers fully integrated, patient-centric healthcare design solutions that transform strategic facility programs into world-class medical infrastructure.",
           "We approach healthcare design as a unified discipline. By combining clinical planning, architectural design, structural engineering, and specialized MEPF (Mechanical, Electrical, Plumbing, and Firefighting) systems under a single framework, we eliminate coordination blind spots and ensure long-term operational scalability.",
@@ -1064,7 +1059,7 @@ export const SERVICES_CONTENT: Record<string, any> = {
         title: "Healthcare Procurement Management",
         headline:
           "Ensuring Transparent, Cost-Effective Sourcing for Complex Medical Infrastructure.",
-        heroImage:"/asset/services/consult/procurement.jpg",  
+        heroImage: "/asset/services/consult/procurement.jpg",
         description: [
           "Procuring materials and systems for healthcare infrastructure is vastly more complex than standard commercial construction. It requires sourcing highly specialized, globally manufactured medical equipment, specialized MEPF components, and clinical-grade finishes while navigating strict regulatory compliance. Infra.Health manages structured procurement processes to ensure absolute transparency, cost efficiency, and timeline discipline for global healthcare projects.",
           "We approach procurement as a strategic risk-mitigation function. By leveraging our deep market intelligence and global supply chain networks, we protect developers and institutional investors from price volatility, vendor defaults, and substandard materials, ensuring you secure the best techno-commercial outcomes.",
@@ -1128,9 +1123,9 @@ export const SERVICES_CONTENT: Record<string, any> = {
         title: "Healthcare Medical Equipment Planning & Integration",
         headline:
           "Aligning Clinical Technology with Infrastructure and Operational Workflows.",
-        heroImage:"/asset/services/consult/equipment-installing.jpg",  
+        heroImage: "/asset/services/consult/equipment-installing.jpg",
         description: [
-          "Medical equipment represents one of the largest capital expenditures in healthcare infrastructure, often accounting for up to 40% of the total project cost. Furthermore, integrating heavy medical technology—such as MRIs, linear accelerators, and robotic surgical systems—requires exact architectural and MEPF coordination.",
+          "Medical equipment represents one of the largest capital expenditures in healthcare infrastructure, often accounting for up to 40% of the total project cost. Furthermore, integrating heavy medical technology-such as MRIs, linear accelerators, and robotic surgical systems-requires exact architectural and MEPF coordination.",
           "Infra.Health provides turnkey medical equipment planning and integration services. We bridge the gap between clinical needs, architectural design, and capital budgeting to ensure your facility is technologically advanced, vendor-neutral, and operationally ready on day one.",
         ],
         sectionTitle: "Strategic Technology Planning & Integration Scope",
@@ -1192,8 +1187,7 @@ export const SERVICES_CONTENT: Record<string, any> = {
         title: "Healthcare Cost Consultancy & Commercial Management",
         headline:
           "Rigorous Financial Governance for Complex Healthcare Construction.",
-        heroImage:
-          "/asset/services/5.jpg",
+        heroImage: "/asset/services/5.jpg",
         description: [
           "Healthcare construction is notoriously susceptible to budget overruns due to specialized MEPF requirements, heavy medical equipment integration, and strict regulatory compliance. Infra.Health provides structured cost planning and commercial governance to ensure disciplined financial control across the entire hospital development lifecycle.",
           "We approach cost consultancy as a proactive risk management function, not just a reporting exercise. By aligning the architectural vision with strict commercial reality from day one, we protect developer and investor capital while ensuring the facility meets all clinical and operational standards.",
@@ -1256,7 +1250,7 @@ export const SERVICES_CONTENT: Record<string, any> = {
         title: "Healthcare Design-Build Solutions",
         headline:
           "Single-Point Responsibility for Accelerated, Risk-Mitigated Hospital Construction.",
-        heroImage:"/asset/services/construct/design.jpg",  
+        heroImage: "/asset/services/construct/design.jpg",
         description: [
           "The traditional, fragmented approach of hiring separate design and construction firms often leads to coordination gaps, cost overruns, and timeline delays, risks that are magnified in complex healthcare infrastructure. Infra.Health delivers integrated Design-Build solutions exclusively for healthcare assets, unifying concept development, clinical engineering, and physical construction under a single point of responsibility.",
           "We approach project delivery as a unified, fast-tracked discipline. By bridging the gap between the architectural vision and the construction reality from day one, we guarantee cost certainty, eliminate multi-vendor friction, and significantly accelerate the speed-to-market for your medical facility.",
@@ -1319,7 +1313,7 @@ export const SERVICES_CONTENT: Record<string, any> = {
         title: "Healthcare EPC & Turnkey Project Delivery",
         headline:
           "Single-Point Accountability for Complex Medical Infrastructure.",
-        heroImage:'/asset/services/construct/epc.jpg',
+        heroImage: "/asset/services/construct/epc.jpg",
         description: [
           "Healthcare Engineering, Procurement, and Construction (EPC) demands far deeper integration than standard commercial real estate. It requires the seamless convergence of clinical workflows, highly specialized MEPF systems, and heavy medical equipment infrastructure. Infra.Health assumes single-point responsibility for the complete turnkey delivery of healthcare facilities, providing absolute cost and timeline certainty for developers and institutional investors.",
           "We approach EPC as a unified, risk-mitigated execution strategy. By consolidating complex engineering, global medical procurement, and specialized hospital construction under one Lump Sum Turnkey (LSTK) contract, we eliminate multi-vendor friction and guarantee that the facility is clinically compliant and operationally ready upon handover.",
@@ -1391,8 +1385,7 @@ export const SERVICES_CONTENT: Record<string, any> = {
       "The Property & Facilities Management division ensures the long-term performance, operational resilience, and regulatory compliance of healthcare assets after project delivery.",
     longDescription:
       "Hospitals and healthcare campuses are high-intensity infrastructure environments that require 24/7 operational reliability, critical systems uptime, strict infection control adherence, and structured asset governance. Infra.Health provides specialized, healthcare-focused property and facilities management services, supporting institutional investors, healthcare operators, and public authorities in sustaining asset performance across the full operational lifecycle. This pillar transforms completed infrastructure into stable, high-performing healthcare assets.",
-    heroImage:
-      "/asset/services/global-fund.jpg",
+    heroImage: "/asset/services/global-fund.jpg",
     stats: [
       { label: "Sq. Ft. Managed", value: "12M+" },
       { label: "Systems Uptime", value: "99.9%" },
@@ -1481,9 +1474,9 @@ export const SERVICES_CONTENT: Record<string, any> = {
         title: "Healthcare Property Management",
         headline:
           "Maximizing Asset Performance and Governance for Medical Real Estate.",
-        heroImage:"/asset/services/operate/property-management.jpg",  
+        heroImage: "/asset/services/operate/property-management.jpg",
         description: [
-          "In the high-stakes sector of healthcare real estate, property management requires far more than standard building oversight—it demands deep integration with clinical regulations, technical resilience, and institutional financial reporting. Infra.Health provides structured property management services exclusively for healthcare developers, REITs, and institutional investors to ensure that medical infrastructure remains a high-performing, stable asset.",
+          "In the high-stakes sector of healthcare real estate, property management requires far more than standard building oversight-it demands deep integration with clinical regulations, technical resilience, and institutional financial reporting. Infra.Health provides structured property management services exclusively for healthcare developers, REITs, and institutional investors to ensure that medical infrastructure remains a high-performing, stable asset.",
           "We approach healthcare property management as a specialized asset governance function. By aligning facility operations with clinical compliance and long-term capital preservation, we ensure your medical real estate maintains maximum occupancy, operational uptime, and investor yield.",
         ],
         sectionTitle: "Strategic Asset Governance & Financial Oversight",
@@ -1542,9 +1535,9 @@ export const SERVICES_CONTENT: Record<string, any> = {
         title: "Healthcare Integrated Facility Management (IFM)",
         headline:
           "Ensuring 24/7 Operational Resilience and Clinical Environment Control.",
-        heroImage:"/asset/services/operate/maintenance.jpg",  
+        heroImage: "/asset/services/operate/maintenance.jpg",
         description: [
-          "In the high-intensity environment of a hospital, facility management is a critical component of patient safety. A single system failure—whether in medical gas delivery, power redundancy, or sterile airflow—can have immediate clinical consequences. Infra.Health delivers comprehensive Integrated Facility Management (IFM) services tailored specifically for healthcare campuses, ensuring uninterrupted uptime and strict adherence to global infection control standards.",
+          "In the high-intensity environment of a hospital, facility management is a critical component of patient safety. A single system failure-whether in medical gas delivery, power redundancy, or sterile airflow-can have immediate clinical consequences. Infra.Health delivers comprehensive Integrated Facility Management (IFM) services tailored specifically for healthcare campuses, ensuring uninterrupted uptime and strict adherence to global infection control standards.",
           "We approach IFM as an integrated technical discipline. By unifying hard engineering services, soft clinical support services, and digital monitoring under a single SLA-driven governance model, we protect the physical integrity of your healthcare asset while allowing clinical teams to focus entirely on patient care.",
         ],
         sectionTitle: "Strategic Technical & Operational Scope",
@@ -1607,7 +1600,7 @@ export const SERVICES_CONTENT: Record<string, any> = {
         title: "Healthcare IFM Consultancy",
         headline:
           "Optimizing Asset Performance Through Strategic Operational Frameworks.",
-        heroImage:"/asset/services/audit-handover.jpg",  
+        heroImage: "/asset/services/audit-handover.jpg",
         description: [
           "In the high-intensity healthcare sector, the efficiency of Integrated Facility Management (IFM) directly impacts both the clinical environment and the long-term financial viability of the asset. Infra.Health provides strategic IFM consultancy to help healthcare owners, operators, and institutional investors transition from reactive maintenance to a data-driven, predictive operational model.",
           "We approach IFM consultancy as a specialized engineering and digital discipline. By structuring rigorous Service Level Agreements (SLAs), designing clinical-grade SOPs, and deploying advanced CAFM/CMMS platforms, we ensure your medical infrastructure operates at peak efficiency while reducing lifecycle costs.",
@@ -1677,8 +1670,7 @@ export const SERVICES_CONTENT: Record<string, any> = {
       "Infra.Health advises on capital structuring, transaction execution, financial engineering, and risk underwriting to ensure healthcare projects are bankable and resilient.",
     longDescription:
       "The Investment & Capital Advisory division positions healthcare infrastructure as a structured, investable asset class. Infra.Health advises healthcare asset owners, governments, institutional investors, infrastructure funds, and private sponsors on capital structuring, transaction execution, financial engineering, and risk underwriting. Our objective is to align healthcare infrastructure development with disciplined capital frameworks, ensuring projects are bankable, scalable, and resilient across economic cycles. This pillar supports the full capital lifecycle - from asset origination to transaction, refinancing, restructuring, and portfolio optimization.",
-    heroImage:
-      "/asset/services/5.jpg",
+    heroImage: "/asset/services/5.jpg",
     stats: [
       { label: "Assets Under Advisory", value: "$2.4B+" },
       { label: "Capital Partners", value: "40+" },
@@ -1946,8 +1938,7 @@ export const SERVICES_CONTENT: Record<string, any> = {
       "structured-financing": {
         title: "Healthcare Structured Financing Solutions",
         headline: "Optimizing the Capital Stack for Healthcare Infrastructure.",
-        heroImage:
-          "/asset/services/3.jpg",
+        heroImage: "/asset/services/3.jpg",
         description: [
           "We design structured financing frameworks tailored precisely to the lifecycle stage, risk profile, and operating model of your healthcare assets.",
           "Infra.Health develops advanced capital stacks that optimize funding costs while maintaining the long-term asset stability required by medical real estate.",
@@ -2096,8 +2087,7 @@ export const SERVICES_CONTENT: Record<string, any> = {
       "valuation-and-risk-underwriting": {
         title: "Healthcare Asset Valuation & Risk Underwriting",
         headline: "Independent Assessment for Institutional Confidence.",
-        heroImage:
-          "/asset/services/project-finance.jpg",
+        heroImage: "/asset/services/project-finance.jpg",
         description: [
           "Infra.Health provides independent valuation and structured risk assessment for healthcare infrastructure assets across development, operational, and portfolio stages.",
           "We rigorously assess risk exposure across financial, operational, regulatory, and market dimensions to ensure institutional confidence before capital deployment.",
