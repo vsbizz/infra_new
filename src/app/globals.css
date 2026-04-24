@@ -29,7 +29,7 @@
   }
 
   .no-scrollbar {
-    -ms-overflow-style: none; 
+    -ms-overflow-style: none;
     scrollbar-width: none;
   }
 }
@@ -39,7 +39,7 @@
 }
 
 .blog-content :where(a) {
-  color: var(--brand-teal, #008080); 
+  color: var(--brand-teal, #008080);
   text-decoration: underline;
 }
 
@@ -51,7 +51,7 @@
 .blog-title {
   padding: 0 0 0 20px;
   border-left: 3px solid #6767672e;
-  margin: 2rem 0 1.25rem 0; 
+  margin: 2rem 0 1.25rem 0;
   display: block;
 }
 
@@ -59,4 +59,8 @@
   list-style-type: disc !important;
   padding-left: 1.5rem;
   margin-bottom: 20px;
+}
+
+.city-page-banner {
+  padding-top: 12% !important;
 }

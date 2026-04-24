@@ -24,7 +24,7 @@ const PartnerSolution: React.FC = () => {
       id: 3,
       title: "Medical Equipment & Technology Integrators",
       description:
-        "They manage the heavy-duty technical requirements—from radiation shielding to power redundancy—ensuring that the building 'engine' perfectly supports specialized medical tools like MRI, Cath Labs, and Modular OTs.",
+        "They manage the heavy-duty technical requirements-from radiation shielding to power redundancy-ensuring that the building 'engine' perfectly supports specialized medical tools like MRI, Cath Labs, and Modular OTs.",
     },
     {
       id: 4,

@@ -128,7 +128,7 @@ export default async function SubServicePage({ params }: Props) {
               Services
             </Link>
             <ChevronRight className="w-3 h-3 text-slate-300 shrink-0" />
-            {/* Parent service — hidden on very small screens, shown on sm+ */}
+            {/* Parent service - hidden on very small screens, shown on sm+ */}
             <Link
               href={`/services/${serviceSlug}`}
               className="hidden sm:inline text-[10px] xs:text-[11px] md:text-sm font-semibold text-slate-400 hover:text-teal-600 transition-colors truncate max-w-[120px] md:max-w-none"
