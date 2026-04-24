@@ -252,13 +252,25 @@ function LeafletMap({
         out center 30;
       `;
 
-      const res = await fetch(
-        `https://overpass-api.de/api/interpreter?data=${encodeURIComponent(overpassQuery)}`,
-      );
-
-      if (!res.ok) throw new Error("Overpass API error");
+      const res = await fetch("/api/nearby-places", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          lat,
+          lng,
+          osmTag: category.osmTag,
+        }),
+        cache: "no-store",
+      });
 
       const data = await res.json();
+
+      if (!res.ok) {
+        throw new Error(data.error || "Nearby places API error");
+      }
+
       const elements: any[] = data.elements ?? [];
 
       if (elements.length === 0) {
@@ -327,16 +339,26 @@ function LeafletMap({
       <div ref={mapRef} className="w-full h-full absolute inset-0" />
 
       {loading && (
-        <div className="absolute inset-0 bg-white/70 flex items-center justify-center z-10 pointer-events-none">
-          <div className="flex flex-col items-center gap-2">
-            <div className="w-8 h-8 border-2 border-teal-600 border-t-transparent rounded-full animate-spin" />
-            <span className="text-xs text-slate-500">
-              Loading {category.label.toLowerCase()}…
-            </span>
+        <div className="absolute inset-0 bg-white/80 backdrop-blur-[2px] flex items-center justify-center z-20 pointer-events-none">
+          <div className="bg-white rounded-2xl shadow-lg border border-slate-200 px-5 py-4 flex flex-col items-center gap-3">
+            <div className="relative">
+              <div className="w-10 h-10 border-4 border-slate-200 border-t-teal-600 rounded-full animate-spin" />
+              <div className="absolute inset-0 flex items-center justify-center text-[10px] font-bold text-teal-700">
+                MAP
+              </div>
+            </div>
+
+            <div className="text-center">
+              <p className="text-sm font-semibold text-slate-700">
+                Finding nearby {category.label.toLowerCase()}
+              </p>
+              <p className="text-xs text-slate-400 mt-0.5">
+                Please wait, map data is loading...
+              </p>
+            </div>
           </div>
         </div>
       )}
-
       {error && !loading && (
         <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-white border border-slate-200 text-slate-500 text-xs px-3 py-2 rounded-lg shadow z-10">
           {error}
@@ -395,6 +417,10 @@ export default function MapViewsSection({
         </div>
 
         <div className="flex-1 rounded-xl border border-slate-200 shadow-md bg-slate-100 overflow-hidden relative min-h-[320px] sm:min-h-[400px] h-[340px] sm:h-[420px] md:h-[480px] lg:h-[520px]">
+          <div className="absolute top-3 left-3 z-10 bg-white/90 backdrop-blur-sm border border-slate-200 rounded-full px-3 py-1.5 text-xs font-semibold text-slate-600 shadow">
+            Showing nearby {active.label}
+          </div>
+
           <LeafletMap
             key={active.id}
             lat={lat}
