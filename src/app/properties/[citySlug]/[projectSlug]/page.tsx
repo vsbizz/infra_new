@@ -211,7 +211,6 @@ export default function ProjectDetail({
           </aside>
         </div>
       </div>
-
       {/* Facilities */}
       <section className="py-8 sm:py-10 md:py-12 px-4 sm:px-6 lg:px-28">
         <h2 className="text-2xl xs:text-[26px] sm:text-3xl md:text-4xl lg:text-5xl md:font-extrabold text-slate-900 mb-6 sm:mb-8 xs:mb-4 tracking-tight leading-[1.2]">
@@ -253,8 +252,11 @@ export default function ProjectDetail({
           ))}
         </div>
       </section>
-
-      <MapViewsSection />
+      <MapViewsSection
+        lat={project.lat}
+        lng={project.lng}
+        projectName={project.title}
+      />
     </div>
   );
 }
