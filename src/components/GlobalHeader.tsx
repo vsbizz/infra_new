@@ -168,6 +168,34 @@ export const GlobalHeader = () => {
     { name: "Blogs", href: "/blogs" },
   ];
 
+  const propertiesMegaData = [
+    {
+      title: "Property search",
+      description:
+        "Commercial properties for sale or lease that fit your location and needs, including retail, office, and industrial spaces.",
+      links: [
+        { name: "Investment sales", href: "/properties" },
+        { name: "Commercial listings", href: "/properties" },
+        { name: "Residential listings", href: "/properties" },
+      ],
+    },
+    {
+      title: "Advising",
+      description:
+        "Expert guidance to help you find the ideal space and negotiate optimal terms for your business.",
+      links: [
+        {
+          name: "Location strategy",
+          href: "#",
+        },
+        {
+          name: "Tenant representation",
+          href: "#",
+        },
+      ],
+    },
+  ];
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-100 transition-all duration-500 border-b  ${
@@ -239,8 +267,10 @@ export const GlobalHeader = () => {
               "Sectors",
               "Development Partner",
             ].map((item) => {
-              const isDropdown = item === "Services" || item === "Sectors";
-
+              const isDropdown =
+                item === "Properties" ||
+                item === "Services" ||
+                item === "Sectors";
               return (
                 <li key={item} className="relative">
                   {isDropdown ? (
@@ -440,7 +470,9 @@ export const GlobalHeader = () => {
       {/* MEGA MENUS (Desktop Only) */}
       <AnimatePresence>
         {hoveredItem &&
-          (hoveredItem === "Services" || hoveredItem === "Sectors") && (
+          (hoveredItem === "Properties" ||
+            hoveredItem === "Services" ||
+            hoveredItem === "Sectors") && (
             <motion.div
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
@@ -449,7 +481,52 @@ export const GlobalHeader = () => {
               onMouseEnter={() => setHoveredItem(hoveredItem)}
             >
               <div className="mx-auto max-w-360 px-6 py-12">
-                {hoveredItem === "Services" ? (
+                {hoveredItem === "Properties" ? (
+                  <div>
+                    <div className="grid grid-cols-1 lg:grid-cols-[370px_370px] gap-12">
+                      {propertiesMegaData.map((section, index) => (
+                        <div
+                          key={section.title}
+                          className={`pr-12 ${
+                            index !== propertiesMegaData.length - 1
+                              ? "border-r border-slate-200"
+                              : ""
+                          }`}
+                        >
+                          <h3 className="text-[20px] font-normal  mb-4">
+                            {section.title}
+                          </h3>
+
+                          <p className="text-[14px] leading-[1.55] text-slate-600 mb-9">
+                            {section.description}
+                          </p>
+
+                          <ul className="space-y-5">
+                            {section.links.map((link) => (
+                              <li key={link.name}>
+                                <Link
+                                  href={link.href}
+                                  onClick={() => setHoveredItem(null)}
+                                  className="flex items-center gap-4 text-[16px] text-slate-950 hover:text-teal-600 transition-colors group"
+                                >
+                                  <span className="w-0.75 h-3 bg-black group-hover:bg-teal-600 transition-colors" />
+                                  {link.name}
+                                </Link>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      ))}
+                    </div>
+
+                    <div className="mt-16 pt-16 border-t border-slate-300">
+                      <p className="text-[16px] text-slate-600">
+                        Properties for sale or lease that fit your strategy,
+                        whether investing or occupying.
+                      </p>
+                    </div>
+                  </div>
+                ) : hoveredItem === "Services" ? (
                   <>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
                       {servicesData.map((cat) => (
