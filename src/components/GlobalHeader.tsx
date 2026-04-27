@@ -511,7 +511,7 @@ export const GlobalHeader = () => {
                     </div>
                     <div className="mt-16 pt-8 border-t border-slate-200 flex flex-wrap gap-4 items-center justify-between">
                       <p className="text-sm font-medium text-slate-600">
-                        Comprehensive real estate solutions.
+                        Comprehensive Healtcare solutions.
                       </p>
                       <div className="flex gap-3">
                         <Link
@@ -560,7 +560,7 @@ export const GlobalHeader = () => {
                     </div>
                     <div className="mt-16 pt-8 border-t border-slate-200 flex flex-wrap gap-4 items-center justify-between">
                       <p className="text-sm font-medium text-slate-600">
-                        Comprehensive real estate solutions.
+                        Comprehensive Healtcare solutions.
                       </p>
                       <div className="flex gap-3">
                         <Link
@@ -591,7 +591,7 @@ export const GlobalHeader = () => {
                     </div>
                     <div className="mt-16 pt-8 border-t border-slate-200 flex flex-wrap gap-4 items-center justify-between">
                       <p className="text-sm font-medium text-slate-600">
-                        Comprehensive real estate solutions.
+                        Comprehensive Healthcare solutions.
                       </p>
                       <div className="flex gap-3">
                         <Link
