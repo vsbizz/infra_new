@@ -170,27 +170,25 @@ export const GlobalHeader = () => {
 
   const propertiesMegaData = [
     {
-      title: "Property search",
-      description:
-        "Commercial properties for sale or lease that fit your location and needs, including retail, office, and industrial spaces.",
-      links: [
-        { name: "Investment sales", href: "/properties" },
-        { name: "Commercial listings", href: "/properties" },
-        { name: "Residential listings", href: "/properties" },
+      category: "Healthcare Property",
+      slug: "Healthcare-property",
+      items: [
+        { name: "Investment Properties", slug: "properties" },
+        { name: "Commercial Properties", slug: "properties" },
+        { name: "Residential Properties", slug: "properties" },
       ],
     },
     {
-      title: "Advising",
-      description:
-        "Expert guidance to help you find the ideal space and negotiate optimal terms for your business.",
-      links: [
+      category: "Advising",
+      slug: "advising",
+      items: [
         {
-          name: "Location strategy",
-          href: "#",
+          name: "Market & Demographic Analysis",
+          slug: "services/advisory-and-strategic-planning/market-and-demographic-analysis",
         },
         {
-          name: "Tenant representation",
-          href: "#",
+          name: "Tenant Representation",
+          slug: "services/leasing-and-operator-advisory/tenant-operator-representation",
         },
       ],
     },
@@ -482,35 +480,28 @@ export const GlobalHeader = () => {
             >
               <div className="mx-auto max-w-360 px-6 py-12">
                 {hoveredItem === "Properties" ? (
-                  <div>
-                    <div className="grid grid-cols-1 lg:grid-cols-[370px_370px] gap-12">
-                      {propertiesMegaData.map((section, index) => (
-                        <div
-                          key={section.title}
-                          className={`pr-12 ${
-                            index !== propertiesMegaData.length - 1
-                              ? "border-r border-slate-200"
-                              : ""
-                          }`}
-                        >
-                          <h3 className="text-[20px] font-normal  mb-4">
-                            {section.title}
-                          </h3>
-
-                          <p className="text-[14px] leading-[1.55] text-slate-600 mb-9">
-                            {section.description}
-                          </p>
-
-                          <ul className="space-y-5">
-                            {section.links.map((link) => (
-                              <li key={link.name}>
+                  <>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
+                      {propertiesMegaData.map((cat) => (
+                        <div key={cat.slug} className="space-y-6">
+                          <div
+                            className="group flex items-center justify-between border-b border-slate-200 pb-4 pr-4"
+                            onClick={() => setHoveredItem(null)}
+                          >
+                            <h3 className="text-[16px] font-medium text-slate-700 transition-colors leading-tight">
+                              {cat.category}
+                            </h3>
+                          </div>
+                          <ul className="space-y-3">
+                            {cat.items.map((item) => (
+                              <li key={item.slug}>
                                 <Link
-                                  href={link.href}
+                                  href={`/${item.slug}`}
+                                  className="flex items-center gap-3 text-[14px] text-slate-600 hover:text-teal-600 transition-all group"
                                   onClick={() => setHoveredItem(null)}
-                                  className="flex items-center gap-4 text-[16px] text-slate-950 hover:text-teal-600 transition-colors group"
                                 >
-                                  <span className="w-0.75 h-3 bg-black group-hover:bg-teal-600 transition-colors" />
-                                  {link.name}
+                                  <span className="w-0.75 h-3 bg-slate-800 group-hover:bg-teal-600 transition-colors" />
+                                  {item.name}
                                 </Link>
                               </li>
                             ))}
@@ -518,14 +509,20 @@ export const GlobalHeader = () => {
                         </div>
                       ))}
                     </div>
-
-                    <div className="mt-16 pt-16 border-t border-slate-300">
-                      <p className="text-[16px] text-slate-600">
-                        Properties for sale or lease that fit your strategy,
-                        whether investing or occupying.
+                    <div className="mt-16 pt-8 border-t border-slate-200 flex flex-wrap gap-4 items-center justify-between">
+                      <p className="text-sm font-medium text-slate-600">
+                        Comprehensive real estate solutions.
                       </p>
+                      <div className="flex gap-3">
+                        <Link
+                          href="/contact"
+                          className="px-4 py-2 bg-white border border-slate-200 rounded text-xs font-bold uppercase text-slate-600 hover:bg-slate-50"
+                        >
+                          Consulting
+                        </Link>
+                      </div>
                     </div>
-                  </div>
+                  </>
                 ) : hoveredItem === "Services" ? (
                   <>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
@@ -567,12 +564,6 @@ export const GlobalHeader = () => {
                       </p>
                       <div className="flex gap-3">
                         <Link
-                          href="/services"
-                          className="px-4 py-2 bg-white border border-slate-200 rounded text-xs font-bold uppercase text-slate-600 hover:bg-slate-50"
-                        >
-                          All Services
-                        </Link>
-                        <Link
                           href="/contact"
                           className="px-4 py-2 bg-white border border-slate-200 rounded text-xs font-bold uppercase text-slate-600 hover:bg-slate-50"
                         >
@@ -603,12 +594,6 @@ export const GlobalHeader = () => {
                         Comprehensive real estate solutions.
                       </p>
                       <div className="flex gap-3">
-                        <Link
-                          href="/services"
-                          className="px-4 py-2 bg-white border border-slate-200 rounded text-xs font-bold uppercase text-slate-600 hover:bg-slate-50"
-                        >
-                          All Services
-                        </Link>
                         <Link
                           href="/contact"
                           className="px-4 py-2 bg-white border border-slate-200 rounded text-xs font-bold uppercase text-slate-600 hover:bg-slate-50"
