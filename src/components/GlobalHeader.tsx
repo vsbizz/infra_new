@@ -170,12 +170,11 @@ export const GlobalHeader = () => {
 
   const propertiesMegaData = [
     {
-      category: "Healthcare Property",
+      category: "Property search",
       slug: "Healthcare-property",
       items: [
-        { name: "Investment Properties", slug: "properties" },
-        { name: "Commercial Properties", slug: "properties" },
-        { name: "Residential Properties", slug: "properties" },
+        { name: "Investment healthcare properties", slug: "properties" },
+        { name: "Commercial healthcare properties", slug: "properties" },
       ],
     },
     {
@@ -183,11 +182,11 @@ export const GlobalHeader = () => {
       slug: "advising",
       items: [
         {
-          name: "Market & Demographic Analysis",
+          name: "Market & Demographic analysis",
           slug: "services/advisory-and-strategic-planning/market-and-demographic-analysis",
         },
         {
-          name: "Tenant Representation",
+          name: "Tenant representation",
           slug: "services/leasing-and-operator-advisory/tenant-operator-representation",
         },
       ],
@@ -211,7 +210,7 @@ export const GlobalHeader = () => {
           <span className="text-[11px] xs:text-[13px] sm:text-[15px] leading-tight">
             Explore Our Development Partner Solution
           </span>
-          <div className="bg-gray-300/50 text-black rounded-full w-4 h-4 xs:w-5 xs:h-5 sm:w-6 sm:h-6 flex items-center justify-center flex-shrink-0">
+          <div className="bg-gray-300/50 text-white rounded-full w-4 h-4 xs:w-5 xs:h-5 sm:w-6 sm:h-6 flex items-center justify-center flex-shrink-0">
             <ArrowRight className="w-2.5 h-2.5 xs:w-3 xs:h-3 sm:w-3.5 sm:h-3.5" />
           </div>
         </div>
@@ -511,7 +510,7 @@ export const GlobalHeader = () => {
                     </div>
                     <div className="mt-16 pt-8 border-t border-slate-200 flex flex-wrap gap-4 items-center justify-between">
                       <p className="text-sm font-medium text-slate-600">
-                        Comprehensive Healtcare solutions.
+                        Comprehensive Healthcare solutions.
                       </p>
                       <div className="flex gap-3">
                         <Link
@@ -560,7 +559,7 @@ export const GlobalHeader = () => {
                     </div>
                     <div className="mt-16 pt-8 border-t border-slate-200 flex flex-wrap gap-4 items-center justify-between">
                       <p className="text-sm font-medium text-slate-600">
-                        Comprehensive Healtcare solutions.
+                        Comprehensive Healthcare solutions.
                       </p>
                       <div className="flex gap-3">
                         <Link
