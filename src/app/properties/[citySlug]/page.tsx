@@ -318,7 +318,11 @@ export default function PropertyDetail({
   const [query, setQuery] = useState(queryParam);
   const [selectedArea, setSelectedArea] = useState(areaParam);
   const [areaDropdownOpen, setAreaDropdownOpen] = useState(false);
+  const [selectedBudget, setSelectedBudget] = useState("");
+  const [budgetDropdownOpen, setBudgetDropdownOpen] = useState(false);
 
+  const [selectedStage, setSelectedStage] = useState("");
+  const [stageDropdownOpen, setStageDropdownOpen] = useState(false);
   useEffect(() => {
     setSelectedArea(areaParam);
     setQuery(queryParam);
@@ -542,18 +546,93 @@ export default function PropertyDetail({
             </div>
 
             {/* Filter pills */}
+            {/* Filter pills */}
             <div
               className="hidden sm:flex flex-wrap items-center gap-2 px-3 sm:px-4 pb-3 sm:pb-4 bg-white w-full md:w-fit rounded-b-xl border border-teal-500/100 p-3 transition-all duration-300"
               style={{ boxShadow: "0 5px 10px rgba(19,30,41,.2)" }}
             >
-              {["Budget", "Stage Of Construction"].map((f) => (
+              {/* Budget dropdown */}
+              <div className="relative">
                 <button
-                  key={f}
+                  onClick={() => {
+                    setBudgetDropdownOpen((o) => !o);
+                    setStageDropdownOpen(false);
+                  }}
                   className="flex items-center gap-1.5 px-3 py-1.5 border border-slate-300 rounded-full text-xs sm:text-sm text-slate-600 hover:border-slate-500 hover:text-slate-800 transition-colors bg-white"
                 >
-                  {f} <ChevronDown size={13} className="text-slate-400" />
+                  {selectedBudget || "Budget"}
+                  <ChevronDown size={13} className="text-slate-400" />
                 </button>
-              ))}
+
+                {budgetDropdownOpen && (
+                  <div className="absolute top-full left-0 mt-2 w-56 max-h-72 overflow-auto bg-white border border-slate-200 rounded-xl shadow-xl z-50">
+                    {[
+                      "Budget",
+                      "Under 50 Lacs",
+                      "50 Lacs - 1 Cr",
+                      "1 Cr - 2 Cr",
+                      "2 Cr+",
+                    ].map((item) => (
+                      <button
+                        key={item}
+                        onClick={() => {
+                          setSelectedBudget(item === "Budget" ? "" : item);
+                          setBudgetDropdownOpen(false);
+                        }}
+                        className={`w-full text-left px-4 py-2.5 text-sm hover:bg-slate-50 transition-colors ${
+                          selectedBudget === item
+                            ? "text-teal-600 font-semibold bg-teal-50"
+                            : "text-slate-700"
+                        }`}
+                      >
+                        {item}
+                      </button>
+                    ))}
+                  </div>
+                )}
+              </div>
+
+              {/* Stage dropdown */}
+              <div className="relative">
+                <button
+                  onClick={() => {
+                    setStageDropdownOpen((o) => !o);
+                    setBudgetDropdownOpen(false);
+                  }}
+                  className="flex items-center gap-1.5 px-3 py-1.5 border border-slate-300 rounded-full text-xs sm:text-sm text-slate-600 hover:border-slate-500 hover:text-slate-800 transition-colors bg-white"
+                >
+                  {selectedStage || "Stage Of Construction"}
+                  <ChevronDown size={13} className="text-slate-400" />
+                </button>
+
+                {stageDropdownOpen && (
+                  <div className="absolute top-full left-0 mt-2 w-64 max-h-72 overflow-auto bg-white border border-slate-200 rounded-xl shadow-xl z-50">
+                    {[
+                      "Stage Of Construction",
+                      "Ready to Move",
+                      "Under Construction",
+                      "Upcoming",
+                    ].map((item) => (
+                      <button
+                        key={item}
+                        onClick={() => {
+                          setSelectedStage(
+                            item === "Stage Of Construction" ? "" : item,
+                          );
+                          setStageDropdownOpen(false);
+                        }}
+                        className={`w-full text-left px-4 py-2.5 text-sm hover:bg-slate-50 transition-colors ${
+                          selectedStage === item
+                            ? "text-teal-600 font-semibold bg-teal-50"
+                            : "text-slate-700"
+                        }`}
+                      >
+                        {item}
+                      </button>
+                    ))}
+                  </div>
+                )}
+              </div>
             </div>
           </div>
 

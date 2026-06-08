@@ -198,6 +198,20 @@ const REGIONS = [
     color: "#0D9488",
     center: [-95, 20],
   },
+  {
+    id: "central-asia",
+    name: "Central Asia",
+    beds: "50+",
+    countries: [
+      "Kazakhstan",
+      "Kyrgyzstan",
+      "Tajikistan",
+      "Turkmenistan",
+      "Uzbekistan",
+    ],
+    color: "#0D9488",
+    center: [66, 43],
+  },
 ];
 
 export const GlobalPresence: React.FC = () => {
@@ -349,39 +363,53 @@ export const GlobalPresence: React.FC = () => {
                 JLL Grid Gap Mobile: 12-16px
               */}
               <div className="mt-8 xs:mt-10 sm:mt-12 grid grid-cols-2 gap-3 xs:gap-3.5 sm:gap-4">
-                {REGIONS.map((region) => (
-                  <motion.div
-                    key={region.id}
-                    onMouseEnter={() => {
-                      setIsAutoPlaying(false);
-                      setHoveredRegion(region.id);
-                    }}
-                    onMouseLeave={() => setIsAutoPlaying(true)}
-                    animate={{
-                      scale: hoveredRegion === region.id ? 1.05 : 1,
-                      borderColor:
-                        hoveredRegion === region.id ? region.color : "#e2e8f0",
-                      backgroundColor:
-                        hoveredRegion === region.id ? "#f8fafc" : "#ffffff",
-                    }}
-                    className={`group cursor-pointer rounded-lg xs:rounded-xl border p-3 xs:p-3.5 sm:p-4 transition-all duration-300 ${hoveredRegion === region.id ? "shadow-md" : ""}`}
-                  >
-                    <div className="flex items-center gap-2 xs:gap-2.5 sm:gap-3">
-                      <div
-                        className="h-2 w-2 xs:h-2.5 xs:w-2.5 rounded-full flex-shrink-0"
-                        style={{ backgroundColor: region.color }}
-                      />
-                      {/* 
-                        JLL List/Label Text Mobile: 14-15px, font-weight: 500 (medium)
-                      */}
-                      <span
-                        className={`text-sm xs:text-[15px] sm:text-base font-medium leading-tight ${hoveredRegion === region.id ? "text-slate-900" : "text-slate-400"}`}
-                      >
-                        {region.name}
-                      </span>
-                    </div>
-                  </motion.div>
-                ))}
+                {REGIONS.map((region, index) => {
+                  const isLastOddCard =
+                    index === REGIONS.length - 1 && REGIONS.length % 2 === 1;
+
+                  return (
+                    <motion.div
+                      key={region.id}
+                      onMouseEnter={() => {
+                        setIsAutoPlaying(false);
+                        setHoveredRegion(region.id);
+                      }}
+                      onMouseLeave={() => setIsAutoPlaying(true)}
+                      animate={{
+                        scale: hoveredRegion === region.id ? 1.05 : 1,
+                        borderColor:
+                          hoveredRegion === region.id
+                            ? region.color
+                            : "#e2e8f0",
+                        backgroundColor:
+                          hoveredRegion === region.id ? "#f8fafc" : "#ffffff",
+                      }}
+                      className={`group cursor-pointer rounded-lg xs:rounded-xl border p-3 xs:p-3.5 sm:p-4 transition-all duration-300 ${
+                        hoveredRegion === region.id ? "shadow-md" : ""
+                      } ${
+                        isLastOddCard
+                          ? "sm:col-span-2 sm:justify-self-center sm:w-full sm:max-w-[calc(50%-0.375rem)]"
+                          : ""
+                      }`}
+                    >
+                      <div className="flex items-center gap-2 xs:gap-2.5 sm:gap-3">
+                        <div
+                          className="h-2 w-2 xs:h-2.5 xs:w-2.5 rounded-full flex-shrink-0"
+                          style={{ backgroundColor: region.color }}
+                        />
+                        <span
+                          className={`text-sm xs:text-[15px] sm:text-base font-medium leading-tight ${
+                            hoveredRegion === region.id
+                              ? "text-slate-900"
+                              : "text-slate-400"
+                          }`}
+                        >
+                          {region.name}
+                        </span>
+                      </div>
+                    </motion.div>
+                  );
+                })}
               </div>
             </motion.div>
           </div>

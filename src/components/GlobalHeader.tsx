@@ -48,93 +48,103 @@ export const GlobalHeader = () => {
 
   const servicesData = [
     {
-      category: "Investment & Capital Advisory",
-      slug: "investment-and-capital-advisory",
-      items: [
-        { name: "Investment Sales", slug: "investment-sales" },
-        {
-          name: "Institutional Partnerships",
-          slug: "institutional-partnerships",
-        },
-        { name: "Structured Financing", slug: "structured-financing" },
-        { name: "Debt Advisory", slug: "debt-advisory" },
-        {
-          name: "Distressed Asset Strategy",
-          slug: "distressed-asset-strategy",
-        },
-        {
-          name: "Valuation & Risk Underwriting",
-          slug: "valuation-and-risk-underwriting",
-        },
-      ],
-    },
-    {
-      category: "Leasing & Operator Advisory",
-      slug: "leasing-and-operator-advisory",
-      items: [
-        { name: "Owner Representation", slug: "owner-representation" },
-        {
-          name: "Tenant & Operator Representation",
-          slug: "tenant-operator-representation",
-        },
-        { name: "Site Selection & Location Strategy", slug: "site-selection" },
-      ],
-    },
-    {
-      category: "Advisory & Strategic Planning",
+      category: "Strategic Advisory & Design",
       slug: "advisory-and-strategic-planning",
       items: [
         {
           name: "Feasibility Studies & DPR",
           slug: "feasibility-studies-and-dpr",
         },
-        {
-          name: "Market & Demographic Analysis",
-          slug: "market-and-demographic-analysis",
-        },
-        {
-          name: "Specialty & Capacity Planning",
-          slug: "specialty-and-capacity-planning",
-        },
-        { name: "Financial Modeling", slug: "financial-modeling" },
         { name: "PPP Advisory", slug: "ppp-advisory" },
-        { name: "ESG & Sustainability", slug: "esg-and-sustainability" },
         {
-          name: "Digital Transformation",
+          name: "ESG, Sustainability & Environmental Advisory",
+          slug: "esg-and-sustainability",
+        },
+        {
+          name: "Healthcare Digital Transformation Strategy",
           slug: "digital-transformation-strategy",
         },
         { name: "Accreditation Advisory", slug: "accreditation-advisory" },
-      ],
-    },
-    {
-      category: "Design & Project Delivery",
-      slug: "design-and-project-delivery",
-      items: [
+
         {
-          name: "Project Management",
+          name: "Project Management Consultancy (PMC)",
           slug: "project-management-consultancy",
         },
         {
-          name: "Integrated Healthcare Design",
+          name: "Integrated Healthcare Design Services",
           slug: "integrated-healthcare-design",
         },
-        { name: "Procurement Management", slug: "procurement-management" },
-        {
-          name: "Medical Equipment Planning",
-          slug: "medical-equipment-planning",
-        },
-        { name: "Cost Consultancy", slug: "cost-consultancy" },
-        { name: "Design-Build Solutions", slug: "design-build-solutions" },
-        { name: "EPC Turnkey Delivery", slug: "epc-turnkey-delivery" },
       ],
     },
+    {
+      category: "Investment & Capital Advisory",
+      slug: "investment-and-capital-advisory",
+      items: [
+        { name: "Investment Sales Advisory", slug: "investment-sales" },
+        {
+          name: "Institutional Investor Partnerships",
+          slug: "institutional-partnerships",
+        },
+        {
+          name: "Structured Financing Solutions",
+          slug: "structured-financing",
+        },
+        { name: "Debt Advisory", slug: "debt-advisory" },
+        {
+          name: "Distressed Asset Strategy",
+          slug: "distressed-asset-strategy",
+        },
+        {
+          name: "Asset Valuation & Risk Underwriting",
+          slug: "valuation-and-risk-underwriting",
+        },
+      ],
+    },
+    {
+      category: "Project Delivery & Construction",
+      slug: "design-and-project-delivery",
+      items: [
+        {
+          name: "Integrated Development Partnership (IDP)",
+          slug: "development-partner-solution",
+        },
+        {
+          name: "Engineering, Procurement & Construction (EPC)",
+          slug: "procurement-management",
+        },
+        { name: "Design-Build Solutions", slug: "design-build-solutions" },
+
+        {
+          name: "Specialised Healthcare Infrastructure Solutions",
+          slug: "integrated-healthcare-design",
+        },
+      ],
+    },
+    {
+      category: "Healthcare Transaction Advisory",
+      slug: "leasing-and-operator-advisory",
+      items: [
+        {
+          name: "Healthcare Property Listing Services",
+          slug: "Healthcare-Property-Listing-Services",
+        },
+
+        { name: "Owner Representation", slug: "owner-representation" },
+        {
+          name: "Tenant / Operator Representation",
+          slug: "tenant-operator-representation",
+        },
+        { name: "Site Selection & Location Strategy", slug: "site-selection" },
+      ],
+    },
+
     {
       category: "Property & Facilities Management",
       slug: "property-and-facilities-management",
       items: [
         { name: "Property Management", slug: "property-management" },
         {
-          name: "Integrated Facility Management",
+          name: "Integrated Facility Management (IFM)",
           slug: "integrated-facility-management",
         },
         { name: "IFM Consultancy", slug: "ifm-consultancy" },
@@ -161,7 +171,6 @@ export const GlobalHeader = () => {
     { name: "Services", isExpandable: true },
     { name: "Portfolio", href: "/portfolio" },
     { name: "Sectors", isExpandable: true },
-    { name: "Development Partner", href: "/development-partner-solution" },
     { name: "About", href: "/about" },
     { name: "Careers", href: "/careers" },
     { name: "Vendors & Partners", href: "/vendors-partners" },
@@ -208,7 +217,7 @@ export const GlobalHeader = () => {
       <Link href="/development-partner-solution">
         <div className="bg-teal-600  text-white text-center py-2.5 sm:py-2 text-sm sm:text-base font-medium sm:font-semibold flex justify-center items-center gap-1.5 sm:gap-2 px-2 xs:px-3">
           <span className="text-[11px] xs:text-[13px] sm:text-[15px] leading-tight">
-            Explore Our Development Partner Solution
+            Explore Our Integrated Development Partnership (IDP)
           </span>
           <div className="bg-gray-300/50 text-white rounded-full w-4 h-4 xs:w-5 xs:h-5 sm:w-6 sm:h-6 flex items-center justify-center flex-shrink-0">
             <ArrowRight className="w-2.5 h-2.5 xs:w-3 xs:h-3 sm:w-3.5 sm:h-3.5" />
@@ -257,13 +266,7 @@ export const GlobalHeader = () => {
       >
         <nav className="mx-auto flex max-w-360 items-center justify-between px-6 lg:px-16">
           <ul className="flex items-center gap-8">
-            {[
-              "Properties",
-              "Services",
-              "Portfolio",
-              "Sectors",
-              "Development Partner",
-            ].map((item) => {
+            {["Properties", "Services", "Portfolio", "Sectors"].map((item) => {
               const isDropdown =
                 item === "Properties" ||
                 item === "Services" ||
