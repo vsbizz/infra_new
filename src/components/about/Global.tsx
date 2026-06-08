@@ -296,8 +296,8 @@ export const FlatGlobalMap: React.FC = () => {
           <div className="lg:col-span-7 lg:sticky lg:top-10">
             <p className="mb-4 sm:mb-5 md:mb-6 text-sm sm:text-[15px] md:text-lg leading-6 md:leading-relaxed text-slate-600">
               Operating across the Middle East, Africa, South Asia, Southeast
-              Asia, Europe, and Central America, we integrate international
-              standards with localized regulatory intelligence.
+              Asia, Central Asia, Europe, and Central America, we integrate
+              international standards with localized regulatory intelligence.
             </p>
 
             <div className="relative w-full overflow-hidden rounded-2xl sm:rounded-3xl border border-slate-100 bg-slate-50/50 p-2 sm:p-4 md:p-6 shadow-lg md:shadow-2xl md:shadow-slate-200/50">

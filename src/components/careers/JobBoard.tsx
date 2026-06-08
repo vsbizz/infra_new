@@ -201,7 +201,7 @@ const JOBS = [
   },
 ];
 
-const JOBS_PER_PAGE = 8;
+const JOBS_PER_PAGE = 5;
 
 export default function JobBoard() {
   const [searchQuery, setSearchQuery] = useState("");

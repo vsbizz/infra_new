@@ -3,8 +3,10 @@ import React from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, ChevronRight } from "lucide-react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 const AboutIntro = () => {
+  const router = useRouter();
   return (
     <section className="relative overflow-hidden bg-white py-36 sm:py-24 md:py-42 lg:py-50">
       <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -48,6 +50,7 @@ const AboutIntro = () => {
                 whileHover="hover"
                 whileTap={{ scale: 0.98 }}
                 initial="initial"
+                onClick={() => router.push("/portfolio")}
                 className="group relative overflow-hidden rounded-full border border-teal-600 bg-teal-600 px-6 py-3 text-[11px] font-bold uppercase tracking-[0.14em] text-white shadow-lg transition-colors sm:px-8 sm:py-3.5 sm:text-xs md:px-10 md:py-4 md:text-sm"
               >
                 <span className="pointer-events-none relative z-10 flex items-center gap-2 sm:gap-3">

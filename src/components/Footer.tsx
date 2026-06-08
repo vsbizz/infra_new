@@ -38,23 +38,24 @@ export const Footer = () => {
   ];
   const services = [
     {
+      name: "Strategic Advisory & Design",
+      href: "/services/advisory-and-strategic-planning",
+    },
+    {
       name: "Investment & Capital Advisory",
       href: "/services/investment-and-capital-advisory",
     },
     {
-      name: "Leasing & Operator Advisory",
-      href: "/services/leasing-and-operator-advisory",
-    },
-    {
-      name: "Advisory & Strategic Planning",
-      href: "/services/advisory-and-strategic-planning",
-    },
-    {
-      name: "Design & Project Delivery",
+      name: "Project Delivery & Construction",
       href: "/services/design-and-project-delivery",
     },
     {
-      name: "Property & Facilities Management",
+      name: "Healthcare Transaction Advisory",
+      href: "/services/leasing-and-operator-advisory",
+    },
+
+    {
+      name: " Property & Facility Management",
       href: "/services/property-and-facilities-management",
     },
   ];

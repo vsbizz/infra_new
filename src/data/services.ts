@@ -288,6 +288,12 @@ export const SERVICES_CONTENT: Record<string, any> = {
         title: "",
         cards: [
           {
+            id: "integrated-healthcare-design",
+            title: "Integrated Healthcare Design",
+            description:
+              "Fully integrated solutions combining clinical planning, architecture, and MEPF systems with strict infection control adherence.",
+          },
+          {
             id: "feasibility-studies-and-dpr",
             title: "Feasibility Studies & DPR",
             description:
@@ -335,6 +341,12 @@ export const SERVICES_CONTENT: Record<string, any> = {
             description:
               "End-to-end advisory for rigorous national and international certifications including NABH, JCI, NABL, and ISO.",
           },
+          {
+            id: "project-management-consultancy",
+            title: "Project Management Consultancy (PMC)",
+            description:
+              "Governance-led oversight acting as the client’s representative to ensure control across cost, time, quality, and regulatory compliance.",
+          },
         ],
       },
     ],
@@ -347,6 +359,72 @@ export const SERVICES_CONTENT: Record<string, any> = {
       "Sustainability and digital readiness are embedded into the asset from inception.",
     ],
     subServices: {
+      "integrated-healthcare-design": {
+        title: "Integrated Healthcare Design Services",
+        headline:
+          "Unifying Clinical Excellence with Architectural and Engineering Precision.",
+        heroImage: "/asset/services/consult/hospital-design.jpg",
+        description: [
+          "Hospital design goes far beyond aesthetics; it fundamentally dictates clinical outcomes, operational efficiency, and infection control. Infra.Health delivers fully integrated, patient-centric healthcare design solutions that transform strategic facility programs into world-class medical infrastructure.",
+          "We approach healthcare design as a unified discipline. By combining clinical planning, architectural design, structural engineering, and specialized MEPF (Mechanical, Electrical, Plumbing, and Firefighting) systems under a single framework, we eliminate coordination blind spots and ensure long-term operational scalability.",
+        ],
+        sectionTitle: "Strategic Design & Engineering Scope",
+        sectionDescription:
+          "We design future-ready medical facilities that prioritize patient safety and staff efficiency. Our core services include:",
+        sections: [
+          {
+            title: "Clinical Architecture & Master Planning",
+            description:
+              "Designing optimal building footprints, stacking strategies, and zoning layouts to ensure seamless patient flow and strict separation of sterile and non-sterile zones.",
+            icon: "Layout",
+          },
+          {
+            title: "Specialized MEPF Engineering",
+            description:
+              "Engineering mission-critical lifeline systems, including complex HVAC designs for isolation rooms and operating theaters, and Medical Gas Piping Systems (MGPS).",
+            icon: "Settings",
+          },
+          {
+            title: "Evidence-Based Interior Design",
+            description:
+              "Creating healing environments that reduce patient stress, incorporate durable healthcare-grade materials, and meet stringent infection control standards.",
+            icon: "Feather",
+          },
+          {
+            title: "BIM & Clash Coordination",
+            description:
+              "Utilizing advanced Building Information Modeling (BIM) to integrate all architectural and engineering disciplines, conducting rigorous clash detection to mitigate construction delays and cost overruns.",
+            icon: "Box",
+          },
+        ],
+        deliverableTitle: "Deliverables for Project Execution",
+        deliverableDescription:
+          "Engaging our Integrated Design team equips your contractors with the precise, clash-free blueprints required for flawless execution:",
+        deliverables: [
+          {
+            title: "Comprehensive Concept & Schematic Design Reports",
+            icon: "FileText",
+          },
+          {
+            title:
+              "Coordinated Building Information Models (BIM up to LOD 400)",
+            icon: "Box",
+          },
+          {
+            title: "Detailed MEPF & Medical Gas System Schematics",
+            icon: "Settings",
+          },
+          {
+            title: "Interior Design Renderings and Material Finish Schedules",
+            icon: "Image",
+          },
+          {
+            title:
+              "Good for Construction (GFC) / Issue for Construction (IFC) Drawing Sets",
+            icon: "ClipboardCheck",
+          },
+        ],
+      },
       "feasibility-studies-and-dpr": {
         title:
           "Healthcare Feasibility Studies & Detailed Project Reports (DPR)",
@@ -838,93 +916,6 @@ export const SERVICES_CONTENT: Record<string, any> = {
           },
         ],
       },
-    },
-  },
-  "design-and-project-delivery": {
-    title: "Healthcare Design & Project Delivery",
-    headline:
-      "Turnkey Execution and Engineering Precision for Healthcare Infrastructure.",
-    description:
-      "Convert healthcare strategy, capital structuring, and advisory frameworks into operational healthcare infrastructure through disciplined governance and engineering precision.",
-    longDescription:
-      "The Design & Project Delivery division is the execution backbone of Infra.Health. We convert healthcare strategy, capital structuring, and advisory frameworks into operational healthcare infrastructure through disciplined governance, engineering precision, procurement control, and turnkey delivery capability. Healthcare infrastructure execution demands far more than standard commercial construction. We deliver healthcare facilities that are clinically compliant, financially disciplined, technically resilient, and operationally ready from day one.",
-    heroImage: "/asset/services/construct/fitout.jpg",
-    stats: [
-      { label: "Turnkey Projects", value: "45+" },
-      { label: "On-Time Completion", value: "98%" },
-      { label: "Supply Chain Partners", value: "500+" },
-    ],
-    sectionIntro: {
-      title: "Integrated Healthcare Execution Services",
-      description:
-        "Our delivery framework spans the full project lifecycle from design validation through commissioning and final handover under structured accountability. We provide eight specialized delivery models to ensure flawless execution.",
-    },
-    sections: [
-      {
-        id: "execution-services",
-        title: "",
-        cards: [
-          {
-            id: "project-management-consultancy",
-            title: "Project Management Consultancy (PMC)",
-            description:
-              "Governance-led oversight acting as the client’s representative to ensure control across cost, time, quality, and regulatory compliance.",
-          },
-          {
-            id: "integrated-healthcare-design",
-            title: "Integrated Healthcare Design",
-            description:
-              "Fully integrated solutions combining clinical planning, architecture, and MEPF systems with strict infection control adherence.",
-          },
-          {
-            id: "procurement-management",
-            title: "Procurement Management",
-            description:
-              "Structured vendor prequalification and supply chain coordination to secure the best techno-commercial outcomes and transparency.",
-          },
-          {
-            id: "medical-equipment-planning",
-            title: "Medical Equipment Integration",
-            description:
-              "Turnkey equipment planning aligned with clinical workflows using vendor-neutral evaluation for financial optimization.",
-          },
-          {
-            id: "cost-consultancy",
-            title: "Cost Consultancy",
-            description:
-              "Rigorous financial oversight, value engineering, and budget tracking to ensure disciplined control across the project lifecycle.",
-          },
-          {
-            id: "sustainability",
-            title: "Sustainability Integration",
-            description:
-              "Hospital green building consultancy (LEED, IGBC, GRIHA, EDGE) to reduce lifecycle costs and support green financing.",
-          },
-          {
-            id: "design-build-solutions",
-            title: "Design-Build Solutions",
-            description:
-              "Single-point responsibility model unifying concept, engineering, and construction to accelerate project timelines.",
-          },
-          {
-            id: "epc-turnkey-delivery",
-            title: "Engineering, Procurement & Construction (EPC)",
-            description:
-              "Complete turnkey delivery including detailed engineering, specialized procurement, and full operational handover.",
-          },
-        ],
-      },
-    ],
-    strategicTitle: "The Strategic Value of Unified Delivery",
-    strategicDesc:
-      "By partnering with Infra.Health for Design & Project Delivery, healthcare developers and institutional investors ensure:",
-    strategicValue: [
-      "Capital cost certainty and strict timeline discipline.",
-      "Seamless integration between the physical building and complex medical equipment.",
-      "Total compliance with international clinical, safety, and infection control standards.",
-      "Elimination of the fragmentation risk typically found in multi-vendor construction projects.",
-    ],
-    subServices: {
       "project-management-consultancy": {
         title: "Healthcare Project Management Consultancy (PMC)",
         headline:
@@ -989,72 +980,81 @@ export const SERVICES_CONTENT: Record<string, any> = {
           },
         ],
       },
-      "integrated-healthcare-design": {
-        title: "Integrated Healthcare Design Services",
-        headline:
-          "Unifying Clinical Excellence with Architectural and Engineering Precision.",
-        heroImage: "/asset/services/consult/hospital-design.jpg",
-        description: [
-          "Hospital design goes far beyond aesthetics; it fundamentally dictates clinical outcomes, operational efficiency, and infection control. Infra.Health delivers fully integrated, patient-centric healthcare design solutions that transform strategic facility programs into world-class medical infrastructure.",
-          "We approach healthcare design as a unified discipline. By combining clinical planning, architectural design, structural engineering, and specialized MEPF (Mechanical, Electrical, Plumbing, and Firefighting) systems under a single framework, we eliminate coordination blind spots and ensure long-term operational scalability.",
-        ],
-        sectionTitle: "Strategic Design & Engineering Scope",
-        sectionDescription:
-          "We design future-ready medical facilities that prioritize patient safety and staff efficiency. Our core services include:",
-        sections: [
+    },
+  },
+  "design-and-project-delivery": {
+    title: "Healthcare Design & Project Delivery",
+    headline:
+      "Turnkey Execution and Engineering Precision for Healthcare Infrastructure.",
+    description:
+      "Convert healthcare strategy, capital structuring, and advisory frameworks into operational healthcare infrastructure through disciplined governance and engineering precision.",
+    longDescription:
+      "The Design & Project Delivery division is the execution backbone of Infra.Health. We convert healthcare strategy, capital structuring, and advisory frameworks into operational healthcare infrastructure through disciplined governance, engineering precision, procurement control, and turnkey delivery capability. Healthcare infrastructure execution demands far more than standard commercial construction. We deliver healthcare facilities that are clinically compliant, financially disciplined, technically resilient, and operationally ready from day one.",
+    heroImage: "/asset/services/construct/fitout.jpg",
+    stats: [
+      { label: "Turnkey Projects", value: "45+" },
+      { label: "On-Time Completion", value: "98%" },
+      { label: "Supply Chain Partners", value: "500+" },
+    ],
+    sectionIntro: {
+      title: "Integrated Healthcare Execution Services",
+      description:
+        "Our delivery framework spans the full project lifecycle from design validation through commissioning and final handover under structured accountability. We provide eight specialized delivery models to ensure flawless execution.",
+    },
+    sections: [
+      {
+        id: "execution-services",
+        title: "",
+        cards: [
           {
-            title: "Clinical Architecture & Master Planning",
+            id: "procurement-management",
+            title: "Procurement Management",
             description:
-              "Designing optimal building footprints, stacking strategies, and zoning layouts to ensure seamless patient flow and strict separation of sterile and non-sterile zones.",
-            icon: "Layout",
+              "Structured vendor prequalification and supply chain coordination to secure the best techno-commercial outcomes and transparency.",
           },
           {
-            title: "Specialized MEPF Engineering",
+            id: "medical-equipment-planning",
+            title: "Medical Equipment Integration",
             description:
-              "Engineering mission-critical lifeline systems, including complex HVAC designs for isolation rooms and operating theaters, and Medical Gas Piping Systems (MGPS).",
-            icon: "Settings",
+              "Turnkey equipment planning aligned with clinical workflows using vendor-neutral evaluation for financial optimization.",
           },
           {
-            title: "Evidence-Based Interior Design",
+            id: "cost-consultancy",
+            title: "Cost Consultancy",
             description:
-              "Creating healing environments that reduce patient stress, incorporate durable healthcare-grade materials, and meet stringent infection control standards.",
-            icon: "Feather",
+              "Rigorous financial oversight, value engineering, and budget tracking to ensure disciplined control across the project lifecycle.",
           },
           {
-            title: "BIM & Clash Coordination",
+            id: "sustainability",
+            title: "Sustainability Integration",
             description:
-              "Utilizing advanced Building Information Modeling (BIM) to integrate all architectural and engineering disciplines, conducting rigorous clash detection to mitigate construction delays and cost overruns.",
-            icon: "Box",
-          },
-        ],
-        deliverableTitle: "Deliverables for Project Execution",
-        deliverableDescription:
-          "Engaging our Integrated Design team equips your contractors with the precise, clash-free blueprints required for flawless execution:",
-        deliverables: [
-          {
-            title: "Comprehensive Concept & Schematic Design Reports",
-            icon: "FileText",
+              "Hospital green building consultancy (LEED, IGBC, GRIHA, EDGE) to reduce lifecycle costs and support green financing.",
           },
           {
-            title:
-              "Coordinated Building Information Models (BIM up to LOD 400)",
-            icon: "Box",
+            id: "design-build-solutions",
+            title: "Design-Build Solutions",
+            description:
+              "Single-point responsibility model unifying concept, engineering, and construction to accelerate project timelines.",
           },
           {
-            title: "Detailed MEPF & Medical Gas System Schematics",
-            icon: "Settings",
-          },
-          {
-            title: "Interior Design Renderings and Material Finish Schedules",
-            icon: "Image",
-          },
-          {
-            title:
-              "Good for Construction (GFC) / Issue for Construction (IFC) Drawing Sets",
-            icon: "ClipboardCheck",
+            id: "epc-turnkey-delivery",
+            title: "Engineering, Procurement & Construction (EPC)",
+            description:
+              "Complete turnkey delivery including detailed engineering, specialized procurement, and full operational handover.",
           },
         ],
       },
+    ],
+    strategicTitle: "The Strategic Value of Unified Delivery",
+    strategicDesc:
+      "By partnering with Infra.Health for Design & Project Delivery, healthcare developers and institutional investors ensure:",
+    strategicValue: [
+      "Capital cost certainty and strict timeline discipline.",
+      "Seamless integration between the physical building and complex medical equipment.",
+      "Total compliance with international clinical, safety, and infection control standards.",
+      "Elimination of the fragmentation risk typically found in multi-vendor construction projects.",
+    ],
+    subServices: {
       "procurement-management": {
         title: "Healthcare Procurement Management",
         headline:

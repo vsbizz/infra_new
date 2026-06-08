@@ -57,6 +57,12 @@ const Portfolio: React.FC = () => {
     resultsRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
+  const handleSearch = () => {
+    resultsRef.current?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  };
   return (
     <div className="min-h-screen bg-white">
       {/* ── Hero ── */}
@@ -154,7 +160,10 @@ const Portfolio: React.FC = () => {
                   </div>
 
                   {/* Search button */}
-                  <button className="h-14 xs:h-[58px] sm:h-16 md:h-[52px] w-full md:w-auto bg-gradient-to-r from-teal-500 to-teal-600 text-white px-8 xs:px-10 md:px-8 rounded-xl md:rounded-[1.5rem] font-bold hover:from-teal-600 hover:to-teal-700 hover:shadow-xl hover:shadow-teal-500/30 active:scale-[0.98] transition-all flex items-center justify-center gap-2 text-sm xs:text-base md:text-lg shadow-lg shadow-teal-500/20 whitespace-nowrap">
+                  <button
+                    onClick={handleSearch}
+                    className="h-14 xs:h-[58px] sm:h-16 md:h-[52px] w-full md:w-auto bg-gradient-to-r from-teal-500 to-teal-600 text-white px-8 xs:px-10 md:px-8 rounded-xl md:rounded-[1.5rem] font-bold hover:from-teal-600 hover:to-teal-700 hover:shadow-xl hover:shadow-teal-500/30 active:scale-[0.98] transition-all flex items-center justify-center gap-2 text-sm xs:text-base md:text-lg shadow-lg shadow-teal-500/20 whitespace-nowrap"
+                  >
                     Search <ArrowRight size={20} className="shrink-0" />
                   </button>
                 </div>
@@ -169,6 +178,7 @@ const Portfolio: React.FC = () => {
       {/* ── Portfolio Grid ── */}
       <section
         ref={resultsRef}
+        id="portfolio-grid"
         className="py-12 xs:py-16 md:py-24 bg-slate-50 px-4 xs:px-5 sm:px-6"
       >
         {/* 
