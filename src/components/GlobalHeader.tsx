@@ -107,6 +107,7 @@ export const GlobalHeader = () => {
         {
           name: "Integrated Development Partnership (IDP)",
           slug: "development-partner-solution",
+          href: "/development-partner-solution",
         },
         {
           name: "Engineering, Procurement & Construction (EPC)",
@@ -116,7 +117,7 @@ export const GlobalHeader = () => {
 
         {
           name: "Specialised Healthcare Infrastructure Solutions",
-          slug: "integrated-healthcare-design",
+          slug: "specialised-healthcare-infrastructure-solutions",
         },
       ],
     },
@@ -217,7 +218,8 @@ export const GlobalHeader = () => {
       <Link href="/development-partner-solution">
         <div className="bg-teal-600  text-white text-center py-2.5 sm:py-2 text-sm sm:text-base font-medium sm:font-semibold flex justify-center items-center gap-1.5 sm:gap-2 px-2 xs:px-3">
           <span className="text-[11px] xs:text-[13px] sm:text-[15px] leading-tight">
-            Explore Our Integrated Development Partnership (IDP)
+            Explore Our Flagship Product - Integrated Development Partnership
+            (IDP){" "}
           </span>
           <div className="bg-gray-300/50 text-white rounded-full w-4 h-4 xs:w-5 xs:h-5 sm:w-6 sm:h-6 flex items-center justify-center flex-shrink-0">
             <ArrowRight className="w-2.5 h-2.5 xs:w-3 xs:h-3 sm:w-3.5 sm:h-3.5" />
@@ -410,7 +412,11 @@ export const GlobalHeader = () => {
                                       {cat.items.map((sub) => (
                                         <Link
                                           key={sub.slug}
-                                          href={`/services/${cat.slug}/${sub.slug}`}
+                                          href={
+                                            sub.href
+                                              ? sub.href
+                                              : `/services/${cat.slug}/${sub.slug}`
+                                          }
                                           className="text-slate-600 text-[13px] xs:text-sm sm:text-base flex items-center justify-between leading-tight"
                                         >
                                           <span className="pr-2">
@@ -547,8 +553,16 @@ export const GlobalHeader = () => {
                             {cat.items.map((item) => (
                               <li key={item.slug}>
                                 <Link
-                                  href={`/services/${cat.slug}/${item.slug}`}
-                                  className="flex items-center gap-3 text-[14px] text-slate-600 hover:text-teal-600 transition-all group"
+                                  href={
+                                    item.href
+                                      ? item.href
+                                      : `/services/${cat.slug}/${item.slug}`
+                                  }
+                                  className={`flex items-center gap-3 text-[14px] transition-all group ${
+                                    item.href
+                                      ? "text-brand-purple  hover:text-teal-600  font-semibold"
+                                      : "text-slate-600 hover:text-teal-600"
+                                  }`}
                                   onClick={() => setHoveredItem(null)}
                                 >
                                   <span className="w-0.75 h-3 bg-slate-800 group-hover:bg-teal-600 transition-colors" />

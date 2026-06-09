@@ -2,79 +2,44 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { ChevronRight } from "lucide-react";
+import {
+  ChevronRight,
+  ArrowRight,
+  CircleDollarSign,
+  Layers3,
+  BadgeCheck,
+  ShieldCheck,
+  Building2,
+  MapPinned,
+  FileText,
+} from "lucide-react";
 import Link from "next/link";
 import { ProcessTimelineSection } from "@/components/ProcessTimeline";
 
-const PartnerSolution: React.FC = () => {
-  const teamServices = [
-    {
-      id: 1,
-      title: "Clinical & Medical Planners",
-      description:
-        "They define clinical adjacencies, patient flow, and infection control zoning (OT, ICU, CSSD) to ensure the facility supports high-intensity care delivery without operational bottlenecks.",
-    },
-    {
-      id: 2,
-      title: "Healthcare Financial Strategists & Underwriters",
-      description:
-        "Experts in healthcare-specific debt advisory, capital stack optimization, and risk underwriting. They structure projects to be 'investment-grade,' ensuring capital alignment and financial resilience across economic cycles.",
-    },
-    {
-      id: 3,
-      title: "Medical Equipment & Technology Integrators",
-      description:
-        "They manage the heavy-duty technical requirements-from radiation shielding to power redundancy-ensuring that the building 'engine' perfectly supports specialized medical tools like MRI, Cath Labs, and Modular OTs.",
-    },
-    {
-      id: 4,
-      title: "Critical Systems & MEPF Engineers",
-      description:
-        "Specialists in high-intensity hospital utilities, including Medical Gas Piping Systems (MGPS), specialized HVAC for sterile zones, and N+1 electrical redundancy.",
-    },
-    {
-      id: 5,
-      title: "Compliance & Accreditation Specialists",
-      description:
-        "Experts in JCI, NABH, and ISO standards who bake clinical safety, patient safety checklists, and infection control protocols into the very design and operational DNA of the asset.",
-    },
-    {
-      id: 6,
-      title: "Turnkey Project Governors (PMC & EPC)",
-      description:
-        "They manage the transition from detailed engineering to operational handover, providing unified control over cost, quality, and clinical compliance to prevent the coordination risks found in traditional models.",
-    },
-    {
-      id: 7,
-      title: "Sustainability & ESG Advisors",
-      description:
-        "They integrate energy efficiency modeling and sustainable materials to reduce lifecycle costs and qualify projects for green financing under LEED, EDGE, or IGBC benchmarks.",
-    },
-    {
-      id: 8,
-      title: "Healthcare Asset & Facility Governors",
-      description:
-        "Specialized facility managers focused on Lifecycle Asset Governance. They manage the technical operations (Hard Services) and infection-control housekeeping (Soft Services) that keep critical systems running 24/7.",
-    },
-  ];
+const valueDrivers = [
+  "Care level (primary to quaternary)",
+  "Clinical intensity (ICU/OT density)",
+  "Specification grade",
+  "Location / seismic zone",
+  "Overall project scale",
+];
 
+const deliverables = [
+  "Signed Development Partnership Agreement (₹/sq ft + ₹/bed)",
+  "Complimentary integrated design package (GFC documentation)",
+  "Bankable DPR, financial models, and capital structuring plans",
+  "Full turnkey construction / EPC delivery",
+  "Commissioning certificates, operational readiness, and final asset handover package",
+];
+
+const PartnerSolution: React.FC = () => {
   return (
     <div className="min-h-screen bg-white pt-16 xs:pt-20 sm:pt-24 md:pt-28">
-      {/* 
-        JLL Page Padding Mobile: 64-80px, Tablet: 80-96px
-      */}
-
-      {/* ═══════════════════════════════════════════════════════════════ */}
       {/* SECTION 1: HERO */}
-      {/* ═══════════════════════════════════════════════════════════════ */}
       <section className="relative min-h-screen overflow-hidden">
         <div className="flex flex-col md:flex-row min-h-screen">
-          {/* Left: Content on light bg */}
           <div className="relative w-full md:w-1/2 bg-slate-50 flex items-center">
             <div className="relative z-10 px-4 xs:px-5 sm:px-6 md:px-4 lg:px-10 py-16 xs:py-20 md:py-32">
-              {/* 
-                JLL Container Padding Mobile: 16-20px, Tablet: 20-24px
-              */}
               <nav className="flex items-center gap-2 text-[10px] xs:text-[11px] font-semibold text-slate-400 mb-4 xs:mb-5 sm:mb-6 md:mb-8 uppercase tracking-widest">
                 <Link
                   href="/"
@@ -84,31 +49,21 @@ const PartnerSolution: React.FC = () => {
                 </Link>
                 <ChevronRight className="w-3 h-3" />
                 <Link
-                  href="/services"
+                  href="/development-partner-solution"
                   className="hover:text-teal-600 transition-colors"
                 >
-                  Partner Solutions
+                  Integrated Development Partnership (IDP)
                 </Link>
               </nav>
 
-              {/* 
-                JLL H1 Mobile: 32-36px, font-weight: 600 (semibold)
-                Desktop: font-extrabold
-              */}
-              <h1 className="text-[32px] xs:text-4xl sm:text-5xl md:text-6xl lg:text-6xl  md:font-extrabold text-slate-900 mb-4 xs:mb-5 md:mb-8 leading-[1.1] tracking-tight">
-                Delivery Partner Solutions{" "}
-                <span className="text-brand-teal">
-                  Built for Clinical Excellence
-                </span>
+              <h1 className="w-full mb-5 max-w-none text-[1.75rem] xs:text-[1.9rem] sm:text-4xl md:text-5xl lg:text-6xl md:font-extrabold leading-[1.06] tracking-tight text-brand-purple">
+                Healthcare Integrated Development Partnership (IDP)
               </h1>
 
-              {/* Sub-headline */}
               <h2 className="text-base xs:text-lg md:text-xl lg:text-2xl font-medium text-teal-600/90 leading-relaxed mb-4 xs:mb-5 md:mb-6">
-                Single-Point Accountability for the World's Most Complex
-                Infrastructure.
+                One Partner. One Price. From Concept to Commissioning.
               </h2>
 
-              {/* Description */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -116,58 +71,46 @@ const PartnerSolution: React.FC = () => {
                 className="text-slate-600 text-sm xs:text-[15px] sm:text-base md:text-lg font-normal leading-[1.6] max-w-xl mb-8 xs:mb-10 space-y-4"
               >
                 <p>
-                  At Infra.Health, we don't just build facilities; we develop
-                  long-duration institutional assets. Our Delivery Partner
-                  Solutions provide a unified, healthcare-focused framework that
-                  integrates strategic advisory, capital discipline, and
-                  engineering precision into a single, seamless delivery model.
+                  The Integrated Development Partnership (IDP) is Infra.Health's
+                  flagship commercial vehicle. It is a single, bundled
+                  healthcare development mandate that takes medical assets from
+                  concept to commissioning under one partner and one
+                  consolidated price.
                 </p>
                 <p>
-                  By aligning clinical workflows with technical execution, we
-                  de-risk project delivery and ensure your facility is
-                  operationally ready from day one.
+                  Traditional healthcare infrastructure projects often
+                  underperform because they are managed as five separate
+                  mandates, creating hand-off risks, feasibility disconnects,
+                  capital mismatches, and compliance gaps. IDP eliminates these
+                  risks entirely by collapsing transaction advisory, capital
+                  arrangement, and full turnkey execution into a single,
+                  accountable partnership. Crucially, the complete integrated
+                  healthcare design package is complimentary and bundled free
+                  with the full mandate.
                 </p>
               </motion.div>
-
-              {/* CTA Button */}
-              <Link href="/contact" className="hidden lg:block">
-                <motion.button
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="rounded-full px-8 py-3 text-sm font-semibold bg-teal-600 text-white hover:bg-slate-900 transition-colors"
-                >
-                  Contact Us
-                </motion.button>
-              </Link>
             </div>
           </div>
 
-          {/* Right: Image */}
           <div className="relative w-full md:w-1/2 min-h-[50vh] md:min-h-screen">
             <img
-              src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=1400&h=800&fit=crop&q=80"
+              src="asset/services/1.jpg"
               alt="Healthcare facility construction"
               className="absolute inset-0 w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-slate-900/10"></div>
+            <div className="absolute inset-0 bg-slate-900/10" />
             <motion.div
               animate={{ opacity: [0.2, 0.3, 0.2] }}
               transition={{ duration: 4, repeat: Infinity }}
               className="absolute top-0 right-0 w-96 h-96 bg-teal-500 rounded-full blur-3xl opacity-20"
-            ></motion.div>
+            />
           </div>
         </div>
       </section>
 
-      {/* ═══════════════════════════════════════════════════════════════ */}
-      {/* SECTION 2: TEAM SERVICES CARDS */}
-      {/* ═══════════════════════════════════════════════════════════════ */}
-      <section className="py-12 xs:py-16 sm:py-20 md:py-24 lg:py-32 px-4 xs:px-5 sm:px-6 md:px-8">
-        {/* 
-          JLL Section Padding Mobile: 48-64px, Tablet: 64-80px
-        */}
-        <div className="max-w-7xl mx-auto">
-          {/* Section Heading */}
+      {/* SECTION 2: STRATEGIC 8-PHASE EXECUTION METHODOLOGY */}
+      <section className="py-12 xs:py-16 sm:py-20 md:py-24 lg:pb-16 lg:pt-32">
+        <div className="max-w-7xl mx-auto px-4 xs:px-5 sm:px-6 md:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -175,77 +118,188 @@ const PartnerSolution: React.FC = () => {
             viewport={{ once: true }}
             className="mb-12 xs:mb-14 sm:mb-16 md:mb-20"
           >
-            <h2 className="text-2xl xs:text-[26px] sm:text-[28px] md:text-4xl lg:text-6xl   md:font-extrabold leading-[1.3] md:leading-[1.1] tracking-tight text-slate-900 mb-4 xs:mb-5 sm:mb-6">
-              In-house expertise driving{" "}
-              <span className="text-brand-teal">clinical precision</span> and
-              project speed.
+            <h2 className="text-2xl xs:text-[26px] sm:text-[28px] md:text-4xl lg:text-6xl md:font-extrabold leading-[1.3] md:leading-[1.1] tracking-tight text-slate-900 mb-4 xs:mb-5 sm:mb-6">
+              Strategic <span className="text-brand-purple">8-Phase</span>{" "}
+              Execution Methodology
             </h2>
+
             <p className="text-sm xs:text-[15px] sm:text-base md:text-lg text-slate-600 font-normal leading-[1.6] max-w-3xl">
-              By removing the friction of external consultants, we ensure that
-              clinical standards are never compromised.
+              Our 8-phase methodology ensures unified accountability across the
+              entire asset lifecycle, compressing elapsed time and eliminating
+              inter-vendor friction:
             </p>
           </motion.div>
+        </div>
 
-          {/* Team Cards Grid */}
+        <ProcessTimelineSection />
+      </section>
+
+      {/* SECTION 3: COMMERCIAL STRUCTURE & VALUE DRIVERS */}
+      <section className="py-12 xs:py-16 sm:py-20 md:py-24 lg:py-32 px-4 xs:px-5 sm:px-6 md:px-8 bg-slate-950">
+        <div className="max-w-7xl mx-auto">
           <motion.div
-            initial="hidden"
-            whileInView="visible"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 xs:gap-6 sm:gap-7 md:gap-8"
+            className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-start"
           >
-            {/* 
-              JLL Grid Gap Mobile: 20-24px, Tablet: 24-28px
-            */}
-            {teamServices.map((service) => (
-              <motion.div
-                key={service.id}
-                whileHover={{
-                  y: -10,
-                  boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1)",
-                }}
-                className="group bg-slate-50 rounded-lg xs:rounded-xl p-6 xs:p-7 sm:p-8 hover:shadow-lg transition-shadow border border-slate-100 flex flex-col"
-              >
-                {/* Icon Indicator */}
-                <motion.div
-                  initial={{ width: 0 }}
-                  whileInView={{ width: 32 }}
-                  transition={{ duration: 0.6 }}
-                  viewport={{ once: true }}
-                  className="h-6 xs:h-7 sm:h-8 bg-teal-600 rounded-sm mb-4 xs:mb-5 sm:mb-6"
-                ></motion.div>
+            <div className="max-w-2xl">
+              <h2 className="text-2xl xs:text-[26px] sm:text-[28px] md:text-4xl lg:text-6xl md:font-extrabold leading-[1.3] md:leading-[1.1] tracking-tight text-white mb-4 xs:mb-5 sm:mb-6">
+                Commercial Structure & Value Drivers
+              </h2>
+              <p className="text-sm xs:text-[15px] sm:text-base md:text-lg text-white font-normal leading-[1.6] mb-6">
+                The IDP mandate is structured with a single, intuitive headline
+                price, expressed simultaneously as ₹ per sq ft of built-up area
+                and ₹ per bed.
+              </p>
+              <p className="text-sm xs:text-[15px] sm:text-base md:text-lg text-white/60 font-normal leading-[1.6]">
+                This all-in development price is customized per project based on
+                five key drivers: care level (primary to quaternary), clinical
+                intensity (ICU/OT density), specification grade, location /
+                seismic zone, and overall project scale.
+              </p>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 xs:gap-5 sm:gap-6">
+              {valueDrivers.map((driver, index) => (
+                <div
+                  key={driver}
+                  className={`bg-white border border-slate-100 rounded-lg xs:rounded-xl p-5 xs:p-6 sm:p-7 flex items-start gap-3 shadow-sm
+        ${
+          index === valueDrivers.length - 1
+            ? "sm:col-span-2 sm:max-w-sm sm:mx-auto"
+            : ""
+        }`}
+                >
+                  <div className="mt-1 h-8 w-8 rounded-lg bg-teal-600 text-white flex items-center justify-center shrink-0">
+                    <ArrowRight size={16} />
+                  </div>
 
-                {/* Title */}
-                {/* 
-                  JLL H3 Mobile: 18-20px, font-weight: 600 (semibold)
-                  Desktop: font-extrabold
-                */}
-                <h3 className="text-lg xs:text-xl sm:text-2xl  md:font-extrabold text-slate-900 mb-3 xs:mb-4">
-                  {service.title}
-                </h3>
-
-                {/* Description */}
-                <p className="text-slate-600 text-sm xs:text-[15px] font-normal leading-[1.6]">
-                  {service.description}
-                </p>
-
-                {/* Hover-revealed divider + Learn More */}
-                <div className="mt-auto pt-4 xs:pt-5 sm:pt-6 opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
-                  <div className="h-px bg-slate-200 mb-3 xs:mb-4"></div>
-                  <button className="inline-flex items-center gap-2 text-sm font-semibold text-slate-700 hover:text-blue-600 transition-colors">
-                    Learn More
-                    <ChevronRight className="w-4 h-4" />
-                  </button>
+                  <p className="text-slate-700 font-medium leading-[1.6]">
+                    {driver}
+                  </p>
                 </div>
-              </motion.div>
-            ))}
+              ))}
+            </div>
           </motion.div>
         </div>
       </section>
 
-      {/* ═══════════════════════════════════════════════════════════════ */}
-      {/* SECTION 3: PROCESS TIMELINE */}
-      {/* ═══════════════════════════════════════════════════════════════ */}
-      <ProcessTimelineSection />
+      {/* SECTION 4: DELIVERABLES */}
+      <section className="py-12 xs:py-16 md:py-20 lg:py-32 px-4 xs:px-5 sm:px-6 md:px-8">
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="mb-12 xs:mb-14 sm:mb-16"
+          >
+            <h2 className="text-2xl xs:text-[26px] sm:text-[28px] md:text-4xl lg:text-6xl md:font-extrabold leading-[1.3] md:leading-[1.1] tracking-tight text-slate-900 mb-4 xs:mb-5 sm:mb-6">
+              Deliverables for{" "}
+              <span className="text-teal-600">Operators & Investors </span>
+            </h2>
+
+            <p className="text-sm xs:text-[15px] sm:text-base md:text-lg text-slate-600 font-normal leading-[1.6] max-w-3xl">
+              Engaging the IDP flagship provides top-tier hospital operators and
+              sovereign funds with complete execution certainty:
+            </p>
+          </motion.div>
+
+          <div className="grid lg:grid-cols-12 gap-8">
+            {/* Deliverables List */}
+            <div className="lg:col-span-7">
+              <div className="bg-slate-50 border border-slate-100 rounded-3xl p-6 sm:p-8 md:p-10 shadow-sm h-full">
+                <div className="space-y-4">
+                  {deliverables.map((item) => (
+                    <div
+                      key={item}
+                      className="flex items-start gap-4 rounded-2xl bg-white border border-slate-100 p-5 transition-all hover:shadow-md"
+                    >
+                      <div className="mt-0.5 h-10 w-10 rounded-xl bg-teal-600 text-white flex items-center justify-center shrink-0">
+                        <BadgeCheck size={18} />
+                      </div>
+
+                      <p className="text-slate-700 font-medium leading-[1.7]">
+                        {item}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Summary Card */}
+            <div className="lg:col-span-5">
+              <div className="h-full rounded-3xl overflow-hidden border border-slate-200 bg-white shadow-sm">
+                <div className="relative h-72">
+                  <img
+                    src="asset/services/audit-handover.jpg"
+                    alt="Healthcare Development"
+                    className="w-full h-full object-cover"
+                  />
+
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/60 to-transparent" />
+
+                  <div className="absolute bottom-6 left-6 right-6">
+                    <span className="inline-flex items-center gap-2 rounded-full bg-white/20 backdrop-blur-sm px-4 py-2 text-xs font-semibold text-white uppercase tracking-widest mb-4">
+                      <ShieldCheck size={14} />
+                      IDP Flagship Mandate
+                    </span>
+
+                    <h3 className="text-3xl md:text-4xl font-extrabold text-white leading-tight">
+                      One Partner.
+                      <br />
+                      <span className="text-teal-400">One Price.</span>
+                    </h3>
+                  </div>
+                </div>
+
+                <div className="p-6 sm:p-8">
+                  <p className="text-slate-600 leading-[1.8] mb-8">
+                    The Integrated Development Partnership (IDP) is a single,
+                    bundled healthcare development mandate that takes medical
+                    assets from concept to commissioning under one partner and
+                    one consolidated price.
+                  </p>
+
+                  <div className="grid grid-cols-3 gap-3">
+                    <div className="rounded-xl bg-slate-50 p-4 text-center">
+                      <FileText
+                        size={20}
+                        className="mx-auto mb-2 text-teal-600"
+                      />
+                      <span className="text-xs font-bold uppercase tracking-wider">
+                        DPR
+                      </span>
+                    </div>
+
+                    <div className="rounded-xl bg-slate-50 p-4 text-center">
+                      <Building2
+                        size={20}
+                        className="mx-auto mb-2 text-teal-600"
+                      />
+                      <span className="text-xs font-bold uppercase tracking-wider">
+                        Design
+                      </span>
+                    </div>
+
+                    <div className="rounded-xl bg-slate-50 p-4 text-center">
+                      <ShieldCheck
+                        size={20}
+                        className="mx-auto mb-2 text-teal-600"
+                      />
+                      <span className="text-xs font-bold uppercase tracking-wider">
+                        Handover
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 };
