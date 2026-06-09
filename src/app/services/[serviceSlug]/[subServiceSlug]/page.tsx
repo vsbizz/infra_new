@@ -22,6 +22,9 @@ import {
   Image,
   Truck,
   Building,
+  EyeIcon,
+  Globe,
+  Handshake,
 } from "lucide-react";
 import { Metadata } from "next";
 import metaData from "@/data/meta.json";
@@ -49,6 +52,9 @@ const IconMap: any = {
   Image: <Image className="w-4 h-4 md:w-5 md:h-5" />,
   Truck: <Truck className="w-4 h-4 md:w-5 md:h-5" />,
   Building: <Building className="w-4 h-4 md:w-5 md:h-5" />,
+  Eye: <EyeIcon className="w-4 h-4 md:w-5 md:h-5" />,
+  Globe: <Globe className="w-4 h-4 md:w-5 md:h-5" />,
+  Handshake: <Handshake className="w-4 h-4 md:w-5 md:h-5" />,
 };
 
 type Props = {

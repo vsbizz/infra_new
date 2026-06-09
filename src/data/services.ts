@@ -261,6 +261,83 @@ export const SERVICES_CONTENT: Record<string, any> = {
           { title: "Location Risk Matrices", icon: "Shield" },
         ],
       },
+      "Healthcare-Property-Listing-Services": {
+        title: "Healthcare Property Listing Services",
+        headline:
+          "Connecting Healthcare Asset Owners with Top-Tier Operators and Investors.",
+        heroImage: "/asset/services/project-finance.jpg",
+
+        description: [
+          "Navigating the complexities of medical real estate transactions requires a specialized approach. Infra.Health operates a dedicated, web-enabled healthcare property marketplace designed specifically for hospitals, medical office buildings, clinics, and diagnostic centers. We seamlessly connect healthcare asset owners with qualified operators, institutional investors, and tenants, facilitating efficient discovery, evaluation, and transaction execution.",
+          "We approach property listing as a strategic brokerage function. By combining targeted marketing with deep healthcare sector intelligence, we ensure your medical infrastructure reaches the right audience, accelerating deal closures whether you are managing asset disposals, filling lease vacancies, or rebalancing a portfolio.",
+        ],
+        sectionTitle: "Strategic Asset Positioning & Brokerage Scope",
+        sectionDescription:
+          "We manage the end-to-end marketing and transaction process for highly specialized clinical assets. Our core services include:",
+        sections: [
+          {
+            title: "Targeted Property Marketing",
+            description:
+              "Strategically positioning and marketing medical assets to a curated, global network of healthcare operators and investors.",
+            icon: "Target",
+          },
+          {
+            title: "Digital Discovery & Virtual Access",
+            description:
+              "Providing secure virtual property tours and controlled data room access for technical documentation to streamline the buyer/tenant evaluation process.",
+            icon: "Eye",
+          },
+          {
+            title: "Operator & Investor Sourcing",
+            description:
+              "Actively sourcing and engaging pre-qualified institutional investors, healthcare REITs, and expanding hospital chains to drive competitive demand.",
+            icon: "Users",
+          },
+          {
+            title: "Transaction & Lease Facilitation",
+            description:
+              "Delivering comprehensive brokerage services, including lease negotiation, deal structuring support, and transaction facilitation.",
+            icon: "FileText",
+          },
+        ],
+        deliverableTitle: "Deliverables for Asset Owners",
+        deliverableDescription:
+          "Engaging our Transaction Advisory team provides the concrete marketing collateral and strategic support required to close complex healthcare real estate deals:",
+        deliverables: [
+          {
+            title: "Premium Web Platform Property Listings",
+            icon: "Globe",
+          },
+          {
+            title:
+              "Institutional-Grade Marketing Collateral & Property Brochures",
+            icon: "FileText",
+          },
+          {
+            title:
+              "Qualified Investor/Operator Shortlists & Engagement Reports",
+            icon: "Users",
+          },
+          {
+            title: "End-to-End Transaction Facilitation and Closing Support",
+            icon: "Handshake",
+          },
+          {
+            title: "Lease Documentation and Deal Structuring Advisory",
+            icon: "ClipboardCheck",
+          },
+        ],
+        seo: {
+          title:
+            "Healthcare Property Listing Services & Brokerage | Infra.Health",
+          description:
+            "Connect with top operators and investors. Infra.Health's specialized healthcare property marketplace facilitates the leasing and sale of medical real estate globally.",
+          ogTitle: "Healthcare Property Listing Services | Infra.Health",
+          ogDescription:
+            "A dedicated web-enabled marketplace connecting medical real estate owners with qualified healthcare operators, tenants, and institutional investors.",
+          ogType: "website",
+        },
+      },
     },
   },
   "advisory-and-strategic-planning": {
@@ -1075,6 +1152,12 @@ export const SERVICES_CONTENT: Record<string, any> = {
             icon: "Layout",
           },
           {
+            id: "specialised-healthcare-infrastructure-solutions",
+            title: "Specialised Healthcare Infrastructure Solutions",
+            description:
+              "Turnkey delivery of modular OTs, MGPS, CSSD, imaging suites, pneumatic tube systems, and clinical skill labs.",
+          },
+          {
             title: "Vendor Prequalification & Auditing",
             description:
               "Rigorously screening suppliers, contractors, and OEMs against strict financial, technical, and healthcare compliance criteria to ensure reliability.",
@@ -1118,6 +1201,94 @@ export const SERVICES_CONTENT: Record<string, any> = {
             icon: "Truck",
           },
         ],
+      },
+      "specialised-healthcare-infrastructure-solutions": {
+        title: "Specialised Healthcare Infrastructure Solutions",
+        headline: "Turnkey Delivery of High-Complexity Clinical Systems.",
+        heroImage: "/asset/services/construct/fitout.jpg",
+        description: [
+          "Modern hospitals rely on highly specialized sub-systems that demand exact precision engineering and strict regulatory compliance. Infra.Health provides turnkey delivery for specialized, high-complexity healthcare infrastructure components.",
+          "We approach specialized infrastructure as a mission-critical execution discipline. By managing design, procurement, installation, and final cleanroom or compliance validation under a single sub-system contract, we guarantee your facility meets rigorous international and national standards.",
+        ],
+        sectionTitle: "Strategic Execution Scope & Sub-Systems",
+        sectionDescription:
+          "We offer six dedicated sub-streams covering the most critical clinical infrastructure:",
+        sections: [
+          {
+            title: "Modular Operation Theatres",
+            description:
+              "Turnkey OT design, including laminar airflow HVAC with HEPA filtration, ISO Class 5/7 cleanroom validation, modular wall panels, LED surgical lighting, and seamless MGPS integration.",
+            icon: "Layout",
+          },
+          {
+            title: "Medical Gas Piping Systems (MGPS)",
+            description:
+              "Comprehensive design and installation of oxygen, medical air, vacuum, N2O, and AGSS pipelines, including manifolds and alarm panels, fully compliant with HTM 02-01 and NFPA 99 standards.",
+            icon: "Settings",
+          },
+          {
+            title: "Central Sterile Services Department (CSSD)",
+            description:
+              "Structuring contaminated, clean, and sterile zoning workflows, integrated with specialized HVAC, washer-disinfectors, and autoclaves to ensure HTM 01-01 and ISO 13485 compliance.",
+            icon: "Shield",
+          },
+          {
+            title: "Radiation Shielding & Imaging Suites",
+            description:
+              "Precision shielding design for heavy radiology (X-ray, CT, Cath Lab, LINAC), featuring lead-lined doors/walls and full AERB compliance and dosimetry validation.",
+            icon: "Activity",
+          },
+          {
+            title: "Pneumatic Tube Systems",
+            description:
+              "Intelligent routing and station installation for automated hospital logistics, seamlessly integrated with Hospital Information Systems (HIS) and rigorously performance-tested.",
+            icon: "Truck",
+          },
+          {
+            title: "Medical Skill Labs & Simulation Centres",
+            description:
+              "End-to-end setup of clinical training environments, including layout planning, simulation equipment procurement, AV recording systems, and dedicated debriefing rooms.",
+            icon: "Users",
+          },
+        ],
+        deliverableTitle: "Deliverables for Turnkey Implementation",
+        deliverableDescription:
+          "Engaging our Specialised Infrastructure division provides hospital operators and greenfield investors with complete system-level accountability:",
+        deliverables: [
+          {
+            title: "Comprehensive sub-system design and layout blueprints",
+            icon: "FileText",
+          },
+          {
+            title: "Specialized installation and turnkey commissioning",
+            icon: "ClipboardCheck",
+          },
+          {
+            title: "Cleanroom validation reports (ISO Class 5/7)",
+            icon: "Shield",
+          },
+          {
+            title:
+              "Statutory compliance documentation (HTM 02-01, NFPA 99, HTM 01-01, ISO 13485, AERB)",
+            icon: "FileText",
+          },
+          {
+            title:
+              "System-level performance validation, acceptance testing, and final operational handover",
+            icon: "TrendingUp",
+          },
+        ],
+        seo: {
+          title:
+            "Specialised Healthcare Infrastructure & Modular OTs | Infra.Health",
+          description:
+            "Precision engineering for clinical systems. Infra.Health delivers turnkey specialized healthcare infrastructure, including Modular OTs, MGPS, CSSD, and Radiation Shielding.",
+          ogTitle:
+            "Specialised Healthcare Infrastructure Solutions | Infra.Health",
+          ogDescription:
+            "Turnkey delivery of high-complexity clinical systems. Discover our expertise in Modular OTs, MGPS, CSSD, and Imaging Suite radiation shielding.",
+          ogType: "website",
+        },
       },
       "medical-equipment-planning": {
         title: "Healthcare Medical Equipment Planning & Integration",

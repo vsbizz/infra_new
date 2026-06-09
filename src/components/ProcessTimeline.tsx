@@ -2,7 +2,14 @@
 
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import {
+  BadgeCheck,
+  Building2,
+  ChevronLeft,
+  ChevronRight,
+  MapPinned,
+  ShieldCheck,
+} from "lucide-react";
 
 export function ProcessTimelineSection() {
   const [activeStep, setActiveStep] = useState(0);
@@ -10,114 +17,131 @@ export function ProcessTimelineSection() {
   const processSteps = [
     {
       id: 1,
-      title: "Investment & Capital\nAdvisory",
+      title: "Concept, Site &\nFeasibility",
       position: "0%",
       labelPosition: "top",
     },
     {
       id: 2,
-      title: "Advisory & Strategic\nPlanning",
-      position: "16.66%",
+      title: "Complimentary\nIntegrated Design",
+      position: "33.33%",
       labelPosition: "bottom",
     },
     {
       id: 3,
-      title: "Design &\nDelivery",
-      position: "33.33%",
-      labelPosition: "top",
-    },
-    {
-      id: 4,
-      title: "Leasing & Operator\nAdvisory",
-      position: "50%",
-      labelPosition: "bottom",
-    },
-    {
-      id: 5,
-      title: "Design & Project\nDelivery",
+      title: "Capital Arrangement &\nEPC Execution",
       position: "66.66%",
       labelPosition: "top",
     },
     {
-      id: 6,
-      title: "Accreditation &\nCompliance",
-      position: "83.33%",
+      id: 4,
+      title: "Commissioning & Lifecycle Handover",
+      position: "100%",
       labelPosition: "bottom",
     },
-    {
-      id: 7,
-      title: "Property & Facilities\nManagement",
-      position: "100%",
-      labelPosition: "top",
-    },
   ];
+
+  // const processSlides = [
+  //   {
+  //     id: 1,
+  //     title: "Positioning for Institutional Bankability",
+  //     description:
+  //       "We begin at the convergence of capital and care. By integrating debt advisory and risk underwriting early, we ensure your healthcare project is structured as a resilient, investment-grade asset. Every financial model is built to survive market cycles and secure long-term funding.",
+  //     image:
+  //       "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1400&h=600&fit=crop&q=80",
+  //     alt: "Financial analysis and investment advisory",
+  //   },
+  //   {
+  //     id: 2,
+  //     title: "Evidence-Based Development Frameworks",
+  //     description:
+  //       "We mitigate demand risk before a single brick is laid. Through rigorous market analytics, demographic mapping, and specialty capacity planning, we validate the clinical need and financial viability of the facility for its specific geography.",
+  //     image:
+  //       "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1400&h=600&fit=crop&q=80",
+  //     alt: "Strategic planning and data analytics",
+  //   },
+  //   {
+  //     id: 3,
+  //     title: "Engineering for Clinical Outcomes",
+  //     description:
+  //       "Healthcare design is a technical science. Our in-house medical planners and engineers synchronize clinical workflows with complex MEPF systems, ensuring that sterile environments, patient safety, and medical equipment adjacencies are baked into the architectural DNA.",
+  //     image:
+  //       "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=1400&h=600&fit=crop&q=80",
+  //     alt: "Healthcare facility engineering and design",
+  //   },
+  //   {
+  //     id: 4,
+  //     title: "Synchronizing Infrastructure with Operations",
+  //     description:
+  //       "An empty hospital is a liability. We bridge the gap between asset ownership and clinical operations by identifying the right operator mix and structuring lease frameworks that protect asset value while ensuring high-quality patient reach.",
+  //     image:
+  //       "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=1400&h=600&fit=crop&q=80",
+  //     alt: "Hospital operations and leasing",
+  //   },
+  //   {
+  //     id: 5,
+  //     title: "Single-Point Accountability in Execution",
+  //     description:
+  //       "We eliminate the friction of fragmented contracting. Through our EPC and Design-Build models, we provide unified control over cost, quality, and clinical compliance. When the team that designed the hospital is the team building it, project speed is guaranteed.",
+  //     image:
+  //       "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1400&h=600&fit=crop&q=80",
+  //     alt: "Construction project delivery",
+  //   },
+  //   {
+  //     id: 6,
+  //     title: "Safeguarding Global Clinical Standards",
+  //     description:
+  //       "Our dedicated compliance team ensures that every square meter meets JCI, NABH, and ISO standards. From air pressure testing in OTs to medical gas certification, we verify that the facility is clinically ready for patients from the moment of handover.",
+  //     image:
+  //       "https://images.unsplash.com/photo-1631815588090-d4bfec5b1ccb?w=1400&h=600&fit=crop&q=80",
+  //     alt: "Medical equipment and compliance testing",
+  //   },
+  //   {
+  //     id: 7,
+  //     title: "Guaranteeing 24/7 Resilience & Uptime",
+  //     description:
+  //       "Completion is just the beginning. We provide specialized management for the hard and soft services that keep critical medical systems running. Our lifecycle governance ensures the facility remains safe, efficient, and institutionally valuable for decades.",
+  //     image:
+  //       "https://images.unsplash.com/photo-1538108149393-fbbd81895907?w=1400&h=600&fit=crop&q=80",
+  //     alt: "Facility management and operations",
+  //   },
+  // ];
 
   const processSlides = [
     {
       id: 1,
-      title: "Positioning for Institutional Bankability",
+      title: "Concept, Site &\nFeasibility",
       description:
-        "We begin at the convergence of capital and care. By integrating debt advisory and risk underwriting early, we ensure your healthcare project is structured as a resilient, investment-grade asset. Every financial model is built to survive market cycles and secure long-term funding.",
+        "Executing healthcare concept definition, site validation, and developing bankable Detailed Project Reports (DPR) with 10-20 year financial projections.",
       image:
-        "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1400&h=600&fit=crop&q=80",
-      alt: "Financial analysis and investment advisory",
+        "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1600&h=900&fit=crop&q=80",
+      alt: "Healthcare planning and feasibility review",
     },
     {
       id: 2,
-      title: "Evidence-Based Development Frameworks",
+      title: "Complimentary\nIntegrated Design",
       description:
-        "We mitigate demand risk before a single brick is laid. Through rigorous market analytics, demographic mapping, and specialty capacity planning, we validate the clinical need and financial viability of the facility for its specific geography.",
-      image:
-        "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1400&h=600&fit=crop&q=80",
-      alt: "Strategic planning and data analytics",
+        "Delivering complete master planning, architecture, structural engineering, MEPF, and Good for Construction (GFC) documentation at no separate charge.",
+      image: "asset/services/construct/design.jpg",
+      alt: "Architectural healthcare design planning",
     },
     {
       id: 3,
-      title: "Engineering for Clinical Outcomes",
+      title: "Capital Arrangement &\nEPC Execution",
       description:
-        "Healthcare design is a technical science. Our in-house medical planners and engineers synchronize clinical workflows with complex MEPF systems, ensuring that sterile environments, patient safety, and medical equipment adjacencies are baked into the architectural DNA.",
-      image:
-        "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=1400&h=600&fit=crop&q=80",
-      alt: "Healthcare facility engineering and design",
+        "Managing equity/debt structuring (if applicable) and executing full turnkey EPC construction, including procurement and specialised systems.",
+      image: "asset/services/operate/property-management.jpg",
+      alt: "Healthcare construction execution",
     },
     {
       id: 4,
-      title: "Synchronizing Infrastructure with Operations",
+      title: "Commissioning &\nLifecycle Handover",
       description:
-        "An empty hospital is a liability. We bridge the gap between asset ownership and clinical operations by identifying the right operator mix and structuring lease frameworks that protect asset value while ensuring high-quality patient reach.",
-      image:
-        "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=1400&h=600&fit=crop&q=80",
-      alt: "Hospital operations and leasing",
-    },
-    {
-      id: 5,
-      title: "Single-Point Accountability in Execution",
-      description:
-        "We eliminate the friction of fragmented contracting. Through our EPC and Design-Build models, we provide unified control over cost, quality, and clinical compliance. When the team that designed the hospital is the team building it, project speed is guaranteed.",
-      image:
-        "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1400&h=600&fit=crop&q=80",
-      alt: "Construction project delivery",
-    },
-    {
-      id: 6,
-      title: "Safeguarding Global Clinical Standards",
-      description:
-        "Our dedicated compliance team ensures that every square meter meets JCI, NABH, and ISO standards. From air pressure testing in OTs to medical gas certification, we verify that the facility is clinically ready for patients from the moment of handover.",
-      image:
-        "https://images.unsplash.com/photo-1631815588090-d4bfec5b1ccb?w=1400&h=600&fit=crop&q=80",
-      alt: "Medical equipment and compliance testing",
-    },
-    {
-      id: 7,
-      title: "Guaranteeing 24/7 Resilience & Uptime",
-      description:
-        "Completion is just the beginning. We provide specialized management for the hard and soft services that keep critical medical systems running. Our lifecycle governance ensures the facility remains safe, efficient, and institutionally valuable for decades.",
-      image:
-        "https://images.unsplash.com/photo-1538108149393-fbbd81895907?w=1400&h=600&fit=crop&q=80",
-      alt: "Facility management and operations",
+        "Providing system-by-system testing, regulatory approvals, operator onboarding, and transitioning the completed asset to facility management.",
+      image: "asset/services/operate/hr-support.jpg",
+      alt: "Hospital commissioning and handover",
     },
   ];
-
   const activeSlide = activeStep;
 
   const nextStep = () => {
@@ -139,7 +163,7 @@ export function ProcessTimelineSection() {
   return (
     <section className="relative min-h-screen mb-16 xs:mb-20 sm:mb-24 py-12 xs:py-16 sm:py-20 md:py-24 lg:py-32 bg-slate-700 overflow-hidden px-4 xs:px-5 sm:px-6 md:px-8">
       {/* Background Image - Dynamic based on active slide */}
-      <div className="absolute inset-0 opacity-30">
+      <div className="absolute inset-0 opacity-20">
         {processSlides.map((slide, index) => (
           <motion.img
             key={slide.id}
