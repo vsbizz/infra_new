@@ -39,7 +39,7 @@ export default function ProjectDetail({
     : "Properties";
 
   return (
-    <div className="min-h-screen bg-white pt-8 sm:pt-20 md:pt-32 lg:pt-44">
+    <div className="min-h-screen bg-white pt-5 sm:pt-3 md:pt-5 lg:pt-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-5 sm:py-6 md:py-10 pt-30">
         {/* Back link */}
         <Link
@@ -141,11 +141,10 @@ export default function ProjectDetail({
                 <button
                   key={i}
                   onClick={() => setActiveImg(i)}
-                  className={`w-16 h-12 sm:w-20 sm:h-14 shrink-0 rounded-md overflow-hidden border-2 transition-all ${
-                    i === activeImg
+                  className={`w-16 h-12 sm:w-20 sm:h-14 shrink-0 rounded-md overflow-hidden border-2 transition-all ${i === activeImg
                       ? "border-red-500"
                       : "border-transparent opacity-60 hover:opacity-100"
-                  }`}
+                    }`}
                 >
                   <img
                     src={img}
@@ -189,9 +188,8 @@ export default function ProjectDetail({
                     border: "none",
                     borderRadius: "8px",
                   }}
-                  className={`transition-opacity duration-500 ${
-                    isFormLoaded ? "opacity-100" : "opacity-0"
-                  }`}
+                  className={`transition-opacity duration-500 ${isFormLoaded ? "opacity-100" : "opacity-0"
+                    }`}
                   id="inline-OE1hA0wEItddAYy3i8ws"
                   data-layout="{'id':'INLINE'}"
                   data-trigger-type="alwaysShow"

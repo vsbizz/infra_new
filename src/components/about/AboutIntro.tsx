@@ -8,7 +8,7 @@ import { useRouter } from "next/navigation";
 const AboutIntro = () => {
   const router = useRouter();
   return (
-    <section className="relative overflow-hidden bg-white py-36 sm:py-24 md:py-42 lg:py-50">
+    <section className="relative overflow-hidden bg-white py-36 sm:py-24 md:py-20 lg:py-32">
       <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-8 sm:gap-10 md:gap-12 lg:grid-cols-2 lg:items-center lg:gap-20">
           {/* Left Column: Headline & Content */}

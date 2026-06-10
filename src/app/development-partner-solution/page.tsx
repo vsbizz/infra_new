@@ -34,7 +34,7 @@ const deliverables = [
 
 const PartnerSolution: React.FC = () => {
   return (
-    <div className="min-h-screen bg-white pt-16 xs:pt-20 sm:pt-24 md:pt-28">
+    <div className="min-h-screen bg-white">
       {/* SECTION 1: HERO */}
       <section className="relative min-h-screen overflow-hidden">
         <div className="flex flex-col md:flex-row min-h-screen">
@@ -165,11 +165,10 @@ const PartnerSolution: React.FC = () => {
                 <div
                   key={driver}
                   className={`bg-white border border-slate-100 rounded-lg xs:rounded-xl p-5 xs:p-6 sm:p-7 flex items-start gap-3 shadow-sm
-        ${
-          index === valueDrivers.length - 1
-            ? "sm:col-span-2 sm:max-w-sm sm:mx-auto"
-            : ""
-        }`}
+        ${index === valueDrivers.length - 1
+                      ? "sm:col-span-2 sm:max-w-sm sm:mx-auto"
+                      : ""
+                    }`}
                 >
                   <div className="mt-1 h-8 w-8 rounded-lg bg-teal-600 text-white flex items-center justify-center shrink-0">
                     <ArrowRight size={16} />

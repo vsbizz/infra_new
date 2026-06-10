@@ -55,7 +55,7 @@ const BlogDetail = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* ── Hero Section ── */}
-      <section className="border-b border-slate-100 px-4 xs:px-5 sm:px-6 pt-32 sm:pt-20 md:pt-44 lg:pt-54">
+      <section className="border-b border-slate-100 px-4 xs:px-5 sm:px-6 pt-5 sm:pt-3 md:pt-5 lg:pt-10">
         <div className="mx-auto max-w-7xl">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -230,11 +230,10 @@ const BlogDetail = () => {
                         key={i}
                         onClick={() => setRelatedIndex(i)}
                         aria-label={`Go to related post ${i + 1}`}
-                        className={`h-2.5 rounded-full transition-all ${
-                          relatedIndex === i
+                        className={`h-2.5 rounded-full transition-all ${relatedIndex === i
                             ? "w-6 bg-teal-600"
                             : "w-2.5 bg-slate-300"
-                        }`}
+                          }`}
                       />
                     ))}
                   </div>

@@ -110,7 +110,7 @@ const Properties: React.FC = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* ── Hero ── */}
-      <section className="relative pt-32 sm:pt-20 md:pt-44 lg:pt-54 pb-12 xs:pb-16 md:pb-20 overflow-hidden bg-slate-50">
+      <section className="relative pt-5 sm:pt-3 md:pt-5 lg:pt-10 pb-12 xs:pb-16 md:pb-20 overflow-hidden bg-slate-50">
         {/* 
           JLL Page Padding Mobile: 64-80px, Tablet: 80-96px, Desktop: 128-160px
         */}
@@ -398,11 +398,10 @@ const Properties: React.FC = () => {
                   <button
                     key={i}
                     onClick={() => handlePageChange(i + 1)}
-                    className={`w-9 h-9 xs:w-10 xs:h-10 rounded-full text-xs xs:text-sm font-bold transition-all ${
-                      currentPage === i + 1
+                    className={`w-9 h-9 xs:w-10 xs:h-10 rounded-full text-xs xs:text-sm font-bold transition-all ${currentPage === i + 1
                         ? "bg-slate-900 text-white shadow-lg scale-110"
                         : "bg-white border border-slate-200 text-slate-600 hover:border-brand-teal hover:text-brand-teal"
-                    }`}
+                      }`}
                     aria-label={`Page ${i + 1}`}
                     aria-current={currentPage === i + 1 ? "page" : undefined}
                   >

@@ -30,7 +30,7 @@ const Vendors: React.FC = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative overflow-hidden pt-34 sm:pt-20 md:pt-40 lg:pt-54">
+      <section className="relative overflow-hidden pt-5 sm:pt-3 md:pt-5 lg:pt-10">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <nav className="mb-5 flex flex-wrap items-center gap-1.5 text-[11px] font-medium uppercase tracking-[0.16em] text-slate-400 sm:mb-6 sm:gap-2 sm:text-xs md:mb-8">
             <Link href="/" className="transition-colors hover:text-teal-600">

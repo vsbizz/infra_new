@@ -1,25 +1,117 @@
-@import url("https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap");
 @import "tailwindcss";
 
 @theme {
+  /* ---- TYPE ---- */
   --font-sans: "Source Sans 3", ui-sans-serif, system-ui, sans-serif;
-  --color-brand-teal: #2d8b8b;
+  --font-display: "Fraunces", Georgia, serif;
+
+  /* ---- COLOR ---- */
+  --color-brand-teal: #009c99;
+  --color-brand-teal-deep: #00736f;
+  --color-brand-teal-soft: #e6f4f3;
   --color-brand-dark: #0f172a;
+  --color-brand-ink: #11161d;
+  --color-brand-teal-ink: #0a3331;
+  /* deep brand teal for dark bands */
+  --color-brand-mint: #3ec6c2;
+  /* bright accent ON dark teal */
+  --color-brand-heading: #1a2026;
+  /* heading text on light bg */
   --color-brand-purple: #45003e;
+  --color-brand-purple-light: #661749;
+  --color-brand-bone: #f7f5f0;
+  --color-brand-line: #e3e1da;
+
+  /* ---- BREAKPOINTS ---- */
+  --breakpoint-xs: 320px;
+  --breakpoint-3xl: 1600px;
 }
 
 @layer base {
+
+  :root {
+    /*
+      Fixed header layers:
+        - Purple IDP banner:  ~40px
+        - Logo row:           ~72px
+        - Desktop nav bar:    ~52px
+      Total desktop:          164px
+      Total mobile (no nav):  116px
+    */
+    --header-h: 234px;
+  }
+
+  @media (max-width: 1023px) {
+    :root {
+      --header-h: 158px;
+    }
+  }
+
+  html {
+    /* Anchor/hash links stop this far from viewport top.
+       Fixes ALL in-page navigation across the whole site. */
+    scroll-padding-top: var(--header-h);
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
   body {
     font-feature-settings: "ss01", "kern", "liga";
-    @apply font-sans antialiased text-black bg-white;
+    @apply font-sans antialiased text-slate-700 bg-white;
+    font-size: 17px;
+    line-height: 1.65;
+    overflow-x: hidden;
   }
+
   button {
     cursor: pointer;
+  }
+
+  ::selection {
+    background: var(--color-brand-purple);
+    color: #fff;
+  }
+
+  img {
+    max-width: 100%;
+    display: block;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  /* Any section used as an anchor target clears the fixed header */
+  section[id] {
+    scroll-margin-top: var(--header-h);
   }
 
   #superDeveloper111,
   #fixMeDetectBox {
     display: none !important;
+  }
+}
+
+@layer components {
+
+  /* Editorial display headings — Fraunces, normal weight, tight tracking */
+  .heading-display {
+    font-family: var(--font-display);
+    font-weight: 400;
+    letter-spacing: -0.018em;
+    color: var(--color-brand-heading);
+  }
+
+  /* Small uppercase eyebrow — structural section signpost */
+  .eyebrow {
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: 0.72rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
   }
 }
 
@@ -34,12 +126,13 @@
   }
 }
 
+/* ---- Blog content styles ---- */
 .blog-content {
   text-align: justify;
 }
 
 .blog-content :where(a) {
-  color: var(--brand-teal, #008080);
+  color: var(--color-brand-teal, #009c99);
   text-decoration: underline;
 }
 

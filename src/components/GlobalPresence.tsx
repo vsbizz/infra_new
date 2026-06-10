@@ -26,7 +26,7 @@ const REGIONS = [
       "Turkey",
       "Iran",
     ],
-    color: "#0D9488",
+    color: "#009C99",
     center: [45, 24],
   },
   {
@@ -90,7 +90,7 @@ const REGIONS = [
       "Zimbabwe",
       "Western Sahara",
     ],
-    color: "#0D9488",
+    color: "#009C99",
     center: [20, 0],
   },
   {
@@ -107,7 +107,7 @@ const REGIONS = [
       "Maldives",
       "Afghanistan",
     ],
-    color: "#0D9488",
+    color: "#009C99",
     center: [78, 22],
   },
   {
@@ -127,7 +127,7 @@ const REGIONS = [
       "Brunei",
       "Timor-Leste",
     ],
-    color: "#0D9488",
+    color: "#009C99",
     center: [108, 15],
   },
   {
@@ -178,7 +178,7 @@ const REGIONS = [
       "Ukraine",
       "United Kingdom",
     ],
-    color: "#0D9488",
+    color: "#009C99",
     center: [15, 50],
   },
   {
@@ -195,7 +195,7 @@ const REGIONS = [
       "Panama",
       "Mexico",
     ],
-    color: "#0D9488",
+    color: "#009C99",
     center: [-95, 20],
   },
   {
@@ -209,7 +209,7 @@ const REGIONS = [
       "Turkmenistan",
       "Uzbekistan",
     ],
-    color: "#0D9488",
+    color: "#009C99",
     center: [66, 43],
   },
 ];
@@ -320,49 +320,35 @@ export const GlobalPresence: React.FC = () => {
   }, [dimensions, hoveredRegion]);
 
   return (
-    <section className="relative bg-white py-12 xs:py-14 sm:py-16 md:py-20 lg:py-24 overflow-hidden">
-      {/* 
-        JLL Section Padding Mobile: 48-64px, Tablet: 64-80px
-      */}
+    <section className="relative bg-white py-16 xs:py-20 sm:py-24 md:py-28 lg:py-36 overflow-hidden">
       <div className="mx-auto max-w-7xl px-4 xs:px-5 sm:px-6">
-        {/* 
-          JLL Container Padding Mobile: 16-20px, Tablet: 20-24px
-        */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 xs:gap-12 sm:gap-14 md:gap-16 items-center">
-          {/* 
-            JLL Grid Gap Mobile: 40-48px, Tablet: 48-64px
-          */}
-
-          <div className="lg:col-span-6 space-y-6 xs:space-y-7 sm:space-y-8 z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 xs:gap-14 sm:gap-16 md:gap-20 items-center">
+          <div className="lg:col-span-6 space-y-7 xs:space-y-8 z-10">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              {/* 
-                JLL H2 Mobile: 24-26px, font-weight: 600 (semibold)
-                Desktop (md+): font-extrabold as requested
-              */}
-              <h2 className="text-2xl xs:text-[26px] sm:text-[28px] md:text-4xl lg:text-5xl xl:text-6xl md:font-extrabold md:font-extrabold leading-[1.3] md:leading-[1.1] tracking-tight text-slate-900">
-                International Standards.
+              <p className="eyebrow text-brand-purple mb-4 xs:mb-5">
+                Global Presence
+              </p>
+
+              <h2 className="heading-display text-[30px] xs:text-[34px] sm:text-4xl md:text-5xl lg:text-[56px] leading-[1.08]">
+                International standards.
                 <br />
-                <span className="text-brand-teal">Local Intelligence.</span>
+                <span className="text-brand-teal italic">
+                  Local intelligence.
+                </span>
               </h2>
 
-              {/* 
-                JLL Body Text Mobile: 14-15px, font-weight: 400 (normal)
-              */}
-              <p className="mt-4 xs:mt-5 sm:mt-6 text-sm xs:text-[15px] sm:text-base md:text-lg font-normal leading-[1.6] text-slate-600">
+              <p className="mt-5 xs:mt-6 sm:mt-8 text-base md:text-lg font-normal leading-[1.65] text-slate-600">
                 Navigating complex regulatory environments to deliver JCI and
                 NABH compliant assets in diverse global markets.
               </p>
 
-              {/* 
-                Region Cards Grid
-                JLL Grid Gap Mobile: 12-16px
-              */}
-              <div className="mt-8 xs:mt-10 sm:mt-12 grid grid-cols-2 gap-3 xs:gap-3.5 sm:gap-4">
+              {/* Region Cards Grid */}
+              <div className="mt-10 xs:mt-12 grid grid-cols-2 gap-3.5 xs:gap-4">
                 {REGIONS.map((region, index) => {
                   const isLastOddCard =
                     index === REGIONS.length - 1 && REGIONS.length % 2 === 1;
@@ -376,21 +362,18 @@ export const GlobalPresence: React.FC = () => {
                       }}
                       onMouseLeave={() => setIsAutoPlaying(true)}
                       animate={{
-                        scale: hoveredRegion === region.id ? 1.05 : 1,
+                        scale: hoveredRegion === region.id ? 1.04 : 1,
                         borderColor:
                           hoveredRegion === region.id
                             ? region.color
-                            : "#e2e8f0",
+                            : "#e3e1da",
                         backgroundColor:
-                          hoveredRegion === region.id ? "#f8fafc" : "#ffffff",
+                          hoveredRegion === region.id ? "#f7f5f0" : "#ffffff",
                       }}
-                      className={`group cursor-pointer rounded-lg xs:rounded-xl border p-3 xs:p-3.5 sm:p-4 transition-all duration-300 ${
-                        hoveredRegion === region.id ? "shadow-md" : ""
-                      } ${
-                        isLastOddCard
+                      className={`group cursor-pointer rounded-lg xs:rounded-xl border p-3.5 xs:p-4 sm:p-5 transition-all duration-300 ${isLastOddCard
                           ? "sm:col-span-2 sm:justify-self-center sm:w-full sm:max-w-[calc(50%-0.375rem)]"
                           : ""
-                      }`}
+                        }`}
                     >
                       <div className="flex items-center gap-2 xs:gap-2.5 sm:gap-3">
                         <div
@@ -398,11 +381,10 @@ export const GlobalPresence: React.FC = () => {
                           style={{ backgroundColor: region.color }}
                         />
                         <span
-                          className={`text-sm xs:text-[15px] sm:text-base font-medium leading-tight ${
-                            hoveredRegion === region.id
-                              ? "text-slate-900"
+                          className={`text-sm xs:text-[15px] sm:text-base font-medium leading-tight ${hoveredRegion === region.id
+                              ? "text-brand-ink"
                               : "text-slate-400"
-                          }`}
+                            }`}
                         >
                           {region.name}
                         </span>
@@ -415,17 +397,7 @@ export const GlobalPresence: React.FC = () => {
           </div>
 
           <div className="lg:col-span-6 relative flex items-center justify-center">
-            <div className="relative w-full max-w-[380px] xs:max-w-[420px] sm:max-w-[480px] md:max-w-[540px] lg:max-w-[640px] xl:max-w-[760px] aspect-square rounded-full overflow-hidden border border-slate-200 bg-slate-50/50 shadow-[inset_0_0_60px_rgba(0,0,0,0.05)] mx-auto">
-              {/* 
-                Map Container Height:
-                Mobile: 320px (80 × 4)
-                iPhone SE: 384px (96 × 4)
-                Tablet: 448px (112 × 4)
-                Desktop: 512px (128 × 4)
-                Large: 400px (100 × 4)
-                XL: 600px (150 × 4)
-              */}
-
+            <div className="relative w-full max-w-[380px] xs:max-w-[420px] sm:max-w-[480px] md:max-w-[540px] lg:max-w-[640px] xl:max-w-[760px] aspect-square rounded-full overflow-hidden border border-brand-line bg-brand-bone/60 mx-auto">
               <svg className="absolute inset-0 z-20 pointer-events-none w-full h-full">
                 <AnimatePresence>
                   {hoveredRegion && (
@@ -441,7 +413,7 @@ export const GlobalPresence: React.FC = () => {
                         y1={indicatorPos.y}
                         x2={indicatorPos.x + 30}
                         y2={indicatorPos.y - 30}
-                        stroke="#0D9488"
+                        stroke="#009C99"
                         strokeWidth="1.5"
                         strokeDasharray="4 2"
                       />
@@ -449,7 +421,7 @@ export const GlobalPresence: React.FC = () => {
                         cx={indicatorPos.x}
                         cy={indicatorPos.y}
                         r="3"
-                        fill="#0D9488"
+                        fill="#009C99"
                       />
                     </motion.g>
                   )}
@@ -468,16 +440,12 @@ export const GlobalPresence: React.FC = () => {
                       top: indicatorPos.y - 60,
                     }}
                     exit={{ opacity: 0, scale: 0.8 }}
-                    className="absolute z-30 pointer-events-none whitespace-nowrap bg-white/95 backdrop-blur-sm border border-slate-200 px-2.5 xs:px-3 py-1.5 rounded-lg shadow-xl"
+                    className="absolute z-30 pointer-events-none whitespace-nowrap bg-white/95 backdrop-blur-sm border border-brand-line px-2.5 xs:px-3 py-1.5 rounded-lg"
                   >
-                    {/* 
-                      JLL Stats Display:
-                      Number: 18-20px, font-weight: 700 (bold)
-                      Label: 9-10px, font-weight: 600 (semibold)
-                    */}
-                    <p className="text-lg xs:text-xl font-bold text-slate-900 leading-tight">
+                    {/* Serif number in the tooltip */}
+                    <p className="heading-display text-lg xs:text-xl leading-tight">
                       {activeRegionData?.beds}{" "}
-                      <span className="text-teal-600 text-[9px] xs:text-[10px] uppercase font-semibold block">
+                      <span className="eyebrow !text-[9px] xs:!text-[10px] text-brand-purple block font-sans">
                         Beds Managed
                       </span>
                     </p>
@@ -486,7 +454,7 @@ export const GlobalPresence: React.FC = () => {
               </AnimatePresence>
 
               <svg ref={svgRef} className="h-full w-full relative z-10" />
-              <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0)_40%,rgba(255,255,255,0.8)_100%)] z-20" />
+              <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_50%_50%,rgba(247,245,240,0)_40%,rgba(247,245,240,0.85)_100%)] z-20" />
             </div>
           </div>
         </div>

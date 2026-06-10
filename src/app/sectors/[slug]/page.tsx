@@ -32,7 +32,7 @@ export default async function SectorPage({
   return (
     <main className="min-h-screen bg-white">
       {/* ── Hero Section ── */}
-      <section className="relative pt-32 sm:pt-20 md:pt-44 lg:pt-54  border-b border-slate-100">
+      <section className="relative pt-5 sm:pt-3 md:pt-5 lg:pt-10  border-b border-slate-100">
         {/* 
           JLL Page Padding Mobile: 64-80px, Tablet: 80-96px, Desktop: 128-160px
         */}

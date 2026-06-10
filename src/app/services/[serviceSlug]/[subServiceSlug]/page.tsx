@@ -109,7 +109,7 @@ export default async function SubServicePage({ params }: Props) {
       */}
 
       {/* ── Hero ── */}
-      <section className="relative overflow-hidden bg-white pt-32 sm:pt-20 md:pt-44 lg:pt-54  pb-12 xs:pb-16 md:pb-24">
+      <section className="relative overflow-hidden bg-white pt-5 sm:pt-3 md:pt-5 lg:pt-10  pb-12 xs:pb-16 md:pb-24">
         {/* 
           JLL Section Padding Mobile: 48-64px, Tablet: 64-80px, Desktop: 96-128px
         */}
