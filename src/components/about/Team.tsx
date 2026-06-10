@@ -220,21 +220,21 @@ const teamMembers = [
     role: "Senior Estimation Engineer",
     image: "/asset/team/kapil-gajbhar.jpeg",
   },
-  {
-    name: "Shreyas Sanjay Thorat",
-    role: "Senior Engineer",
-    image: "/asset/team/shreyas-thorat.jpeg",
-  },
-  {
-    name: "Vishwanath Dattatray Bansode",
-    role: "Office Assistant",
-    image: "/asset/team/vishwanath-bansode.jpg",
-  },
-  {
-    name: "Tejas Suresh Gaikwad",
-    role: "Senior Engineer",
-    image: "/asset/team/tejas-gaikwad.jpeg",
-  },
+  // {
+  //   name: "Shreyas Sanjay Thorat",
+  //   role: "Senior Engineer",
+  //   image: "/asset/team/shreyas-thorat.jpeg",
+  // },
+  // {
+  //   name: "Vishwanath Dattatray Bansode",
+  //   role: "Office Assistant",
+  //   image: "/asset/team/vishwanath-bansode.jpg",
+  // },
+  // {
+  //   name: "Tejas Suresh Gaikwad",
+  //   role: "Senior Engineer",
+  //   image: "/asset/team/tejas-gaikwad.jpeg",
+  // },
 ] as const;
 
 const roleOrder = [
