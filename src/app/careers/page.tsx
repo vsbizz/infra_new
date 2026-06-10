@@ -121,7 +121,7 @@ export default function CareersPage() {
   return (
     <div className="min-h-screen bg-[#F8FAFC]">
       {/* --- Hero Section --- */}
-      <section className="relative pt-34 xs:pt-24 sm:pt-28 md:pt-36 lg:pt-54 pb-12 xs:pb-16 md:pb-24 overflow-hidden">
+      <section className="relative pt-20 xs:pt-14 sm:pt-16 md:pt-20 lg:pt-30 pb-12 xs:pb-16 md:pb-24 overflow-hidden">
         {/* Background Blurs */}
         <div className="absolute inset-0 z-0">
           <div className="absolute top-[-10%] right-[-10%] w-96 h-96 xs:w-[500px] xs:h-[500px] md:w-[600px] md:h-[600px] bg-teal-400/10 blur-[80px] md:blur-[120px] rounded-md" />

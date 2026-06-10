@@ -66,7 +66,7 @@ const Portfolio: React.FC = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* ── Hero ── */}
-      <section className="relative pt-32 sm:pt-20 md:pt-44 lg:pt-54 pb-12 xs:pb-16 md:pb-20 overflow-hidden bg-slate-50">
+      <section className="relative pt-5 sm:pt-3 md:pt-5 lg:pt-10 pb-12 xs:pb-16 md:pb-20 overflow-hidden bg-slate-50">
         {/* 
           JLL Page Padding Mobile: 64-80px, Tablet: 80-96px, Desktop: 128-160px
         */}
@@ -220,11 +220,10 @@ const Portfolio: React.FC = () => {
 
           {/* Cards */}
           <div
-            className={`grid gap-5 xs:gap-6 md:gap-10 ${
-              viewMode === "grid"
+            className={`grid gap-5 xs:gap-6 md:gap-10 ${viewMode === "grid"
                 ? "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
                 : "grid-cols-1"
-            }`}
+              }`}
           >
             {/* 
               JLL Grid Gap Mobile: 20-24px, Tablet: 24-28px, Desktop: 40px
@@ -239,16 +238,14 @@ const Portfolio: React.FC = () => {
               >
                 <Link
                   href={`/portfolio/${property.slug}`}
-                  className={`group bg-white rounded-md overflow-hidden border border-slate-200 hover:shadow-2xl hover:shadow-slate-200/50 transition-all flex h-full ${
-                    viewMode === "grid" ? "flex-col" : "flex-col sm:flex-row"
-                  }`}
+                  className={`group bg-white rounded-md overflow-hidden border border-slate-200 hover:shadow-2xl hover:shadow-slate-200/50 transition-all flex h-full ${viewMode === "grid" ? "flex-col" : "flex-col sm:flex-row"
+                    }`}
                 >
                   <div
-                    className={`relative overflow-hidden bg-slate-100 ${
-                      viewMode === "grid"
+                    className={`relative overflow-hidden bg-slate-100 ${viewMode === "grid"
                         ? "aspect-16/10"
                         : "aspect-16/10 sm:w-1/3 sm:aspect-auto"
-                    }`}
+                      }`}
                   >
                     <img
                       src={
@@ -323,11 +320,10 @@ const Portfolio: React.FC = () => {
                   <button
                     key={i}
                     onClick={() => handlePageChange(i + 1)}
-                    className={`w-9 h-9 xs:w-10 xs:h-10 rounded-full text-xs xs:text-sm font-bold transition-all ${
-                      currentPage === i + 1
+                    className={`w-9 h-9 xs:w-10 xs:h-10 rounded-full text-xs xs:text-sm font-bold transition-all ${currentPage === i + 1
                         ? "bg-slate-900 text-white shadow-lg scale-110"
                         : "bg-white border border-slate-200 text-slate-600 hover:border-brand-teal hover:text-brand-teal"
-                    }`}
+                      }`}
                     aria-label={`Page ${i + 1}`}
                     aria-current={currentPage === i + 1 ? "page" : undefined}
                   >

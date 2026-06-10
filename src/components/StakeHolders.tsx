@@ -1,26 +1,19 @@
 "use client";
-import { ArrowRight } from "lucide-react";
 import { motion } from "motion/react";
 
-// Individual Card Component
-const StakeholderCard = ({ title, desc, link }) => (
+// Individual Card Component — white card on bone, hairline border, quiet shadow
+const StakeholderCard = ({ title, desc }) => (
   <motion.div
     whileHover={{ y: -5 }}
-    className="bg-white p-6 xs:p-8 sm:p-10 md:p-12 rounded-lg xs:rounded-xl border border-slate-100 flex flex-col justify-between h-full shadow-sm hover:shadow-xl transition-all duration-300"
+    className="bg-white p-7 xs:p-9 sm:p-10 md:p-12 rounded-lg xs:rounded-xl border border-brand-line flex flex-col justify-between h-full transition-all duration-300 hover:border-brand-teal/40"
   >
     <div>
-      {/* 
-        JLL H3 Mobile: 18-20px, font-weight: 600 (semibold)
-        Desktop: font-extrabold as requested
-      */}
-      <h3 className="text-lg xs:text-xl sm:text-2xl md:font-extrabold text-brand-dark mb-4 xs:mb-5 sm:mb-6 leading-tight">
+      {/* Serif card title */}
+      <h3 className="heading-display text-xl xs:text-2xl sm:text-[26px] !font-normal mb-4 xs:mb-5 sm:mb-6 leading-snug">
         {title}
       </h3>
 
-      {/* 
-        JLL Body Text Mobile: 14-15px, font-weight: 400 (normal)
-      */}
-      <p className="text-sm xs:text-[15px] sm:text-base font-normal leading-[1.6] text-slate-500 mb-6 xs:mb-8 sm:mb-10">
+      <p className="text-[15px] xs:text-base font-normal leading-[1.65] text-slate-600 mb-2">
         {desc}
       </p>
     </div>
@@ -29,13 +22,13 @@ const StakeholderCard = ({ title, desc, link }) => (
 
 // Animated Image Component
 const HoverImage = ({ src, alt }) => (
-  <div className="relative h-64 xs:h-72 sm:h-80 md:h-96 lg:h-100 w-full overflow-hidden rounded-lg xs:rounded-xl shadow-sm">
+  <div className="relative h-64 xs:h-72 sm:h-80 md:h-96 lg:h-100 w-full overflow-hidden rounded-lg xs:rounded-xl">
     <motion.img
       src={src}
       alt={alt}
-      whileHover={{ scale: 1.2 }}
+      whileHover={{ scale: 1.12 }}
       transition={{ duration: 0.6, ease: [0.33, 1, 0.68, 1] }}
-      className="h-full w-full object-cover cursor-crosshair"
+      className="h-full w-full object-cover"
     />
   </div>
 );
@@ -66,46 +59,37 @@ export const Stakeholders = () => {
   ];
 
   return (
-    <section className="bg-slate-50 py-12 xs:py-14 sm:py-16 md:py-20 lg:py-32 xl:py-40">
-      {/* 
-        JLL Section Padding Mobile: 48-64px, Tablet: 64-80px
-      */}
+    /* Bone instead of slate-50 — warm rhythm consistent with the rest */
+    <section className="bg-brand-bone py-16 xs:py-20 sm:py-24 md:py-28 lg:py-40 xl:py-44">
       <div className="container mx-auto max-w-7xl px-4 xs:px-5 sm:px-6 md:px-8">
-        {/* 
-          JLL Container Padding Mobile: 16-20px, Tablet: 20-24px
-        */}
-
         {/* Header */}
-        <div className="text-center mb-10 xs:mb-12 sm:mb-16 md:mb-20 lg:mb-24 max-w-3xl mx-auto">
-          {/* 
-            JLL H2 Mobile: 24-26px, font-weight: 600 (semibold)
-            Desktop: font-extrabold as requested
-          */}
+        <div className="text-center mb-14 xs:mb-16 sm:mb-20 lg:mb-24 max-w-3xl mx-auto">
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            className="eyebrow text-brand-purple mb-4 xs:mb-5"
+          >
+            Who We Serve
+          </motion.p>
+
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-2xl xs:text-[26px] sm:text-[28px] md:text-4xl lg:text-5xl xl:text-6xl md:font-extrabold md:font-extrabold leading-[1.3] md:leading-[1.1] tracking-tight text-slate-900 mb-6 xs:mb-7 sm:mb-8 md:mb-10 lg:mb-12"
+            className="heading-display text-[30px] xs:text-[34px] sm:text-4xl md:text-5xl lg:text-[56px] leading-[1.08] mb-6 xs:mb-7 sm:mb-8"
           >
-            <span className="text-brand-teal">Tailored Solutions</span> for
-            Global Stakeholders
+            <span className="text-brand-teal">Tailored solutions</span> for
+            global stakeholders
           </motion.h2>
 
-          {/* 
-            JLL Body Text Mobile: 14-15px, font-weight: 400 (normal)
-          */}
-          <p className="text-sm xs:text-[15px] sm:text-base md:text-lg font-normal leading-[1.6] text-slate-600">
+          <p className="text-base md:text-lg font-normal leading-[1.65] text-slate-600">
             From sovereign mandates to private portfolios, empowering global
             leaders to build resilient healthcare ecosystems.
           </p>
         </div>
 
-        {/* 
-          Grid Section
-          JLL Grid Gap Mobile: 16-20px, Tablet: 20-24px
-          Mobile: Single column, Tablet (md): 2 columns, Desktop (lg): 3 columns
-        */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 xs:gap-6 sm:gap-7 md:gap-8 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 xs:gap-7 sm:gap-8 max-w-6xl mx-auto">
           {/* Item 1 */}
           <StakeholderCard {...data[0]} />
           <HoverImage src={data[0].image} alt={data[0].alt} />
