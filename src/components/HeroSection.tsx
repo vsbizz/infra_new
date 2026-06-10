@@ -15,7 +15,7 @@ export const HeroSection = ({ slides }: { slides: any[] }) => {
   }, [slides.length]);
 
   return (
-    <div className="relative h-screen w-full overflow-hidden bg-white">
+    <div className="relative h-[80vh] md:h-screen w-full overflow-hidden bg-white">
       {/* Background Image - Optimized for mobile */}
       <div className="absolute inset-0 z-0">
         <AnimatePresence mode="wait">
