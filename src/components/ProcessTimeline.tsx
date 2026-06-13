@@ -161,7 +161,7 @@ export function ProcessTimelineSection() {
   }, []);
 
   return (
-    <section className="relative lg:min-h-screen  min-h-[50vh] mb-16 xs:mb-20 sm:mb-24 py-12 xs:py-16 sm:py-20 md:py-24 lg:py-32 bg-slate-700 overflow-hidden px-4 xs:px-5 sm:px-6 md:px-8">
+    <section className="relative lg:min-h-screen  min-h-[50vh] py-12 xs:py-16 sm:py-20 md:py-24 lg:py-32 bg-slate-700 overflow-hidden px-4 xs:px-5 sm:px-6 md:px-8">
       {/* Background Image - Dynamic based on active slide */}
       <div className="absolute inset-0 opacity-20">
         {processSlides.map((slide, index) => (
