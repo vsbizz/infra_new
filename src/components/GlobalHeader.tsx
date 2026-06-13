@@ -205,48 +205,46 @@ export const GlobalHeader = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-100 transition-all duration-500 border-b  ${
-        isVisible ? "translate-y-0" : "-translate-y-full"
-      } ${
-        isHeaderActive
+      className={`fixed top-0 left-0 right-0 z-100 transition-all duration-500 border-b  ${isVisible ? "translate-y-0" : "-translate-y-full"
+        } ${isHeaderActive
           ? "bg-white shadow-md border-slate-200 py-0"
           : "bg-transparent border-transparent pb-2"
-      }`}
+        }`}
       onMouseLeave={() => setHoveredItem(null)}
     >
-      {/* Top Bar Banner - Optimized for mobile including Galaxy Fold */}
+      {/* Top Bar Banner — now deep Vestian purple. This is the single most
+          visible purple element on the site and frames the whole page. */}
       <Link href="/development-partner-solution">
-        <div className="bg-teal-600  text-white text-center py-2.5 sm:py-2 text-sm sm:text-base font-medium sm:font-semibold flex justify-center items-center gap-1.5 sm:gap-2 px-2 xs:px-3">
+        <div className="bg-brand-teal text-white text-center py-2.5 sm:py-2 text-sm sm:text-base font-medium sm:font-semibold flex justify-center items-center gap-1.5 sm:gap-2 px-2 xs:px-3 hover:bg-brand-teal-deep transition-colors">
           <span className="text-[11px] xs:text-[13px] sm:text-[15px] leading-tight">
             Explore Our Flagship Product - Integrated Development Partnership
             (IDP){" "}
           </span>
-          <div className="bg-gray-300/50 text-white rounded-full w-4 h-4 xs:w-5 xs:h-5 sm:w-6 sm:h-6 flex items-center justify-center flex-shrink-0">
+          <div className="bg-white/20 text-white rounded-full w-4 h-4 xs:w-5 xs:h-5 sm:w-6 sm:h-6 flex items-center justify-center flex-shrink-0">
             <ArrowRight className="w-2.5 h-2.5 xs:w-3 xs:h-3 sm:w-3.5 sm:h-3.5" />
           </div>
         </div>
       </Link>
 
-      {/* SECTION 1: Top Bar - Mobile Optimized */}
+      {/* SECTION 1: Top Bar */}
       <div className="mx-auto flex max-w-360 items-center justify-between px-4 xs:px-5 sm:px-6 py-3 sm:py-2 lg:px-16">
         <div className="flex items-center gap-2 sm:gap-4">
           <Link href="/">
             <img
               src="/asset/logo/infra.png"
               alt="Infra.Health Logo"
-              className={`h-14 xs:h-12 sm:h-14 lg:h-16 w-auto transition-all duration-500 ${
-                isHeaderActive ? "brightness-100" : "brightness-0 invert"
-              }`}
+              className={`h-14 xs:h-12 sm:h-14 lg:h-16 w-auto transition-all duration-500 ${isHeaderActive ? "brightness-100" : "brightness-0 invert"
+                }`}
             />
           </Link>
         </div>
         <div className="flex items-center gap-2 sm:gap-4">
-          {/* Desktop Contact Link */}
+          {/* Desktop Contact Link — hover goes purple instead of slate-900 */}
           <Link href="/contact" className="hidden lg:block">
             <motion.button
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              className="rounded-full px-8 py-3 text-sm font-bold bg-teal-600 text-white hover:bg-slate-900 transition-colors"
+              className="rounded-full px-8 py-3 text-sm font-bold bg-brand-teal text-white hover:bg-brand-purple transition-colors"
             >
               Contact Us
             </motion.button>
@@ -279,20 +277,18 @@ export const GlobalHeader = () => {
                     <button
                       type="button"
                       onMouseEnter={() => setHoveredItem(item)}
-                      className={`py-4 text-[16px] font-normal transition-all duration-500 border-b-2 flex items-center gap-1 ${
-                        isHeaderActive
+                      className={`py-4 text-[16px] font-normal transition-all duration-500 border-b-2 flex items-center gap-1 ${isHeaderActive
                           ? hoveredItem === item
-                            ? "text-slate-900 border-slate-900"
+                            ? "text-slate-900 border-brand-purple"
                             : "text-slate-600 border-transparent"
                           : "text-white/90 border-transparent hover:text-white hover:border-white/40"
-                      }`}
+                        }`}
                     >
                       {item}
                       <ChevronDown
                         size={14}
-                        className={`transition-transform ${
-                          hoveredItem === item ? "rotate-180" : ""
-                        }`}
+                        className={`transition-transform ${hoveredItem === item ? "rotate-180" : ""
+                          }`}
                       />
                     </button>
                   ) : (
@@ -301,18 +297,17 @@ export const GlobalHeader = () => {
                         item === "Development Partner"
                           ? "/development-partner-solution"
                           : `/${item
-                              .toLowerCase()
-                              .replace(/ & /g, "-")
-                              .replace(/\s+/g, "-")}`
+                            .toLowerCase()
+                            .replace(/ & /g, "-")
+                            .replace(/\s+/g, "-")}`
                       }
                       onMouseEnter={() => setHoveredItem(item)}
-                      className={`py-4 text-[16px] font-normal transition-all duration-500 border-b-2 flex items-center gap-1 ${
-                        isHeaderActive
+                      className={`py-4 text-[16px] font-normal transition-all duration-500 border-b-2 flex items-center gap-1 ${isHeaderActive
                           ? hoveredItem === item
-                            ? "text-slate-900 border-slate-900"
+                            ? "text-slate-900 border-brand-purple"
                             : "text-slate-600 border-transparent"
                           : "text-white/90 border-transparent hover:text-white hover:border-white/40"
-                      }`}
+                        }`}
                     >
                       {item}
                     </Link>
@@ -327,13 +322,12 @@ export const GlobalHeader = () => {
                 <Link
                   href={`/${item.toLowerCase().replace(/ & /g, "-").replace(/\s+/g, "-")}`}
                   onMouseEnter={() => setHoveredItem(item)}
-                  className={`block py-4 text-[16px] font-normal transition-all duration-500 border-b-2 ${
-                    isHeaderActive
+                  className={`block py-4 text-[16px] font-normal transition-all duration-500 border-b-2 ${isHeaderActive
                       ? hoveredItem === item
-                        ? "text-slate-900 border-slate-900"
+                        ? "text-slate-900 border-brand-purple"
                         : "text-slate-600 border-transparent"
                       : "text-white/90 border-transparent hover:text-white hover:border-white/50"
-                  }`}
+                    }`}
                 >
                   {item}
                 </Link>
@@ -343,7 +337,7 @@ export const GlobalHeader = () => {
         </nav>
       </div>
 
-      {/* MOBILE MENU - Optimized for all mobile screens */}
+      {/* MOBILE MENU */}
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
@@ -405,7 +399,8 @@ export const GlobalHeader = () => {
                                     key={cat.slug}
                                     className="space-y-2 xs:space-y-2.5 sm:space-y-3"
                                   >
-                                    <h4 className="text-[10px] xs:text-[11px] sm:text-xs font-black text-teal-600 uppercase tracking-widest">
+                                    {/* Category label → purple (was teal) */}
+                                    <h4 className="text-[10px] xs:text-[11px] sm:text-xs font-black text-brand-purple uppercase tracking-widest">
                                       {cat.category}
                                     </h4>
                                     <div className="grid gap-2.5 xs:gap-3 sm:gap-4 pl-1.5 xs:pl-2 border-l border-slate-200">
@@ -439,7 +434,7 @@ export const GlobalHeader = () => {
                                       <span className="pr-2">
                                         {sector.title}
                                       </span>
-                                      <ArrowRight className="w-3.5 h-3.5 xs:w-4 xs:h-4 text-teal-600 flex-shrink-0" />
+                                      <ArrowRight className="w-3.5 h-3.5 xs:w-4 xs:h-4 text-brand-teal-deep flex-shrink-0" />
                                     </Link>
                                   ))}
                                 </div>
@@ -463,7 +458,7 @@ export const GlobalHeader = () => {
 
               <div className="mt-8 xs:mt-10 sm:mt-12">
                 <Link href="/contact" className="block w-full">
-                  <button className="w-full py-3 xs:py-3.5 sm:py-4 bg-teal-600 text-white rounded-xl xs:rounded-2xl font-bold text-base xs:text-lg shadow-xl shadow-teal-600/20 hover:bg-teal-700 transition-colors">
+                  <button className="w-full py-3 xs:py-3.5 sm:py-4 bg-brand-teal text-white rounded-xl xs:rounded-2xl font-bold text-base xs:text-lg shadow-xl shadow-brand-teal/20 hover:bg-brand-purple transition-colors">
                     Contact Us
                   </button>
                 </Link>
@@ -502,13 +497,14 @@ export const GlobalHeader = () => {
                           </div>
                           <ul className="space-y-3">
                             {cat.items.map((item) => (
-                              <li key={item.slug}>
+                              <li key={item.name}>
                                 <Link
                                   href={`/${item.slug}`}
-                                  className="flex items-center gap-3 text-[14px] text-slate-600 hover:text-teal-600 transition-all group"
+                                  className="flex items-center gap-3 text-[14px] text-slate-600 hover:text-brand-teal-deep transition-all group"
                                   onClick={() => setHoveredItem(null)}
                                 >
-                                  <span className="w-0.75 h-3 bg-slate-800 group-hover:bg-teal-600 transition-colors" />
+                                  {/* tick mark warms to purple on hover */}
+                                  <span className="w-0.75 h-3 bg-slate-800 group-hover:bg-brand-purple transition-colors" />
                                   {item.name}
                                 </Link>
                               </li>
@@ -541,31 +537,30 @@ export const GlobalHeader = () => {
                             className="group flex items-center justify-between border-b border-slate-200 pb-4 pr-4"
                             onClick={() => setHoveredItem(null)}
                           >
-                            <h3 className="text-[16px] font-medium text-slate-700 group-hover:text-teal-600 transition-colors leading-tight">
+                            <h3 className="text-[16px] font-medium text-slate-700 group-hover:text-brand-teal-deep transition-colors leading-tight">
                               {cat.category}
                             </h3>
                             <ChevronDown
                               size={18}
-                              className="-rotate-90 text-slate-400 group-hover:text-teal-600 transition-transform group-hover:translate-x-1"
+                              className="-rotate-90 text-slate-400 group-hover:text-brand-teal-deep transition-transform group-hover:translate-x-1"
                             />
                           </Link>
                           <ul className="space-y-3">
                             {cat.items.map((item) => (
-                              <li key={item.slug}>
+                              <li key={item.name}>
                                 <Link
                                   href={
                                     item.href
                                       ? item.href
                                       : `/services/${cat.slug}/${item.slug}`
                                   }
-                                  className={`flex items-center gap-3 text-[14px] transition-all group ${
-                                    item.href
-                                      ? "text-brand-purple  hover:text-teal-600  font-semibold"
-                                      : "text-slate-600 hover:text-teal-600"
-                                  }`}
+                                  className={`flex items-center gap-3 text-[14px] transition-all group ${item.href
+                                      ? "text-brand-purple hover:text-brand-teal-deep font-semibold"
+                                      : "text-slate-600 hover:text-brand-teal-deep"
+                                    }`}
                                   onClick={() => setHoveredItem(null)}
                                 >
-                                  <span className="w-0.75 h-3 bg-slate-800 group-hover:bg-teal-600 transition-colors" />
+                                  <span className="w-0.75 h-3 bg-slate-800 group-hover:bg-brand-purple transition-colors" />
                                   {item.name}
                                 </Link>
                               </li>
@@ -598,8 +593,8 @@ export const GlobalHeader = () => {
                           onClick={() => setHoveredItem(null)}
                           className="flex items-center gap-3 group py-2"
                         >
-                          <span className="w-0.75 h-3 bg-slate-800 group-hover:bg-teal-600 transition-colors" />
-                          <span className="text-[15px] font-medium text-slate-700 group-hover:text-teal-600 transition-colors">
+                          <span className="w-0.75 h-3 bg-slate-800 group-hover:bg-brand-purple transition-colors" />
+                          <span className="text-[15px] font-medium text-slate-700 group-hover:text-brand-teal-deep transition-colors">
                             {sector.title}
                           </span>
                         </Link>

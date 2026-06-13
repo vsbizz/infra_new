@@ -30,8 +30,19 @@ export default function RootLayout({
     <html lang="en" className={sourceSans.variable}>
       <body className="font-sans">
         <GlobalHeader />
-        {/* Exact spacer for fixed header */}
-        <div />
+
+        {/*
+          Pushes ALL page content below the fixed header.
+          Height matches --header-h from globals.css:
+            - Desktop (lg+):  164px  → h-[164px]
+            - Mobile (<lg):   116px  → h-[116px]
+
+          The HeroSection overrides this with a negative margin-top
+          so its background image still bleeds up behind the transparent header.
+          Every other page/section just sits cleanly below the header.
+        */}
+        <div className="h-[158px] lg:h-[190px]" aria-hidden="true" />
+
         <main>{children}</main>
         <Footer />
       </body>

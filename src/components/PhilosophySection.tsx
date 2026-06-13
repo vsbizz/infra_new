@@ -11,61 +11,64 @@ export const PhilosophySection = () => {
   ];
 
   return (
-    <section className="bg-white py-12 xs:py-14 sm:py-16 md:py-20 lg:py-24">
+    <section className="bg-white py-16 xs:py-20 sm:py-24 md:py-28 lg:py-40">
       <div className="container mx-auto max-w-7xl px-4 xs:px-5 sm:px-6 md:px-8">
-        <div className="grid grid-cols-1 gap-10 xs:gap-12 sm:gap-14 md:gap-16 lg:grid-cols-2 lg:items-start lg:gap-24">
-          {/* Left Column: Headline - Mobile Optimized Typography */}
+        <div className="grid grid-cols-1 gap-12 xs:gap-14 sm:gap-16 md:gap-20 lg:grid-cols-2 lg:items-start lg:gap-28">
+          {/* Left Column: Headline */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-[26px] xs:text-[28px] sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl md:font-extrabold leading-[1.2] xs:leading-[1.15] sm:leading-[1.1] tracking-tight text-slate-900">
-              We Don't Just Build Hospitals.
-              <span className="block text-brand-teal mt-1.5 xs:mt-2">
-                We Structure Assets.
+            <p className="eyebrow text-brand-purple mb-4 xs:mb-5">
+              Our Philosophy
+            </p>
+
+            {/* Fraunces serif, normal weight, tight leading */}
+            <h2 className="heading-display text-[30px] xs:text-[34px] sm:text-4xl md:text-5xl lg:text-[56px] xl:text-6xl leading-[1.08]">
+              We don't just build hospitals.
+              <span className="block text-brand-teal mt-2 xs:mt-3 italic">
+                We structure assets.
               </span>
             </h2>
           </motion.div>
 
-          {/* Right Column: Description & Points - Mobile Optimized */}
+          {/* Right Column: Description & Points */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="flex flex-col gap-6 xs:gap-7 sm:gap-8"
+            className="flex flex-col gap-7 xs:gap-8 sm:gap-10"
           >
-            {/* Description Text - Responsive sizing matching JLL (14px → 15px → 16px → 18px) */}
-            <p className="text-sm xs:text-[15px] sm:text-base md:text-lg leading-relaxed xs:leading-[1.6] text-slate-600">
+            <p className="text-base sm:text-lg leading-[1.65] text-slate-600">
               Infra.Health provides an institutional-grade framework for
               healthcare asset de-risking. We bridge the gap between healthcare
               operations and capital markets through integrated strategy and
               operational excellence.
             </p>
 
-            {/* Bullet Points - Responsive spacing and sizing */}
-            <ul className="space-y-3 xs:space-y-3.5 sm:space-y-4">
+            {/* Points — hairline-separated rows instead of icon-bullet pills */}
+            <ul className="divide-y divide-brand-line border-y border-brand-line">
               {points.map((point, i) => (
                 <li
                   key={i}
-                  className="flex items-start gap-2.5 xs:gap-3 text-[15px] xs:text-base sm:text-lg md:font-bold text-slate-800 leading-tight xs:leading-normal"
+                  className="flex items-start gap-3 xs:gap-4 py-4 xs:py-5 text-base sm:text-lg font-medium text-brand-ink"
                 >
-                  <CheckCircle2 className="h-4 w-4 xs:h-5 xs:w-5 text-brand-teal flex-shrink-0 mt-0.5 xs:mt-0" />
+                  <CheckCircle2 className="h-4 w-4 xs:h-5 xs:w-5 text-brand-teal flex-shrink-0 mt-1" />
                   <span>{point}</span>
                 </li>
               ))}
             </ul>
 
-            {/* CTA Button - Mobile optimized sizing and padding */}
-            <div className="pt-2 xs:pt-3 sm:pt-4">
+            <div className="pt-2 xs:pt-3">
               <Link href="about">
                 <motion.button
                   whileHover="hover"
                   whileTap={{ scale: 0.98 }}
                   initial="initial"
-                  className="relative overflow-hidden rounded-full border border-teal-600 bg-teal-600 px-6 xs:px-8 sm:px-10 py-3 xs:py-3.5 sm:py-4 text-sm xs:text-[15px] sm:text-base font-bold text-white shadow-lg hover:shadow-xl transition-shadow"
+                  className="relative overflow-hidden rounded-full bg-brand-teal px-7 xs:px-9 sm:px-10 py-3 xs:py-3.5 sm:py-4 text-sm xs:text-[15px] sm:text-base font-semibold text-white transition-colors"
                   aria-label="Learn about our investment philosophy"
                 >
                   <span className="relative z-10 pointer-events-none">
@@ -74,20 +77,11 @@ export const PhilosophySection = () => {
 
                   <motion.div
                     variants={{
-                      initial: {
-                        scale: 0,
-                        opacity: 0,
-                      },
-                      hover: {
-                        scale: 2,
-                        opacity: 1,
-                      },
+                      initial: { scale: 0, opacity: 0 },
+                      hover: { scale: 2, opacity: 1 },
                     }}
-                    transition={{
-                      duration: 1.2,
-                      ease: "easeOut",
-                    }}
-                    className="absolute left-1/2 top-1/2 z-0 aspect-square w-full -translate-x-1/2 -translate-y-1/2 rounded-full bg-slate-900 origin-center"
+                    transition={{ duration: 1.2, ease: "easeOut" }}
+                    className="absolute left-1/2 top-1/2 z-0 aspect-square w-full -translate-x-1/2 -translate-y-1/2 rounded-full bg-brand-purple origin-center"
                   />
                 </motion.button>
               </Link>

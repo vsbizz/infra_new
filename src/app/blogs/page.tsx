@@ -68,7 +68,7 @@ const Blog: React.FC = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-slate-50/30 pt-32 sm:pt-20 md:pt-44 lg:pt-54">
+      <section className="relative overflow-hidden bg-slate-50/30 pt-5 sm:pt-3 md:pt-5 lg:pt-10">
         <div className="absolute inset-0 opacity-20">
           <div className="absolute left-0 top-0 h-full w-full" />
         </div>
@@ -159,11 +159,10 @@ const Blog: React.FC = () => {
                   <button
                     key={i}
                     onClick={() => setMediaIndex(i)}
-                    className={`h-2.5 rounded-full transition-all ${
-                      mediaIndex === i
-                        ? "w-6 bg-teal-600"
-                        : "w-2.5 bg-slate-300"
-                    }`}
+                    className={`h-2.5 rounded-full transition-all ${mediaIndex === i
+                      ? "w-6 bg-teal-600"
+                      : "w-2.5 bg-slate-300"
+                      }`}
                   />
                 ))}
               </div>
@@ -309,11 +308,10 @@ const Blog: React.FC = () => {
                       <button
                         key={i}
                         onClick={() => setBlogIndex(i)}
-                        className={`h-2.5 rounded-full transition-all ${
-                          blogIndex === i
-                            ? "w-6 bg-teal-600"
-                            : "w-2.5 bg-slate-300"
-                        }`}
+                        className={`h-2.5 rounded-full transition-all ${blogIndex === i
+                          ? "w-6 bg-teal-600"
+                          : "w-2.5 bg-slate-300"
+                          }`}
                       />
                     ))}
                   </div>
@@ -404,11 +402,10 @@ const Blog: React.FC = () => {
                   <button
                     key={i}
                     onClick={() => handlePageChange(i + 1)}
-                    className={`h-10 w-10 sm:h-11 sm:w-11 md:h-12 md:w-12 rounded-full text-sm font-bold transition-all duration-300 ${
-                      currentPage === i + 1
-                        ? "bg-slate-900 text-white shadow-lg md:shadow-xl"
-                        : "border border-slate-200 bg-white text-slate-600 hover:border-teal-500 hover:text-teal-600"
-                    }`}
+                    className={`h-10 w-10 sm:h-11 sm:w-11 md:h-12 md:w-12 rounded-full text-sm font-bold transition-all duration-300 ${currentPage === i + 1
+                      ? "bg-slate-900 text-white shadow-lg md:shadow-xl"
+                      : "border border-slate-200 bg-white text-slate-600 hover:border-teal-500 hover:text-teal-600"
+                      }`}
                   >
                     {String(i + 1).padStart(2, "0")}
                   </button>
