@@ -39,7 +39,7 @@ const PartnerSolution: React.FC = () => {
       <section className="relative min-h-screen overflow-hidden">
         <div className="flex flex-col md:flex-row min-h-screen">
           <div className="relative w-full md:w-1/2 bg-slate-50 flex items-center">
-            <div className="relative z-10 px-4 xs:px-5 sm:px-6 md:px-4 lg:px-10 py-16 xs:py-20 md:py-32">
+            <div className="relative z-10 px-4 xs:px-5 sm:px-6 md:px-4 lg:px-10 py-16 xs:py-20 md:pb- mb:pt-24">
               <nav className="flex items-center gap-2 text-[10px] xs:text-[11px] font-semibold text-slate-400 mb-4 xs:mb-5 sm:mb-6 md:mb-8 uppercase tracking-widest">
                 <Link
                   href="/"
@@ -109,7 +109,7 @@ const PartnerSolution: React.FC = () => {
       </section>
 
       {/* SECTION 2: STRATEGIC 8-PHASE EXECUTION METHODOLOGY */}
-      <section className="py-12 xs:py-16 sm:py-20 md:py-24 lg:pb-16 lg:pt-32">
+      <section className="pt-12 xs:pt-16 sm:pt-20 md:pt-24  lg:pt-32">
         <div className="max-w-7xl mx-auto px-4 xs:px-5 sm:px-6 md:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -165,10 +165,11 @@ const PartnerSolution: React.FC = () => {
                 <div
                   key={driver}
                   className={`bg-white border border-slate-100 rounded-lg xs:rounded-xl p-5 xs:p-6 sm:p-7 flex items-start gap-3 shadow-sm
-        ${index === valueDrivers.length - 1
-                      ? "sm:col-span-2 sm:max-w-sm sm:mx-auto"
-                      : ""
-                    }`}
+        ${
+          index === valueDrivers.length - 1
+            ? "sm:col-span-2 sm:max-w-sm sm:mx-auto"
+            : ""
+        }`}
                 >
                   <div className="mt-1 h-8 w-8 rounded-lg bg-teal-600 text-white flex items-center justify-center shrink-0">
                     <ArrowRight size={16} />

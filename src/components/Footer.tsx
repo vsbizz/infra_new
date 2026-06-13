@@ -55,7 +55,7 @@ export const Footer = () => {
     },
 
     {
-      name: " Property & Facility Management",
+      name: "Property & Facility Management",
       href: "/services/property-and-facilities-management",
     },
   ];

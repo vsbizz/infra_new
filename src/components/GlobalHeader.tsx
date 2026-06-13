@@ -48,7 +48,7 @@ export const GlobalHeader = () => {
 
   const servicesData = [
     {
-      category: "Strategic Advisory & Design",
+      category: `Strategic Advisory & Design`,
       slug: "advisory-and-strategic-planning",
       items: [
         {
@@ -113,7 +113,16 @@ export const GlobalHeader = () => {
           name: "Engineering, Procurement & Construction (EPC)",
           slug: "procurement-management",
         },
-        { name: "Design-Build Solutions", slug: "design-build-solutions" },
+        {
+          name: (
+            <>
+              Design Build
+              <br className="hidden md:block" />
+              Solutions
+            </>
+          ),
+          slug: "design-build-solutions",
+        },
 
         {
           name: "Specialised Healthcare Infrastructure Solutions",
@@ -205,11 +214,13 @@ export const GlobalHeader = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-100 transition-all duration-500 border-b  ${isVisible ? "translate-y-0" : "-translate-y-full"
-        } ${isHeaderActive
+      className={`fixed top-0 left-0 right-0 z-100 transition-all duration-500 border-b  ${
+        isVisible ? "translate-y-0" : "-translate-y-full"
+      } ${
+        isHeaderActive
           ? "bg-white shadow-md border-slate-200 py-0"
           : "bg-transparent border-transparent pb-2"
-        }`}
+      }`}
       onMouseLeave={() => setHoveredItem(null)}
     >
       {/* Top Bar Banner — now deep Vestian purple. This is the single most
@@ -233,8 +244,9 @@ export const GlobalHeader = () => {
             <img
               src="/asset/logo/infra.png"
               alt="Infra.Health Logo"
-              className={`h-14 xs:h-12 sm:h-14 lg:h-16 w-auto transition-all duration-500 ${isHeaderActive ? "brightness-100" : "brightness-0 invert"
-                }`}
+              className={`h-14 xs:h-12 sm:h-14 lg:h-16 w-auto transition-all duration-500 ${
+                isHeaderActive ? "brightness-100" : "brightness-0 invert"
+              }`}
             />
           </Link>
         </div>
@@ -277,18 +289,20 @@ export const GlobalHeader = () => {
                     <button
                       type="button"
                       onMouseEnter={() => setHoveredItem(item)}
-                      className={`py-4 text-[16px] font-normal transition-all duration-500 border-b-2 flex items-center gap-1 ${isHeaderActive
+                      className={`py-4 text-[16px] font-normal transition-all duration-500 border-b-2 flex items-center gap-1 ${
+                        isHeaderActive
                           ? hoveredItem === item
                             ? "text-slate-900 border-brand-purple"
                             : "text-slate-600 border-transparent"
                           : "text-white/90 border-transparent hover:text-white hover:border-white/40"
-                        }`}
+                      }`}
                     >
                       {item}
                       <ChevronDown
                         size={14}
-                        className={`transition-transform ${hoveredItem === item ? "rotate-180" : ""
-                          }`}
+                        className={`transition-transform ${
+                          hoveredItem === item ? "rotate-180" : ""
+                        }`}
                       />
                     </button>
                   ) : (
@@ -297,17 +311,18 @@ export const GlobalHeader = () => {
                         item === "Development Partner"
                           ? "/development-partner-solution"
                           : `/${item
-                            .toLowerCase()
-                            .replace(/ & /g, "-")
-                            .replace(/\s+/g, "-")}`
+                              .toLowerCase()
+                              .replace(/ & /g, "-")
+                              .replace(/\s+/g, "-")}`
                       }
                       onMouseEnter={() => setHoveredItem(item)}
-                      className={`py-4 text-[16px] font-normal transition-all duration-500 border-b-2 flex items-center gap-1 ${isHeaderActive
+                      className={`py-4 text-[16px] font-normal transition-all duration-500 border-b-2 flex items-center gap-1 ${
+                        isHeaderActive
                           ? hoveredItem === item
                             ? "text-slate-900 border-brand-purple"
                             : "text-slate-600 border-transparent"
                           : "text-white/90 border-transparent hover:text-white hover:border-white/40"
-                        }`}
+                      }`}
                     >
                       {item}
                     </Link>
@@ -322,12 +337,13 @@ export const GlobalHeader = () => {
                 <Link
                   href={`/${item.toLowerCase().replace(/ & /g, "-").replace(/\s+/g, "-")}`}
                   onMouseEnter={() => setHoveredItem(item)}
-                  className={`block py-4 text-[16px] font-normal transition-all duration-500 border-b-2 ${isHeaderActive
+                  className={`block py-4 text-[16px] font-normal transition-all duration-500 border-b-2 ${
+                    isHeaderActive
                       ? hoveredItem === item
                         ? "text-slate-900 border-brand-purple"
                         : "text-slate-600 border-transparent"
                       : "text-white/90 border-transparent hover:text-white hover:border-white/50"
-                    }`}
+                  }`}
                 >
                   {item}
                 </Link>
@@ -401,7 +417,43 @@ export const GlobalHeader = () => {
                                   >
                                     {/* Category label → purple (was teal) */}
                                     <h4 className="text-[10px] xs:text-[11px] sm:text-xs font-black text-brand-purple uppercase tracking-widest">
-                                      {cat.category}
+                                      {{
+                                        "Strategic Advisory & Design": (
+                                          <>
+                                            Strategic Advisory
+                                            <br className="hidden md:block" />&
+                                            Design
+                                          </>
+                                        ),
+                                        "Investment & Capital Advisory": (
+                                          <>
+                                            Investment & Capital
+                                            <br className="hidden md:block" />
+                                            Advisory
+                                          </>
+                                        ),
+                                        "Project Delivery & Construction": (
+                                          <>
+                                            Project Delivery
+                                            <br className="hidden md:block" />&
+                                            Construction
+                                          </>
+                                        ),
+                                        "Healthcare Transaction Advisory": (
+                                          <>
+                                            Healthcare Transaction
+                                            <br className="hidden md:block" />
+                                            Advisory
+                                          </>
+                                        ),
+                                        "Property & Facilities Management": (
+                                          <>
+                                            Property & Facilities
+                                            <br className="hidden md:block" />
+                                            Management
+                                          </>
+                                        ),
+                                      }[cat.category] ?? cat.category}
                                     </h4>
                                     <div className="grid gap-2.5 xs:gap-3 sm:gap-4 pl-1.5 xs:pl-2 border-l border-slate-200">
                                       {cat.items.map((sub) => (
@@ -500,7 +552,7 @@ export const GlobalHeader = () => {
                               <li key={item.name}>
                                 <Link
                                   href={`/${item.slug}`}
-                                  className="flex items-center gap-3 text-[14px] text-slate-600 hover:text-brand-teal-deep transition-all group"
+                                  className="flex items-center gap-3 text-[14px] text-slate-600 hover:text-brand-teal-deep transition-all group whitespace-nowrap"
                                   onClick={() => setHoveredItem(null)}
                                 >
                                   {/* tick mark warms to purple on hover */}
@@ -538,7 +590,42 @@ export const GlobalHeader = () => {
                             onClick={() => setHoveredItem(null)}
                           >
                             <h3 className="text-[16px] font-medium text-slate-700 group-hover:text-brand-teal-deep transition-colors leading-tight">
-                              {cat.category}
+                              {{
+                                "Strategic Advisory & Design": (
+                                  <>
+                                    Strategic Advisory
+                                    <br className="hidden md:block" />& Design
+                                  </>
+                                ),
+                                "Investment & Capital Advisory": (
+                                  <>
+                                    Investment & Capital
+                                    <br className="hidden md:block" />
+                                    Advisory
+                                  </>
+                                ),
+                                "Project Delivery & Construction": (
+                                  <>
+                                    Project Delivery
+                                    <br className="hidden md:block" />&
+                                    Construction
+                                  </>
+                                ),
+                                "Healthcare Transaction Advisory": (
+                                  <>
+                                    Healthcare Transaction
+                                    <br className="hidden md:block" />
+                                    Advisory
+                                  </>
+                                ),
+                                "Property & Facilities Management": (
+                                  <>
+                                    Property & Facilities
+                                    <br className="hidden md:block" />
+                                    Management
+                                  </>
+                                ),
+                              }[cat.category] ?? cat.category}
                             </h3>
                             <ChevronDown
                               size={18}
@@ -554,10 +641,11 @@ export const GlobalHeader = () => {
                                       ? item.href
                                       : `/services/${cat.slug}/${item.slug}`
                                   }
-                                  className={`flex items-center gap-3 text-[14px] transition-all group ${item.href
+                                  className={`flex items-center gap-3 text-[14px] transition-all group ${
+                                    item.href
                                       ? "text-brand-purple hover:text-brand-teal-deep font-semibold"
                                       : "text-slate-600 hover:text-brand-teal-deep"
-                                    }`}
+                                  }`}
                                   onClick={() => setHoveredItem(null)}
                                 >
                                   <span className="w-0.75 h-3 bg-slate-800 group-hover:bg-brand-purple transition-colors" />
