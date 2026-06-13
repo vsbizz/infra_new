@@ -25,29 +25,25 @@ const solutionsData = {
         icon: Stethoscope,
         title: "Healthcare-Centric",
         text: "Unlike traditional real estate firms, Infra.Health operates at the intersection of healthcare, finance, and infrastructure.",
-        image:
-          "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80&w=800",
+        image: "asset/property/healthcare.webp",
       },
       {
         icon: ChartLine,
         title: "Financial Structuring",
         text: "Our team provides financial structuring expertise to optimize healthcare investments for sustainability and returns.",
-        image:
-          "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80&w=800",
+        image: "asset/services/2.jpg",
       },
       {
         icon: University,
         title: "Deep Sectoral Knowledge",
         text: "We bring unmatched expertise in healthcare infrastructure, clinical workflows, and sector-specific regulations.",
-        image:
-          "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80&w=800",
+        image: "asset/services/design-management.jpg",
       },
       {
         icon: Globe,
         title: "Global Investor Networks",
         text: "With access to international investors, we position healthcare assets not just as buildings, but as future-ready investment vehicles.",
-        image:
-          "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80&w=800",
+        image: "asset/services/fdi.jpg",
       },
     ],
   },
@@ -353,7 +349,7 @@ const Properties: React.FC = () => {
                   <div className="absolute inset-0 bg-gradient-to-b from-black/10 to-black/50 group-hover:from-black/20 group-hover:to-black/60 transition-all duration-500"></div>
 
                   {/* CTA Button - Top Right */}
-                  <Link
+                  {/* <Link
                     href={`/properties/${city.slug}`}
                     className="absolute top-3 xs:top-4 right-3 xs:right-4 z-10"
                   >
@@ -364,7 +360,7 @@ const Properties: React.FC = () => {
                         className="xs:w-4 xs:h-4 group-hover:translate-x-0.5 transition-transform"
                       />
                     </div>
-                  </Link>
+                  </Link> */}
 
                   {/* Content Section */}
                   <div className="absolute bottom-0 left-0 right-0 p-5 xs:p-6 md:p-8">
@@ -398,10 +394,11 @@ const Properties: React.FC = () => {
                   <button
                     key={i}
                     onClick={() => handlePageChange(i + 1)}
-                    className={`w-9 h-9 xs:w-10 xs:h-10 rounded-full text-xs xs:text-sm font-bold transition-all ${currentPage === i + 1
+                    className={`w-9 h-9 xs:w-10 xs:h-10 rounded-full text-xs xs:text-sm font-bold transition-all ${
+                      currentPage === i + 1
                         ? "bg-slate-900 text-white shadow-lg scale-110"
                         : "bg-white border border-slate-200 text-slate-600 hover:border-brand-teal hover:text-brand-teal"
-                      }`}
+                    }`}
                     aria-label={`Page ${i + 1}`}
                     aria-current={currentPage === i + 1 ? "page" : undefined}
                   >
