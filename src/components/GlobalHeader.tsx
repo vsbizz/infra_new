@@ -464,7 +464,7 @@ export const GlobalHeader = () => {
                                               ? sub.href
                                               : `/services/${cat.slug}/${sub.slug}`
                                           }
-                                          className="text-slate-600 text-[13px] xs:text-sm sm:text-base flex items-center justify-between leading-tight"
+                                          className="text-slate-600 text-[13px] xs:text-sm sm:text-base flex items-center justify-between leading-tight whitespace-nowrap"
                                         >
                                           <span className="pr-2">
                                             {sub.name}
@@ -549,7 +549,7 @@ export const GlobalHeader = () => {
                           </div>
                           <ul className="space-y-3">
                             {cat.items.map((item) => (
-                              <li key={item.name}>
+                              <li key={item.slug}>
                                 <Link
                                   href={`/${item.slug}`}
                                   className="flex items-center gap-3 text-[14px] text-slate-600 hover:text-brand-teal-deep transition-all group whitespace-nowrap"
@@ -634,14 +634,14 @@ export const GlobalHeader = () => {
                           </Link>
                           <ul className="space-y-3">
                             {cat.items.map((item) => (
-                              <li key={item.name}>
+                              <li key={item.slug}>
                                 <Link
                                   href={
                                     item.href
                                       ? item.href
                                       : `/services/${cat.slug}/${item.slug}`
                                   }
-                                  className={`flex items-center gap-3 text-[14px] transition-all group ${
+                                  className={`flex items-center gap-3 text-[14px] transition-all group whitespace-nowrap ${
                                     item.href
                                       ? "text-brand-purple hover:text-brand-teal-deep font-semibold"
                                       : "text-slate-600 hover:text-brand-teal-deep"
