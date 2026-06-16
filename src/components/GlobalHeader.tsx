@@ -106,8 +106,8 @@ export const GlobalHeader = () => {
       items: [
         {
           name: "Integrated Development Partnership (IDP)",
-          slug: "development-partner-solution",
-          href: "/development-partner-solution",
+          slug: "integrated-development-partner-solution",
+          href: "/integrated-development-partner-solution",
         },
         {
           name: "Engineering, Procurement & Construction (EPC)",
@@ -225,7 +225,7 @@ export const GlobalHeader = () => {
     >
       {/* Top Bar Banner — now deep Vestian purple. This is the single most
           visible purple element on the site and frames the whole page. */}
-      <Link href="/development-partner-solution">
+      <Link href="/integrated-development-partner-solution">
         <div className="bg-brand-teal text-white text-center py-2.5 sm:py-2 text-sm sm:text-base font-medium sm:font-semibold flex justify-center items-center gap-1.5 sm:gap-2 px-2 xs:px-3 hover:bg-brand-teal-deep transition-colors">
           <span className="text-[11px] xs:text-[13px] sm:text-[15px] leading-tight">
             Explore Our Flagship Product - Integrated Development Partnership
@@ -309,7 +309,7 @@ export const GlobalHeader = () => {
                     <Link
                       href={
                         item === "Development Partner"
-                          ? "/development-partner-solution"
+                          ? "/integrated-development-partner-solution"
                           : `/${item
                               .toLowerCase()
                               .replace(/ & /g, "-")

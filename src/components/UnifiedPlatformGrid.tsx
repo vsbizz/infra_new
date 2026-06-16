@@ -80,7 +80,7 @@ export const UnifiedPlatformList = () => {
             </p>
 
             <div className="pt-4 xs:pt-5">
-              <Link href={"development-partner-solution"}>
+              <Link href={"integrated-development-partner-solution"}>
                 <motion.button
                   whileHover="hover"
                   whileTap={{ scale: 0.98 }}
