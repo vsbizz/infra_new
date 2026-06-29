@@ -138,7 +138,7 @@ export const CounterSection = ({
             className="lg:col-span-5"
           >
             <p className="text-base md:text-lg leading-[1.65] text-slate-600 lg:border-l lg:border-brand-line lg:pl-8">
-              Delivered across four global regions — every project measured
+              Delivered across four global regions, every project measured
               against institutional standards of clinical compliance, capital
               efficiency, and operational uptime.
             </p>

@@ -13,70 +13,48 @@ import { link } from "fs";
 
 export const metadata = getPageMetadata("home");
 
-const SLIDES = [
-  {
-    id: "01",
-    title: "Global Healthcare Asset Development",
-    headline:
-      "The Global Platform for Structured Healthcare Asset Development.",
-    subHeader:
-      "Operating at the convergence of healthcare systems, engineering, and institutional capital to transform clinical demand into resilient, investment-grade assets.",
-    cta: "Contact Us",
-    image: "/asset/hero/1jpg.jpg",
-    link: "/contact",
-  },
+const HERO = {
+  title: "Global Healthcare Asset Development",
+  headline: "The Global Platform for Structured Healthcare Asset Development.",
+  subHeader:
+    "Operating at the convergence of healthcare systems, engineering, and institutional capital to transform clinical demand into resilient, investment-grade assets.",
+  cta: "Contact Us",
+  image: "/asset/hero/1jpg.jpg",
+  link: "/contact",
+};
+
+const SERVICES = [
   {
     id: "02",
-    title: "Investment and Capital Advisory",
-    headline: "Positioning Healthcare as a Structured Asset Class.",
-    subHeader:
-      "We align healthcare development with disciplined capital frameworks, ensuring projects are bankable, scalable, and resilient across economic cycles.",
-    cta: "View Capital Advisory",
+    title: "Strategic Advisory & Design",
     image: "/asset/hero/2.jpg",
-    link: "services/investment-and-capital-advisory",
+    link: "/",
   },
   {
     id: "03",
-    title: "Leasing and Operator Advisory",
-    headline: "Strengthening Commercial Resilience & Income Stability.",
-    subHeader:
-      "Bridging the gap between asset ownership and healthcare operations through structured leasing frameworks and data-driven location intelligence.",
-    cta: "Discover Operator Strategies",
+    title: "Investment & Capital Advisory",
     image: "/asset/hero/3.jpg",
-    link: "services/leasing-and-operator-advisory",
+    link: "/",
   },
   {
     id: "04",
-    title: "Advisory and Strategic Planning",
-    headline: "Demand-Validated Development Frameworks.",
-    subHeader:
-      "Transforming healthcare demand into investment-ready frameworks through rigorous feasibility, clinical planning, and financial modeling.",
-    cta: "Explore Advisory Services",
+    title: "Project Delivery & Construction",
     image: "/asset/hero/4.jpg",
-    link: "services/advisory-and-strategic-planning",
+    link: "/",
   },
   {
     id: "05",
-    title: "Design and Project Delivery",
-    headline: "Turnkey Execution with Single-Point Accountability.",
-    subHeader:
-      "Converting strategy into operational infrastructure through engineering precision, procurement control, and clinical compliance.",
-    cta: "View Delivery Models",
+    title: "Healthcare Transaction Advisory",
     image: "/asset/hero/5.jpg",
-    link: "services/design-and-project-delivery",
+    link: "/",
   },
   {
     id: "06",
-    title: "Property and Facilities Management",
-    headline: "Guaranteeing 24/7 Operational Reliability & Asset Yield.",
-    subHeader:
-      "Sustaining long-term performance and regulatory compliance through specialized healthcare asset governance and lifecycle oversight.",
-    cta: "View Asset Management",
+    title: "Property & Facility Management",
     image: "/asset/hero/6.jpg",
-    link: "services/property-and-facilities-management",
+    link: "/",
   },
 ];
-
 export default function HomePage() {
   const { home, global } = metaData;
 
@@ -114,13 +92,13 @@ export default function HomePage() {
   return (
     <>
       <JsonLd data={homeSchema} />
-      <HeroSection slides={SLIDES} />
-      <PhilosophySection />
+      <HeroSection hero={HERO} services={SERVICES} />
       <CounterSection />
+      <GlobalPresence />
+      <PhilosophySection />
       <UnifiedPlatformList />
       <Stakeholders />
       <ExpertiseContinuum />
-      <GlobalPresence />
       <MarketIntelligence />
     </>
   );
