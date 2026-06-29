@@ -1,25 +1,83 @@
 "use client";
 import { motion } from "motion/react";
 
-// Individual Card Component — white card on bone, hairline border, quiet shadow
-const StakeholderCard = ({ title, desc }) => (
+const StakeholderCard = ({ title, desc, image, alt }) => (
   <motion.div
-    whileHover={{ y: -5 }}
-    className="bg-white p-7 xs:p-9 sm:p-10 md:p-12 rounded-lg xs:rounded-xl border border-brand-line flex flex-col justify-between h-full transition-all duration-300 hover:border-brand-teal/40"
+    whileHover="hover"
+    initial="rest"
+    animate="rest"
+    className="group relative h-[500px] overflow-hidden rounded-xl cursor-pointer"
   >
-    <div>
-      {/* Serif card title */}
-      <h3 className="heading-display text-xl xs:text-2xl sm:text-[26px] !font-normal mb-4 xs:mb-5 sm:mb-6 leading-snug">
-        {title}
-      </h3>
+    {/* Background Image */}
+    <motion.img
+      variants={{
+        rest: { scale: 1 },
+        hover: { scale: 1.08 },
+      }}
+      transition={{ duration: 0.7 }}
+      src={image}
+      alt={alt}
+      className="absolute inset-0 h-full w-full object-cover"
+    />
 
-      <p className="text-[15px] xs:text-base font-normal leading-[1.65] text-slate-600 mb-2">
+    {/* Gradient */}
+    <div className="absolute inset-0 bg-gradient-to-t from-brand-ink via-brand-ink/20 to-transparent" />
+
+    {/* Hover Overlay */}
+    <motion.div
+      variants={{
+        rest: {
+          opacity: 0,
+        },
+        hover: {
+          opacity: 1,
+        },
+      }}
+      transition={{ duration: 0.35 }}
+      className="absolute inset-0 bg-brand-purple/85"
+    />
+
+    {/* Content */}
+    <div className="absolute inset-0 flex flex-col justify-end p-8 text-white">
+      <motion.h3
+        variants={{
+          rest: {
+            y: 0,
+          },
+          hover: {
+            y: -18,
+          },
+        }}
+        transition={{ duration: 0.35 }}
+        className="heading-display text-2xl font-normal! leading-tight text-white"
+      >
+        {title}
+      </motion.h3>
+
+      <motion.p
+        variants={{
+          rest: {
+            opacity: 0,
+            y: 15,
+            height: 0,
+          },
+          hover: {
+            opacity: 1,
+            y: 0,
+            height: "auto",
+          },
+        }}
+        transition={{
+          duration: 0.35,
+          delay: 0.1,
+        }}
+        className="overflow-hidden mt-4 text-white/90 leading-7"
+      >
         {desc}
-      </p>
+      </motion.p>
     </div>
   </motion.div>
 );
-
 // Animated Image Component
 const HoverImage = ({ src, alt }) => (
   <div className="relative h-64 xs:h-72 sm:h-80 md:h-96 lg:h-100 w-full overflow-hidden rounded-lg xs:rounded-xl">
@@ -89,16 +147,10 @@ export const Stakeholders = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 xs:gap-7 sm:gap-8 max-w-6xl mx-auto">
-          {/* Item 1 */}
-          <StakeholderCard {...data[0]} />
-          <HoverImage src={data[0].image} alt={data[0].alt} />
-          <StakeholderCard {...data[1]} />
-
-          {/* Item 2 */}
-          <HoverImage src={data[1].image} alt={data[1].alt} />
-          <StakeholderCard {...data[2]} />
-          <HoverImage src={data[2].image} alt={data[2].alt} />
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {data.map((item) => (
+            <StakeholderCard key={item.title} {...item} />
+          ))}
         </div>
       </div>
     </section>

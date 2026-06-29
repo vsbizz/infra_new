@@ -67,7 +67,7 @@ export const GlobalHeader = () => {
         { name: "Accreditation Advisory", slug: "accreditation-advisory" },
 
         {
-          name: "Project Management Consultancy (PMC)",
+          name: "Project Management Consultancy",
           slug: "project-management-consultancy",
         },
         {
@@ -105,22 +105,16 @@ export const GlobalHeader = () => {
       slug: "design-and-project-delivery",
       items: [
         {
-          name: "Integrated Development Partnership (IDP)",
+          name: "Integrated Development Partnership",
           slug: "integrated-development-partner-solution",
           href: "/integrated-development-partner-solution",
         },
         {
-          name: "Engineering, Procurement & Construction (EPC)",
+          name: "Engineering, Procurement & Construction",
           slug: "procurement-management",
         },
         {
-          name: (
-            <>
-              Design Build
-              <br className="hidden md:block" />
-              Solutions
-            </>
-          ),
+          name: <>Design Build Solutions</>,
           slug: "design-build-solutions",
         },
 
@@ -154,7 +148,7 @@ export const GlobalHeader = () => {
       items: [
         { name: "Property Management", slug: "property-management" },
         {
-          name: "Integrated Facility Management (IFM)",
+          name: "Integrated Facility Management",
           slug: "integrated-facility-management",
         },
         { name: "IFM Consultancy", slug: "ifm-consultancy" },
@@ -225,17 +219,17 @@ export const GlobalHeader = () => {
     >
       {/* Top Bar Banner — now deep Vestian purple. This is the single most
           visible purple element on the site and frames the whole page. */}
-      <Link href="/integrated-development-partner-solution">
-        <div className="bg-brand-teal text-white text-center py-2.5 sm:py-2 text-sm sm:text-base font-medium sm:font-semibold flex justify-center items-center gap-1.5 sm:gap-2 px-2 xs:px-3 hover:bg-brand-teal-deep transition-colors">
-          <span className="text-[11px] xs:text-[13px] sm:text-[15px] leading-tight">
-            Explore Our Flagship Product - Integrated Development Partnership
-            (IDP){" "}
-          </span>
-          <div className="bg-white/20 text-white rounded-full w-4 h-4 xs:w-5 xs:h-5 sm:w-6 sm:h-6 flex items-center justify-center flex-shrink-0">
+      {/* <Link href="/integrated-development-partner-solution"> */}
+      <div className="bg-brand-teal text-white text-center py-2.5 sm:py-2 text-sm sm:text-base font-medium sm:font-semibold flex justify-center items-center gap-1.5 sm:gap-2 px-2 xs:px-3 hover:bg-brand-teal-deep transition-colors">
+        <span className="text-[11px] xs:text-[13px] sm:text-[15px] leading-tight">
+          Explore Our Flagship Product - Integrated Development Partnership
+          (IDP)
+        </span>
+        {/* <div className="bg-white/20 text-white rounded-full w-4 h-4 xs:w-5 xs:h-5 sm:w-6 sm:h-6 flex items-center justify-center flex-shrink-0">
             <ArrowRight className="w-2.5 h-2.5 xs:w-3 xs:h-3 sm:w-3.5 sm:h-3.5" />
-          </div>
-        </div>
-      </Link>
+          </div> */}
+      </div>
+      {/* </Link> */}
 
       {/* SECTION 1: Top Bar */}
       <div className="mx-auto flex max-w-360 items-center justify-between px-4 xs:px-5 sm:px-6 py-3 sm:py-2 lg:px-16">
@@ -308,12 +302,13 @@ export const GlobalHeader = () => {
                   ) : (
                     <Link
                       href={
-                        item === "Development Partner"
-                          ? "/integrated-development-partner-solution"
-                          : `/${item
-                              .toLowerCase()
-                              .replace(/ & /g, "-")
-                              .replace(/\s+/g, "-")}`
+                        ""
+                        // item === "Development Partner"
+                        //   ? "/integrated-development-partner-solution"
+                        //   : `/${item
+                        //       .toLowerCase()
+                        //       .replace(/ & /g, "-")
+                        //       .replace(/\s+/g, "-")}`
                       }
                       onMouseEnter={() => setHoveredItem(item)}
                       className={`py-4 text-[16px] font-normal transition-all duration-500 border-b-2 flex items-center gap-1 ${
@@ -335,7 +330,8 @@ export const GlobalHeader = () => {
             {["About", "Careers", "Vendors & Partners", "Blogs"].map((item) => (
               <li key={item} className="relative">
                 <Link
-                  href={`/${item.toLowerCase().replace(/ & /g, "-").replace(/\s+/g, "-")}`}
+                  // href={`/${item.toLowerCase().replace(/ & /g, "-").replace(/\s+/g, "-")}`}
+                  href={""}
                   onMouseEnter={() => setHoveredItem(item)}
                   className={`block py-4 text-[16px] font-normal transition-all duration-500 border-b-2 ${
                     isHeaderActive
@@ -551,7 +547,8 @@ export const GlobalHeader = () => {
                             {cat.items.map((item) => (
                               <li key={item.slug}>
                                 <Link
-                                  href={`/${item.slug}`}
+                                  // href={`/${item.slug}`}
+                                  href={""}
                                   className="flex items-center gap-3 text-[14px] text-slate-600 hover:text-brand-teal-deep transition-all group whitespace-nowrap"
                                   onClick={() => setHoveredItem(null)}
                                 >
@@ -585,7 +582,8 @@ export const GlobalHeader = () => {
                       {servicesData.map((cat) => (
                         <div key={cat.slug} className="space-y-6">
                           <Link
-                            href={`/services/${cat.slug}`}
+                            // href={`/services/${cat.slug}`}
+                            href={""}
                             className="group flex items-center justify-between border-b border-slate-200 pb-4 pr-4"
                             onClick={() => setHoveredItem(null)}
                           >
@@ -636,12 +634,13 @@ export const GlobalHeader = () => {
                             {cat.items.map((item) => (
                               <li key={item.slug}>
                                 <Link
-                                  href={
-                                    item.href
-                                      ? item.href
-                                      : `/services/${cat.slug}/${item.slug}`
-                                  }
-                                  className={`flex items-center gap-3 text-[14px] transition-all group whitespace-nowrap ${
+                                  // href={
+                                  //   item.href
+                                  //     ? item.href
+                                  //     : `/services/${cat.slug}/${item.slug}`
+                                  // }
+                                  href={""}
+                                  className={`flex items-center gap-3 text-[14px] transition-all group whitespace-wrap ${
                                     item.href
                                       ? "text-brand-purple hover:text-brand-teal-deep font-semibold"
                                       : "text-slate-600 hover:text-brand-teal-deep"
@@ -677,7 +676,8 @@ export const GlobalHeader = () => {
                       {sectorsData.map((sector) => (
                         <Link
                           key={sector.slug}
-                          href={`/sectors/${sector.slug}`}
+                          // href={`/sectors/${sector.slug}`} 
+                          href={""}
                           onClick={() => setHoveredItem(null)}
                           className="flex items-center gap-3 group py-2"
                         >
