@@ -10,39 +10,46 @@ import { SustainabilitySection } from "./components/SustainabilitySection";
 import { Footer } from "./components/Footer";
 import { GlobalPresence } from "./components/GlobalPresence";
 import { MarketIntelligence } from "./components/MarketIntelligence";
+const HERO = {
+  title: "Global Healthcare Asset Development",
+  headline: "The Global Platform for Structured Healthcare Asset Development.",
+  subHeader:
+    "Operating at the convergence of healthcare systems, engineering, and institutional capital to transform clinical demand into resilient, investment-grade assets.",
+  cta: "Contact Us",
+  image: "/asset/hero/1jpg.jpg",
+  link: "/contact",
+};
 
-const SLIDES = [
-  {
-    id: "01",
-    title: "The Global Platform",
-    headline: "De-Risk Your Healthcare Infrastructure.",
-    subHeader: "Operating across 4 global regions with rigorous international compliance. We transform clinical demand into secure, bankable institutional assets.",
-    cta: "Explore Our Footprint",
-    image: "/asset/hero/1jpg.jpg", 
-  },
+const SERVICES = [
   {
     id: "02",
-    title: "Strategic Investment",
-    headline: "Turn Clinical Demand into Secure Assets.",
-    subHeader: "We bridge the gap between healthcare systems and institutional capital, structuring investment-grade assets that remain financially resilient.",
-    cta: "Discover Opportunities",
+    title: "Strategic Advisory & Design",
     image: "/asset/hero/2.jpg",
+    link: "/",
   },
   {
     id: "03",
-    title: "Turnkey Execution",
-    headline: "Accelerate Speed-to-Market Delivery.",
-    subHeader: "Eliminate coordination delays and cost overruns. Our Turnkey Design-Build model guarantees clinical compliance and engineering precision.",
-    cta: "View Delivery Models",
+    title: "Investment & Capital Advisory",
     image: "/asset/hero/3.jpg",
+    link: "/",
   },
   {
     id: "04",
-    title: "Lifecycle Management",
-    headline: "Maximize Asset Yield and Uptime.",
-    subHeader: "Protect your capital and patient safety with integrated facility management that ensures 24/7 operational reliability.",
-    cta: "View Asset Management",
+    title: "Project Delivery & Construction",
     image: "/asset/hero/4.jpg",
+    link: "/",
+  },
+  {
+    id: "05",
+    title: "Healthcare Transaction Advisory",
+    image: "/asset/hero/5.jpg",
+    link: "/",
+  },
+  {
+    id: "06",
+    title: "Property & Facility Management",
+    image: "/asset/hero/6.jpg",
+    link: "/",
   },
 ];
 
@@ -55,23 +62,21 @@ const STATS = [
 ];
 
 export default function App() {
-  const [currentSlide, setCurrentSlide] = useState(0);
+  // const [currentSlide, setCurrentSlide] = useState(0);
 
-  // Auto-play logic for the Hero slider
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % SLIDES.length);
-    }, 6000);
-    return () => clearInterval(timer);
-  }, []);
+  // // Auto-play logic for the Hero slider
+  // useEffect(() => {
+  //   const timer = setInterval(() => {
+  //     setCurrentSlide((prev) => (prev + 1) % SLIDES.length);
+  //   }, 6000);
+  //   return () => clearInterval(timer);
+  // }, []);
 
   return (
     <div className="min-h-screen font-sans selection:bg-brand-teal/30">
       <GlobalHeader />
       <main>
-        <HeroSection
-          slides={SLIDES}
-        />
+      <HeroSection hero={HERO} services={SERVICES} />
         <CounterSection stats={STATS} />
         <PhilosophySection />
         <UnifiedPlatformList />

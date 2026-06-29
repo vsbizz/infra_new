@@ -121,7 +121,7 @@ export const Stakeholders = () => {
     <section className="bg-brand-bone py-16 xs:py-20 sm:py-24 md:py-28 lg:py-40 xl:py-44">
       <div className="container mx-auto max-w-7xl px-4 xs:px-5 sm:px-6 md:px-8">
         {/* Header */}
-        <div className="text-center mb-14 xs:mb-16 sm:mb-20 lg:mb-24 max-w-3xl mx-auto">
+        <div className="text-center mb-14 xs:mb-16 sm:mb-20 lg:mb-24 max-w-4xl mx-auto">
           <motion.p
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
