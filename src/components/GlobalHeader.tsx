@@ -220,7 +220,7 @@ export const GlobalHeader = () => {
       {/* Top Bar Banner — now deep Vestian purple. This is the single most
           visible purple element on the site and frames the whole page. */}
       {/* <Link href="/integrated-development-partner-solution"> */}
-      <div className="bg-brand-teal text-white text-center py-2.5 sm:py-2 text-sm sm:text-base font-medium sm:font-semibold flex justify-center items-center gap-1.5 sm:gap-2 px-2 xs:px-3 hover:bg-brand-teal-deep transition-colors">
+      <div className="bg-brand-purple text-white text-center py-2.5 sm:py-2 text-sm sm:text-base font-medium sm:font-semibold flex justify-center items-center gap-1.5 sm:gap-2 px-2 xs:px-3 hover:bg-brand-teal-deep transition-colors">
         <span className="text-[11px] xs:text-[13px] sm:text-[15px] leading-tight">
           Explore Our Flagship Product - Integrated Development Partnership
           (IDP)
@@ -273,10 +273,9 @@ export const GlobalHeader = () => {
         <nav className="mx-auto flex max-w-360 items-center justify-between px-6 lg:px-16">
           <ul className="flex items-center gap-8">
             {["Properties", "Services", "Portfolio", "Sectors"].map((item) => {
-              const isDropdown =
-                item === "Properties" ||
-                item === "Services" ||
-                item === "Sectors";
+              // Removed "Sectors" from here so it acts as a normal text Link
+              const isDropdown = item === "Properties" || item === "Services";
+
               return (
                 <li key={item} className="relative">
                   {isDropdown ? (
@@ -301,15 +300,9 @@ export const GlobalHeader = () => {
                     </button>
                   ) : (
                     <Link
-                      href={
-                        ""
-                        // item === "Development Partner"
-                        //   ? "/integrated-development-partner-solution"
-                        //   : `/${item
-                        //       .toLowerCase()
-                        //       .replace(/ & /g, "-")
-                        //       .replace(/\s+/g, "-")}`
-                      }
+                      // Standard plain linking destination target string
+                      // href={item === "Sectors" ? "/sectors" : "/portfolio"}
+                      href={""}
                       onMouseEnter={() => setHoveredItem(item)}
                       className={`py-4 text-[16px] font-normal transition-all duration-500 border-b-2 flex items-center gap-1 ${
                         isHeaderActive
@@ -330,7 +323,6 @@ export const GlobalHeader = () => {
             {["About", "Careers", "Vendors & Partners", "Blogs"].map((item) => (
               <li key={item} className="relative">
                 <Link
-                  // href={`/${item.toLowerCase().replace(/ & /g, "-").replace(/\s+/g, "-")}`}
                   href={""}
                   onMouseEnter={() => setHoveredItem(item)}
                   className={`block py-4 text-[16px] font-normal transition-all duration-500 border-b-2 ${
@@ -519,9 +511,7 @@ export const GlobalHeader = () => {
       {/* MEGA MENUS (Desktop Only) */}
       <AnimatePresence>
         {hoveredItem &&
-          (hoveredItem === "Properties" ||
-            hoveredItem === "Services" ||
-            hoveredItem === "Sectors") && (
+          (hoveredItem === "Properties" || hoveredItem === "Services") && ( // Removed "Sectors" here so no dropdown panel opens
             <motion.div
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
@@ -547,12 +537,10 @@ export const GlobalHeader = () => {
                             {cat.items.map((item) => (
                               <li key={item.slug}>
                                 <Link
-                                  // href={`/${item.slug}`}
                                   href={""}
                                   className="flex items-center gap-3 text-[14px] text-slate-600 hover:text-brand-teal-deep transition-all group whitespace-nowrap"
                                   onClick={() => setHoveredItem(null)}
                                 >
-                                  {/* tick mark warms to purple on hover */}
                                   <span className="w-0.75 h-3 bg-slate-800 group-hover:bg-brand-purple transition-colors" />
                                   {item.name}
                                 </Link>
@@ -576,13 +564,12 @@ export const GlobalHeader = () => {
                       </div>
                     </div>
                   </>
-                ) : hoveredItem === "Services" ? (
+                ) : (
                   <>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
                       {servicesData.map((cat) => (
                         <div key={cat.slug} className="space-y-6">
                           <Link
-                            // href={`/services/${cat.slug}`}
                             href={""}
                             className="group flex items-center justify-between border-b border-slate-200 pb-4 pr-4"
                             onClick={() => setHoveredItem(null)}
@@ -634,11 +621,6 @@ export const GlobalHeader = () => {
                             {cat.items.map((item) => (
                               <li key={item.slug}>
                                 <Link
-                                  // href={
-                                  //   item.href
-                                  //     ? item.href
-                                  //     : `/services/${cat.slug}/${item.slug}`
-                                  // }
                                   href={""}
                                   className={`flex items-center gap-3 text-[14px] transition-all group whitespace-wrap ${
                                     item.href
@@ -654,38 +636,6 @@ export const GlobalHeader = () => {
                             ))}
                           </ul>
                         </div>
-                      ))}
-                    </div>
-                    <div className="mt-16 pt-8 border-t border-slate-200 flex flex-wrap gap-4 items-center justify-between">
-                      <p className="text-sm font-medium text-slate-600">
-                        Comprehensive Healthcare solutions.
-                      </p>
-                      <div className="flex gap-3">
-                        <Link
-                          href="/contact"
-                          className="px-4 py-2 bg-white border border-slate-200 rounded text-xs font-bold uppercase text-slate-600 hover:bg-slate-50"
-                        >
-                          Consulting
-                        </Link>
-                      </div>
-                    </div>
-                  </>
-                ) : (
-                  <>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-8">
-                      {sectorsData.map((sector) => (
-                        <Link
-                          key={sector.slug}
-                          // href={`/sectors/${sector.slug}`} 
-                          href={""}
-                          onClick={() => setHoveredItem(null)}
-                          className="flex items-center gap-3 group py-2"
-                        >
-                          <span className="w-0.75 h-3 bg-slate-800 group-hover:bg-brand-purple transition-colors" />
-                          <span className="text-[15px] font-medium text-slate-700 group-hover:text-brand-teal-deep transition-colors">
-                            {sector.title}
-                          </span>
-                        </Link>
                       ))}
                     </div>
                     <div className="mt-16 pt-8 border-t border-slate-200 flex flex-wrap gap-4 items-center justify-between">

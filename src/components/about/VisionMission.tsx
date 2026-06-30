@@ -1,5 +1,4 @@
 "use client";
-import React from "react";
 import { motion } from "framer-motion";
 import { Target, Rocket } from "lucide-react";
 
@@ -19,11 +18,11 @@ function VisionMission() {
           >
             {/* Icon */}
             <div className="flex h-11 w-11 sm:h-12 sm:w-12 md:h-14 md:w-14 items-center justify-center rounded-lg sm:rounded-xl bg-teal-600/10 text-teal-600 mb-5 sm:mb-6 md:mb-8">
-              <Target className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7" />
+              <Target className="w-6 h-6 xs:w-7 xs:h-7" strokeWidth={1.5} />
             </div>
 
             {/* Heading */}
-            <h2 className="w-full max-w-none text-[1.7rem] sm:text-3xl md:text-5xl lg:text-6xl md:font-extrabold leading-[1.06] tracking-tight text-slate-900 mb-4 sm:mb-5 md:mb-6">
+            <h2 className="heading-display w-full max-w-none text-[30px] xs:text-[34px] sm:text-4xl md:text-5xl lg:text-[52px] leading-[1.08] mb-4 sm:mb-5 md:mb-6">
               Our Vision
             </h2>
 
@@ -47,11 +46,11 @@ function VisionMission() {
           >
             {/* Icon */}
             <div className="flex h-11 w-11 sm:h-12 sm:w-12 md:h-14 md:w-14 items-center justify-center rounded-lg sm:rounded-xl bg-teal-600/10 text-teal-600 mb-5 sm:mb-6 md:mb-8">
-              <Rocket className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7" />
+              <Rocket className="w-6 h-6 xs:w-7 xs:h-7" strokeWidth={1.5} />
             </div>
 
             {/* Heading */}
-            <h2 className="w-full max-w-none text-[1.7rem] sm:text-3xl md:text-5xl lg:text-6xl md:font-extrabold leading-[1.06] tracking-tight text-slate-900 mb-4 sm:mb-5 md:mb-6">
+            <h2 className="heading-display w-full max-w-none text-[30px] xs:text-[34px] sm:text-4xl md:text-5xl lg:text-[52px] leading-[1.08] mb-4 sm:mb-5 md:mb-6">
               Our Mission
             </h2>
 

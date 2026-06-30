@@ -53,7 +53,7 @@ export default async function PortfolioDetail({
               </span>
             </div>
 
-            <h1 className="text-2xl sm:text-3xl md:text-5xl font-bold text-white mb-4 md:mb-6 leading-tight max-w-4xl">
+            <h1 className="heading-display text-2xl sm:text-3xl md:text-5xl font-bold text-white mb-4 md:mb-6 leading-tight max-w-4xl">
               {property.title}
             </h1>
 
@@ -222,7 +222,7 @@ function StatCard({
         <p className="text-[9px] md:text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-0.5 truncate">
           {label}
         </p>
-        <p className="text-sm md:text-lg font-bold text-slate-900 leading-tight">
+        <p className="heading-display text-sm md:text-lg font-bold text-slate-900 leading-tight">
           {value}
         </p>
       </div>

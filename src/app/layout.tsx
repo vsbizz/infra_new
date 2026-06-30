@@ -41,7 +41,7 @@ export default function RootLayout({
           so its background image still bleeds up behind the transparent header.
           Every other page/section just sits cleanly below the header.
         */}
-        <div className="h-[158px] lg:h-[190px]" aria-hidden="true" />
+        <div className="h-[158px]" aria-hidden="true" />
 
         <main>{children}</main>
         <Footer />

@@ -2,18 +2,13 @@
 import React, { useRef } from "react";
 import {
   Users,
-  Search,
   Lightbulb,
   ShieldCheck,
   Trophy,
   Globe,
-  MapPin,
-  Quote,
-  ArrowRight,
-  Mail,
   ChevronRight,
 } from "lucide-react";
-import { motion, useInView, AnimatePresence } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import JobBoard from "@/components/careers/JobBoard";
 import Link from "next/link";
 
@@ -86,8 +81,6 @@ const BuildCard = ({ pillar, idx }: { pillar: any; idx: number }) => {
       }}
       className="relative group overflow-hidden h-70 rounded-md border border-slate-100 bg-white p-6 xs:p-8 md:p-10 shadow-xl transition-all duration-500 hover:scale-[1.02] cursor-default"
     >
-      {/*
-       */}
       <motion.div
         variants={{
           initial: { scale: 0, opacity: 0 },
@@ -119,99 +112,97 @@ const BuildCard = ({ pillar, idx }: { pillar: any; idx: number }) => {
 
 export default function CareersPage() {
   return (
-    <div className="min-h-screen bg-[#F8FAFC]">
+    <div className="min-h-screen">
       {/* --- Hero Section --- */}
-      <section className="relative pt-20 xs:pt-14 sm:pt-16 md:pt-20 lg:pt-30 pb-12 xs:pb-16 md:pb-24 overflow-hidden">
-        {/* Background Blurs */}
-        <div className="absolute inset-0 z-0">
-          <div className="absolute top-[-10%] right-[-10%] w-96 h-96 xs:w-[500px] xs:h-[500px] md:w-[600px] md:h-[600px] bg-teal-400/10 blur-[80px] md:blur-[120px] rounded-md" />
-          <div className="absolute bottom-[-10%] left-[-10%] w-96 h-96 xs:w-[500px] xs:h-[500px] md:w-[600px] md:h-[600px] bg-blue-400/10 blur-[80px] md:blur-[120px] rounded-md" />
-        </div>
+      <section className="relative overflow-hidden bg-white sm:py-4 md:py-6 lg:py-8">
+        <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="grid grid-cols-1 gap-8 sm:gap-10 md:gap-12 lg:grid-cols-2 lg:items-start lg:gap-20">
+            
+            {/* Left Column: Headline & Content */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="order-1 flex flex-col justify-center pt-0"
+            >
+              <nav className="mb-5 flex flex-wrap items-center gap-1.5 text-[11px] font-medium uppercase tracking-[0.16em] text-brand-purple sm:mb-6 sm:gap-2 sm:text-xs md:mb-8">
+                <Link href="/" className="transition-colors hover:text-teal-600">
+                  Home
+                </Link>
+                <ChevronRight className="h-3 w-3 shrink-0" />
+                <span className="text-slate-900">Careers</span>
+              </nav>
 
-        {/* Breadcrumb */}
-        <div className="max-w-7xl mx-auto px-4 xs:px-5 sm:px-6 relative z-10">
-          <nav className="flex items-center gap-1.5 md:gap-2 text-[10px] xs:text-[11px] md:text-xs font-semibold text-slate-400 mb-6 xs:mb-7 md:mb-8 uppercase tracking-widest">
-            <Link href="/" className="hover:text-teal-600 transition-colors">
-              Home
-            </Link>
-            <ChevronRight className="w-3 h-3" />
-            <span className="text-slate-900">Careers</span>
-          </nav>
-        </div>
+              <h1 className="heading-display w-full max-w-none text-[30px] xs:text-[34px] sm:text-4xl md:text-5xl lg:text-[52px] leading-[1.08]">
+                Empowering you to{" "}
+                <span className="text-brand-teal">shape the future</span> of healthcare.
+              </h1>
 
-        <div className="max-w-7xl mx-auto px-4 xs:px-5 sm:px-6 md:px-8 grid lg:grid-cols-2 gap-10 xs:gap-12 md:gap-16 items-center relative z-10">
-          <motion.div
-            initial={{ opacity: 0, x: -40 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1, ease: "easeOut" }}
-          >
-            <h1 className="text-[32px] xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl  md:font-extrabold leading-[1.1] tracking-tighter text-slate-900 mb-6 xs:mb-7 md:mb-8">
-              Empowering You to
-              <span className="text-brand-teal"> Shape the Future </span>
-              of Healthcare
-            </h1>
-            <p className="text-sm xs:text-[15px] sm:text-base md:text-lg font-normal leading-[1.6] text-slate-600">
-              At Infra.Health, we don't just build hospitals; we nurture the
-              careers of those who build them. Join our inclusive,
-              people-powered team and help us redefine global clinical
-              infrastructure.
-            </p>
-          </motion.div>
+              <p className="my-6 max-w-none text-base md:text-lg leading-[1.65] text-slate-600 sm:mb-8 sm:max-w-xl sm:text-[15px] md:mb-10 md:leading-relaxed">
+                At Infra.Health, we don't just build hospitals; we nurture the
+                careers of those who build them. Join our inclusive,
+                people-powered team and help us redefine global clinical
+                infrastructure.
+              </p>
+            </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1, delay: 0.3 }}
-            className="hidden lg:block"
-          >
-            <div className="grid grid-cols-2 gap-5 xs:gap-6">
-              <div className="space-y-5 xs:space-y-6">
-                <img
-                  src="/asset/about/1.jpeg"
-                  className="rounded-md shadow-2xl"
-                  alt="Team"
-                />
-                <img
-                  src="/asset/about/2.jpeg"
-                  className="rounded-md shadow-2xl"
-                  alt="Collaboration"
-                />
+            {/* Right Column: Visual Component Grid */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="order-2 relative"
+            >
+              <div className="grid grid-cols-2 gap-5 xs:gap-6">
+                <div className="space-y-5 xs:space-y-6">
+                  <img
+                    src="/asset/about/1.jpeg"
+                    className="rounded-md shadow-2xl"
+                    alt="Team"
+                  />
+                  <img
+                    src="/asset/about/2.jpeg"
+                    className="rounded-md shadow-2xl"
+                    alt="Collaboration"
+                  />
+                </div>
+                <div className="space-y-5 xs:space-y-6">
+                  <img
+                    src="/asset/about/3.jpg"
+                    className="rounded-md shadow-2xl"
+                    alt="Professional"
+                  />
+                  <img
+                    src="/asset/about/4.jpg"
+                    className="rounded-md shadow-2xl"
+                    alt="Professional"
+                  />
+                </div>
               </div>
-              <div className="space-y-5 xs:space-y-6">
-                <img
-                  src="/asset/about/3.jpg"
-                  className="rounded-md shadow-2xl"
-                  alt="Professional"
-                />
-                <img
-                  src="/asset/about/4.jpg"
-                  className="rounded-md shadow-2xl"
-                  alt="Professional"
-                />
-              </div>
-            </div>
-          </motion.div>
+            </motion.div>
+
+          </div>
         </div>
       </section>
 
-      {/* --- B-U-I-L-D Section --- */}
-      <section className="py-12 xs:py-16 md:py-24 bg-white">
+      {/* --- B-U-I-L-D Section (Fixed Header & Text Scalings) --- */}
+      <section className="py-20 sm:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 xs:px-5 sm:px-6 md:px-8">
           <div className="text-center max-w-3xl mx-auto mb-12 xs:mb-16 md:mb-20">
-            <h2 className="text-2xl xs:text-[26px] sm:text-3xl md:text-4xl lg:text-5xl xl:text-7xl md:font-extrabold leading-[1.3] md:leading-[1.1] tracking-tight text-slate-900 mb-5 xs:mb-6">
-              The <span className="text-teal-600"> B-U-I-L-D </span> Framework
+            {/* Replaced over-scaled extreme sizes with an editorial h2 layout */}
+            <h2 className="heading-display text-2xl xs:text-3xl sm:text-4xl md:text-[42px] leading-[1.15] text-slate-900 mb-5">
+              The <span className="text-brand-teal">B-U-I-L-D</span> Framework
             </h2>
 
-            <p className="text-sm xs:text-[15px] sm:text-base md:text-lg font-normal leading-[1.6] text-slate-600">
-              What makes us different? <br />
-              We live by a unique set of values that define our approach to work
-              and collaboration.
+            {/* Adjusted description to mirror paragraph scales from the Intro */}
+            <p className="text-base md:text-lg leading-[1.65] text-slate-600">
+              What makes us different? We live by a unique set of values that define our approach to healthcare workspace design and systemic collaboration.
             </p>
           </div>
 
           <div className="flex flex-wrap justify-center md:grid md:grid-cols-3 lg:grid-cols-5 gap-5 xs:gap-6">
-            {/* JLL Grid Gap Mobile: 20-24px, Tablet: 24-28px, Desktop: 32px
-             */}
             {BUILD_VALUES.map((pillar, idx) => (
               <div
                 key={idx}

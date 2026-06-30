@@ -82,17 +82,17 @@ const Blog: React.FC = () => {
             <span className="text-slate-900">Blogs</span>
           </nav>
 
-          <div className="mx-auto mb-10 max-w-4xl text-left sm:mb-12 sm:text-center md:mb-16 lg:mb-24">
-            <motion.h1
+          <div className="mx-auto mb-10 max-w-5xl text-left sm:mb-12 sm:text-center md:mb-16 lg:mb-24">
+            <motion.h2
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="mb-5 w-full max-w-none text-[1.85rem] xs:text-[2rem] sm:text-4xl md:text-5xl lg:text-7xl md:font-extrabold leading-[1.06] tracking-tight text-slate-900 font-display sm:mb-6 md:mb-8 lg:mb-12"
+              className="mb-5 w-full max-w-none text-[1.85rem] xs:text-[2rem] sm:text-4xl md:text-5xl lg:text-7xl md:font-extrabold leading-[1.06] tracking-tight text-slate-900 font-display"
             >
               Perspectives on
               <span className="text-teal-600"> Healthcare Infrastructure</span>
-            </motion.h1>
+            </motion.h2>
 
-            <p className="mx-auto max-w-2xl text-sm sm:text-[15px] md:text-lg leading-6 md:leading-relaxed text-slate-600 font-medium">
+            <p className="mx-auto max-w-2xl text-sm sm:text-[15px] md:text-lg leading-6 md:leading-relaxed text-slate-600 font-medium my-6">
               Expert analysis, industry trends, and strategic insights in
               Healthcare Infrastructure and Asset Development.
             </p>

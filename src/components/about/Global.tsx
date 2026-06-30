@@ -3,6 +3,7 @@ import React, { useEffect, useRef, useState } from "react";
 import * as d3 from "d3";
 import * as topojson from "topojson-client";
 import { ExternalLink } from "lucide-react";
+import { motion } from "framer-motion";
 
 const REGIONS = [
   {
@@ -263,43 +264,45 @@ export const FlatGlobalMap: React.FC = () => {
           {/* Left Column: Content */}
           <div className="lg:col-span-5 space-y-5 sm:space-y-6 md:space-y-8">
             <header>
-              <h2 className="w-full max-w-none text-[1.75rem] xs:text-[1.9rem] sm:text-4xl md:text-5xl lg:text-6xl md:font-extrabold leading-[1.06] tracking-tight text-slate-900">
+              <motion.p
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                className="eyebrow text-brand-purple mb-4 xs:mb-5"
+              >
+                Global Presence
+              </motion.p>
+              <motion.h2
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="heading-display text-[30px] xs:text-[34px] sm:text-4xl md:text-5xl lg:text-[52px] leading-[1.08]"
+              >
                 Our Locations
                 <br />
-              </h2>
+              </motion.h2>
             </header>
-
-            <div className="rounded-xl sm:rounded-2xl border-l-4 border-teal-600 bg-slate-50 p-4 sm:p-5 md:p-8 shadow-sm">
-              <h4 className="mb-2.5 sm:mb-3 flex items-center gap-2.5 sm:gap-3 text-lg sm:text-xl md:font-bold text-slate-900">
+            <p className="mb-4 sm:mb-5 md:mb-6 text-base md:text-lg leading-[1.65] text-slate-600">
+              Operating across the Middle East, Africa, South Asia, Southeast
+              Asia, Central Asia, Europe, and Central America, we integrate
+              international standards with localized regulatory intelligence.
+            </p>
+            <div className="rounded-xl sm:rounded-2xl border-l-4 border-brand-purple bg-slate-50 p-4 sm:p-5 md:p-8 shadow-sm">
+              <h4 className="mb-2.5 sm:mb-3 flex items-center gap-2.5 sm:gap-3 text-lg sm:text-xl font-bold heading-display text-brand-purple">
                 WHX Dubai Expo 2026
               </h4>
 
-              <p className="mb-4 sm:mb-5 md:mb-6 text-sm sm:text-[15px] md:text-base text-slate-600 leading-6 md:leading-relaxed">
+              <p className="mb-4 sm:mb-5 md:mb-6 text-base md:text-lg leading-[1.65] text-slate-600">
                 Infra.Health was proud to participate in the World Health Expo
                 (WHX) Dubai in February 2026. We showcased our globally aligned
                 infrastructure solutions, strengthening partnerships for the
                 next generation of healthcare assets.
               </p>
-
-              <div className="flex flex-col gap-4 sm:gap-5">
-                <a
-                  href="#"
-                  className="inline-flex items-center gap-2 text-[11px] sm:text-sm font-bold uppercase tracking-[0.14em] text-teal-700 transition-colors hover:text-teal-800"
-                >
-                  Read the Press Release <ExternalLink size={16} />
-                </a>
-              </div>
             </div>
           </div>
 
           {/* Right Column: Map */}
           <div className="lg:col-span-7 lg:sticky lg:top-10">
-            <p className="mb-4 sm:mb-5 md:mb-6 text-sm sm:text-[15px] md:text-lg leading-6 md:leading-relaxed text-slate-600">
-              Operating across the Middle East, Africa, South Asia, Southeast
-              Asia, Central Asia, Europe, and Central America, we integrate
-              international standards with localized regulatory intelligence.
-            </p>
-
             <div className="relative w-full overflow-hidden rounded-2xl sm:rounded-3xl border border-slate-100 bg-slate-50/50 p-2 sm:p-4 md:p-6 shadow-lg md:shadow-2xl md:shadow-slate-200/50">
               <div className="aspect-[2/1] w-full min-h-[180px] sm:min-h-[220px] md:min-h-[280px]">
                 <svg

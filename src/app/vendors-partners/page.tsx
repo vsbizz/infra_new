@@ -32,12 +32,17 @@ const Vendors: React.FC = () => {
       {/* Hero Section */}
       <section className="relative overflow-hidden pt-5 sm:pt-3 md:pt-5 lg:pt-10">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <nav className="mb-5 flex flex-wrap items-center gap-1.5 text-[11px] font-medium uppercase tracking-[0.16em] text-slate-400 sm:mb-6 sm:gap-2 sm:text-xs md:mb-8">
+          <nav className="mb-5 flex flex-wrap items-center gap-1.5 text-[11px] font-medium uppercase tracking-[0.16em] eyebrow text-brand-purple sm:mb-6 sm:gap-2 sm:text-xs md:mb-8">
             <Link href="/" className="transition-colors hover:text-teal-600">
               Home
             </Link>
             <ChevronRight className="h-3 w-3 shrink-0" />
-            <span className="text-slate-900">Vendors & Partners</span>
+            <Link
+              href="/vendors-partners"
+              className="transition-colors hover:text-teal-600"
+            >
+              Vendors & Partners
+            </Link>
           </nav>
         </div>
 
@@ -48,12 +53,12 @@ const Vendors: React.FC = () => {
             transition={{ duration: 0.6 }}
             className="max-w-3xl text-left sm:text-center"
           >
-            <h2 className="mb-5 w-full max-w-none text-[1.85rem] xs:text-[2rem] sm:text-4xl md:text-5xl lg:text-7xl md:font-extrabold leading-[1.06] tracking-tight text-slate-900 sm:mb-6 md:mb-8">
+            <h2 className="heading-display w-full max-w-none text-[30px] xs:text-[34px] sm:text-4xl md:text-5xl lg:text-[52px] leading-[1.08]">
               Partner with Infra Health and
               <span className="text-brand-teal"> Grow your Business</span>
             </h2>
 
-            <p className="mb-8 text-sm leading-6 text-slate-600 sm:mb-9 sm:text-[15px] md:mb-10 md:text-lg md:leading-relaxed">
+            <p className="my-6 text-base md:text-lg leading-[1.65] text-slate-600 sm:mb-8 md:mb-10">
               Infra Health collaborates with trusted vendors to deliver
               high-quality healthcare infrastructure solutions across India. We
               invite vendors with proven expertise to partner with us on our
@@ -81,7 +86,7 @@ const Vendors: React.FC = () => {
                   delay: index * 0.1,
                   ease: [0.16, 1, 0.3, 1],
                 }}
-                className="group relative cursor-default overflow-hidden rounded-xl sm:rounded-2xl border border-white/20 bg-brand-teal p-5 sm:p-6 md:p-8 lg:p-10 shadow-xl md:shadow-2xl backdrop-blur-xl transition-all duration-500 hover:scale-[1.02]"
+                className="group relative cursor-default overflow-hidden rounded-xl sm:rounded-2xl border border-white/20 bg-brand-purple p-5 sm:p-6 md:p-8 lg:p-10 shadow-xl md:shadow-2xl backdrop-blur-xl transition-all duration-500 hover:scale-[1.02]"
               >
                 <motion.div
                   variants={{
@@ -99,14 +104,14 @@ const Vendors: React.FC = () => {
 
                 <div className="relative z-20 flex flex-col items-center text-center">
                   <div className="mb-4 text-white transition-transform duration-500 group-hover:scale-110 group-hover:text-teal-400 sm:mb-5 md:mb-6">
-                    <stat.icon className="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8" />
+                    <stat.icon className="w-6 h-6 xs:w-7 xs:h-7" strokeWidth={1.5}/>
                   </div>
 
-                  <span className="text-[30px] sm:text-4xl md:text-5xl font-normal md:font-bold font-black tracking-tight text-white leading-none">
+                  <span className="text-[30px] sm:text-4xl md:text-5xl font-normal md:font-bold font-black tracking-tight text-white leading-none heading-display">
                     {stat.value}
                   </span>
 
-                  <span className="mt-3 text-[10px] font-bold uppercase tracking-[0.22em] text-white/70 sm:mt-4">
+                  <span className="mt-3 text-base md:text-lg leading-[1.65] font-bold heading-display text-white sm:mt-4">
                     {stat.label}
                   </span>
                 </div>
@@ -167,7 +172,7 @@ const Vendors: React.FC = () => {
                     className="group flex gap-3 sm:gap-4 md:gap-6"
                   >
                     <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg sm:h-11 sm:w-11 md:h-12 md:w-12 md:rounded-md bg-blue-50 text-brand-teal transition-all group-hover:bg-brand-teal">
-                      <benefit.icon className="h-5 w-5 sm:h-5 sm:w-5 md:h-6 md:w-6 group-hover:text-white" />
+                      <benefit.icon className="w-6 h-6 xs:w-7 xs:h-7 group-hover:text-white" strokeWidth={1.5} />
                     </div>
 
                     <div>
