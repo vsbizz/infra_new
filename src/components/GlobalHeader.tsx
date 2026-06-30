@@ -301,7 +301,8 @@ export const GlobalHeader = () => {
                   ) : (
                     <Link
                       // Standard plain linking destination target string
-                      href={item === "Sectors" ? "/sectors" : "/portfolio"}
+                      // href={item === "Sectors" ? "/sectors" : "/portfolio"}
+                      href={""}
                       onMouseEnter={() => setHoveredItem(item)}
                       className={`py-4 text-[16px] font-normal transition-all duration-500 border-b-2 flex items-center gap-1 ${
                         isHeaderActive
