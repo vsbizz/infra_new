@@ -1,409 +1,370 @@
 "use client";
 
-import { useMemo, useRef, useState } from "react";
-import { motion } from "framer-motion";
-import { ArrowRight, Linkedin, ChevronLeft, ChevronRight } from "lucide-react";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ArrowRight, Linkedin } from "lucide-react";
 
-const teamMembers = [
+const TEAM_DEPARTMENTS = [
   {
-    name: "Rahul Ramesh Shelke",
-    role: "CEO & Managing Director",
-    image: "/asset/team/rahul-shelke.jpg",
+    id: "executive-leadership",
+    name: "Executive Leadership",
+    description:
+      "Driving corporate vision, governance, compliance, and multi-stakeholder healthcare infrastructure strategy.",
+    members: [
+      {
+        name: "Rahul Ramesh Shelke",
+        role: "CEO & Managing Director",
+        image: "/asset/team/rahul-shelke.jpg",
+        linkedin: "#",
+      },
+      {
+        name: "Apurva Rahul Shelke",
+        role: "Director",
+        image: "/asset/team/apurva-shelke.jpg",
+        linkedin: "#",
+      },
+      {
+        name: "Sunil Shelke",
+        role: "Director",
+        image: "asset/team/sunil-shelke.jpg",
+        linkedin: "#",
+      },
+    ],
   },
   {
-    name: "Apurva Rahul Shelke",
-    role: "Designated Partner",
-    image: "/asset/team/apurva-shelke.jpg",
+    id: "architecture-design",
+    name: "Architecture, Interior & Design Strategy",
+    description:
+      "Designing advanced clinical environments, medical spacing plans, and high-performance healthcare facilities.",
+    members: [
+      {
+        name: "Niharika Choudhary",
+        role: "Design Manager",
+        image: "/asset/team/niharika-chodhary.jpeg",
+        linkedin: "#",
+      },
+      {
+        name: "Sarvesh Umesh Bhale",
+        role: "Lead Architect",
+        image: "/asset/team/sarvesh-bhale.jpeg",
+        linkedin: "#",
+      },
+      {
+        name: "Varun Pandurang Chougale",
+        role: "Senior Architect",
+        image: "/asset/team/varun-chougule.jpeg",
+        linkedin: "#",
+      },
+      {
+        name: "Aishwarya Vijaykumar Chavan",
+        role: "Senior Architect",
+        image: "/asset/team/aishwarya-chavan.jpeg",
+        linkedin: "#",
+      },
+      {
+        name: "Monika Thenge",
+        role: "Senior Architect",
+        image: "/asset/team/monika-thenge.jpeg",
+        linkedin: "#",
+      },
+      {
+        name: "Ojas Jyoti Bhosale",
+        role: "Senior Architect",
+        image: "/asset/team/ojas-bhosle.jpeg",
+        linkedin: "#",
+      },
+      {
+        name: "Yamini Hemant Sawant",
+        role: "Senior Interior Designer",
+        image: "/asset/team/yamini-sawant.jpeg",
+        linkedin: "#",
+      },
+      {
+        name: "Bharat Sanjay Mahajan",
+        role: "Architect",
+        image: "/asset/team/bharat-mahajan.jpeg",
+        linkedin: "#",
+      },
+      {
+        name: "Janhavi Shinde",
+        role: "Architect",
+        image: "/asset/team/janhavi-shinde.jpeg",
+        linkedin: "#",
+      },
+      {
+        name: "Abhishek Sambhaji Thorat",
+        role: "Architect",
+        image: "/asset/team/abhishek-thorat.jpeg",
+        linkedin: "#",
+      },
+      {
+        name: "Advait Sanjay Wadagaonkar",
+        role: "Architect",
+        image: "/asset/team/advait-wadgonkar.jpeg",
+        linkedin: "#",
+      },
+    ],
   },
   {
-    name: "Hrishikesh Shashank Kale",
-    role: "Project Director",
-    image: "/asset/team/hrishikesh-kale.jpeg",
+    id: "project-engineering",
+    name: "Project Management & Infrastructure Engineering",
+    description:
+      "Executing on-site engineering, biomedical equipment deployment, timeline governance, and rigorous safety protocols.",
+    members: [
+      {
+        name: "Hrishikesh Shashank Kale",
+        role: "Project Director",
+        image: "/asset/team/hrishikesh-kale.jpeg",
+        linkedin: "#",
+      },
+      {
+        name: "Veerendra Yedavally",
+        role: "Project Director",
+        image: "/asset/team/veerendra-yedavally.jpeg",
+        linkedin: "#",
+      },
+      {
+        name: "Deepak Sham Vairat",
+        role: "Associate General Manager",
+        image: "/asset/team/deepak-sham-vairat.png",
+        linkedin: "#",
+      },
+      {
+        name: "Tushar Sunil Shinde",
+        role: "Assistant Project Manager",
+        image: "/asset/team/tushar-shinde.jpeg",
+        linkedin: "#",
+      },
+      {
+        name: "Krushanakant Vyankat Jawale",
+        role: "Senior Engineer",
+        image: "/asset/team/krushanakant-jawale.jpeg",
+        linkedin: "#",
+      },
+      {
+        name: "Venugopal T.M",
+        role: "Senior Biomedical Engineer",
+        image: "/asset/team/venugopal-t-m.jpg",
+        linkedin: "#",
+      },
+      {
+        name: "Kapil Babasaheb Gajbhar",
+        role: "Senior Estimation Engineer",
+        image: "/asset/team/kapil-gajbhar.jpeg",
+        linkedin: "#",
+      },
+      {
+        name: "Ashish Sudhakar More",
+        role: "Safety Manager",
+        image: "/asset/team/ashish-more.png",
+        linkedin: "#",
+      },
+      {
+        name: "Hitesh Vijay Yewale",
+        role: "Safety Manager",
+        image: "/asset/team/hitesh-yewale.jpeg",
+        linkedin: "#",
+      },
+      {
+        name: "Shubham Dattaray Sutar",
+        role: "Engineer",
+        image: "/asset/team/shubham-sutar.jpg",
+        linkedin: "#",
+      },
+      {
+        name: "Aadesh Sanjay Kochar",
+        role: "Engineer",
+        image: "/asset/team/aadesh-kochar.jpeg",
+        linkedin: "#",
+      },
+      {
+        name: "Mohit Gulabrao Ghewande",
+        role: "Engineer",
+        image: "/asset/team/mohit-ghewande.jpeg",
+        linkedin: "#",
+      },
+      {
+        name: "Gaurav Prakash Kurnawal",
+        role: "Engineer",
+        image: "/asset/team/gaurav-kurnawak.jpeg",
+        linkedin: "#",
+      },
+      {
+        name: "Shruti Vijay Jamdar",
+        role: "Junior Design Engineer",
+        image: "/asset/team/shruti-jamdar.jpeg",
+        linkedin: "#",
+      },
+    ],
   },
   {
-    name: "Rahul Yuvrajsingh Bayas",
-    role: "Chauffeur",
-    image: "/asset/team/rahul-bays.jpeg",
+    id: "operations-controls",
+    name: "Corporate Operations & Project Controls",
+    description:
+      "Managing corporate operations, strategic project estimation, site logistics, and project coordination.",
+    members: [
+      {
+        name: "Namrata Taraman Hulawale",
+        role: "Senior Manager",
+        image: "/asset/team/namrata-hulawale.jpeg",
+        linkedin: "#",
+      },
+      {
+        name: "Om Nilesh Khandelwal",
+        role: "Manager",
+        image: "/asset/team/om-khandelwal.jpeg",
+        linkedin: "#",
+      },
+      {
+        name: "Sohanlal Bhaskarrao Bari",
+        role: "Deputy Manager",
+        image: "/asset/team/sohanlal-bari.jpeg",
+        linkedin: "#",
+      },
+      {
+        name: "Vikram Yashwant Kokare",
+        role: "Senior Executive",
+        image: "/asset/team/vikram-kokare.jpeg",
+        linkedin: "#",
+      },
+      {
+        name: "Bhagyashree Rajendra Patait",
+        role: "Senior Executive",
+        image: "/asset/team/bhagyashree-patait.jpeg",
+        linkedin: "#",
+      },
+      {
+        name: "Aman Lakshmikant Nagane",
+        role: "Executive",
+        image: "/asset/team/aman-nagne.jpeg",
+        linkedin: "#",
+      },
+      {
+        name: "Rushikesh Ramesh Khatik",
+        role: "Executive",
+        image: "/asset/team/rushikesh-khatik-2.jpeg",
+        linkedin: "#",
+      },
+      {
+        name: "Nikhil Sunil Patil",
+        role: "Executive",
+        image: "/asset/team/nikhil-patil.jpeg",
+        linkedin: "#",
+      },
+      {
+        name: "Payal Anil Shinde",
+        role: "Executive",
+        image: "/asset/team/payal-shinde.jpeg",
+        linkedin: "#",
+      },
+      {
+        name: "Sayali Deepak Ohale",
+        role: "Executive",
+        image: "/asset/team/sayali-ohale.jpeg",
+        linkedin: "#",
+      },
+    ],
   },
-  {
-    name: "Aman Lakshmikant Nagane",
-    role: "Executive",
-    image: "/asset/team/aman-nagne.jpeg",
-  },
-  {
-    name: "Bharat Sanjay Mahajan",
-    role: "Architect",
-    image: "/asset/team/bharat-mahajan.jpeg",
-  },
-  {
-    name: "Sarvesh Umesh Bhale",
-    role: "Lead Architect",
-    image: "/asset/team/sarvesh-bhale.jpeg",
-  },
-  {
-    name: "Varun Pandurang Chougale",
-    role: "Senior Architect",
-    image: "/asset/team/varun-chougule.jpeg",
-  },
-  {
-    name: "Aishwarya Vijaykumar Chavan",
-    role: "Senior Architect",
-    image: "/asset/team/aishwarya-chavan.jpeg",
-  },
-  {
-    name: "Mayuresh Jagdish Koli",
-    role: "Office Assistant",
-    image: "/asset/team/mayuresh-koli.jpeg",
-  },
-  {
-    name: "Sagar Dilip Khare",
-    role: "Office Assistant",
-    image: "/asset/team/sagar-khare.jpeg",
-  },
-  {
-    name: "Mirza Mujahed Baig",
-    role: "Senior Manager",
-    image: "/asset/team/mirza-baig.jpeg",
-  },
-  {
-    name: "Namrata Taraman Hulawale",
-    role: "Senior Manager",
-    image: "/asset/team/namrata-hulawale.jpeg",
-  },
-  {
-    name: "Shubham Dattaray Sutar",
-    role: "Engineer",
-    image: "/asset/team/shubham-sutar.jpg",
-  },
-  {
-    name: "Rushikesh Ramesh Khatik",
-    role: "Executive",
-    image: "/asset/team/rushikesh-khatik-2.jpeg",
-  },
-  {
-    name: "Veerendra Yedavally",
-    role: "Project Director",
-    image: "/asset/team/veerendra-yedavally.jpeg",
-  },
-  {
-    name: "Niharika Choudhary",
-    role: "Design Manager",
-    image: "/asset/team/niharika-chodhary.jpeg",
-  },
-  {
-    name: "Janhavi Shinde",
-    role: "Architect",
-    image: "/asset/team/janhavi-shinde.jpeg",
-  },
-  {
-    name: "Monika Thenge",
-    role: "Senior Architect",
-    image: "/asset/team/monika-thenge.jpeg",
-  },
-  {
-    name: "Vikram Yashwant Kokare",
-    role: "Senior Executive",
-    image: "/asset/team/vikram-kokare.jpeg",
-  },
-  {
-    name: "Ojas Jyoti Bhosale",
-    role: "Senior Architect",
-    image: "/asset/team/ojas-bhosle.jpeg",
-  },
-  {
-    name: "Nikhil Sunil Patil",
-    role: "Executive",
-    image: "/asset/team/nikhil-patil.jpeg",
-  },
-  {
-    name: "Payal Anil Shinde",
-    role: "Executive",
-    image: "/asset/team/payal-shinde.jpeg",
-  },
-  {
-    name: "Abhishek Sambhaji Thorat",
-    role: "Architect",
-    image: "/asset/team/abhishek-thorat.jpeg",
-  },
-  {
-    name: "Shivaji Maruti Bangar",
-    role: "Office Assistant",
-    image: "/asset/team/shivaji-banger.jpeg",
-  },
-  {
-    name: "Bhagyashree Rajendra Patait",
-    role: "Senior Executive",
-    image: "/asset/team/bhagyashree-patait.jpeg",
-  },
-  {
-    name: "Aadesh Sanjay Kochar",
-    role: "Engineer",
-    image: "/asset/team/aadesh-kochar.jpeg",
-  },
-  {
-    name: "Mohit Gulabrao Ghewande",
-    role: "Engineer",
-    image: "/asset/team/mohit-ghewande.jpeg",
-  },
-  {
-    name: "Deepak Sham Vairat",
-    role: "Associate General Manager",
-    image: "/asset/team/deepak-sham-vairat.png",
-  },
-  {
-    name: "Om Nilesh Khandelwal",
-    role: "Manager",
-    image: "/asset/team/om-khandelwal.jpeg",
-  },
-  {
-    name: "Yamini Hemant Sawant",
-    role: "Senior Interior Designer",
-    image: "/asset/team/yamini-sawant.jpeg",
-  },
-  {
-    name: "Ashish Sudhakar More",
-    role: "Safety Manager",
-    image: "/asset/team/ashish-more.png",
-  },
-  {
-    name: "Advait Sanjay Wadagaonkar",
-    role: "Architect",
-    image: "/asset/team/advait-wadgonkar.jpeg",
-  },
-  {
-    name: "Gaurav Prakash Kurnawal",
-    role: "Engineer",
-    image: "/asset/team/gaurav-kurnawak.jpeg",
-  },
-  {
-    name: "Shruti Vijay Jamdar",
-    role: "Junior Design Engineer",
-    image: "/asset/team/shruti-jamdar.jpeg",
-  },
-  {
-    name: "Krushanakant Vyankat Jawale",
-    role: "Senior Engineer",
-    image: "/asset/team/krushanakant-jawale.jpeg",
-  },
-  {
-    name: "Shekhar Laxman Mohare",
-    role: "Storekeeper",
-    image: "/asset/team/shekhar-mohare.jpeg",
-  },
-  {
-    name: "Hitesh Vijay Yewale",
-    role: "Safety Manager",
-    image: "/asset/team/hitesh-yewale.jpeg",
-  },
-  {
-    name: "Sohanlal Bhaskarrao Bari",
-    role: "Deputy Manager",
-    image: "/asset/team/sohanlal-bari.jpeg",
-  },
-  {
-    name: "Sayali Deepak Ohale",
-    role: "Executive",
-    image: "/asset/team/sayali-ohale.jpeg",
-  },
-  {
-    name: "Venugopal T.M",
-    role: "Senior Biomedical Engineer",
-    image: "/asset/team/venugopal-t-m.jpg",
-  },
-  {
-    name: "Tushar Sunil Shinde",
-    role: "Assistant Project Manager",
-    image: "/asset/team/tushar-shinde.jpeg",
-  },
-  {
-    name: "Kapil Babasaheb Gajbhar",
-    role: "Senior Estimation Engineer",
-    image: "/asset/team/kapil-gajbhar.jpeg",
-  },
-  // {
-  //   name: "Shreyas Sanjay Thorat",
-  //   role: "Senior Engineer",
-  //   image: "/asset/team/shreyas-thorat.jpeg",
-  // },
-  // {
-  //   name: "Vishwanath Dattatray Bansode",
-  //   role: "Office Assistant",
-  //   image: "/asset/team/vishwanath-bansode.jpg",
-  // },
-  // {
-  //   name: "Tejas Suresh Gaikwad",
-  //   role: "Senior Engineer",
-  //   image: "/asset/team/tejas-gaikwad.jpeg",
-  // },
-] as const;
-
-const roleOrder = [
-  "CEO & Managing Director",
-  "Designated Partner",
-  "Project Director",
-  "Chauffeur",
-  "Executive",
-  "Architect",
-  "Lead Architect",
-  "Senior Architect",
-  "Office Assistant",
-  "Senior Manager",
-  "Engineer",
-  "Design Manager",
-  "Senior Executive",
-  "Associate General Manager",
-  "Manager",
-  "Senior Interior Designer",
-  "Safety Manager",
-  "Junior Design Engineer",
-  "Senior Engineer",
-  "Storekeeper",
-  "Deputy Manager",
-  "Senior Biomedical Engineer",
-  "Assistant Project Manager",
-  "Senior Estimation Engineer",
-] as const;
-
-const GROUPS_PER_PAGE = 4;
+];
 
 function Team() {
-  const sectionRef = useRef<HTMLElement | null>(null);
-  const groupedMembers = useMemo(
-    () =>
-      roleOrder
-        .map((role) => ({
-          role,
-          members: teamMembers.filter((member) => member.role === role),
-        }))
-        .filter((group) => group.members.length > 0),
-    [],
-  );
+  const [activeTab, setActiveTab] = useState("all");
 
-  const handlePageChange = (page: number) => {
-    setCurrentPage(page);
-    sectionRef.current?.scrollIntoView({
-      behavior: "smooth",
-      block: "start",
-    });
-  };
-
-  const totalPages = Math.ceil(groupedMembers.length / GROUPS_PER_PAGE);
-  const [currentPage, setCurrentPage] = useState(1);
-
-  const pagedGroups = groupedMembers.slice(
-    (currentPage - 1) * GROUPS_PER_PAGE,
-    currentPage * GROUPS_PER_PAGE,
-  );
+  const filteredDepartments =
+    activeTab === "all"
+      ? TEAM_DEPARTMENTS
+      : TEAM_DEPARTMENTS.filter((dept) => dept.id === activeTab);
 
   return (
-    <section
-      className="bg-slate-50 py-10 sm:py-12 md:py-16 lg:py-24 overflow-hidden"
-      ref={sectionRef}
-    >
+    <section className="bg-slate-50 py-24 lg:py-32 overflow-hidden">
+      {/* JLL Style Section Header Block */}
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-10 sm:mb-12 md:mb-16 lg:mb-20 max-w-3xl mx-auto">
-          <h2 className="w-full max-w-none text-[1.75rem] xs:text-[1.9rem] sm:text-4xl md:text-5xl lg:text-6xl md:font-extrabold leading-[1.06] tracking-tight text-slate-900">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="heading-display text-[30px] xs:text-[34px] sm:text-4xl md:text-5xl lg:text-[52px] leading-[1.08]"
+          >
             <span className="text-teal-600">Meet the Experts</span> driving Our
             Ownership Mindset
-          </h2>
+          </motion.h2>
 
-          <p className="mt-4 sm:mt-5 md:mt-6 text-sm sm:text-[15px] md:text-lg leading-6 md:leading-relaxed text-slate-500 font-medium max-w-xl mx-auto">
+          <p className="mt-4 sm:mt-5 md:mt-6 text-base md:text-lg leading-[1.65] text-slate-600 max-w-xl mx-auto">
             Our team integrates healthcare engineering, institutional capital,
             and clinical planning to protect capital investment and coordinate
             all stakeholders.
           </p>
         </div>
 
-        <div className="space-y-10 sm:space-y-12 md:space-y-14 lg:space-y-16">
-          {pagedGroups.map((group) => (
-            <div
-              key={group.role}
-              className="space-y-4 sm:space-y-5 md:space-y-6"
-            >
-              <h3 className="text-xs sm:text-sm md:text-base font-bold uppercase tracking-[0.16em] text-teal-600">
-                {group.role}
-              </h3>
+        {/* Chronological / Department Block Render */}
+        <div className="space-y-24">
+          <AnimatePresence mode="wait">
+            {filteredDepartments.map((dept) => (
+              <motion.div
+                key={dept.id}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.4 }}
+                className="grid lg:grid-cols-4 gap-12 pt-12 border-t border-slate-200 first:border-t-0 first:pt-0"
+              >
+                {/* Left side Metadata */}
+                <div className="lg:col-span-1">
+                  <h3 className="heading-display text-xl font-bold text-slate-900 tracking-tight lg:sticky lg:top-24">
+                    {dept.name}
+                  </h3>
+                  <p className="mt-3 text-sm sm:text-[15px] md:text-lg leading-6 md:leading-relaxed text-slate-600 lg:sticky lg:top-36">
+                    {dept.description}
+                  </p>
+                </div>
 
-              <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8 lg:gap-10">
-                {group.members.map((member) => (
-                  <motion.div
-                    key={member.name}
-                    whileHover={{ y: -6 }}
-                    className="group cursor-pointer"
-                  >
-                    <div className="relative overflow-hidden mb-3 sm:mb-4 md:mb-6 aspect-[4/5] rounded-lg sm:rounded-xl">
-                      <img
-                        src={member.image}
-                        alt={member.name}
-                        className="w-full h-full object-cover transition-all duration-500 group-hover:scale-105"
-                        referrerPolicy="no-referrer"
-                      />
-
-                      <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4 md:p-6 bg-gradient-to-t from-brand-dark/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
-                        <span className="text-white text-[10px] sm:text-xs md:text-sm font-bold flex items-center gap-2 tracking-[0.12em] uppercase">
-                          <Linkedin size={14} />
-                          VIEW PROFILE
-                          <ArrowRight size={14} />
-                        </span>
+                {/* Right side Dynamic Grid Grid */}
+                <div className="lg:col-span-3 grid sm:grid-cols-2 md:grid-cols-3 gap-x-8 gap-y-12">
+                  {dept.members.map((member) => (
+                    <motion.div
+                      key={member.name}
+                      whileHover={{ y: -8 }}
+                      transition={{
+                        type: "tween",
+                        ease: "easeOut",
+                        duration: 0.3,
+                      }}
+                      className="group cursor-pointer"
+                    >
+                      <div className="relative overflow-hidden mb-5 aspect-[4/5] bg-slate-200">
+                        <img
+                          src={member.image}
+                          alt={member.name}
+                          className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-103"
+                          loading="lazy"
+                          referrerPolicy="no-referrer"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-end p-6">
+                          <a
+                            href={member.linkedin}
+                            className="text-white text-xs font-bold tracking-wider flex items-center gap-2 hover:text-teal-400 transition-colors"
+                            onClick={(e) => e.stopPropagation()}
+                          >
+                            <Linkedin size={14} className="fill-current" /> VIEW
+                            PROFILE <ArrowRight size={14} />
+                          </a>
+                        </div>
                       </div>
-                    </div>
 
-                    <h4 className="text-md sm:text-base md:text-xl lg:text-2xl md:font-bold text-brand-dark group-hover:text-brand-teal transition-colors leading-snug">
-                      {member.name}
-                    </h4>
-
-                    <p className="text-[11px] sm:text-xs md:text-sm text-teal-600 font-semibold">
-                      {member.role}
-                    </p>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-          ))}
+                      <h4 className="font-bold text-slate-900 group-hover:text-teal-600 transition-colors duration-300 text-sm sm:text-[15px] md:text-xl leading-6 md:leading-relaxed text-slate-600t">
+                        {member.name}
+                      </h4>
+                      <p className="text-sm sm:text-[15px] md:text-lg leading-6 md:leading-relaxed text-slate-600 mt-1">
+                        {member.role}
+                      </p>
+                    </motion.div>
+                  ))}
+                </div>
+              </motion.div>
+            ))}
+          </AnimatePresence>
         </div>
-
-        {totalPages > 1 && (
-          <div className="mt-10 sm:mt-12 md:mt-14 flex items-center justify-center gap-2">
-            <button
-              onClick={() => handlePageChange(Math.max(1, currentPage - 1))}
-              disabled={currentPage === 1}
-              className="w-10 h-10 rounded-lg border border-slate-200 bg-white text-slate-600 disabled:opacity-40 disabled:cursor-not-allowed flex items-center justify-center hover:border-teal-600 transition-colors"
-              aria-label="Previous page"
-            >
-              <ChevronLeft size={18} />
-            </button>
-
-            {Array.from({ length: totalPages }).map((_, idx) => {
-              const page = idx + 1;
-              return (
-                <button
-                  key={page}
-                  onClick={() => handlePageChange(page)}
-                  className={`w-10 h-10 rounded-full border text-sm font-semibold transition-colors ${
-                    currentPage === page
-                      ? "bg-slate-900 text-white border-teal-600"
-                      : "bg-white text-slate-600 border-slate-200 hover:border-teal-600"
-                  }`}
-                  aria-label={`Go to page ${page}`}
-                  aria-current={currentPage === page ? "page" : undefined}
-                >
-                  {page}
-                </button>
-              );
-            })}
-
-            <button
-              onClick={() =>
-                handlePageChange(Math.min(totalPages, currentPage + 1))
-              }
-              disabled={currentPage === totalPages}
-              className="w-10 h-10 rounded-lg border border-slate-200 bg-white text-slate-600 disabled:opacity-40 disabled:cursor-not-allowed flex items-center justify-center hover:border-teal-600 transition-colors"
-              aria-label="Next page"
-            >
-              <ChevronRight size={18} />
-            </button>
-          </div>
-        )}
       </div>
     </section>
   );

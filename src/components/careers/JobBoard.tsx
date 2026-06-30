@@ -38,27 +38,9 @@ const JOBS = [
     loc: "Pune, India",
   },
   {
-    title: "Project Engineer",
-    exp: "4+ Years",
-    qual: "BE/ME Civil Engineering",
-    loc: "Pune, India",
-  },
-  {
     title: "Safety Officer",
     exp: "6+ Years",
     qual: "Diploma HSE",
-    loc: "Pune, India",
-  },
-  {
-    title: "MEP Engineer",
-    exp: "6+ Years",
-    qual: "BE/ME Electrical",
-    loc: "Pune, India",
-  },
-  {
-    title: "Store Keeper",
-    exp: "8+ Years",
-    qual: "Any Graduate",
     loc: "Pune, India",
   },
   {
@@ -86,7 +68,7 @@ const JOBS = [
     loc: "Pune, India",
   },
   {
-    title: "Sr. Estimation Engineer",
+    title: "Sr. Estimation Engineer (Mid-Level)",
     exp: "8 to 10 Years",
     qual: "BE/ME Civil Engineering",
     loc: "Pune, India",
@@ -164,7 +146,7 @@ const JOBS = [
     loc: "Pune, India",
   },
   {
-    title: "Project Engineer",
+    title: "Project Engineer (Senior)",
     exp: "5 to 7 Years",
     qual: "BE/ME Civil Engineering",
     loc: "Pune, India",
@@ -243,7 +225,7 @@ export default function JobBoard() {
         {/* Header & Search */}
         <div className="mb-8 flex flex-col gap-5 sm:mb-10 sm:gap-6 md:mb-12 md:flex-row md:items-end md:justify-between lg:mb-16">
           <div className="max-w-2xl">
-            <h2 className="w-full max-w-none text-[1.75rem] xs:text-[1.9rem] sm:text-4xl md:text-4xl lg:text-5xl md:font-bold tracking-tight text-slate-900 leading-[1.06]">
+            <h2 className="w-full max-w-none heading-display text-2xl xs:text-3xl sm:text-4xl md:text-[42px] leading-[1.15] text-slate-900">
               Live Opportunities
             </h2>
             <p className="mt-3 sm:mt-4 text-sm sm:text-[15px] md:text-lg text-slate-500 leading-6 md:leading-relaxed">
@@ -269,7 +251,7 @@ export default function JobBoard() {
           <div className="hidden overflow-x-auto md:block">
             <table className="w-full text-left">
               <thead className="border-b border-slate-100 bg-slate-50/50">
-                <tr className="text-[11px] font-bold uppercase tracking-[0.16em] text-slate-400">
+                <tr className="heading-display text-[11px] font-bold uppercase tracking-[0.16em] text-slate-400">
                   <th className="px-8 py-5 lg:px-10 lg:py-6">Position</th>
                   <th className="px-8 py-5 lg:px-10 lg:py-6">Experience</th>
                   <th className="px-8 py-5 lg:px-10 lg:py-6">Qualification</th>
@@ -282,10 +264,10 @@ export default function JobBoard() {
               <tbody className="divide-y divide-slate-100">
                 {currentJobs.map((job, idx) => (
                   <tr
-                    key={idx}
+                    key={`${job.title}-${idx}`}
                     className="group transition-colors hover:bg-teal-50/30"
                   >
-                    <td className="px-8 py-7 text-lg font-bold text-slate-900 lg:px-10 lg:py-8">
+                    <td className="heading-display px-8 py-7 text-lg font-bold text-slate-900 lg:px-10 lg:py-8">
                       {job.title}
                     </td>
                     <td className="px-8 py-7 font-medium text-slate-600 lg:px-10 lg:py-8">
@@ -312,9 +294,9 @@ export default function JobBoard() {
           <div className="divide-y divide-slate-100 md:hidden">
             {currentJobs.length > 0 ? (
               currentJobs.map((job, idx) => (
-                <div key={idx} className="space-y-4 p-4 sm:p-5">
+                <div key={`${job.title}-mobile-${idx}`} className="space-y-4 p-4 sm:p-5">
                   <div>
-                    <h3 className="mb-1 text-lg sm:text-xl leading-snug text-slate-900">
+                    <h3 className="heading-display mb-1 text-lg sm:text-xl leading-snug text-slate-900">
                       {job.title}
                     </h3>
                     <p className="text-[11px] sm:text-xs font-semibold uppercase tracking-[0.14em] text-teal-600">
@@ -451,10 +433,10 @@ export default function JobBoard() {
             </div>
 
             <div>
-              <h3 className="text-xl sm:text-2xl md:text-3xl md:font-bold">
+              <h3 className="heading-display text-white text-xl sm:text-2xl md:text-3xl md:font-bold">
                 Didn't find your role?
               </h3>
-              <p className="mt-2 max-w-md text-sm sm:text-[15px] md:text-base lg:text-lg text-slate-400 leading-6 md:leading-relaxed">
+              <p className="mt-2 max-w-lg text-base md:text-lg leading-[1.65] text-white">
                 We are always looking for talented professionals. Email us
                 directly.
               </p>

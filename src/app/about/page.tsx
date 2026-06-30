@@ -56,8 +56,8 @@ function About() {
       <CounterSection />
       <VisionMission />
       <Approach />
-      <CommitmentSection />
-      <WhatWeDo />
+      {/* <CommitmentSection />
+      <WhatWeDo /> */}
       <FlatGlobalMap />
       <Team />
     </>

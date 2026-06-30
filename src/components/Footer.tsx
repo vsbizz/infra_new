@@ -102,7 +102,7 @@ export const Footer = () => {
       {/* CTA Section */}
       <section className="bg-teal-600 py-8">
         <div className="mx-auto max-w-8xl px-8 lg:px-16 flex flex-col md:flex-row items-center justify-between gap-8">
-          <h2 className="md:text-3xl text-2xl md:font-extrabold text-white tracking-tight">
+          <h2 className="heading-display md:text-3xl text-2xl md:font-extrabold text-white tracking-tight">
             Ready to discuss your healthcare asset strategy?
           </h2>
           {/* Linked CTA Button */}

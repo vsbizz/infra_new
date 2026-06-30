@@ -58,13 +58,25 @@ function Approach() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
         <div className="grid lg:grid-cols-12 gap-8 sm:gap-10 md:gap-12 lg:gap-16 items-start">
           <div className="lg:col-span-5 lg:sticky lg:top-32">
-            <h2 className="w-full max-w-none text-[1.7rem] sm:text-3xl md:text-5xl lg:text-6xl md:font-extrabold leading-[1.06] tracking-tight text-slate-900 mb-4 sm:mb-5 md:mb-8 lg:mb-12">
-              Our Approach:
-              <br className="hidden md:block" />
-              <span className="text-teal-600"> The Ownership Mindset</span>
-            </h2>
+            <motion.p
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              className="eyebrow text-brand-purple mb-4 xs:mb-5"
+            >
+              Our Approach
+            </motion.p>
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="heading-display text-[30px] xs:text-[34px] sm:text-4xl md:text-5xl lg:text-[52px] leading-[1.08]"
+            >
+              The
+              <span className="text-brand-teal-deep"> Ownership </span>Mindset
+            </motion.h2>
 
-            <p className="text-sm sm:text-[15px] md:text-lg leading-6 md:leading-relaxed text-slate-600 mb-6 sm:mb-8 md:mb-10 max-w-xl">
+            <p className="text-base md:text-lg leading-[1.65] text-slate-600 my-6 sm:mb-8 md:mb-10 max-w-xl">
               We view healthcare infrastructure as long-duration institutional
               assets, not isolated construction mandates. Every engagement is
               governed by rigorous standards that protect capital and ensure
@@ -98,7 +110,7 @@ function Approach() {
                 </div>
 
                 <div className="p-5 sm:p-6 border-b-4 border-teal-600">
-                  <div className="text-teal-600 font-bold text-[11px] sm:text-xs tracking-[0.16em] mb-2.5 sm:mb-3 uppercase">
+                  <div className="eyebrow text-brand-purple text-[11px] sm:text-xs tracking-[0.16em] mb-2.5 sm:mb-3 uppercase">
                     Phase {steps[current].num}
                   </div>
 
@@ -168,15 +180,15 @@ function Approach() {
                 </div>
 
                 <div className="p-6 xl:p-8 border-b-4 border-transparent group-hover:border-teal-600 transition-all duration-500">
-                  <div className="text-teal-600 font-bold text-xs tracking-[0.16em] mb-3 uppercase">
+                  <div className="eyebrow text-brand-purple text-xs tracking-[0.16em] mb-3 uppercase">
                     PHASE {item.num}
                   </div>
 
-                  <h4 className="text-xl xl:text-2xl font-bold text-slate-900 mb-3 group-hover:text-teal-600 transition-colors leading-snug">
+                  <h4 className="text-xl xl:text-2xl heading-display font-medium text-slate-900 mb-3 group-hover:text-teal-600 transition-colors leading-snug">
                     {item.title}
                   </h4>
 
-                  <p className="text-sm xl:text-base text-slate-600 leading-relaxed">
+                  <p className="text-base md:text-lg leading-[1.65] text-slate-600">
                     {item.desc}
                   </p>
                 </div>
